@@ -1,3 +1,10 @@
 {
-  "extends": ["next/core-web-vitals", "prettier"]
+  "extends": ["next/core-web-vitals", "prettier"],
+  "overrides": [
+    {
+      "files": ["*.ts","*.tsx"],
+      "rules": {
+        "@next/next/no-img-element": "off"
+      }
+    }]
 }
