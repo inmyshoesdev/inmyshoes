@@ -2,15 +2,20 @@ import Clickable from '../../components/Clickable'
 
 const ClickableExample = () => {
   return (
-    <div>
+    <div className="container h-screen">
       <Clickable
-        action={() => {
-          return
-        }}
+        action={() => console.log('hello')}
+        text="Are you sure you want to proceed?"
+        bg="gray-100"
+        width="10rem"
+        top="10%"
+        left="10%"
+      />
+      <Clickable
+        action={() => console.log('hello')}
         imageUrl="/images/bottle.jpg"
-        effect="pulse"
-        top={96}
-        left={96}
+        top="24%"
+        left="10%"
       />
     </div>
   )
