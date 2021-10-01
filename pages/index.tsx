@@ -21,6 +21,9 @@ const Home: NextPage = () => {
             <a className="text-blue-600">/schema</a>
           </Link>
         </h2>
+        <Link href="/examples/dialogue">
+          <a className="text-blue-600">/dialogue</a>
+        </Link>
       </main>
     </div>
   )
