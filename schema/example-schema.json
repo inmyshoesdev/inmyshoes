@@ -49,7 +49,7 @@
                             "text": "yes",
                             "onClick": [
                                 {
-                                    "type": "nextScene",
+                                    "type": "gotoScene",
                                     "sceneId": 2
                                 }
                             ]
@@ -122,7 +122,7 @@
                             "text": "restart?",
                             "onClick": [
                                 {
-                                    "type": "nextScene",
+                                    "type": "gotoScene",
                                     "sceneId": 1
                                 }
                             ]
