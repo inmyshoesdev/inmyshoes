@@ -1,42 +1,42 @@
-import { useToast, Box } from '@chakra-ui/react'
-
 export interface ClickableProps {
   action: () => void
   text?: string
-  imageUrl: string
-  effect: string
-  top?: number
-  left?: number
-  bottom?: number
-  right?: number
+  imageUrl?: string
+  effect?: 'none' | 'pulse' | 'bounce' | 'ping' | 'spin' | 'wiggle'
+  width?: string
+  top?: string
+  left?: string
+  bg?: string
 }
 
 const Clickable = ({
   action,
   text,
   imageUrl,
-  effect,
-  top = 0,
-  left = 0,
+  width = '5rem',
+  effect = 'none',
+  bg = 'none',
+  top = '0%',
+  left = '0%',
 }: ClickableProps) => {
-  const toast = useToast()
   return (
     <div
-      className={`cursor-pointer flex flex-col w-24 absolute 
-        top-${top} left-${left}`}
-      onClick={() =>
-        toast({
-          position: 'bottom-left',
-          render: () => (
-            <Box color="white" p={3} bg="blue.500">
-              Hello World
-            </Box>
-          ),
-        })
-      }
+      className={`absolute cursor-pointer`}
+      style={{
+        top: top,
+        left: left,
+        width: width,
+      }}
+      onClick={action}
     >
-      <p>{text}</p>
-      <img className={`animate-${effect}`} src={imageUrl} alt={text}></img>
+      {text && <div className={`p-2 border rounded-lg bg-${bg}`}>{text}</div>}
+      {imageUrl && (
+        <img
+          className={`animate-${effect} object-cover`}
+          src={imageUrl}
+          alt={text}
+        />
+      )}
     </div>
   )
 }
