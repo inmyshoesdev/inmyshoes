@@ -1,0 +1,145 @@
+{
+    "name": "example game",
+    "scenes": [
+        {
+            "id": 1,
+            "background": "https://images.unsplash.com/photo-1532689193429-29caa23e5268?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80",
+            "narrations": [
+                {
+                    "name": "intro",
+                    "text": "this is a dark and scary dungeon..."
+                },
+                {
+                    "name": "clown decision",
+                    "text": "listen to the clown?"
+                },
+                {
+                    "name": "win msg",
+                    "text": "you won!!!"
+                }
+            ],
+            "dialogues": [
+                {
+                    "name": "clown bait",
+                    "character": "pennywise",
+                    "text": "come over here hehe ;o)"
+                },
+                {
+                    "name": "clown sad",
+                    "character": "pennywise",
+                    "text": "damnit :("
+                }
+            ],
+            "images": [
+                {
+                    "name": "clown",
+                    "src": "https://images.unsplash.com/photo-1601513445498-5dbffc8d5d5a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
+                    "position": {
+                        "top": "50%",
+                        "left": "10px"
+                    }
+                }
+            ],
+            "clickables": [
+                {
+                    "name": "clown yes/no",
+                    "options": [
+                        {
+                            "name": "yes",
+                            "text": "yes",
+                            "onClick": [
+                                {
+                                    "type": "nextScene",
+                                    "sceneId": 2
+                                }
+                            ]
+                        },
+                        {
+                            "name": "no",
+                            "text": "no",
+                            "onClick": [
+                                {
+                                    "type": "showDialogue",
+                                    "value": "clown sad",
+                                    "duration": 1500
+                                },
+                                {
+                                    "type": "hideImage",
+                                    "value": "clown",
+                                    "duration": 0
+                                },
+                                {
+                                    "type": "hideNarration",
+                                    "value": "clown decision",
+                                    "duration": 1000
+                                },
+                                {
+                                    "type": "showNarration",
+                                    "value": "win msg"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "intro": [
+                {
+                    "type": "showNarration",
+                    "value": "intro",
+                    "duration": 3000
+                },
+                {
+                    "type": "showDialogue",
+                    "value": "clown bait"
+                },
+                {
+                    "type": "showImage",
+                    "value": "clown"
+                },
+                {
+                    "type": "showNarration",
+                    "value": "clown decision",
+                    "duration": 0
+                },
+                {
+                    "type": "showClickable",
+                    "value": "clown yes/no"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "background": "https://i.kym-cdn.com/entries/icons/original/000/029/198/Dark_Souls_You_Died_Screen_-_Completely_Black_Screen_0-2_screenshot.png",
+            "narrations": [],
+            "dialogues": [],
+            "images": [],
+            "clickables": [
+                {
+                    "name": "restart",
+                    "options": [
+                        {
+                            "name": "yes",
+                            "text": "restart?",
+                            "onClick": [
+                                {
+                                    "type": "nextScene",
+                                    "sceneId": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "intro": [
+                {
+                    "type": "wait",
+                    "duration": 1500
+                },
+                {
+                    "type": "showClickable",
+                    "value": "restart"
+                }
+            ]
+        }
+    ]
+}
