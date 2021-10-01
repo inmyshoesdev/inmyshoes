@@ -20,129 +20,87 @@ export interface Element {
   shown: boolean
   name: string
   position: Position
-  show(args: ShowArgs): void
-  hide(): void
 }
 
-export class Narration implements Element {
-  shown: boolean
-  name: string
-  position: Position
+export interface Narration extends Element {
   text: string
+}
 
-  constructor(schema: NarrationSchema) {
-    this.shown = false
-    this.name = schema.name
-    this.position = schema.position || { top: '10%' } // TODO: settle on a proper default position
-    this.text = schema.text
-  }
-
-  show({ position }: ShowArgs): void {
-    this.shown = true
-    if (position) {
-      this.position = position
-    }
-  }
-
-  hide(): void {
-    this.shown = false
+export function makeNarration(schema: NarrationSchema): Narration {
+  return {
+    shown: false,
+    name: schema.name,
+    position: schema.position || { top: '10%' }, // TODO: settle on a proper default position
+    text: schema.text,
   }
 }
 
-export class Dialogue implements Element {
-  shown: boolean
-  name: string
-  position: Position
+export interface Dialogue extends Element {
   text: string
   character: string
+}
 
-  constructor(schema: DialogueSchema) {
-    this.shown = false
-    this.name = schema.name
-    this.position = schema.position || { bottom: '10%' } // TODO: settle on a proper default position
-    this.text = schema.text
-    this.character = schema.character
-  }
-
-  show({ position }: ShowArgs): void {
-    this.shown = true
-    if (position) {
-      this.position = position
-    }
-  }
-
-  hide(): void {
-    this.shown = false
+export function makeDialogue(schema: DialogueSchema): Dialogue {
+  return {
+    shown: false,
+    name: schema.name,
+    position: schema.position || { bottom: '10%' }, // TODO: settle on a proper default position
+    text: schema.text,
+    character: schema.character,
   }
 }
 
-export class Image implements Element {
-  shown: boolean
-  name: string
-  position: Position
+export interface Image extends Element {
   src: string
   altText: string | undefined
+}
 
-  constructor(schema: ImageSchema) {
-    this.shown = false
-    this.name = schema.name
-    this.position = schema.position || {} // TODO: settle on a proper default position
-    this.src = schema.src
-    this.altText = schema.altText
-  }
-
-  show({ position }: ShowArgs): void {
-    this.shown = true
-    if (position) {
-      this.position = position
-    }
-  }
-
-  hide(): void {
-    this.shown = false
+export function makeImage(schema: ImageSchema): Image {
+  return {
+    shown: false,
+    name: schema.name,
+    position: schema.position || {}, // TODO: settle on a proper default position
+    src: schema.src,
+    altText: schema.altText,
   }
 }
 
 export type ClickableOption = {
   name: string
-  onClick: () => () => void // returns a cleanup function
+  onClickActions: Action[]
 } & ({ text: string } | { src: string; altText?: string | undefined })
 
-export class Clickable implements Element {
-  shown: boolean
-  name: string
-  position: Position
-  options: ClickableOption[]
+export function isClickableText(
+  option: ClickableOption
+): option is ClickableOption & { text: string } {
+  return 'text' in option
+}
 
-  constructor(
-    schema: ClickableSchema,
-    sceneId: number,
-    executeActions: (...actions: Action[]) => () => void
-  ) {
-    this.shown = false
-    this.name = schema.name
-    this.position = schema.position || {} // TODO: settle on a proper default position
-    this.options = schema.options.map((option) => {
+export function isClickableImg(
+  option: ClickableOption
+): option is ClickableOption & { src: string; altText?: string | undefined } {
+  return 'src' in option
+}
+
+export interface Clickable extends Element {
+  options: ClickableOption[]
+}
+
+export function makeClickable(
+  schema: ClickableSchema,
+  sceneId: number
+): Clickable {
+  return {
+    shown: false,
+    name: schema.name,
+    position: schema.position || {}, // TODO: settle on a proper default position
+    options: schema.options.map((option) => {
       return {
         ...option,
-        onClick: () =>
-          executeActions(
-            ...option.onClick
-              .map((x) => makeAction(x, sceneId))
-              .filter(isDefined)
-          ),
+        onClickActions: option.onClick
+          .map((x) => makeAction(x, sceneId))
+          .filter(isDefined),
       }
-    })
-  }
-
-  show({ position }: ShowArgs): void {
-    this.shown = true
-    if (position) {
-      this.position = position
-    }
-  }
-
-  hide(): void {
-    this.shown = false
+    }),
   }
 }

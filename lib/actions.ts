@@ -1,19 +1,18 @@
 import { ActionSchema } from '../schema/actions'
-import { Game } from './game'
-import { Scene } from './scene'
+import { Game, getClickable, getDialogue, getImage, getNarration } from './game'
 
-export type FinishAction = (() => void) | void
+export type FinishAction = ((game: Game) => void) | void
 
 export function isCallable(
   finishAction: FinishAction
-): finishAction is () => void {
+): finishAction is (game: Game) => void {
   return finishAction instanceof Object
 }
 
 export type ActionArgs = {
   duration: number
   args: Record<string, any>
-  scene: Scene
+  sceneId: number
   game: Game
 }
 export interface Action {
@@ -21,7 +20,7 @@ export interface Action {
   duration: number
   args: Record<string, any>
   sceneId: number
-  action: (args: ActionArgs) => FinishAction // like useEffect
+  execute: (args: ActionArgs) => FinishAction // like useEffect
 }
 
 export const makeAction = (
@@ -41,7 +40,7 @@ export const makeAction = (
     duration: schema.duration,
     args: rest,
     sceneId: sceneId,
-    action,
+    execute: action,
   }
 }
 
@@ -51,103 +50,145 @@ export const DefinedActions: Partial<
   gotoScene: ({ args, game }) => {
     const { sceneId } = args
     if (typeof sceneId === 'number') {
-      game.gotoScene(sceneId)
+      game.currentSceneId = sceneId
     }
   },
 
-  showNarration: ({ args, scene }) => {
+  showNarration: ({ args, game, sceneId }) => {
     const { value, hideAfterShow, position } = args
 
-    let narration = scene.getNarration(value)
+    let narration = getNarration(game, sceneId, value)
     if (!narration) {
       return
     }
 
-    narration.show(position)
+    if (position) {
+      narration.position = position
+    }
+    narration.shown = true
 
     if (hideAfterShow) {
-      return () => narration?.hide()
+      return (game) => {
+        let narration = getNarration(game, sceneId, value)
+        if (!narration) {
+          return
+        }
+
+        narration.shown = false
+      }
     }
   },
 
-  hideNarration: ({ args, scene }) => {
+  hideNarration: ({ args, game, sceneId }) => {
     const { value } = args
 
-    let narration = scene.getNarration(value)
+    let narration = getNarration(game, sceneId, value)
     if (narration) {
-      narration.hide()
+      narration.shown = false
     }
   },
 
-  showDialogue: ({ args, scene }) => {
+  showDialogue: ({ args, game, sceneId }) => {
     const { value, hideAfterShow, position } = args
 
-    let dialogue = scene.getDialogue(value)
+    let dialogue = getDialogue(game, sceneId, value)
     if (!dialogue) {
       return
     }
 
-    dialogue.show(position)
+    if (position) {
+      dialogue.position = position
+    }
+    dialogue.shown = true
 
     if (hideAfterShow) {
-      return () => dialogue?.hide()
+      return (game) => {
+        let dialogue = getDialogue(game, sceneId, value)
+        if (!dialogue) {
+          return
+        }
+
+        dialogue.shown = false
+      }
     }
   },
 
-  hideDialogue: ({ args, scene }) => {
+  hideDialogue: ({ args, game, sceneId }) => {
     const { value } = args
 
-    let dialogue = scene.getDialogue(value)
+    let dialogue = getDialogue(game, sceneId, value)
     if (dialogue) {
-      dialogue.hide()
+      dialogue.shown = false
     }
   },
 
-  showImage: ({ args, scene }) => {
+  showImage: ({ args, game, sceneId }) => {
     const { value, hideAfterShow, position } = args
 
-    let image = scene.getImage(value)
+    let image = getImage(game, sceneId, value)
     if (!image) {
       return
     }
 
-    image.show(position)
+    if (position) {
+      image.position = position
+    }
+    image.shown = true
 
     if (hideAfterShow) {
-      return () => image?.hide()
+      return (game) => {
+        let image = getImage(game, sceneId, value)
+        if (!image) {
+          return
+        }
+
+        image.shown = false
+      }
     }
   },
 
-  hideImage: ({ args, scene }) => {
+  hideImage: ({ args, game, sceneId }) => {
     const { value } = args
 
-    let image = scene.getImage(value)
+    let image = getImage(game, sceneId, value)
     if (image) {
-      image.hide()
+      image.shown = false
     }
   },
 
-  showClickable: ({ args, scene }) => {
+  showClickable: ({ args, game, sceneId }) => {
     const { value, hideAfterShow, position } = args
 
-    let clickable = scene.getClickable(value)
+    let clickable = getClickable(game, sceneId, value)
     if (!clickable) {
       return
     }
 
-    clickable.show(position)
+    if (position) {
+      clickable.position = position
+    }
+    clickable.shown = true
 
     if (hideAfterShow) {
-      return () => clickable?.hide()
+      return (game) => {
+        let clickable = getClickable(game, sceneId, value)
+        if (!clickable) {
+          return
+        }
+
+        clickable.shown = false
+      }
     }
   },
 
-  hideClickable: ({ args, scene }) => {
+  hideClickable: ({ args, game, sceneId }) => {
     const { value } = args
 
-    let clickable = scene.getClickable(value)
+    let clickable = getClickable(game, sceneId, value)
     if (clickable) {
-      clickable.hide()
+      clickable.shown = false
     }
   },
+
+  wait: () => {},
 }

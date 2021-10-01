@@ -1,94 +1,68 @@
 import { GameSchema } from '../schema/game'
-import { Action, FinishAction, isCallable } from './actions'
-import { Scene } from './scene'
+import { Clickable, Dialogue, Image, Narration } from './elements'
+import { makeScene, Scene } from './scene'
+
 import { State } from './state'
 
-export class Game {
+export const EmptyGame: Game = {
+  name: '',
+  currentSceneId: 0,
+  globalState: {},
+  scenes: [] as Scene[],
+}
+
+export interface Game {
   name: string
   currentSceneId: number
-  scenes: Map<number, Scene>
   globalState: State
+  scenes: Scene[]
+}
 
-  constructor(schema: GameSchema) {
-    this.name = schema.name
-    this.currentSceneId = schema.scenes[0].id
-    this.scenes = new Map(
-      schema.scenes.map((schema) => [
-        schema.id,
-        new Scene(schema, this.execute),
-      ])
-    )
-    this.globalState = new State(schema.globalState)
+export function makeGame(schema: GameSchema): Game {
+  return {
+    name: schema.name,
+    currentSceneId: schema.scenes[0].id,
+    globalState: { ...(schema.globalState ?? {}) },
+    scenes: schema.scenes.map((schema) => makeScene(schema)),
   }
+}
 
-  get currentScene() {
-    return this.scenes.get(this.currentSceneId)
-  }
+export function getNarration(
+  game: Game,
+  sceneId: number,
+  name: string
+): Narration | undefined {
+  return game.scenes
+    .find((scene) => scene.id === sceneId)
+    ?.narrations.find((x) => x.name === name)
+}
 
-  gotoScene(sceneId: number) {
-    this.currentSceneId = sceneId
-  }
+export function getDialogue(
+  game: Game,
+  sceneId: number,
+  name: string
+): Dialogue | undefined {
+  return game.scenes
+    .find((scene) => scene.id === sceneId)
+    ?.dialogues.find((x) => x.name === name)
+}
 
-  // Returns a function that when called, sets up each action to run in
-  // the order defined. Each action will run for its specified duration,
-  // before the next action runs. If the action returns a finish action,
-  // the finish actions is also run at the end of the specified duration.
-  // The returned function also returns a cleanup function after being
-  // called.
-  execute(...actions: Action[]): () => void {
-    const res = actions.reduce<{
-      timing: number
-      timerIds: ReturnType<typeof setTimeout>[]
-    }>(
-      (accum, item) => {
-        const { timing, timerIds } = accum
-        const { name, duration, args, action, sceneId } = item
+export function getImage(
+  game: Game,
+  sceneId: number,
+  name: string
+): Image | undefined {
+  return game.scenes
+    .find((scene) => scene.id === sceneId)
+    ?.images.find((x) => x.name === name)
+}
 
-        const scene = this.scenes.get(sceneId)
-        if (!scene) {
-          console.log(
-            `invalid sceneId: ${scene} for action: ${name}, something went wrong`
-          )
-          return accum
-        }
-
-        let finishAction: FinishAction = undefined
-        let newTimerIds = []
-
-        // schedule the action at the specified timing
-        let id = setTimeout(() => {
-          finishAction = action({
-            duration,
-            args,
-            game: this,
-            scene: scene,
-          })
-        }, timing)
-
-        newTimerIds.push(id)
-
-        // if a finish action is returned, schedule it at the
-        // specified timing + duration of the action
-        if (isCallable(finishAction)) {
-          const action = finishAction
-          id = setTimeout(() => {
-            action()
-          }, timing + duration)
-
-          newTimerIds.push(id)
-        }
-
-        return {
-          timing: timing + duration,
-          timerIds: [...timerIds, ...newTimerIds],
-        }
-      },
-      {
-        timing: 0,
-        timerIds: [],
-      }
-    )
-
-    return () => res.timerIds.forEach(clearTimeout)
-  }
+export function getClickable(
+  game: Game,
+  sceneId: number,
+  name: string
+): Clickable | undefined {
+  return game.scenes
+    .find((scene) => scene.id === sceneId)
+    ?.clickables.find((x) => x.name === name)
 }

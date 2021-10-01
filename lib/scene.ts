@@ -1,89 +1,59 @@
 import { SceneSchema } from '../schema/scene'
 import { Action, makeAction } from './actions'
-import { Clickable, Dialogue, Image, Narration } from './elements'
+import {
+  Clickable,
+  Dialogue,
+  Image,
+  makeClickable,
+  makeDialogue,
+  makeImage,
+  makeNarration,
+  Narration,
+} from './elements'
 import { State } from './state'
 import { isDefined } from './utils'
 
-export class Scene {
+export interface Scene {
   id: number
   background: string
   backgroundAltText?: string | undefined
 
-  narrations: Map<string, Narration>
-  dialogues: Map<string, Dialogue>
-  images: Map<string, Image>
-  clickables: Map<string, Clickable>
+  narrations: Narration[]
+  dialogues: Dialogue[]
+  images: Image[]
+  clickables: Clickable[]
 
-  execute: (...actions: Action[]) => () => void
   intro: Action[]
   outro: Action[]
 
   state: State
+}
 
-  constructor(
-    schema: SceneSchema,
-    executeActions: (...actions: Action[]) => () => void
-  ) {
-    this.id = schema.id
-    this.background = schema.background
-    this.backgroundAltText = schema.backgroundAltText
+export function makeScene(schema: SceneSchema): Scene {
+  let id = schema.id
 
-    this.narrations = new Map(
-      schema.narrations.map((narrationSchema) => [
-        narrationSchema.name,
-        new Narration(narrationSchema),
-      ])
-    )
+  return {
+    id: schema.id,
+    background: schema.background,
+    backgroundAltText: schema.backgroundAltText,
 
-    this.dialogues = new Map(
-      schema.dialogues.map((dialogueSchema) => [
-        dialogueSchema.name,
-        new Dialogue(dialogueSchema),
-      ])
-    )
+    narrations: schema.narrations.map((narrationSchema) =>
+      makeNarration(narrationSchema)
+    ),
 
-    this.images = new Map(
-      schema.images.map((imageSchema) => [
-        imageSchema.name,
-        new Image(imageSchema),
-      ])
-    )
+    dialogues: schema.dialogues.map((dialogueSchema) =>
+      makeDialogue(dialogueSchema)
+    ),
 
-    this.clickables = new Map(
-      schema.clickables.map((clickableSchema) => [
-        clickableSchema.name,
-        new Clickable(clickableSchema, this.id, executeActions),
-      ])
-    )
+    images: schema.images.map((imageSchema) => makeImage(imageSchema)),
 
-    this.execute = executeActions
-    this.intro = schema.intro.map(x => makeAction(x, this.id)).filter(isDefined)
-    this.outro = schema.outro.map(x => makeAction(x, this.id)).filter(isDefined)
+    clickables: schema.clickables.map((clickableSchema) =>
+      makeClickable(clickableSchema, id)
+    ),
 
-    this.state = new State(schema.state)
-  }
+    intro: schema.intro.map((x) => makeAction(x, id)).filter(isDefined),
+    outro: schema.outro.map((x) => makeAction(x, id)).filter(isDefined),
 
-  executeIntro() {
-    return this.execute(...this.intro)
-  }
-
-  executeOutro() {
-    return this.execute(...this.outro)
-  }
-
-  getNarration(name: string): Narration | undefined {
-    return this.narrations.get(name)
-  }
-
-  getDialogue(name: string): Dialogue | undefined {
-    return this.dialogues.get(name)
-  }
-
-  getImage(name: string): Image | undefined {
-    return this.images.get(name)
-  }
-
-  getClickable(name: string): Clickable | undefined {
-    return this.clickables.get(name)
+    state: { ...(schema.state ?? {}) },
   }
 }
