@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useState } from 'react'
 import Character1 from '../public/character1.png'
+import Character2 from '../public/images/girl-1.svg'
 
 const Dialog: NextPage = () => {
   const [dialog, setDialog] = useState('Dialog 1')
@@ -21,6 +22,7 @@ const Dialog: NextPage = () => {
             {dialog}
           </div>
         </div>
+        <img src="/images/girl-1.svg" height={400} width={141} />
       </main>
     </div>
   )
