@@ -22,9 +22,9 @@ const Home: NextPage = () => {
           <a className="text-blue-600">clickable</a>
         </Link>
         <h2 className="text-lg">
-          For testing schema, go to{' '}
-          <Link href="/schema">
-            <a className="text-blue-600">/schema</a>
+          For testing the game, go to{' '}
+          <Link href="/testing">
+            <a className="text-blue-600">/testing</a>
           </Link>
         </h2>
       </main>
