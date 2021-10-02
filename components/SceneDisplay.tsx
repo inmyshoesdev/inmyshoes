@@ -1,4 +1,6 @@
 import { useCallback, useEffect } from 'react'
+import { useAfterInteractionCallback } from '../hooks/useAfterInteractionCallback'
+import { useRunCleanupFnsOnUnmount } from '../hooks/useRunCleanupFnsOnUnmount'
 import { Action } from '../lib/actions'
 import {
   Clickable,
@@ -58,11 +60,9 @@ const TempNarration: React.FC<Narration> = ({
   position,
   afterInteractionCallback,
 }) => {
-  const handleInteraction = useCallback(() => {
-    if (afterInteractionCallback) {
-      afterInteractionCallback()
-    }
-  }, [afterInteractionCallback])
+  const handleInteraction = useAfterInteractionCallback(
+    afterInteractionCallback
+  )
 
   if (!shown) {
     return null
@@ -93,11 +93,9 @@ const TempDialogue: React.FC<Dialogue> = ({
   position,
   afterInteractionCallback,
 }) => {
-  const handleInteraction = useCallback(() => {
-    if (afterInteractionCallback) {
-      afterInteractionCallback()
-    }
-  }, [afterInteractionCallback])
+  const handleInteraction = useAfterInteractionCallback(
+    afterInteractionCallback
+  )
 
   if (!shown) {
     return null
@@ -135,11 +133,9 @@ const TempImage: React.FC<Image> = ({
   position,
   afterInteractionCallback,
 }) => {
-  const handleInteraction = useCallback(() => {
-    if (afterInteractionCallback) {
-      afterInteractionCallback()
-    }
-  }, [afterInteractionCallback])
+  const handleInteraction = useAfterInteractionCallback(
+    afterInteractionCallback
+  )
 
   if (!shown) {
     return null
@@ -178,6 +174,7 @@ const TempClickable: React.FC<TempClickableProps> = ({
 }) => {
   const executeActions = useStore((state) => state.executeActions)
   const hideClickable = useStore((state) => state.hideClickable)
+  const { addCleanupFns } = useRunCleanupFnsOnUnmount()
 
   const onClick = useCallback(
     (optionName: string) => {
@@ -186,14 +183,18 @@ const TempClickable: React.FC<TempClickableProps> = ({
         ([] as Action[])
 
       hideClickable(sceneId, name)
-      executeActions(...actions)
+      let cleanupFn = executeActions(...actions)
+      addCleanupFns(cleanupFn)
+
       if (afterInteractionCallback) {
-        afterInteractionCallback()
+        cleanupFn = afterInteractionCallback()
+        addCleanupFns(cleanupFn)
       }
     },
     [
       executeActions,
       hideClickable,
+      addCleanupFns,
       options,
       name,
       sceneId,
