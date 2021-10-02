@@ -8,7 +8,7 @@ import React, {
   useEffect,
   useState,
 } from 'react'
-import { DialogueScema } from '../../schema/elements'
+import { DialogueSchema } from '../../schema/elements'
 import { Action, ActionPayload, useAction } from '../../hooks/useAction'
 import { Button } from '@chakra-ui/button'
 import { ActionSchema } from '../../schema/actions'
