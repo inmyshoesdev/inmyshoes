@@ -20,10 +20,8 @@ const Dialogue: React.FC<DialogueProps> = ({
         {!is(character, MainCharacterSchema) && (
           <img
             src={character.images.default}
-            height={400}
-            width={141}
             alt="npc"
-            className="m-auto"
+            className="m-auto h-full"
           />
         )}
       </Box>
@@ -42,7 +40,7 @@ const Dialogue: React.FC<DialogueProps> = ({
             height={400}
             width={141}
             alt="main character"
-            className="m-auto"
+            className="m-auto h-full"
           />
         )}
       </Box>

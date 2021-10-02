@@ -1,12 +1,37 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import React, { ReactElement, useEffect, useState } from 'react'
+import React, {
+  PropsWithChildren,
+  ReactChild,
+  ReactElement,
+  ReactNode,
+  useEffect,
+  useState,
+} from 'react'
 import { DialogueScema } from '../../schema/elements'
-import { Action, useAction } from '../../hooks/useAction'
+import { Action, ActionPayload, useAction } from '../../hooks/useAction'
 import { Button } from '@chakra-ui/button'
+import { ActionSchema } from '../../schema/actions'
+
+interface ActionContainerProps {
+  action: ActionPayload
+}
+
+const ActionContainer: React.FC<PropsWithChildren<ActionContainerProps>> = ({
+  action,
+  children,
+}) => {
+  const renderAction = useAction(action.type)
+
+  return (
+    <div className="absolute left-0 top-0 w-screen h-screen">
+      {renderAction(action)}
+      {children}
+    </div>
+  )
+}
 
 const DialogueSequence: NextPage = () => {
-  const showDialogue = useAction('showDialogue')
   const [actions, setActions] = useState<any[]>([])
   const [currentIdx, setCurrentIdx] = useState(-1)
 
@@ -22,13 +47,11 @@ const DialogueSequence: NextPage = () => {
     }
   }
 
-  function renderAction() {
-    // const actionSchema = actions[currentIdx]
-    // const action = useAction(actionSchema.type)
-    return showDialogue({
+  function getAction(): ActionPayload {
+    return {
       ...actions[currentIdx],
       onClick: nextDialogue,
-    })
+    }
   }
 
   return (
@@ -37,8 +60,10 @@ const DialogueSequence: NextPage = () => {
         <title>Dialogue</title>
       </Head>
 
-      <div className="relative w-screen h-screen">
-        {currentIdx >= 0 && currentIdx < actions.length && renderAction()}
+      <div className="w-screen h-screen">
+        {currentIdx >= 0 && currentIdx < actions.length && (
+          <ActionContainer action={getAction()}></ActionContainer>
+        )}
         <Button className="left-1/2 top-1/2" onClick={() => setCurrentIdx(0)}>
           Restart
         </Button>

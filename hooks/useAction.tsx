@@ -7,7 +7,8 @@ enum ACTION {
   SHOW_DIALOGUE = 'showDialogue',
 }
 
-type ActionPayload = {
+export type ActionPayload = {
+  type: string
   value: string
   duration?: number
   onClick?: () => void
