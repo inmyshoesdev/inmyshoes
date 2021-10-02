@@ -22,7 +22,7 @@ export type ElementKeys = NonNullable<
 
 export type ElementValues = Scene[ElementKeys][0]
 
-export type SceneKeyOf<T extends ElementValues> = {
+export type KeyInSceneOf<T extends ElementValues> = {
   [Key in keyof Scene]: T[] extends Scene[Key]
     ? Scene[Key] extends T[]
       ? Key
@@ -47,7 +47,7 @@ export interface Scene {
 
   getElement<T extends ElementValues>(
     name: string,
-    type: SceneKeyOf<T>
+    type: KeyInSceneOf<T>
   ): T | undefined
 }
 
@@ -80,7 +80,7 @@ export function makeScene(schema: SceneSchema): Scene {
 
     getElement<T extends ElementValues>(
       name: string,
-      type: SceneKeyOf<T>
+      type: KeyInSceneOf<T>
     ): T | undefined {
       return (this[type] as T[]).find((x) => x.name === name)
     },
