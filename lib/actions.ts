@@ -1,16 +1,16 @@
 import { ActionSchema } from '../schema/actions'
 import { Clickable, Dialogue, Image, Narration } from './elements'
 import { Game } from './game'
-import { Scene } from './scene'
+import { ElementValues, KeyInSceneOf, Scene } from './scene'
 
 // modify any property to have the changes persisted to the game state
 // if called via the `executeActions` method of the store
-export type ModifyableArgs = {
+export type ModifiableArgs = {
   scene: Scene // scene of the action
   game: Game
 }
 
-export type FinishAction = (({ scene, game }: ModifyableArgs) => void) | void
+export type FinishAction = (({ scene, game }: ModifiableArgs) => void) | void
 
 export function isCallable(
   finishAction: FinishAction
@@ -21,7 +21,7 @@ export function isCallable(
 export type ActionArgs = {
   duration: number
   args: Record<string, any>
-} & ModifyableArgs
+} & ModifiableArgs
 
 export interface Action {
   name: string
@@ -63,144 +63,59 @@ export const DefinedActions: Partial<
     }
   },
 
-  showNarration: ({ args, scene }) => {
-    const { value, hideAfterShow, position } = args
+  showNarration: show<Narration, 'narrations'>('narrations'),
+  hideNarration: hide<Narration, 'narrations'>('narrations'),
 
-    const narration = scene.getElement<Narration>(value, 'narrations')
-    if (!narration) {
-      return
-    }
+  showDialogue: show<Dialogue, 'dialogues'>('dialogues'),
+  hideDialogue: hide<Dialogue, 'dialogues'>('dialogues'),
 
-    // directly mutate the objects derived from `scene` or `game`, changes
-    // will be persisted
-    if (position) {
-      narration.position = position
-    }
-    narration.shown = true
+  showImage: show<Image, 'images'>('images'),
+  hideImage: hide<Image, 'images'>('images'),
 
-    if (hideAfterShow) {
-      // dont reuse the `scene` variable from the above scope!
-      return ({ scene }) => {
-        const narration = scene.getElement<Narration>(value, 'narrations')
-        if (!narration) {
-          return
-        }
-
-        narration.shown = false
-      }
-    }
-  },
-
-  hideNarration: ({ args, scene }) => {
-    const { value } = args
-
-    const narration = scene.getElement<Narration>(value, 'narrations')
-    if (narration) {
-      narration.shown = false
-    }
-  },
-
-  showDialogue: ({ args, scene }) => {
-    const { value, hideAfterShow, position } = args
-
-    const dialogue = scene.getElement<Dialogue>(value, 'dialogues')
-    if (!dialogue) {
-      return
-    }
-
-    if (position) {
-      dialogue.position = position
-    }
-    dialogue.shown = true
-
-    if (hideAfterShow) {
-      return ({ scene }) => {
-        const dialogue = scene.getElement<Dialogue>(value, 'dialogues')
-        if (!dialogue) {
-          return
-        }
-
-        dialogue.shown = false
-      }
-    }
-  },
-
-  hideDialogue: ({ args, scene }) => {
-    const { value } = args
-
-    const dialogue = scene.getElement<Dialogue>(value, 'dialogues')
-    if (dialogue) {
-      dialogue.shown = false
-    }
-  },
-
-  showImage: ({ args, scene }) => {
-    const { value, hideAfterShow, position } = args
-
-    const image = scene.getElement<Image>(value, 'images')
-    if (!image) {
-      return
-    }
-
-    if (position) {
-      image.position = position
-    }
-    image.shown = true
-
-    if (hideAfterShow) {
-      return ({ scene }) => {
-        const image = scene.getElement<Image>(value, 'images')
-        if (!image) {
-          return
-        }
-
-        image.shown = false
-      }
-    }
-  },
-
-  hideImage: ({ args, scene }) => {
-    const { value } = args
-
-    const image = scene.getElement<Image>(value, 'images')
-    if (image) {
-      image.shown = false
-    }
-  },
-
-  showClickable: ({ args, scene }) => {
-    const { value, hideAfterShow, position } = args
-
-    const clickable = scene.getElement<Clickable>(value, 'clickables')
-    if (!clickable) {
-      return
-    }
-
-    if (position) {
-      clickable.position = position
-    }
-    clickable.shown = true
-
-    if (hideAfterShow) {
-      return ({ scene }) => {
-        const clickable = scene.getElement<Clickable>(value, 'clickables')
-        if (!clickable) {
-          return
-        }
-
-        clickable.shown = false
-      }
-    }
-  },
-
-  hideClickable: ({ args, scene }) => {
-    const { value } = args
-
-    const clickable = scene.getElement<Clickable>(value, 'clickables')
-    if (clickable) {
-      clickable.shown = false
-    }
-  },
+  showClickable: show<Clickable, 'clickables'>('clickables'),
+  hideClickable: hide<Clickable, 'clickables'>('clickables'),
 
   wait: () => {},
+}
+
+function show<T extends ElementValues, S extends KeyInSceneOf<T>>(
+  elementKey: S
+) {
+  return ({ args, scene }: ActionArgs): FinishAction => {
+    const { value, hideAfterShow, position } = args
+
+    const element = scene.getElement<T>(value, elementKey)
+    if (!element) {
+      return
+    }
+
+    if (position) {
+      element.position = position
+    }
+    element.shown = true
+
+    if (hideAfterShow) {
+      return ({ scene }) => {
+        const element = scene.getElement<T>(value, elementKey)
+        if (!element) {
+          return
+        }
+
+        element.shown = false
+      }
+    }
+  }
+}
+
+function hide<T extends ElementValues, S extends KeyInSceneOf<T>>(
+  elementKey: S
+) {
+  return ({ args, scene }: ActionArgs): FinishAction => {
+    const { value } = args
+
+    const element = scene.getElement<T>(value, elementKey)
+    if (element) {
+      element.shown = false
+    }
+  }
 }
