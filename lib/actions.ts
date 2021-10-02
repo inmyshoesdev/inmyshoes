@@ -52,6 +52,7 @@ export const makeAction = (
   }
 }
 
+// Add all actions here!
 export const DefinedActions: Partial<
   Record<string, (args: ActionArgs) => FinishAction>
 > = {
@@ -65,7 +66,7 @@ export const DefinedActions: Partial<
   showNarration: ({ args, scene }) => {
     const { value, hideAfterShow, position } = args
 
-    let narration = scene.getElement<Narration>(value, 'narrations')
+    const narration = scene.getElement<Narration>(value, 'narrations')
     if (!narration) {
       return
     }
@@ -80,7 +81,7 @@ export const DefinedActions: Partial<
     if (hideAfterShow) {
       // dont reuse the `scene` variable from the above scope!
       return ({ scene }) => {
-        let narration = scene.getElement<Narration>(value, 'narrations')
+        const narration = scene.getElement<Narration>(value, 'narrations')
         if (!narration) {
           return
         }
@@ -93,7 +94,7 @@ export const DefinedActions: Partial<
   hideNarration: ({ args, scene }) => {
     const { value } = args
 
-    let narration = scene.getElement<Narration>(value, 'narrations')
+    const narration = scene.getElement<Narration>(value, 'narrations')
     if (narration) {
       narration.shown = false
     }
@@ -102,7 +103,7 @@ export const DefinedActions: Partial<
   showDialogue: ({ args, scene }) => {
     const { value, hideAfterShow, position } = args
 
-    let dialogue = scene.getElement<Dialogue>(value, 'dialogues')
+    const dialogue = scene.getElement<Dialogue>(value, 'dialogues')
     if (!dialogue) {
       return
     }
@@ -114,7 +115,7 @@ export const DefinedActions: Partial<
 
     if (hideAfterShow) {
       return ({ scene }) => {
-        let dialogue = scene.getElement<Dialogue>(value, 'dialogues')
+        const dialogue = scene.getElement<Dialogue>(value, 'dialogues')
         if (!dialogue) {
           return
         }
@@ -127,7 +128,7 @@ export const DefinedActions: Partial<
   hideDialogue: ({ args, scene }) => {
     const { value } = args
 
-    let dialogue = scene.getElement<Dialogue>(value, 'dialogues')
+    const dialogue = scene.getElement<Dialogue>(value, 'dialogues')
     if (dialogue) {
       dialogue.shown = false
     }
@@ -136,7 +137,7 @@ export const DefinedActions: Partial<
   showImage: ({ args, scene }) => {
     const { value, hideAfterShow, position } = args
 
-    let image = scene.getElement<Image>(value, 'images')
+    const image = scene.getElement<Image>(value, 'images')
     if (!image) {
       return
     }
@@ -148,7 +149,7 @@ export const DefinedActions: Partial<
 
     if (hideAfterShow) {
       return ({ scene }) => {
-        let image = scene.getElement<Image>(value, 'images')
+        const image = scene.getElement<Image>(value, 'images')
         if (!image) {
           return
         }
@@ -161,7 +162,7 @@ export const DefinedActions: Partial<
   hideImage: ({ args, scene }) => {
     const { value } = args
 
-    let image = scene.getElement<Image>(value, 'images')
+    const image = scene.getElement<Image>(value, 'images')
     if (image) {
       image.shown = false
     }
@@ -170,7 +171,7 @@ export const DefinedActions: Partial<
   showClickable: ({ args, scene }) => {
     const { value, hideAfterShow, position } = args
 
-    let clickable = scene.getElement<Clickable>(value, 'clickables')
+    const clickable = scene.getElement<Clickable>(value, 'clickables')
     if (!clickable) {
       return
     }
@@ -182,7 +183,7 @@ export const DefinedActions: Partial<
 
     if (hideAfterShow) {
       return ({ scene }) => {
-        let clickable = scene.getElement<Clickable>(value, 'clickables')
+        const clickable = scene.getElement<Clickable>(value, 'clickables')
         if (!clickable) {
           return
         }
@@ -195,7 +196,7 @@ export const DefinedActions: Partial<
   hideClickable: ({ args, scene }) => {
     const { value } = args
 
-    let clickable = scene.getElement<Clickable>(value, 'clickables')
+    const clickable = scene.getElement<Clickable>(value, 'clickables')
     if (clickable) {
       clickable.shown = false
     }

@@ -51,7 +51,7 @@ const SchemaInput: React.FC = () => {
       {debouncedSchema !== '' && error && (
         <p className="text-lg text-red-600">Validation Error: {error}</p>
       )}
-      {game && <GameDisplay game={game}></GameDisplay>}
+      {game && <GameDisplay game={game} />}
     </main>
   )
 }

@@ -50,7 +50,7 @@ export interface Scene {
 }
 
 export function makeScene(schema: SceneSchema): Scene {
-  let id = schema.id
+  const id = schema.id
 
   return {
     id: schema.id,
