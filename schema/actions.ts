@@ -1,4 +1,13 @@
-import { Infer, number, optional, string, type } from 'superstruct'
+import {
+  any,
+  defaulted,
+  Infer,
+  intersection,
+  number,
+  record,
+  string,
+  type,
+} from 'superstruct'
 
 // should have type and optional duration, can have other properties, eg:
 // {
@@ -12,9 +21,12 @@ import { Infer, number, optional, string, type } from 'superstruct'
 //     "value": "intro",
 //     "duration": 3000
 // }
-export const ActionSchema = type({
-  type: string(),
-  duration: optional(number()),
-})
+export const ActionSchema = intersection([
+  type({
+    type: string(),
+    duration: defaulted(number(), 0),
+  }),
+  record(string(), any()),
+])
 
 export type ActionSchema = Infer<typeof ActionSchema>
