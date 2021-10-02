@@ -2,21 +2,31 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import React, { useEffect, useState } from 'react'
 import { DialogueScema } from '../../schema/elements'
-import Dialogue from '../../components/Dialogue'
+import { useAction } from '../../hooks/useAction'
+import { Button } from '@chakra-ui/button'
 
 const DialogueSequence: NextPage = () => {
-  const [dialogues, setDialogues] = useState<DialogueScema[]>([])
+  const [actions, setActions] = useState<any[]>([])
   const [currentIdx, setCurrentIdx] = useState(-1)
 
   useEffect(() => {
-    setDialogues(testDialogue)
+    // TODO: Use ActionSchema
+    setActions(testDialogueActions)
     setCurrentIdx(0)
   }, [])
 
   function nextDialogue() {
-    if (currentIdx < dialogues.length - 1) {
+    if (currentIdx < actions.length) {
       setCurrentIdx(currentIdx + 1)
     }
+  }
+
+  function renderAction() {
+    const actionSchema = actions[currentIdx]
+    return useAction(actionSchema.type, {
+      ...actionSchema,
+      onClick: nextDialogue,
+    })
   }
 
   return (
@@ -26,9 +36,10 @@ const DialogueSequence: NextPage = () => {
       </Head>
 
       <div className="relative w-screen h-screen">
-        {currentIdx >= 0 && currentIdx < dialogues.length && (
-          <Dialogue dialogue={dialogues[currentIdx]} onNext={nextDialogue} />
-        )}
+        {currentIdx >= 0 && currentIdx < actions.length && renderAction()}
+        <Button className="left-1/2 top-1/2" onClick={() => setCurrentIdx(0)}>
+          Restart
+        </Button>
       </div>
     </div>
   )
@@ -36,15 +47,13 @@ const DialogueSequence: NextPage = () => {
 
 export default DialogueSequence
 
-const testDialogue: DialogueScema[] = [
+const testDialogueActions = [
   {
-    name: 'dialogue_1',
-    character: 'Julie',
-    text: 'Hello',
+    type: 'showDialogue',
+    value: 'julie_intro',
   },
   {
-    name: 'dialogue_2',
-    character: 'Jason',
-    text: 'Hey!',
+    type: 'showDialogue',
+    value: 'jason_intro',
   },
 ]
