@@ -33,7 +33,7 @@
             "images": [
                 {
                     "name": "clown",
-                    "src": "https://images.unsplash.com/photo-1601513445498-5dbffc8d5d5a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
+                    "src": "https://images.unsplash.com/photo-1601513445498-5dbffc8d5d5a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80",
                     "position": {
                         "top": "50%",
                         "left": "10px"
@@ -49,7 +49,7 @@
                             "text": "yes",
                             "onClick": [
                                 {
-                                    "type": "nextScene",
+                                    "type": "gotoScene",
                                     "sceneId": 2
                                 }
                             ]
@@ -61,7 +61,8 @@
                                 {
                                     "type": "showDialogue",
                                     "value": "clown sad",
-                                    "duration": 1500
+                                    "duration": 1500,
+                                    "hideAfterShow": true
                                 },
                                 {
                                     "type": "hideImage",
@@ -71,7 +72,7 @@
                                 {
                                     "type": "hideNarration",
                                     "value": "clown decision",
-                                    "duration": 1000
+                                    "duration": 1200
                                 },
                                 {
                                     "type": "showNarration",
@@ -86,20 +87,23 @@
                 {
                     "type": "showNarration",
                     "value": "intro",
-                    "duration": 3000
+                    "duration": 2000,
+                    "hideAfterShow": true
                 },
                 {
                     "type": "showDialogue",
-                    "value": "clown bait"
+                    "value": "clown bait",
+                    "duration": 2000,
+                    "hideAfterShow": true
                 },
                 {
                     "type": "showImage",
-                    "value": "clown"
+                    "value": "clown",
+                    "duration": 1500
                 },
                 {
                     "type": "showNarration",
-                    "value": "clown decision",
-                    "duration": 0
+                    "value": "clown decision"
                 },
                 {
                     "type": "showClickable",
@@ -122,7 +126,7 @@
                             "text": "restart?",
                             "onClick": [
                                 {
-                                    "type": "nextScene",
+                                    "type": "gotoScene",
                                     "sceneId": 1
                                 }
                             ]

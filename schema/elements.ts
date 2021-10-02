@@ -29,7 +29,7 @@ export const ElementSchema = type({
   ),
 })
 
-export type ElementScema = Infer<typeof ElementSchema>
+export type ElementSchema = Infer<typeof ElementSchema>
 
 // {
 //     "name": "hello",
@@ -42,7 +42,7 @@ export const NarrationSchema = intersection([
   }),
 ])
 
-export type NarrationScema = Infer<typeof NarrationSchema>
+export type NarrationSchema = Infer<typeof NarrationSchema>
 
 // {
 //     "name": "hello",
@@ -57,7 +57,7 @@ export const DialogueSchema = intersection([
   }),
 ])
 
-export type DialogueScema = Infer<typeof DialogueSchema>
+export type DialogueSchema = Infer<typeof DialogueSchema>
 
 // {
 //     "name": "hello",
@@ -72,7 +72,7 @@ export const ImageSchema = intersection([
   }),
 ])
 
-export type ImageScema = Infer<typeof ImageSchema>
+export type ImageSchema = Infer<typeof ImageSchema>
 
 // can have either text content or image, such as:
 // {
