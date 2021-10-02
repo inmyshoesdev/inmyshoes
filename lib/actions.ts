@@ -1,20 +1,28 @@
 import { ActionSchema } from '../schema/actions'
-import { Game, getClickable, getDialogue, getImage, getNarration } from './game'
+import { Clickable, Dialogue, Image, Narration } from './elements'
+import { Game } from './game'
+import { Scene } from './scene'
 
-export type FinishAction = ((game: Game) => void) | void
+// modify any property to have the changes persisted to the game state
+// if called via the `executeActions` method of the store
+export type ModifyableArgs = {
+  scene: Scene // scene of the action
+  game: Game
+}
+
+export type FinishAction = (({ scene, game }: ModifyableArgs) => void) | void
 
 export function isCallable(
   finishAction: FinishAction
-): finishAction is (game: Game) => void {
+): finishAction is ({ scene, game }: { scene: Scene; game: Game }) => void {
   return finishAction instanceof Object
 }
 
 export type ActionArgs = {
   duration: number
   args: Record<string, any>
-  sceneId: number
-  game: Game
-}
+} & ModifyableArgs
+
 export interface Action {
   name: string
   duration: number
@@ -54,22 +62,25 @@ export const DefinedActions: Partial<
     }
   },
 
-  showNarration: ({ args, game, sceneId }) => {
+  showNarration: ({ args, scene }) => {
     const { value, hideAfterShow, position } = args
 
-    let narration = getNarration(game, sceneId, value)
+    let narration = scene.getElement<Narration>(value, 'narrations')
     if (!narration) {
       return
     }
 
+    // directly mutate the objects derived from `scene` or `game`, changes
+    // will be persisted
     if (position) {
       narration.position = position
     }
     narration.shown = true
 
     if (hideAfterShow) {
-      return (game) => {
-        let narration = getNarration(game, sceneId, value)
+      // dont reuse the `scene` variable from the above scope!
+      return ({ scene }) => {
+        let narration = scene.getElement<Narration>(value, 'narrations')
         if (!narration) {
           return
         }
@@ -79,19 +90,19 @@ export const DefinedActions: Partial<
     }
   },
 
-  hideNarration: ({ args, game, sceneId }) => {
+  hideNarration: ({ args, scene }) => {
     const { value } = args
 
-    let narration = getNarration(game, sceneId, value)
+    let narration = scene.getElement<Narration>(value, 'narrations')
     if (narration) {
       narration.shown = false
     }
   },
 
-  showDialogue: ({ args, game, sceneId }) => {
+  showDialogue: ({ args, scene }) => {
     const { value, hideAfterShow, position } = args
 
-    let dialogue = getDialogue(game, sceneId, value)
+    let dialogue = scene.getElement<Dialogue>(value, 'dialogues')
     if (!dialogue) {
       return
     }
@@ -102,8 +113,8 @@ export const DefinedActions: Partial<
     dialogue.shown = true
 
     if (hideAfterShow) {
-      return (game) => {
-        let dialogue = getDialogue(game, sceneId, value)
+      return ({ scene }) => {
+        let dialogue = scene.getElement<Dialogue>(value, 'dialogues')
         if (!dialogue) {
           return
         }
@@ -113,19 +124,19 @@ export const DefinedActions: Partial<
     }
   },
 
-  hideDialogue: ({ args, game, sceneId }) => {
+  hideDialogue: ({ args, scene }) => {
     const { value } = args
 
-    let dialogue = getDialogue(game, sceneId, value)
+    let dialogue = scene.getElement<Dialogue>(value, 'dialogues')
     if (dialogue) {
       dialogue.shown = false
     }
   },
 
-  showImage: ({ args, game, sceneId }) => {
+  showImage: ({ args, scene }) => {
     const { value, hideAfterShow, position } = args
 
-    let image = getImage(game, sceneId, value)
+    let image = scene.getElement<Image>(value, 'images')
     if (!image) {
       return
     }
@@ -136,8 +147,8 @@ export const DefinedActions: Partial<
     image.shown = true
 
     if (hideAfterShow) {
-      return (game) => {
-        let image = getImage(game, sceneId, value)
+      return ({ scene }) => {
+        let image = scene.getElement<Image>(value, 'images')
         if (!image) {
           return
         }
@@ -147,19 +158,19 @@ export const DefinedActions: Partial<
     }
   },
 
-  hideImage: ({ args, game, sceneId }) => {
+  hideImage: ({ args, scene }) => {
     const { value } = args
 
-    let image = getImage(game, sceneId, value)
+    let image = scene.getElement<Image>(value, 'images')
     if (image) {
       image.shown = false
     }
   },
 
-  showClickable: ({ args, game, sceneId }) => {
+  showClickable: ({ args, scene }) => {
     const { value, hideAfterShow, position } = args
 
-    let clickable = getClickable(game, sceneId, value)
+    let clickable = scene.getElement<Clickable>(value, 'clickables')
     if (!clickable) {
       return
     }
@@ -170,8 +181,8 @@ export const DefinedActions: Partial<
     clickable.shown = true
 
     if (hideAfterShow) {
-      return (game) => {
-        let clickable = getClickable(game, sceneId, value)
+      return ({ scene }) => {
+        let clickable = scene.getElement<Clickable>(value, 'clickables')
         if (!clickable) {
           return
         }
@@ -181,10 +192,10 @@ export const DefinedActions: Partial<
     }
   },
 
-  hideClickable: ({ args, game, sceneId }) => {
+  hideClickable: ({ args, scene }) => {
     const { value } = args
 
-    let clickable = getClickable(game, sceneId, value)
+    let clickable = scene.getElement<Clickable>(value, 'clickables')
     if (clickable) {
       clickable.shown = false
     }

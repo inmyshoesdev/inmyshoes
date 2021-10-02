@@ -3,6 +3,7 @@ import { Action, makeAction } from './actions'
 import {
   Clickable,
   Dialogue,
+  Element,
   Image,
   makeClickable,
   makeDialogue,
@@ -12,6 +13,14 @@ import {
 } from './elements'
 import { State } from './state'
 import { isDefined } from './utils'
+
+type ElementKeys = NonNullable<
+  {
+    [Key in keyof Scene]: Scene[Key] extends Element[] ? Key : never
+  }[keyof Scene]
+>
+
+type ElementValues = Scene[ElementKeys][0]
 
 export interface Scene {
   id: number
@@ -27,6 +36,17 @@ export interface Scene {
   outro: Action[]
 
   state: State
+
+  getElement<T extends ElementValues>(
+    name: string,
+    type: {
+      [Key in keyof Scene]: T[] extends Scene[Key]
+        ? Scene[Key] extends T[]
+          ? Key
+          : never
+        : never
+    }[ElementKeys]
+  ): T | undefined
 }
 
 export function makeScene(schema: SceneSchema): Scene {
@@ -55,5 +75,18 @@ export function makeScene(schema: SceneSchema): Scene {
     outro: schema.outro.map((x) => makeAction(x, id)).filter(isDefined),
 
     state: { ...(schema.state ?? {}) },
+
+    getElement<T extends ElementValues>(
+      name: string,
+      type: {
+        [Key in keyof Scene]: T[] extends Scene[Key]
+          ? Scene[Key] extends T[]
+            ? Key
+            : never
+          : never
+      }[ElementKeys]
+    ): T | undefined {
+      return (this[type] as T[]).find((x) => x.name === name)
+    },
   }
 }

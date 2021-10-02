@@ -1,7 +1,8 @@
 import produce from 'immer'
 import create from 'zustand'
 import { Action, FinishAction, isCallable } from '../lib/actions'
-import { EmptyGame, Game, getClickable } from '../lib/game'
+import { Clickable } from '../lib/elements'
+import { EmptyGame, Game } from '../lib/game'
 
 type GameStore = {
   game: Game
@@ -29,7 +30,7 @@ export const useStore = create<GameStore>((set) => ({
   resetScene: (sceneId: number) => {
     set(
       produce<GameStore>((state) => {
-        const scene = state.game.scenes.find((scene) => scene.id === sceneId)
+        const scene = state.game.getScene(sceneId)
         if (!scene) {
           return
         }
@@ -38,6 +39,7 @@ export const useStore = create<GameStore>((set) => ({
         scene.dialogues.forEach((dialogue) => (dialogue.shown = false))
         scene.images.forEach((image) => (image.shown = false))
         scene.clickables.forEach((clickable) => (clickable.shown = false))
+        // TODO: may need to add more to reset other states
       })
     )
   },
@@ -45,8 +47,10 @@ export const useStore = create<GameStore>((set) => ({
   hideClickable(sceneId: number, name: string) {
     set(
       produce<GameStore>((state) => {
-        const clickable = getClickable(state.game, sceneId, name)
-        console.log({ clickable, sceneId, name })
+        const clickable = state.game
+          .getScene(sceneId)
+          ?.getElement<Clickable>(name, 'clickables')
+
         if (clickable) {
           clickable.shown = false
         }
@@ -69,8 +73,11 @@ export const useStore = create<GameStore>((set) => ({
         // schedule the action at the specified timing
         let id = setTimeout(() => {
           set((state) => {
-            let newGame = produce<Game>(state.game, (game) => {
-              finishAction = execute({ duration, args, sceneId, game })
+            const newGame = produce<Game>(state.game, (game) => {
+              const scene = game.getScene(sceneId)
+              if (scene) {
+                finishAction = execute({ duration, args, scene, game })
+              }
             })
 
             return { game: newGame }
@@ -84,8 +91,11 @@ export const useStore = create<GameStore>((set) => ({
           if (isCallable(finishAction)) {
             const executeFinish = finishAction
             set((state) => {
-              let newGame = produce<Game>(state.game, (game) => {
-                executeFinish(game)
+              const newGame = produce<Game>(state.game, (game) => {
+                const scene = game.getScene(sceneId)
+                if (scene) {
+                  executeFinish({ scene, game })
+                }
               })
 
               return { game: newGame }
