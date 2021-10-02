@@ -22,6 +22,7 @@ const Dialogue: React.FC<DialogueProps> = ({
             src={character.images.default}
             height={400}
             width={141}
+            alt="npc"
             className="m-auto"
           />
         )}
@@ -40,6 +41,7 @@ const Dialogue: React.FC<DialogueProps> = ({
             src={character.images.default}
             height={400}
             width={141}
+            alt="main character"
             className="m-auto"
           />
         )}

@@ -1,6 +1,7 @@
 import Dialogue from '../components/Dialogue'
 import { DialogueScema } from '../schema/elements'
 import { MainCharacterSchema, NPCSchema } from '../schema/characters'
+import { ReactElement } from 'react'
 
 enum ACTION {
   SHOW_DIALOGUE = 'showDialogue',
@@ -12,17 +13,19 @@ type ActionPayload = {
   onClick?: () => void
 }
 
-export function useAction(action: string, payload: ActionPayload) {
+export type Action = (payload: ActionPayload) => ReactElement
+
+export function useAction(action: string): Action {
   switch (action) {
     case ACTION.SHOW_DIALOGUE:
-      return showDialogue(payload)
+      return showDialogue
     default:
-      break
+      throw 'No action found'
   }
 }
 
 // TODO: maybe dialogues and chanracters can be in the state and function reads from state
-function showDialogue({ value, duration, onClick }: ActionPayload) {
+const showDialogue: Action = ({ value, duration, onClick }) => {
   const dialogue = testDialogues.find((d) => d.name === value)
   const character = [mainCharacter, ...npcs].find(
     (c) => c.name === dialogue?.character

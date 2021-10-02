@@ -1,11 +1,12 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import React, { useEffect, useState } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import { DialogueScema } from '../../schema/elements'
-import { useAction } from '../../hooks/useAction'
+import { Action, useAction } from '../../hooks/useAction'
 import { Button } from '@chakra-ui/button'
 
 const DialogueSequence: NextPage = () => {
+  const showDialogue = useAction('showDialogue')
   const [actions, setActions] = useState<any[]>([])
   const [currentIdx, setCurrentIdx] = useState(-1)
 
@@ -22,9 +23,10 @@ const DialogueSequence: NextPage = () => {
   }
 
   function renderAction() {
-    const actionSchema = actions[currentIdx]
-    return useAction(actionSchema.type, {
-      ...actionSchema,
+    // const actionSchema = actions[currentIdx]
+    // const action = useAction(actionSchema.type)
+    return showDialogue({
+      ...actions[currentIdx],
       onClick: nextDialogue,
     })
   }
