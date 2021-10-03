@@ -1,5 +1,5 @@
 import {
-  ClickableSchema,
+  ClickableGroupSchema,
   DialogueSchema,
   ImageSchema,
   NarrationSchema,
@@ -17,13 +17,18 @@ export const clickables = 'clickables'
 export const allElements = [narrations, dialogues, images, clickables] as const
 
 export type Position = {
-  top?: string | undefined
-  left?: string | undefined
-  bottom?: string | undefined
-  right?: string | undefined
+  top?: string
+  left?: string
+  bottom?: string
+  right?: string
 }
 
-export type ShowArgs = { position: Position | undefined }
+export type Dimension = {
+  width?: string
+  height?: string
+}
+
+export type ShowArgs = { position?: Position }
 
 export interface Element {
   shown: boolean
@@ -73,7 +78,7 @@ export function makeDialogue(schema: DialogueSchema): Dialogue {
 
 export interface Image extends Element {
   src: string
-  altText: string | undefined
+  altText?: string
 }
 
 export function makeImage(schema: ImageSchema): Image {
@@ -85,40 +90,51 @@ export function makeImage(schema: ImageSchema): Image {
     altText: schema.altText,
   }
 }
+type ClickableText = {
+  text: string
+}
 
-export type ClickableOption = {
+type ClickableImg = {
+  src: string
+  altText?: string
+}
+export type Clickable = {
   name: string
+  position?: Position
+  dimension?: Dimension
   onClickActions: Action[]
-} & ({ text: string } | { src: string; altText?: string | undefined })
+} & (ClickableText | ClickableImg)
 
 export function isClickableText(
-  option: ClickableOption
-): option is ClickableOption & { text: string } {
-  return 'text' in option
+  clickable: Clickable
+): clickable is Clickable & ClickableText {
+  return 'text' in clickable
 }
 
 export function isClickableImg(
-  option: ClickableOption
-): option is ClickableOption & { src: string; altText?: string | undefined } {
-  return 'src' in option
+  clickable: Clickable
+): clickable is Clickable & ClickableImg {
+  return 'src' in clickable
 }
 
-export interface Clickable extends Element {
-  options: ClickableOption[]
+export interface ClickableGroup {
+  shown: boolean
+  name: string
+  afterInteractionCallback?: () => () => void
+  clickables: Clickable[]
 }
 
-export function makeClickable(
-  schema: ClickableSchema,
+export function makeClickableGroup(
+  schema: ClickableGroupSchema,
   sceneId: number
-): Clickable {
+): ClickableGroup {
   return {
     shown: false,
     name: schema.name,
-    position: schema.position || {}, // TODO: settle on a proper default position
-    options: schema.options.map((option) => {
+    clickables: schema.clickables.map((clickable) => {
       return {
-        ...option,
-        onClickActions: option.onClick
+        ...clickable,
+        onClickActions: clickable.onClick
           .map((x) => makeAction(x, sceneId))
           .filter(isDefined),
       }

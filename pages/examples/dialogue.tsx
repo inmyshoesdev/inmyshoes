@@ -22,6 +22,7 @@ import {
   isClickableImg,
   Image,
 } from '../../lib/elements'
+import ClickableGroup from '../../components/ClickableGroup'
 
 const SchemaInput: React.FC = () => {
   const [inputSchema, setInputSchema] = useState<string>('')
@@ -94,7 +95,7 @@ const SceneDisplay: React.FC<SceneProps> = ({ scene }) => {
   return (
     <div className="relative w-full h-full overflow-hidden">
       <img
-        className="m-auto w-full object-contain"
+        className="m-auto w-full h-full object-cover"
         src={scene.background}
         alt={scene.backgroundAltText ?? ''}
       />
@@ -107,8 +108,12 @@ const SceneDisplay: React.FC<SceneProps> = ({ scene }) => {
       {scene.images.map((image) => (
         <TempImage {...image} key={image.name}></TempImage>
       ))}
-      {scene.clickables.map((clickable) => (
-        <TempClickable sceneId={scene.id} {...clickable} key={clickable.name} />
+      {scene.clickables.map((clickableGroup) => (
+        <ClickableGroup
+          sceneId={scene.id}
+          {...clickableGroup}
+          key={clickableGroup.name}
+        />
       ))}
     </div>
   )
@@ -198,85 +203,6 @@ const TempImage: React.FC<Image> = ({
         alt={altText || ''}
         className="object-cover mix-blend-lighten"
       />
-      <style jsx>{`
-        .positioned {
-          top: ${position.top || 'unset'};
-          right: ${position.right || '0px'};
-          left: ${position.left || '0px'};
-          bottom: ${position.bottom || '5%'};
-        }
-      `}</style>
-    </div>
-  )
-}
-
-type TempClickableProps = {
-  sceneId: number
-} & Clickable
-
-const TempClickable: React.FC<TempClickableProps> = ({
-  name,
-  shown,
-  options,
-  position,
-  sceneId,
-  afterInteractionCallback,
-}) => {
-  const executeActions = useStore((state) => state.executeActions)
-  const hideClickable = useStore((state) => state.hideClickable)
-  const { addCleanupFns } = useRunCleanupFnsOnUnmount()
-
-  const onClick = useCallback(
-    (optionName: string) => {
-      const actions =
-        options.find((option) => option.name === optionName)?.onClickActions ??
-        ([] as Action[])
-
-      hideClickable(sceneId, name)
-      let cleanupFn = executeActions(...actions)
-      addCleanupFns(cleanupFn)
-
-      if (afterInteractionCallback) {
-        cleanupFn = afterInteractionCallback()
-        addCleanupFns(cleanupFn)
-      }
-    },
-    [
-      executeActions,
-      hideClickable,
-      addCleanupFns,
-      options,
-      name,
-      sceneId,
-      afterInteractionCallback,
-    ]
-  )
-
-  if (!shown) {
-    return null
-  }
-
-  return (
-    <div className="positioned absolute flex items-center justify-around mx-auto w-1/3">
-      {options.map((option, idx) => (
-        <div
-          onClick={() => onClick(option.name)}
-          className="px-4 py-3 w-max bg-gray-100 border border-gray-700 rounded shadow"
-          key={idx}
-        >
-          {isClickableText(option) ? (
-            <span className="text-md text-gray-900 font-semibold">
-              {option.text}
-            </span>
-          ) : isClickableImg(option) ? (
-            <img
-              src={option.src}
-              alt={option.altText || ''}
-              className="object-cover"
-            />
-          ) : null}
-        </div>
-      ))}
       <style jsx>{`
         .positioned {
           top: ${position.top || 'unset'};

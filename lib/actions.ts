@@ -118,9 +118,9 @@ function show(elementKey: ElementKeys) {
       return
     }
 
-    if (position) {
-      element.position = position
-    }
+    // if (position) {
+    //   element.position = position
+    // }
     element.shown = true
 
     if (hideAfterShow) {

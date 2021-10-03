@@ -1,4 +1,4 @@
-export interface ClickableProps {
+export interface ClickableItemProps {
   action: () => void
   text?: string
   imageUrl?: string
@@ -9,7 +9,7 @@ export interface ClickableProps {
   bg?: string
 }
 
-const Clickable = ({
+const ClickableItem = ({
   action,
   text,
   imageUrl,
@@ -18,7 +18,7 @@ const Clickable = ({
   bg = 'none',
   top = '0%',
   left = '0%',
-}: ClickableProps) => {
+}: ClickableItemProps) => {
   return (
     <div
       className={`absolute cursor-pointer`}
@@ -41,4 +41,4 @@ const Clickable = ({
   )
 }
 
-export default Clickable
+export default ClickableItem
