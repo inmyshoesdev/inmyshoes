@@ -15,7 +15,11 @@ import { ActionSchema } from './actions'
 //     "position": {
 //         "left": "10px",
 //         "top": "50%"
-//     }
+//     },
+//     "dimension": {
+//         "width": "100px",
+//         "height": "100px"
+//     },
 // }
 export const ElementSchema = type({
   name: string(),
@@ -25,6 +29,12 @@ export const ElementSchema = type({
       left: optional(string()),
       bottom: optional(string()),
       right: optional(string()),
+    })
+  ),
+  dimension: optional(
+    type({
+      width: optional(string()),
+      height: optional(string()),
     })
   ),
 })
@@ -78,6 +88,10 @@ export type ImageSchema = Infer<typeof ImageSchema>
 // {
 //     "name": "yes",
 //     "text": "yes",
+//     "position": {
+//         "left": "10px",
+//         "top": "50%"
+//     },
 //     "onClick": [
 //         {
 //             "type": "nextScene",
@@ -91,6 +105,14 @@ export type ImageSchema = Infer<typeof ImageSchema>
 //     "name": "yes",
 //     "src": "/public/lala.png",
 //     "altText": "example pic",
+//     "position": {
+//         "left": "10px",
+//         "top": "50%"
+//     },
+//     "dimension": {
+//         "width": "10px",
+//         "height": "50%"
+//     },
 //     "onClick": [
 //         {
 //             "type": "showDialogue",
@@ -99,22 +121,18 @@ export type ImageSchema = Infer<typeof ImageSchema>
 //         }
 //     ]
 // }
-export const ClickableOptionSchema = intersection([
-  type({
-    name: string(),
-    onClick: array(ActionSchema),
-  }),
+export const ClickableItemSchema = intersection([
+  ElementSchema,
+  type({ onClick: array(ActionSchema) }),
   union([
     type({ text: string() }),
     type({ src: string(), altText: optional(string()) }),
   ]),
 ])
 
-export const ClickableSchema = intersection([
-  ElementSchema,
-  type({
-    options: size(array(ClickableOptionSchema), 0, Infinity),
-  }),
+export const ClickableGroupSchema = intersection([
+  type({ name: string() }),
+  type({ clickables: size(array(ClickableItemSchema), 0, Infinity) }),
 ])
 
-export type ClickableSchema = Infer<typeof ClickableSchema>
+export type ClickableGroupSchema = Infer<typeof ClickableGroupSchema>

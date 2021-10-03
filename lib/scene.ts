@@ -2,13 +2,13 @@ import { SceneSchema } from '../schema/scene'
 import { Action, makeAction } from './actions'
 import {
   allElements,
-  Clickable,
+  ClickableGroup,
   clickables,
   Dialogue,
   dialogues,
   Image,
   images,
-  makeClickable,
+  makeClickableGroup,
   makeDialogue,
   makeImage,
   makeNarration,
@@ -37,7 +37,7 @@ export interface Scene {
   [narrations]: Narration[]
   [dialogues]: Dialogue[]
   [images]: Image[]
-  [clickables]: Clickable[]
+  [clickables]: ClickableGroup[]
 
   intro: Action[]
   outro: Action[]
@@ -68,8 +68,8 @@ export function makeScene(schema: SceneSchema): Scene {
 
     [images]: schema.images.map((imageSchema) => makeImage(imageSchema)),
 
-    [clickables]: schema.clickables.map((clickableSchema) =>
-      makeClickable(clickableSchema, id)
+    [clickables]: schema.clickables.map((clickableGroupSchema) =>
+      makeClickableGroup(clickableGroupSchema, id)
     ),
 
     intro: schema.intro.map((x) => makeAction(x, id)).filter(isDefined),

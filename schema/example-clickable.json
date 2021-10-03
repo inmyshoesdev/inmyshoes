@@ -1,39 +1,38 @@
 {
-  "name": "example game",
+  "name": "Clickable Scene Example",
   "scenes": [
     {
       "id": 1,
-      "background": "https://images.unsplash.com/photo-1532689193429-29caa23e5268?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80",
+      "background": "/images/school.jpg",
       "narrations": [
         {
           "name": "intro",
-          "text": "this is a dark and scary dungeon..."
+          "text": "It started with Ken, a year 2 student from the Faculty of Arts and Social Science (FASS)."
         },
         {
-          "name": "clown decision",
-          "text": "listen to the clown?"
+          "name": "intro2",
+          "text": "Ken had always wanted to be a part of the local game industry"
         },
         {
-          "name": "win msg",
-          "text": "you won!!!"
+          "name": "intro3",
+          "text": "To improve on his resume, should he take up programming and enroll in CS1101S?"
+        },
+        {
+          "name": "win",
+          "text": "Till Next Time!"
         }
       ],
       "dialogues": [
         {
-          "name": "clown bait",
-          "character": "pennywise",
-          "text": "come over here hehe ;o)"
-        },
-        {
-          "name": "clown sad",
-          "character": "pennywise",
+          "name": "sad",
+          "character": "ken",
           "text": "damnit :("
         }
       ],
       "images": [
         {
-          "name": "clown",
-          "src": "https://images.unsplash.com/photo-1601513445498-5dbffc8d5d5a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80",
+          "name": "ken",
+          "src": "/images/schoolboy.jpg",
           "position": {
             "top": "50%",
             "left": "10px"
@@ -42,14 +41,17 @@
       ],
       "clickables": [
         {
-          "name": "clown yes/no",
+          "name": "yes/no",
           "clickables": [
             {
               "name": "yes",
-              "text": "yes",
+              "text": "Yes, for all the hardship coming my way, I say yes",
               "position": {
-                "top": "80%",
-                "left": "24%"
+                "top": "10%",
+                "left": "20%"
+              },
+              "dimension": {
+                "width": "200px"
               },
               "onClick": [
                 {
@@ -62,29 +64,47 @@
               "name": "no",
               "text": "no",
               "position": {
-                "top": "80%",
-                "left": "86%"
+                "top": "10%",
+                "left": "80%"
               },
               "onClick": [
                 {
                   "type": "showDialogue",
-                  "value": "clown sad",
+                  "value": "sad",
                   "duration": 1500,
                   "hideAfterShow": true
                 },
                 {
                   "type": "hideImage",
-                  "value": "clown",
+                  "value": "ken",
                   "duration": 0
                 },
                 {
                   "type": "hideNarration",
-                  "value": "clown decision",
+                  "value": "intro3",
                   "duration": 1200
                 },
                 {
                   "type": "showNarration",
-                  "value": "win msg"
+                  "value": "win"
+                }
+              ]
+            },
+            {
+              "name": "maybe",
+              "src": "/images/mobile.png",
+              "altText": "maybe",
+              "position": {
+                "top": "30%",
+                "left": "45%"
+              },
+              "dimension": {
+                "width": "10rem"
+              },
+              "onClick": [
+                {
+                  "type": "gotoScene",
+                  "sceneId": 2
                 }
               ]
             }
@@ -93,36 +113,30 @@
       ],
       "intro": [
         {
+          "type": "showImage",
+          "value": "ken"
+        },
+        {
           "type": "showNarration",
           "value": "intro",
           "duration": 2000,
           "hideAfterShow": true
         },
         {
-          "type": "showDialogue",
-          "value": "clown bait"
-        },
-        {
-          "type": "waitForInteraction",
-          "elementType": "dialogues",
-          "value": "clown bait"
-        },
-        {
-          "type": "hideDialogue",
-          "value": "clown bait"
-        },
-        {
-          "type": "showImage",
-          "value": "clown",
-          "duration": 1500
+          "type": "showNarration",
+          "value": "intro2",
+          "duration": 3000,
+          "hideAfterShow": true
         },
         {
           "type": "showNarration",
-          "value": "clown decision"
+          "value": "intro3",
+          "duration": 3000,
+          "hideAfterShow": true
         },
         {
           "type": "showClickable",
-          "value": "clown yes/no"
+          "value": "yes/no"
         }
       ]
     },
