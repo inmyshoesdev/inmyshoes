@@ -1,54 +1,53 @@
 import { SceneSchema } from '../schema/scene'
 import { Action, makeAction } from './actions'
 import {
+  allElements,
   Clickable,
+  clickables,
   Dialogue,
-  Element,
+  dialogues,
   Image,
+  images,
   makeClickable,
   makeDialogue,
   makeImage,
   makeNarration,
   Narration,
+  narrations,
 } from './elements'
 import { State } from './state'
 import { isDefined } from './utils'
 
-export type ElementKeys = NonNullable<
-  {
-    [Key in keyof Scene]: Scene[Key] extends Element[] ? Key : never
-  }[keyof Scene]
->
+export type ElementKeys = typeof allElements[number]
+
+export function isElementKey(s: string): s is ElementKeys {
+  return (allElements as readonly string[]).includes(s)
+}
 
 export type ElementValues = Scene[ElementKeys][0]
 
-export type KeyInSceneOf<T extends ElementValues> = {
-  [Key in keyof Scene]: T[] extends Scene[Key]
-    ? Scene[Key] extends T[]
-      ? Key
-      : never
-    : never
-}[ElementKeys]
+export type ElementValueFor<T extends ElementKeys> = Scene[T][0]
 
 export interface Scene {
   id: number
   background: string
   backgroundAltText?: string | undefined
 
-  narrations: Narration[]
-  dialogues: Dialogue[]
-  images: Image[]
-  clickables: Clickable[]
+  // use the defined element keys to index Scene
+  [narrations]: Narration[]
+  [dialogues]: Dialogue[]
+  [images]: Image[]
+  [clickables]: Clickable[]
 
   intro: Action[]
   outro: Action[]
 
   state: State
 
-  getElement<T extends ElementValues>(
+  getElement<T extends ElementKeys>(
     name: string,
-    type: KeyInSceneOf<T>
-  ): T | undefined
+    type: T
+  ): ElementValueFor<T> | undefined
 }
 
 export function makeScene(schema: SceneSchema): Scene {
@@ -59,17 +58,17 @@ export function makeScene(schema: SceneSchema): Scene {
     background: schema.background,
     backgroundAltText: schema.backgroundAltText,
 
-    narrations: schema.narrations.map((narrationSchema) =>
+    [narrations]: schema.narrations.map((narrationSchema) =>
       makeNarration(narrationSchema)
     ),
 
-    dialogues: schema.dialogues.map((dialogueSchema) =>
+    [dialogues]: schema.dialogues.map((dialogueSchema) =>
       makeDialogue(dialogueSchema)
     ),
 
-    images: schema.images.map((imageSchema) => makeImage(imageSchema)),
+    [images]: schema.images.map((imageSchema) => makeImage(imageSchema)),
 
-    clickables: schema.clickables.map((clickableSchema) =>
+    [clickables]: schema.clickables.map((clickableSchema) =>
       makeClickable(clickableSchema, id)
     ),
 
@@ -78,11 +77,11 @@ export function makeScene(schema: SceneSchema): Scene {
 
     state: { ...(schema.state ?? {}) },
 
-    getElement<T extends ElementValues>(
+    getElement<T extends ElementKeys>(
       name: string,
-      type: KeyInSceneOf<T>
-    ): T | undefined {
-      return (this[type] as T[]).find((x) => x.name === name)
+      type: T
+    ): ElementValueFor<T> | undefined {
+      return (this[type] as ElementValueFor<T>[])?.find((x) => x.name === name)
     },
   }
 }

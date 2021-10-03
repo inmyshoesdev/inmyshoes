@@ -92,9 +92,16 @@
                 },
                 {
                     "type": "showDialogue",
-                    "value": "clown bait",
-                    "duration": 2000,
-                    "hideAfterShow": true
+                    "value": "clown bait"
+                },
+                {
+                    "type": "waitForInteraction",
+                    "elementType": "dialogues",
+                    "value": "clown bait"
+                },
+                {
+                    "type": "hideDialogue",
+                    "value": "clown bait"
                 },
                 {
                     "type": "showImage",
