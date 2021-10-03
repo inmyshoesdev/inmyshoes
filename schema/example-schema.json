@@ -21,13 +21,21 @@
       "dialogues": [
         {
           "name": "clown bait",
-          "character": "pennywise",
-          "text": "come over here hehe ;o)"
+          "speeches": [
+            {
+              "character": "pennywise",
+              "text": "come over here hehe ;o)"
+            }
+          ]
         },
         {
           "name": "clown sad",
-          "character": "pennywise",
-          "text": "damnit :("
+          "speeches": [
+            {
+              "character": "pennywise",
+              "text": "damnit :("
+            }
+          ]
         }
       ],
       "images": [

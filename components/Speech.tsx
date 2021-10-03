@@ -16,14 +16,14 @@ const Speech: React.FC<SpeechProps> = ({
   onClick,
 }) => {
   return (
-    <div className="absolute bottom-5 flex items-center justify-evenly w-full">
+    <div className="absolute bottom-0 flex items-center justify-evenly w-full">
       <Box height={400} className="inline-block w-1/5">
         {!isMainCharacter && (
           <img src={characterImg} alt={character} className="m-auto h-full" />
         )}
       </Box>
       <div
-        className="inline-block p-3 w-3/5 h-40 border border-gray-200 rounded shadow cursor-pointer"
+        className="inline-block p-3 w-3/5 h-40 bg-white border border-gray-200 rounded shadow cursor-pointer"
         onClick={onClick}
       >
         <p className="text-lg font-bold">{character}</p>

@@ -3,7 +3,7 @@
     "scenes": [
         {
             "id": 1,
-            "background": "",
+            "background": "/images/school.jpg",
             "narrations": [
                 {
                     "name": "intro",
@@ -35,23 +35,7 @@
                     }
                 }
             ],
-            "clickables": [
-                {
-                    "name": "restart",
-                    "options": [
-                        {
-                            "name": "yes",
-                            "text": "restart?",
-                            "onClick": [
-                                {
-                                    "type": "gotoScene",
-                                    "sceneId": 1
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ],
+            "clickables": [],
             "intro": [
                 {
                     "type": "showNarration",
@@ -77,14 +61,14 @@
         },
         {
             "id": 2,
-            "background": "",
+            "background": "/images/school.jpg",
             "narrations": [],
             "dialogues": [],
             "images": [],
             "clickables": [
                 {
                     "name": "restart",
-                    "options": [
+                    "clickables": [
                         {
                             "name": "yes",
                             "text": "restart?",
