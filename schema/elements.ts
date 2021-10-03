@@ -7,6 +7,7 @@ import {
   string,
   type,
   union,
+  object,
 } from 'superstruct'
 import { ActionSchema } from './actions'
 
@@ -45,16 +46,28 @@ export const NarrationSchema = intersection([
 export type NarrationSchema = Infer<typeof NarrationSchema>
 
 // {
-//     "name": "hello",
-//     "text": "hello world",
-//     "character": "paul",
+//   "name": "hello",
+//   "speeches": [
+//     {
+//         "character": "Julie",
+//         "text": "Hello"
+//     },
+//     {
+//         "character": "James",
+//         "text": "Hey!"
+//     }
+//   ]
 // }
+export const SpeechSchema = object({
+  text: string(),
+  character: string(),
+})
+
+export type SpeechSchema = Infer<typeof SpeechSchema>
+
 export const DialogueSchema = intersection([
   ElementSchema,
-  type({
-    text: string(),
-    character: string(),
-  }),
+  type({ speeches: array(SpeechSchema) }),
 ])
 
 export type DialogueSchema = Infer<typeof DialogueSchema>

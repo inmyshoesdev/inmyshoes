@@ -3,33 +3,23 @@
     "scenes": [
         {
             "id": 1,
-            "background": "/images/school.jpg",
-            "mainCharacter": {
-                "name": "Julie",
-                "images": {
-                    "default": "/images/Julie.svg"
-                },
-                "info": ""
-            },
-            "npcs": [
+            "background": "",
+            "narrations": [
                 {
-                    "name": "Jason",
-                    "images": {
-                        "default": "/images/Jason.svg"
-                    }
+                    "name": "intro",
+                    "text": "this is an example dialogue..."
                 }
             ],
-            "narrations": [],
             "dialogues": [
                 {
-                    "name": "julie_james_greet",
+                    "name": "julie_jason_greet",
                     "speeches": [
                         {
                             "character": "Julie",
                             "text": "Hello"
                         },
                         {
-                            "character": "James",
+                            "character": "Jason",
                             "text": "Hey!"
                         }
                     ]
@@ -45,29 +35,10 @@
                     }
                 }
             ],
-            "clickables": [],
-            "intro": [
-                {
-                    "type": "showDialogue",
-                    "value": "julie_james_greet",
-                    "hideAfterShow": true
-                },
-                {
-                    "type": "showImage",
-                    "value": "ken"
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "background": "https://i.kym-cdn.com/entries/icons/original/000/029/198/Dark_Souls_You_Died_Screen_-_Completely_Black_Screen_0-2_screenshot.png",
-            "narrations": [],
-            "dialogues": [],
-            "images": [],
             "clickables": [
                 {
                     "name": "restart",
-                    "clickables": [
+                    "options": [
                         {
                             "name": "yes",
                             "text": "restart?",
@@ -83,9 +54,51 @@
             ],
             "intro": [
                 {
-                    "type": "wait",
-                    "duration": 1500
+                    "type": "showNarration",
+                    "value": "intro",
+                    "duration": 2000,
+                    "hideAfterShow": true
                 },
+                {
+                    "type": "showDialogue",
+                    "value": "julie_jason_greet",
+                    "hideAfterShow": true
+                },
+                {
+                    "type": "waitForInteraction",
+                    "elementType": "dialogues",
+                    "value": "julie_jason_greet"
+                },
+                {
+                    "type": "gotoScene",
+                    "sceneId": 2
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "background": "",
+            "narrations": [],
+            "dialogues": [],
+            "images": [],
+            "clickables": [
+                {
+                    "name": "restart",
+                    "options": [
+                        {
+                            "name": "yes",
+                            "text": "restart?",
+                            "onClick": [
+                                {
+                                    "type": "gotoScene",
+                                    "sceneId": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "intro": [
                 {
                     "type": "showClickable",
                     "value": "restart"

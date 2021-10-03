@@ -1,51 +1,59 @@
-import { Box } from '@chakra-ui/react'
+import { Box, Button } from '@chakra-ui/react'
+import React, { useEffect, useState } from 'react'
 import { is } from 'superstruct'
-import { CharacterSchema, MainCharacterSchema } from '../schema/characters'
-import { DialogueScema } from '../schema/elements'
-
-export interface DialogueProps {
-  dialogue: DialogueScema
-  character: CharacterSchema
-  onClick?: () => void
-}
+import { useAfterInteractionCallback } from '../hooks/useAfterInteractionCallback'
+import { Dialogue as DialogueProps } from '../lib/elements'
+import Speech, { SpeechProps } from './Speech'
 
 const Dialogue: React.FC<DialogueProps> = ({
-  dialogue,
-  character,
-  onClick,
+  shown,
+  speeches,
+  afterInteractionCallback,
 }) => {
-  return (
-    <div className="absolute bottom-5 flex items-center justify-evenly w-full">
-      <Box height={400} className="inline-block w-1/5">
-        {!is(character, MainCharacterSchema) && (
-          <img
-            src={character.images.default}
-            alt="npc"
-            className="m-auto h-full"
-          />
-        )}
-      </Box>
-      <div
-        className="inline-block p-3 w-3/5 h-40 border border-gray-200 rounded shadow cursor-pointer"
-        onClick={onClick}
-      >
-        <p className="text-lg font-bold">{dialogue.character}</p>
-        <p className="mt-2">{dialogue.text}</p>
-      </div>
+  const afterAction = useAfterInteractionCallback(afterInteractionCallback)
+  const [speechIdx, setSpeechIdx] = useState(-1)
 
-      <Box height={400} className="inline-block w-1/5">
-        {is(character, MainCharacterSchema) && (
-          <img
-            src={character.images.default}
-            height={400}
-            width={141}
-            alt="main character"
-            className="m-auto h-full"
-          />
-        )}
-      </Box>
+  useEffect(() => {
+    if (shown && speeches.length > 0) setSpeechIdx(0)
+  }, [shown, speeches])
+
+  useEffect(() => {
+    if (speechIdx >= speeches.length) afterAction()
+  }, [speechIdx])
+
+  function nextDialogue() {
+    if (speechIdx < speeches.length) {
+      setSpeechIdx(speechIdx + 1)
+    }
+  }
+
+  function getSpeech(): SpeechProps {
+    const speech = speeches[speechIdx]
+    return {
+      text: speech.text,
+      character: speech.character,
+      characterImg: testCharacterImg[speech.character],
+      isMainCharacter: isMainCharacter[speech.character],
+      onClick: nextDialogue,
+    }
+  }
+
+  return (
+    <div className="w-screen h-screen">
+      {speechIdx >= 0 && speechIdx < speeches.length && (
+        <Speech {...getSpeech()} />
+      )}
     </div>
   )
 }
 
 export default Dialogue
+
+const testCharacterImg: { [name: string]: string } = {
+  Julie: '/images/Julie.svg',
+  Jason: '/images/Jason.svg',
+}
+const isMainCharacter: { [name: string]: boolean } = {
+  Julie: true,
+  Jason: false,
+}

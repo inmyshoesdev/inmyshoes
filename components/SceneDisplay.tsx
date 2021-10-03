@@ -1,10 +1,9 @@
-import { useCallback, useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { useAfterInteractionCallback } from '../hooks/useAfterInteractionCallback'
 import { useRunCleanupFnsOnUnmount } from '../hooks/useRunCleanupFnsOnUnmount'
 import { Action } from '../lib/actions'
 import {
   Clickable,
-  Dialogue,
   Image,
   isClickableImg,
   isClickableText,
@@ -12,6 +11,7 @@ import {
 } from '../lib/elements'
 import { Scene } from '../lib/scene'
 import { useStore } from '../stores/store'
+import Dialogue from './Dialogue'
 
 type SceneProps = {
   scene: Scene
@@ -32,7 +32,7 @@ const SceneDisplay: React.FC<SceneProps> = ({ scene }) => {
   return (
     <div className="relative w-full h-full overflow-hidden">
       <img
-        className="object-contain w-full m-auto"
+        className="m-auto w-full object-contain"
         src={scene.background}
         alt={scene.backgroundAltText ?? ''}
       />
@@ -40,7 +40,7 @@ const SceneDisplay: React.FC<SceneProps> = ({ scene }) => {
         <TempNarration {...narration} key={narration.name} />
       ))}
       {scene.dialogues.map((dialogue) => (
-        <TempDialogue {...dialogue} key={dialogue.name} />
+        <Dialogue {...dialogue} key={dialogue.name} />
       ))}
       {scene.images.map((image) => (
         <TempImage {...image} key={image.name}></TempImage>
@@ -70,10 +70,10 @@ const TempNarration: React.FC<Narration> = ({
 
   return (
     <div
-      className="absolute px-4 py-3 m-auto bg-gray-100 border border-gray-700 rounded positioned h-max w-max"
+      className="positioned h-max absolute m-auto px-4 py-3 w-max bg-gray-100 border border-gray-700 rounded"
       onClick={handleInteraction}
     >
-      <span className="font-semibold text-gray-900 text-md">{text}</span>
+      <span className="text-md text-gray-900 font-semibold">{text}</span>
       <style jsx>{`
         .positioned {
           top: ${position.top || '10%'};
@@ -86,45 +86,45 @@ const TempNarration: React.FC<Narration> = ({
   )
 }
 
-const TempDialogue: React.FC<Dialogue> = ({
-  shown,
-  text,
-  character,
-  position,
-  afterInteractionCallback,
-}) => {
-  const handleInteraction = useAfterInteractionCallback(
-    afterInteractionCallback
-  )
+// const TempDialogue: React.FC<Dialogue> = ({
+//   shown,
+//   text,
+//   character,
+//   position,
+//   afterInteractionCallback,
+// }) => {
+//   const handleInteraction = useAfterInteractionCallback(
+//     afterInteractionCallback
+//   )
 
-  if (!shown) {
-    return null
-  }
+//   if (!shown) {
+//     return null
+//   }
 
-  return (
-    <div
-      className="absolute px-4 py-3 m-auto bg-gray-100 border border-gray-700 rounded positioned h-max w-max"
-      onClick={handleInteraction}
-    >
-      <div className="-mt-1">
-        <span className="text-sm font-bold text-gray-500 leading-wide">
-          {character}
-        </span>
-      </div>
-      <div className="px-8">
-        <span className="font-semibold text-gray-900 text-md">{text}</span>
-      </div>
-      <style jsx>{`
-        .positioned {
-          top: ${position.top || 'unset'};
-          right: ${position.right || '0px'};
-          left: ${position.left || '0px'};
-          bottom: ${position.bottom || '5%'};
-        }
-      `}</style>
-    </div>
-  )
-}
+//   return (
+//     <div
+//       className="absolute px-4 py-3 m-auto bg-gray-100 border border-gray-700 rounded positioned h-max w-max"
+//       onClick={handleInteraction}
+//     >
+//       <div className="-mt-1">
+//         <span className="text-sm font-bold text-gray-500 leading-wide">
+//           {character}
+//         </span>
+//       </div>
+//       <div className="px-8">
+//         <span className="font-semibold text-gray-900 text-md">{text}</span>
+//       </div>
+//       <style jsx>{`
+//         .positioned {
+//           top: ${position.top || 'unset'};
+//           right: ${position.right || '0px'};
+//           left: ${position.left || '0px'};
+//           bottom: ${position.bottom || '5%'};
+//         }
+//       `}</style>
+//     </div>
+//   )
+// }
 
 const TempImage: React.FC<Image> = ({
   shown,
@@ -142,7 +142,7 @@ const TempImage: React.FC<Image> = ({
   }
 
   return (
-    <div className="absolute w-1/5 positioned" onClick={handleInteraction}>
+    <div className="positioned absolute w-1/5" onClick={handleInteraction}>
       <img
         src={src}
         alt={altText || ''}
@@ -207,15 +207,15 @@ const TempClickable: React.FC<TempClickableProps> = ({
   }
 
   return (
-    <div className="absolute flex items-center justify-around w-1/3 mx-auto positioned">
+    <div className="positioned absolute flex items-center justify-around mx-auto w-1/3">
       {options.map((option, idx) => (
         <div
           onClick={() => onClick(option.name)}
-          className="px-4 py-3 bg-gray-100 border border-gray-700 rounded shadow w-max"
+          className="px-4 py-3 w-max bg-gray-100 border border-gray-700 rounded shadow"
           key={idx}
         >
           {isClickableText(option) ? (
-            <span className="font-semibold text-gray-900 text-md">
+            <span className="text-md text-gray-900 font-semibold">
               {option.text}
             </span>
           ) : isClickableImg(option) ? (
