@@ -1,4 +1,6 @@
 import { useCallback, useEffect } from 'react'
+import { useAfterInteractionCallback } from '../hooks/useAfterInteractionCallback'
+import { useRunCleanupFnsOnUnmount } from '../hooks/useRunCleanupFnsOnUnmount'
 import { Action } from '../lib/actions'
 import {
   Clickable,
@@ -52,13 +54,25 @@ const SceneDisplay: React.FC<SceneProps> = ({ scene }) => {
 
 export default SceneDisplay
 
-const TempNarration: React.FC<Narration> = ({ shown, text, position }) => {
+const TempNarration: React.FC<Narration> = ({
+  shown,
+  text,
+  position,
+  afterInteractionCallback,
+}) => {
+  const handleInteraction = useAfterInteractionCallback(
+    afterInteractionCallback
+  )
+
   if (!shown) {
     return null
   }
 
   return (
-    <div className="absolute px-4 py-3 m-auto bg-gray-100 border border-gray-700 rounded positioned h-max w-max">
+    <div
+      className="absolute px-4 py-3 m-auto bg-gray-100 border border-gray-700 rounded positioned h-max w-max"
+      onClick={handleInteraction}
+    >
       <span className="font-semibold text-gray-900 text-md">{text}</span>
       <style jsx>{`
         .positioned {
@@ -77,13 +91,21 @@ const TempDialogue: React.FC<Dialogue> = ({
   text,
   character,
   position,
+  afterInteractionCallback,
 }) => {
+  const handleInteraction = useAfterInteractionCallback(
+    afterInteractionCallback
+  )
+
   if (!shown) {
     return null
   }
 
   return (
-    <div className="absolute px-4 py-3 m-auto bg-gray-100 border border-gray-700 rounded positioned h-max w-max">
+    <div
+      className="absolute px-4 py-3 m-auto bg-gray-100 border border-gray-700 rounded positioned h-max w-max"
+      onClick={handleInteraction}
+    >
       <div className="-mt-1">
         <span className="text-sm font-bold text-gray-500 leading-wide">
           {character}
@@ -104,13 +126,23 @@ const TempDialogue: React.FC<Dialogue> = ({
   )
 }
 
-const TempImage: React.FC<Image> = ({ shown, src, altText, position }) => {
+const TempImage: React.FC<Image> = ({
+  shown,
+  src,
+  altText,
+  position,
+  afterInteractionCallback,
+}) => {
+  const handleInteraction = useAfterInteractionCallback(
+    afterInteractionCallback
+  )
+
   if (!shown) {
     return null
   }
 
   return (
-    <div className="absolute w-1/5 positioned">
+    <div className="absolute w-1/5 positioned" onClick={handleInteraction}>
       <img
         src={src}
         alt={altText || ''}
@@ -138,19 +170,36 @@ const TempClickable: React.FC<TempClickableProps> = ({
   options,
   position,
   sceneId,
+  afterInteractionCallback,
 }) => {
   const executeActions = useStore((state) => state.executeActions)
   const hideClickable = useStore((state) => state.hideClickable)
+  const { addCleanupFns } = useRunCleanupFnsOnUnmount()
 
   const onClick = useCallback(
     (optionName: string) => {
       const actions =
         options.find((option) => option.name === optionName)?.onClickActions ??
         ([] as Action[])
+
       hideClickable(sceneId, name)
-      executeActions(...actions)
+      let cleanupFn = executeActions(...actions)
+      addCleanupFns(cleanupFn)
+
+      if (afterInteractionCallback) {
+        cleanupFn = afterInteractionCallback()
+        addCleanupFns(cleanupFn)
+      }
     },
-    [executeActions, hideClickable, options, name, sceneId]
+    [
+      executeActions,
+      hideClickable,
+      addCleanupFns,
+      options,
+      name,
+      sceneId,
+      afterInteractionCallback,
+    ]
   )
 
   if (!shown) {

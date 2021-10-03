@@ -7,6 +7,14 @@ import {
 import { Action, makeAction } from './actions'
 import { isDefined } from './utils'
 
+// Add a key here and keep the `AllElements` list below in-sync when adding new elements
+export const narrations = 'narrations'
+export const dialogues = 'dialogues'
+export const images = 'images'
+export const clickables = 'clickables'
+
+export const allElements = [narrations, dialogues, images, clickables] as const
+
 export type Position = {
   top?: string | undefined
   left?: string | undefined
@@ -20,6 +28,7 @@ export interface Element {
   shown: boolean
   name: string
   position: Position
+  afterInteractionCallback?: () => () => void
 }
 
 export interface Narration extends Element {

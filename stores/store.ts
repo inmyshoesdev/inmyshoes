@@ -1,6 +1,12 @@
 import produce from 'immer'
 import create from 'zustand'
-import { Action, FinishAction, isCallable } from '../lib/actions'
+import {
+  Action,
+  afterInteractionCallback,
+  FinishAction,
+  isCallable,
+  waitForInteraction,
+} from '../lib/actions'
 import { Clickable } from '../lib/elements'
 import { EmptyGame, Game } from '../lib/game'
 
@@ -49,7 +55,7 @@ export const useStore = create<GameStore>((set) => ({
       produce<GameStore>((state) => {
         const clickable = state.game
           .getScene(sceneId)
-          ?.getElement<Clickable>(name, 'clickables')
+          ?.getElement(name, 'clickables')
 
         if (clickable) {
           clickable.shown = false
@@ -58,17 +64,57 @@ export const useStore = create<GameStore>((set) => ({
     )
   },
 
-  executeActions: (...actions: Action[]) => {
-    let res = actions.reduce<{
-      timing: number
-      timerIds: ReturnType<typeof setTimeout>[]
+  executeActions: (...allActions: Action[]) => {
+    // compute the appropriate timings for each action to trigger
+    let { actions } = allActions.reduce<{
+      nextTiming: number
+      actions: { timing: number; action: Action }[]
     }>(
       (accum, action) => {
-        const { timing, timerIds } = accum
-        const { duration, args, sceneId, execute } = action
+        const { nextTiming, actions } = accum
+        const { name, duration, args } = action
 
+        const shouldWaitForInteraction = name === waitForInteraction
+
+        // if this action should wait for click, reset the next timing.
+        // the next action will be triggered via click instead of via
+        // the timing
+        if (shouldWaitForInteraction) {
+          return {
+            nextTiming: 0,
+            actions: [...actions, { timing: nextTiming, action }],
+          }
+        }
+
+        return {
+          nextTiming: nextTiming + duration,
+          actions: [...actions, { timing: nextTiming, action }],
+        }
+      },
+      { nextTiming: 0, actions: [] }
+    )
+
+    // perform reduce starting from the back
+    let res = actions.reverse().reduce<(() => () => void)[]>((accum, elem) => {
+      const { timing, action } = elem
+      const { name, duration, args, sceneId, execute } = action
+      let afterInteractionCallback: (() => () => void) | undefined = undefined
+
+      const shouldWaitForInteraction = name === waitForInteraction
+
+      if (shouldWaitForInteraction) {
+        // if this action should wait for interaction, then we pass the actions
+        // to execute after the click as a callback
+        afterInteractionCallback = () => {
+          const cleanupFns = accum.map((fn) => fn())
+          return () => cleanupFns.forEach((fn) => fn())
+        }
+      }
+
+      // package the actions into a callback that returns a cleanup function
+      let fn = () => {
+        let timerIds: ReturnType<typeof setTimeout>[] = []
         let finishAction: FinishAction = undefined
-        let newTimerIds = []
 
         // schedule the action at the specified timing
         let id = setTimeout(() => {
@@ -76,7 +122,13 @@ export const useStore = create<GameStore>((set) => ({
             const newGame = produce<Game>(state.game, (game) => {
               const scene = game.getScene(sceneId)
               if (scene) {
-                finishAction = execute({ duration, args, scene, game })
+                finishAction = execute({
+                  duration,
+                  args,
+                  scene,
+                  game,
+                  afterInteractionCallback,
+                })
               }
             })
 
@@ -84,9 +136,9 @@ export const useStore = create<GameStore>((set) => ({
           })
         }, timing)
 
-        newTimerIds.push(id)
+        timerIds.push(id)
 
-        // schedule an action at the end if necessary
+        // schedule a finish action at the end if necessary
         id = setTimeout(() => {
           if (isCallable(finishAction)) {
             const executeFinish = finishAction
@@ -103,19 +155,18 @@ export const useStore = create<GameStore>((set) => ({
           }
         }, timing + duration)
 
-        newTimerIds.push(id)
+        timerIds.push(id)
 
-        return {
-          timing: timing + duration,
-          timerIds: [...timerIds, ...newTimerIds],
-        }
-      },
-      {
-        timing: 0,
-        timerIds: [],
+        return () => timerIds.forEach(clearTimeout)
       }
-    )
 
-    return () => res.timerIds.forEach(clearTimeout)
+      // if we should wait for interaction, we stop accumulating the current
+      // accumulated functions, those will be executed after the click
+      return shouldWaitForInteraction ? [fn] : [...accum, fn]
+    }, [])
+
+    const cleanupFns = res.map((fn) => fn())
+
+    return () => cleanupFns.forEach((fn) => fn())
   },
 }))
