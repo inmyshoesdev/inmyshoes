@@ -9,7 +9,7 @@ import {
 } from 'superstruct'
 import { ActionSchema } from './actions'
 import {
-  ClickableSchema,
+  ClickableGroupSchema,
   DialogueSchema,
   ImageSchema,
   NarrationSchema,
@@ -24,7 +24,7 @@ export const SceneSchema = object({
   narrations: defaulted(array(NarrationSchema), () => []),
   dialogues: defaulted(array(DialogueSchema), () => []),
   images: defaulted(array(ImageSchema), () => []),
-  clickables: defaulted(array(ClickableSchema), () => []),
+  clickables: defaulted(array(ClickableGroupSchema), () => []),
 
   intro: defaulted(array(ActionSchema), () => []),
   outro: defaulted(array(ActionSchema), () => []),

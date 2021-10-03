@@ -1,4 +1,4 @@
-import Clickable from '../../components/Clickable'
+import Clickable from '../../components/ClickableItem'
 
 const ClickableExample = () => {
   return (
