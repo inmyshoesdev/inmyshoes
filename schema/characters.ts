@@ -1,16 +1,33 @@
-import { intersection, object, record, string, type } from 'superstruct'
+import {
+  Infer,
+  intersection,
+  literal,
+  object,
+  optional,
+  record,
+  string,
+  type,
+} from 'superstruct'
 
-// To be fleshed out
-export const NPCSchema = object({
+export const CharacterSchema = type({
   name: string(),
   images: intersection([
     // must be a struct of strings to strings with a DEFAULT image
-    type({ DEFAULT: string() }),
+    type({ default: string() }),
     record(string(), string()),
   ]),
 })
+export type CharacterSchema = Infer<typeof CharacterSchema>
 
 // To be fleshed out
-export const MainCharacterSchema = type({
-  name: string(),
-})
+export const NPCSchema = intersection([CharacterSchema])
+export type NPCSchema = Infer<typeof NPCSchema>
+
+// To be fleshed out
+export const MainCharacterSchema = intersection([
+  CharacterSchema,
+  type({
+    info: string(),
+  }),
+])
+export type MainCharacterSchema = Infer<typeof MainCharacterSchema>

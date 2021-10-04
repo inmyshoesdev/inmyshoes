@@ -4,22 +4,20 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      minHeight: (theme) => theme('height'),
       keyframes: {
         wiggle: {
           '0%, 100%': { transform: 'rotate(-3deg)' },
           '50%': { transform: 'rotate(3deg)' },
-        }
+        },
       },
       animation: {
         wiggle: 'wiggle 1s ease-in-out infinite',
-      }
+      },
     },
   },
   variants: {
-    extend: {
-    },
+    extend: {},
   },
-  plugins: [
-    require('@tailwindcss/forms')
-  ],
+  plugins: [require('@tailwindcss/forms')],
 }

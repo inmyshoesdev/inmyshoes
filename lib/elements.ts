@@ -3,6 +3,7 @@ import {
   DialogueSchema,
   ImageSchema,
   NarrationSchema,
+  SpeechSchema,
 } from '../schema/elements'
 import { Action, makeAction } from './actions'
 import { isDefined } from './utils'
@@ -49,9 +50,21 @@ export function makeNarration(schema: NarrationSchema): Narration {
   }
 }
 
-export interface Dialogue extends Element {
+// TODO: Change character from string to object
+export interface Speech {
   text: string
   character: string
+}
+
+export function makeSpeech(schema: SpeechSchema): Speech {
+  return {
+    text: schema.text,
+    character: schema.character,
+  }
+}
+
+export interface Dialogue extends Element {
+  speeches: Speech[]
 }
 
 export function makeDialogue(schema: DialogueSchema): Dialogue {
@@ -59,8 +72,7 @@ export function makeDialogue(schema: DialogueSchema): Dialogue {
     shown: false,
     name: schema.name,
     position: schema.position || { bottom: '10%' }, // TODO: settle on a proper default position
-    text: schema.text,
-    character: schema.character,
+    speeches: schema.speeches.map((speech) => makeSpeech(speech)),
   }
 }
 

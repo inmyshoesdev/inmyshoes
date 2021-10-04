@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
 import { useAfterInteractionCallback } from '../hooks/useAfterInteractionCallback'
-import { Dialogue, Image, Narration } from '../lib/elements'
+import { Image, Narration } from '../lib/elements'
 import { Scene } from '../lib/scene'
 import { useStore } from '../stores/store'
 import ClickableGroup from './ClickableGroup'
+import Dialogue from './Dialogue'
 
 type SceneProps = {
   scene: Scene
@@ -32,7 +33,7 @@ const SceneDisplay: React.FC<SceneProps> = ({ scene }) => {
         <TempNarration {...narration} key={narration.name} />
       ))}
       {scene.dialogues.map((dialogue) => (
-        <TempDialogue {...dialogue} key={dialogue.name} />
+        <Dialogue {...dialogue} key={dialogue.name} />
       ))}
       {scene.images.map((image) => (
         <TempImage {...image} key={image.name}></TempImage>
@@ -76,46 +77,6 @@ const TempNarration: React.FC<Narration> = ({
           right: ${position.right || '0px'};
           left: ${position.left || '0px'};
           bottom: ${position.bottom || 'unset'};
-        }
-      `}</style>
-    </div>
-  )
-}
-
-const TempDialogue: React.FC<Dialogue> = ({
-  shown,
-  text,
-  character,
-  position,
-  afterInteractionCallback,
-}) => {
-  const handleInteraction = useAfterInteractionCallback(
-    afterInteractionCallback
-  )
-
-  if (!shown) {
-    return null
-  }
-
-  return (
-    <div
-      className="positioned h-max absolute m-auto px-4 py-3 w-max bg-gray-100 border border-gray-700 rounded"
-      onClick={handleInteraction}
-    >
-      <div className="-mt-1">
-        <span className="leading-wide text-gray-500 text-sm font-bold">
-          {character}
-        </span>
-      </div>
-      <div className="px-8">
-        <span className="text-md text-gray-900 font-semibold">{text}</span>
-      </div>
-      <style jsx>{`
-        .positioned {
-          top: ${position.top || 'unset'};
-          right: ${position.right || '0px'};
-          left: ${position.left || '0px'};
-          bottom: ${position.bottom || '5%'};
         }
       `}</style>
     </div>

@@ -1,0 +1,42 @@
+import { Box } from '@chakra-ui/react'
+
+export interface SpeechProps {
+  text: string
+  character: string
+  characterImg: string
+  isMainCharacter?: boolean
+  onClick?: () => void
+}
+
+const Speech: React.FC<SpeechProps> = ({
+  text,
+  character,
+  characterImg,
+  isMainCharacter = false,
+  onClick,
+}) => {
+  return (
+    <div className="absolute bottom-0 flex items-center justify-evenly w-full">
+      <Box height={400} className="inline-block w-1/5">
+        {!isMainCharacter && (
+          <img src={characterImg} alt={character} className="m-auto h-full" />
+        )}
+      </Box>
+      <div
+        className="inline-block p-3 w-3/5 h-40 bg-white border border-gray-200 rounded shadow cursor-pointer"
+        onClick={onClick}
+      >
+        <p className="text-lg font-bold">{character}</p>
+        <p className="mt-2">{text}</p>
+      </div>
+
+      <Box height={400} className="inline-block w-1/5">
+        {isMainCharacter && (
+          <img src={characterImg} alt={character} className="m-auto h-full" />
+        )}
+      </Box>
+    </div>
+  )
+}
+
+export default Speech

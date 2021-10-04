@@ -1,0 +1,93 @@
+{
+    "name": "Clickable Scene Example",
+    "scenes": [
+        {
+            "id": 1,
+            "background": "/images/school.jpg",
+            "narrations": [
+                {
+                    "name": "intro",
+                    "text": "this is an example dialogue..."
+                }
+            ],
+            "dialogues": [
+                {
+                    "name": "julie_jason_greet",
+                    "speeches": [
+                        {
+                            "character": "Julie",
+                            "text": "Hello"
+                        },
+                        {
+                            "character": "Jason",
+                            "text": "Hey!"
+                        }
+                    ]
+                }
+            ],
+            "images": [
+                {
+                    "name": "Jason",
+                    "src": "/images/Jason.svg",
+                    "position": {
+                        "top": "50%",
+                        "left": "10px"
+                    }
+                }
+            ],
+            "clickables": [],
+            "intro": [
+                {
+                    "type": "showNarration",
+                    "value": "intro",
+                    "duration": 2000,
+                    "hideAfterShow": true
+                },
+                {
+                    "type": "showDialogue",
+                    "value": "julie_jason_greet",
+                    "hideAfterShow": true
+                },
+                {
+                    "type": "waitForInteraction",
+                    "elementType": "dialogues",
+                    "value": "julie_jason_greet"
+                },
+                {
+                    "type": "gotoScene",
+                    "sceneId": 2
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "background": "/images/school.jpg",
+            "narrations": [],
+            "dialogues": [],
+            "images": [],
+            "clickables": [
+                {
+                    "name": "restart",
+                    "clickables": [
+                        {
+                            "name": "yes",
+                            "text": "restart?",
+                            "onClick": [
+                                {
+                                    "type": "gotoScene",
+                                    "sceneId": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "intro": [
+                {
+                    "type": "showClickable",
+                    "value": "restart"
+                }
+            ]
+        }
+    ]
+}

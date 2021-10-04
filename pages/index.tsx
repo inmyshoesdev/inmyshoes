@@ -21,6 +21,9 @@ const Home: NextPage = () => {
         <Link href="/examples/clickable">
           <a className="text-blue-600">clickable</a>
         </Link>
+        <Link href="/examples/dialogue">
+          <a className="text-blue-600">dialogue</a>
+        </Link>
         <h2 className="text-lg">
           For testing the game, go to{' '}
           <Link href="/testing">
