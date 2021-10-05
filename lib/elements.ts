@@ -6,6 +6,7 @@ import {
   SpeechSchema,
 } from '../schema/elements'
 import { Action, makeAction } from './actions'
+import { Character, MainCharacter } from './character'
 import { isDefined } from './utils'
 
 // Add a key here and keep the `AllElements` list below in-sync when adding new elements
@@ -54,12 +55,33 @@ export function makeNarration(schema: NarrationSchema): Narration {
 export interface Speech {
   text: string
   character: string
+  characterImage: string
+  isMainCharacter: boolean
 }
 
-export function makeSpeech(schema: SpeechSchema): Speech {
+export function makeSpeech(
+  schema: SpeechSchema,
+  characters: Character[]
+): Speech {
+  const character = characters.find(
+    (character) => character.name === schema.character
+  )
+  if (!character) throw `no character ${schema.character} found!`
+
+  let characterImage: string = ''
+  if (schema.variant) {
+    characterImage = character.images[schema.variant]
+  }
+  if (!characterImage) characterImage = character.images.default
+
+  let isMainCharacter = false
+  if ('info' in character) isMainCharacter = true
+
   return {
     text: schema.text,
     character: schema.character,
+    characterImage: characterImage,
+    isMainCharacter: isMainCharacter,
   }
 }
 
@@ -67,12 +89,15 @@ export interface Dialogue extends Element {
   speeches: Speech[]
 }
 
-export function makeDialogue(schema: DialogueSchema): Dialogue {
+export function makeDialogue(
+  schema: DialogueSchema,
+  characters: Character[]
+): Dialogue {
   return {
     shown: false,
     name: schema.name,
     position: schema.position || { bottom: '10%' }, // TODO: settle on a proper default position
-    speeches: schema.speeches.map((speech) => makeSpeech(speech)),
+    speeches: schema.speeches.map((speech) => makeSpeech(speech, characters)),
   }
 }
 

@@ -1,5 +1,21 @@
 {
     "name": "Clickable Scene Example",
+    "mainCharacter": {
+        "name": "Julie",
+        "images": {
+            "default": "/images/Julie.svg",
+            "happy": "/images/Julie_happy.svg"
+        },
+        "info": ""
+    },
+    "npcs": [
+        {
+            "name": "Jason",
+            "images": {
+                "default": "/images/Jason.svg"
+            }
+        }
+    ],
     "scenes": [
         {
             "id": 1,
@@ -16,6 +32,7 @@
                     "speeches": [
                         {
                             "character": "Julie",
+                            "variant": "happy",
                             "text": "Hello"
                         },
                         {

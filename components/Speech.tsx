@@ -3,23 +3,27 @@ import { Box } from '@chakra-ui/react'
 export interface SpeechProps {
   text: string
   character: string
-  characterImg: string
-  isMainCharacter?: boolean
+  characterImage: string
+  isMainCharacter: boolean
   onClick?: () => void
 }
 
 const Speech: React.FC<SpeechProps> = ({
   text,
   character,
-  characterImg,
+  characterImage,
   isMainCharacter = false,
   onClick,
 }) => {
   return (
     <div className="absolute bottom-0 flex items-center justify-evenly w-full">
-      <Box height={400} className="inline-block w-1/5">
+      <Box height={400} className="inline-block mx-5 w-1/5">
         {!isMainCharacter && (
-          <img src={characterImg} alt={character} className="m-auto h-full" />
+          <img
+            src={characterImage}
+            alt={character}
+            className="m-auto h-full object-contain"
+          />
         )}
       </Box>
       <div
@@ -30,9 +34,13 @@ const Speech: React.FC<SpeechProps> = ({
         <p className="mt-2">{text}</p>
       </div>
 
-      <Box height={400} className="inline-block w-1/5">
+      <Box height={400} className="inline-block mx-5 w-1/5">
         {isMainCharacter && (
-          <img src={characterImg} alt={character} className="m-auto h-full" />
+          <img
+            src={characterImage}
+            alt={character}
+            className="m-auto h-full object-contain"
+          />
         )}
       </Box>
     </div>

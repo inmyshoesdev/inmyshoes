@@ -60,6 +60,7 @@ export type NarrationSchema = Infer<typeof NarrationSchema>
 //   "speeches": [
 //     {
 //         "character": "Julie",
+//         "variant": "happy",
 //         "text": "Hello"
 //     },
 //     {
@@ -71,6 +72,7 @@ export type NarrationSchema = Infer<typeof NarrationSchema>
 export const SpeechSchema = object({
   text: string(),
   character: string(),
+  variant: optional(string()),
 })
 
 export type SpeechSchema = Infer<typeof SpeechSchema>
