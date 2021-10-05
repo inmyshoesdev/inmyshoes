@@ -127,6 +127,7 @@ export type Clickable = {
   name: string
   position?: Position
   dimension?: Dimension
+  effect?: string
   onClickActions: Action[]
 } & (ClickableText | ClickableImg)
 

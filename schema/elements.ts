@@ -107,6 +107,7 @@ export type ImageSchema = Infer<typeof ImageSchema>
 //         "left": "10px",
 //         "top": "50%"
 //     },
+//     "effect": "bounce",
 //     "onClick": [
 //         {
 //             "type": "nextScene",
@@ -139,6 +140,7 @@ export type ImageSchema = Infer<typeof ImageSchema>
 export const ClickableItemSchema = intersection([
   ElementSchema,
   type({ onClick: array(ActionSchema) }),
+  type({ effect: optional(string()) }),
   union([
     type({ text: string() }),
     type({ src: string(), altText: optional(string()) }),
