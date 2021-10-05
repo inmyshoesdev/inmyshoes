@@ -6,7 +6,7 @@ import { Game, makeGame } from '../lib/game'
 import exampleJson from '../schema/example-schema.json'
 import GameDisplay from '../components/GameDisplay'
 
-export const GenericSchemaInput = (jsonData: any) => () => {
+export const GenericSchemaInput = (jsonData: any) => function SchemaInput() {
   const [inputSchema, setInputSchema] = useState<string>('')
   const debouncedSchema = useDebounce(inputSchema, 500)
 
@@ -55,5 +55,6 @@ export const GenericSchemaInput = (jsonData: any) => () => {
     </main>
   )
 }
+
 
 export default GenericSchemaInput(exampleJson)
