@@ -1,85 +1,96 @@
 {
-    "name": "Clickable Scene Example",
-    "scenes": [
+    "name": "Narration Example",
+    "mainCharacters": [
         {
-            "id": 1,
-            "background": "/images/school.jpg",
-            "narrations": [
+            "name": "Julie",
+            "images": {
+                "default": "/images/Julie.svg",
+                "happy": "/images/Julie_happy.svg"
+            },
+            "info": "",
+            "scenes": [
                 {
-                    "name": "intro",
-                    "text": "this is an intro narration. it will auto advance in 5 seconds."
+                    "id": 1,
+                    "background": "/images/school.jpg",
+                    "narrations": [
+                        {
+                            "name": "intro",
+                            "text": "this is an intro narration. it will auto advance in 5 seconds."
+                        },
+                        {
+                            "name": "stay",
+                            "text": "this narration stays for 3 seconds, then disappears for 1 second"
+                        },
+                        {
+                            "name": "last",
+                            "text": "you will leave this scene in 2 seconds"
+                        }
+                    ],
+                    "dialogues": [],
+                    "images": [],
+                    "clickables": [],
+                    "intro": [
+                        {
+                            "type": "showNarration",
+                            "value": "intro",
+                            "duration": 5000,
+                            "hideAfterShow": true
+                        },
+                        {
+                            "type": "showNarration",
+                            "value": "stay",
+                            "duration": 3000,
+                            "hideAfterShow": false
+                        },
+                        {
+                            "type": "hideNarration",
+                            "value": "stay",
+                            "duration": 1000
+                        },
+                        {
+                            "type": "showNarration",
+                            "value": "last",
+                            "duration": 2000,
+                            "hideAfterShow": true
+                        },
+                        {
+                            "type": "gotoScene",
+                            "sceneId": 2
+                        }
+                    ]
                 },
                 {
-                    "name": "stay",
-                    "text": "this narration stays for 3 seconds, then disappears for 1 second"
-                },
-                {
-                    "name": "last",
-                    "text": "you will leave this scene in 2 seconds"
-                }
-            ],
-            "dialogues": [],
-            "images": [],
-            "clickables": [],
-            "intro": [
-                {
-                    "type": "showNarration",
-                    "value": "intro",
-                    "duration": 5000,
-                    "hideAfterShow": true
-                },
-                {
-                    "type": "showNarration",
-                    "value": "stay",
-                    "duration": 3000,
-                    "hideAfterShow": false
-                },
-                {
-                    "type": "hideNarration",
-                    "value": "stay",
-                    "duration": 1000
-                },
-                {
-                    "type": "showNarration",
-                    "value": "last",
-                    "duration": 2000,
-                    "hideAfterShow": true
-                },
-                {
-                    "type": "gotoScene",
-                    "sceneId": 2
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "background": "/images/school.jpg",
-            "narrations": [],
-            "dialogues": [],
-            "images": [],
-            "clickables": [
-                {
-                    "name": "restart",
+                    "id": 2,
+                    "background": "/images/school.jpg",
+                    "narrations": [],
+                    "dialogues": [],
+                    "images": [],
                     "clickables": [
                         {
-                            "name": "yes",
-                            "text": "restart?",
-                            "onClick": [
+                            "name": "restart",
+                            "clickables": [
                                 {
-                                    "type": "gotoScene",
-                                    "sceneId": 1
+                                    "name": "yes",
+                                    "text": "restart?",
+                                    "onClick": [
+                                        {
+                                            "type": "gotoScene",
+                                            "sceneId": 1
+                                        }
+                                    ]
                                 }
                             ]
                         }
+                    ],
+                    "intro": [
+                        {
+                            "type": "showClickable",
+                            "value": "restart"
+                        }
                     ]
-                }
-            ],
-            "intro": [
-                {
-                    "type": "showClickable",
-                    "value": "restart"
                 }
             ]
         }
-    ]
+    ],
+    "npcs": []
 }
