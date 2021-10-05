@@ -1,0 +1,121 @@
+{
+  "name": "In My Shoes - Youth",
+  "mainCharacter": {
+    "name": "Curtis",
+    "images": {
+      "default": "/images/curtis.png"
+    },
+    "info": ""
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "background": "/images/water.png",
+      "narrations": [
+        {
+          "name": "intro1",
+          "text": "In this exercise, you will have the chance to choose a character and discover what youth might go through in various aspects of their life."
+        },
+        {
+          "name": "intro2",
+          "text": "Each character has health, social and wealth points. There is no winning and/or losing in this game."
+        },
+        {
+          "name": "intro3",
+          "text": " Instead, we ask that you think about what life would be like for these characters and the realities of the scenarios."
+        },
+        {
+          "name": "intro4",
+          "text": "Content warnings: mental health, learning disabilities, income issues."
+        },
+        {
+          "name": "win msg",
+          "text": "you won!!!"
+        }
+      ],
+      "dialogues": [],
+      "images": [],
+      "clickables": [
+        {
+          "name": "next",
+          "clickables": [
+            {
+              "name": "1",
+              "text": "Go",
+              "onClick": [
+                {
+                  "type": "gotoScene",
+                  "sceneId": 2
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "intro": [
+        {
+          "type": "showNarration",
+          "value": "intro1",
+          "duration": 2000,
+          "hideAfterShow": true
+        },
+        {
+          "type": "showNarration",
+          "value": "intro2",
+          "duration": 2000,
+          "hideAfterShow": true
+        },
+        {
+          "type": "showNarration",
+          "value": "intro3",
+          "duration": 2000,
+          "hideAfterShow": true
+        },
+        {
+          "type": "showNarration",
+          "value": "intro4",
+          "duration": 2000,
+          "hideAfterShow": true
+        },
+        {
+          "type": "showClickable",
+          "value": "next"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "background": "https://i.kym-cdn.com/entries/icons/original/000/029/198/Dark_Souls_You_Died_Screen_-_Completely_Black_Screen_0-2_screenshot.png",
+      "narrations": [],
+      "dialogues": [],
+      "images": [],
+      "clickables": [
+        {
+          "name": "restart",
+          "clickables": [
+            {
+              "name": "yes",
+              "text": "restart?",
+              "onClick": [
+                {
+                  "type": "gotoScene",
+                  "sceneId": 1
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "intro": [
+        {
+          "type": "wait",
+          "duration": 1500
+        },
+        {
+          "type": "showClickable",
+          "value": "restart"
+        }
+      ]
+    }
+  ]
+}
