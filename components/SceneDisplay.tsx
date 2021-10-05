@@ -67,10 +67,12 @@ const TempNarration: React.FC<Narration> = ({
 
   return (
     <div
-      className="positioned h-max absolute m-auto px-4 py-3 w-max bg-gray-100 border border-gray-700 rounded"
+      className="positioned h-max absolute m-auto px-4 py-3 w-3/5 bg-gray-100 border border-gray-700 rounded"
       onClick={handleInteraction}
     >
-      <span className="text-md text-gray-900 font-semibold">{text}</span>
+      <span className="text-md text-gray-900 font-semibold select-none">
+        {text}
+      </span>
       <style jsx>{`
         .positioned {
           top: ${position.top || '10%'};

@@ -1,0 +1,1503 @@
+{
+  "name": "In My Shoes - Youth",
+  "mainCharacter": {
+    "name": "Curtis",
+    "images": {
+      "default": "/images/curtis.png"
+    },
+    "info": ""
+  },
+  "npcs": [
+    {
+      "name": "Teacher",
+      "images": {
+        "default": "/images/Jason.svg"
+      }
+    },
+    {
+      "name": "Friend",
+      "images": {
+        "default": "/images/friend.png"
+      }
+    },
+    {
+      "name": "Grandma",
+      "images": {
+        "default": "/images/grandma.png"
+      }
+    }
+  ],
+  "scenes": [
+    {
+      "id": 1,
+      "background": "/images/water.png",
+      "narrations": [
+        {
+          "name": "intro1",
+          "text": "In this exercise, you will have the chance to choose a character and discover what youth might go through in various aspects of their life."
+        },
+        {
+          "name": "intro2",
+          "text": "Each character has health, social and wealth points. There is no winning and/or losing in this game."
+        },
+        {
+          "name": "intro3",
+          "text": " Instead, we ask that you think about what life would be like for these characters and the realities of the scenarios."
+        },
+        {
+          "name": "intro4",
+          "text": "Content warnings: mental health, learning disabilities, income issues."
+        }
+      ],
+      "dialogues": [],
+      "images": [],
+      "clickables": [
+        {
+          "name": "next",
+          "clickables": [
+            {
+              "name": "1",
+              "text": "Go",
+              "onClick": [
+                {
+                  "type": "gotoScene",
+                  "sceneId": 2
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "intro": [
+        {
+          "type": "showNarration",
+          "value": "intro1",
+          "duration": 1000,
+          "hideAfterShow": true
+        },
+        {
+          "type": "showNarration",
+          "value": "intro2",
+          "duration": 1000,
+          "hideAfterShow": true
+        },
+        {
+          "type": "showNarration",
+          "value": "intro3",
+          "duration": 1000,
+          "hideAfterShow": true
+        },
+        {
+          "type": "showNarration",
+          "value": "intro4",
+          "duration": 1000,
+          "hideAfterShow": true
+        },
+        {
+          "type": "showClickable",
+          "value": "next"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "background": "/images/school.jpg",
+      "narrations": [
+        {
+          "name": "intro",
+          "text": "It’s 5:30am. Both of your parents worked late last night and your siblings need to get ready for school."
+        },
+        {
+          "name": "1",
+          "text": "Your parents and siblings are grateful for your help. But, you start to feel the effects of sleep deprivation as you find it difficult to focus in school and at work."
+        },
+        {
+          "name": "2",
+          "text": "Sleep in and hope that your parents will get up in time"
+        }
+      ],
+      "dialogues": [
+        {
+          "name": "inner",
+          "speeches": [
+            {
+              "character": "Curtis",
+              "text": "It's 5:30 already..? I'm still so tired from working last night."
+            },
+            {
+              "character": "Curtis",
+              "text": "It's almost time for my siblings to get ready for school, but my parents are still fast asleep. Probably because they worked late last night"
+            },
+            {
+              "character": "Curtis",
+              "text": "Should I force myself to get up and get them ready? Or should I get the rest that I need and sleep in a little more?"
+            }
+          ]
+        }
+      ],
+      "images": [],
+      "clickables": [
+        {
+          "name": "choice",
+          "clickables": [
+            {
+              "name": "1",
+              "text": "Get up and get your siblings ready for school",
+              "position": {
+                "top": "20%",
+                "left": "20%"
+              },
+              "dimension": {
+                "width": "20%"
+              },
+              "onClick": [
+                {
+                  "type": "showNarration",
+                  "value": "1",
+                  "duration": 3000
+                },
+                {
+                  "type": "gotoScene",
+                  "sceneId": 3
+                }
+              ]
+            },
+            {
+              "name": "2",
+              "text": "Sleep in and hope that your parents will get up in time",
+              "position": {
+                "top": "20%",
+                "left": "60%"
+              },
+              "dimension": {
+                "width": "20%"
+              },
+              "onClick": [
+                {
+                  "type": "showNarration",
+                  "value": "2",
+                  "duration": 3000
+                },
+                {
+                  "type": "gotoScene",
+                  "sceneId": 3
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "intro": [
+        {
+          "type": "showNarration",
+          "value": "intro",
+          "duration": 2000,
+          "hideAfterShow": true
+        },
+        {
+          "type": "showDialogue",
+          "value": "inner",
+          "hideAfterShow": true
+        },
+        {
+          "type": "waitForInteraction",
+          "elementType": "dialogues",
+          "value": "inner"
+        },
+        {
+          "type": "showClickable",
+          "value": "choice"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "background": "/images/school2.jpg",
+      "narrations": [
+        {
+          "name": "intro",
+          "text": "At school, your teacher tells you to redo one of your assignments by tomorrow. The feedback causes you significant stress along with your other responsibilities. You are worried the extra time needed will make you miss your shift at work."
+        },
+        {
+          "name": "1",
+          "text": "By mustering up the courage to ask for an extension, you were able to take some stress off. At the same time, your teacher became more aware of your situation and paid more attention to your needs as a student. Subsequently, you were able to go to work for the day and made some extra cash for the family."
+        },
+        {
+          "name": "2",
+          "text": "Staying up all night to complete your work was alot of stress for you, and you did not get enough sleep for the next day. You were also unable to report to work and lost out on the day's earnings. "
+        }
+      ],
+      "dialogues": [
+        {
+          "name": "teacher",
+          "speeches": [
+            {
+              "character": "Teacher",
+              "text": "Curtis, the assignment you handed in last week was poorly done. I'd like you bring this home, redo the assignment and hand it to me tomorrow."
+            },
+            {
+              "character": "Curtis",
+              "text": "Okay, thank you sir."
+            }
+          ]
+        },
+        {
+          "name": "inner",
+          "speeches": [
+            {
+              "character": "Curtis",
+              "text": "I can't believe I have to redo my assignment... I'm pretty sure I did it correctly, or maybe I was too tired when I first did it?"
+            },
+            {
+              "character": "Curtis",
+              "text": "Eitherway, I definitely do not have enough time to complete it by tomrrow, I need to go to work later, and I still need to go home and tend to my siblings. If I were to finish my assignment, I won't have much time to sleep and rest tonight! "
+            },
+            {
+              "character": "Curtis",
+              "text": "Should I just try and complete the assignment? Or maybe I should speak to my teacher...."
+            }
+          ]
+        },
+        {
+          "name": "after",
+          "speeches": [
+            {
+              "character": "Curtis",
+              "text": "Ummm, excuse me sir, is it okay if I request for an extension for this assignment? I have to go to work later to help support my family, and I need to prepare dinner for my family as well. I don't think I have the time to complete the assignment by tomorrow."
+            },
+            {
+              "character": "Teacher",
+              "text": "Oh! I was not totally aware of your situation. I apologise. Sure, you don't need to submit it tomorrow, how about by the end of next week?"
+            },
+            {
+              "character": "Curtis",
+              "text": "Yes, that would work! Thank you so much!"
+            }
+          ]
+        }
+      ],
+      "images": [
+        {
+          "name": "Jason",
+          "src": "/images/Jason.svg",
+          "position": {
+            "top": "40%",
+            "left": "10%"
+          }
+        }
+      ],
+      "clickables": [
+        {
+          "name": "choice",
+          "clickables": [
+            {
+              "name": "1",
+              "text": "Approach your teacher and ask for an extension",
+              "position": {
+                "top": "20%",
+                "left": "20%"
+              },
+              "dimension": {
+                "width": "20%"
+              },
+              "onClick": [
+                {
+                  "type": "showImage",
+                  "value": "Jason",
+                  "duration": 1000
+                },
+                {
+                  "type": "hideImage",
+                  "value": "Jason",
+                  "duration": 0
+                },
+                {
+                  "type": "showDialogue",
+                  "value": "after",
+                  "hideAfterShow": true
+                },
+                {
+                  "type": "waitForInteraction",
+                  "elementType": "dialogues",
+                  "value": "after"
+                },
+                {
+                  "type": "showNarration",
+                  "value": "1",
+                  "duration": 3000
+                },
+                {
+                  "type": "gotoScene",
+                  "sceneId": 4
+                }
+              ]
+            },
+            {
+              "name": "2",
+              "text": "Stay up late to finish your assignment",
+              "position": {
+                "top": "20%",
+                "left": "60%"
+              },
+              "dimension": {
+                "width": "20%"
+              },
+              "onClick": [
+                {
+                  "type": "showNarration",
+                  "value": "2",
+                  "duration": 3000
+                },
+                {
+                  "type": "gotoScene",
+                  "sceneId": 4
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "intro": [
+        {
+          "type": "showNarration",
+          "value": "intro",
+          "duration": 2000,
+          "hideAfterShow": true
+        },
+        {
+          "type": "showDialogue",
+          "value": "inner",
+          "hideAfterShow": true
+        },
+        {
+          "type": "waitForInteraction",
+          "elementType": "dialogues",
+          "value": "inner"
+        },
+        {
+          "type": "showClickable",
+          "value": "choice"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "background": "/images/school.jpg",
+      "narrations": [
+        {
+          "name": "intro",
+          "text": "Some of your classmates invited you to go watch a movie with them after school. You are concerned about the money that you need to spend."
+        },
+        {
+          "name": "1",
+          "text": "After turning down your friend once more, you start to feel like the friendship is fading and you fear that they might no longer ask you out in the future. You head straight home, without having to spend any extra cash."
+        },
+        {
+          "name": "2",
+          "text": "The movie was enjoyable and you had a lot of fun with your friends. It was a memorable day and you feel yourself getting closer to your friends. However, you spent a good amount of your money for the movie and other snacks and you will probably need to work extra hours to make up for it."
+        }
+      ],
+      "dialogues": [
+        {
+          "name": "before",
+          "speeches": [
+            {
+              "character": "Friend",
+              "text": "Hey, Curtis! It's been awhile since we hung out as a group. How about we go catch a movie today?"
+            }
+          ]
+        },
+        {
+          "name": "inner",
+          "speeches": [
+            {
+              "character": "Curtis",
+              "text": "I'm really tight on cash now but I have been turning my friends down for the past few times... What will they think of me then?"
+            },
+            {
+              "character": "Curtis",
+              "text": "I really do want to spend more time with my friends, but I can't be spending money like that... What should I do?"
+            }
+          ]
+        },
+        {
+          "name": "1",
+          "speeches": [
+            {
+              "character": "Curtis",
+              "text": "Sorry! I have to head home today. Maybe some other time?"
+            },
+            {
+              "character": "Friend",
+              "text": "Again? Oh alright, next time then! Take care, Curtis!"
+            }
+          ]
+        },
+        {
+          "name": "2",
+          "speeches": [
+            {
+              "character": "Curtis",
+              "text": "Okay! Let's go catch that movie! "
+            },
+            {
+              "character": "Friend",
+              "text": "Nice! We're gonna have so much fun, Curtis!"
+            }
+          ]
+        }
+      ],
+      "images": [],
+      "clickables": [
+        {
+          "name": "choice",
+          "clickables": [
+            {
+              "name": "1",
+              "text": "Save money and head straight home",
+              "position": {
+                "top": "20%",
+                "left": "20%"
+              },
+              "dimension": {
+                "width": "20%"
+              },
+              "onClick": [
+                {
+                  "type": "showDialogue",
+                  "value": "1",
+                  "hideAfterShow": true
+                },
+                {
+                  "type": "waitForInteraction",
+                  "elementType": "dialogues",
+                  "value": "1"
+                },
+                {
+                  "type": "showNarration",
+                  "value": "1",
+                  "duration": 3000
+                },
+                {
+                  "type": "gotoScene",
+                  "sceneId": 5
+                }
+              ]
+            },
+            {
+              "name": "2",
+              "text": "Join your friends for a movie",
+              "position": {
+                "top": "20%",
+                "left": "60%"
+              },
+              "dimension": {
+                "width": "20%"
+              },
+              "onClick": [
+                {
+                  "type": "showDialogue",
+                  "value": "2",
+                  "hideAfterShow": true
+                },
+                {
+                  "type": "waitForInteraction",
+                  "elementType": "dialogues",
+                  "value": "2"
+                },
+                {
+                  "type": "showNarration",
+                  "value": "2",
+                  "duration": 3000
+                },
+                {
+                  "type": "gotoScene",
+                  "sceneId": 6
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "intro": [
+        {
+          "type": "showNarration",
+          "value": "intro",
+          "duration": 2000,
+          "hideAfterShow": true
+        },
+        {
+          "type": "showDialogue",
+          "value": "before",
+          "hideAfterShow": true
+        },
+        {
+          "type": "waitForInteraction",
+          "elementType": "dialogues",
+          "value": "before"
+        },
+        {
+          "type": "showDialogue",
+          "value": "inner",
+          "hideAfterShow": true
+        },
+        {
+          "type": "waitForInteraction",
+          "elementType": "dialogues",
+          "value": "inner"
+        },
+        {
+          "type": "showClickable",
+          "value": "choice"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "background": "/images/school2.jpg",
+      "narrations": [
+        {
+          "name": "intro",
+          "text": "Upon reaching home, you notice that one of your grandparents is feeling unwell and requires medical attention."
+        },
+        {
+          "name": "1",
+          "text": "Your grandparents are grateful for your help. But, as a result, you had to fork up some cash to pay for the medical fees, despite subsidisation through the CHAS card. At the same time, you start to feel a little more stressed as you had to rush back to prepare dinner and do your school work."
+        },
+        {
+          "name": "2",
+          "text": "You gain some time for the rest of the day after preparing dinner, and you have some time for your school work and for yourself. You get enough sleep and rest for the next day."
+        }
+      ],
+      "dialogues": [
+        {
+          "name": "before",
+          "speeches": [
+            {
+              "character": "Grandma",
+              "text": "Ah Curtis... You're home. My joints have been hurting more recently and I'm not sure what is wrong, I need your help."
+            },
+            {
+              "character": "Curtis",
+              "text": "What's wrong, do you have your medication?"
+            },
+            {
+              "character": "Grandma",
+              "text": "I have taken some medication, but the effects don't seem to work. Maybe I should go see the doctor?"
+            }
+          ]
+        },
+        {
+          "name": "inner",
+          "speeches": [
+            {
+              "character": "Curtis",
+              "text": "Should I bring my grandparents to see a doctor today? However, my parents mentioned that they will be working late today, and I need to prepare dinner for the rest of the family..."
+            },
+            {
+              "character": "Curtis",
+              "text": "What should I do?"
+            }
+          ]
+        },
+        {
+          "name": "1",
+          "speeches": [
+            {
+              "character": "Grandma",
+              "text": "Thank you so much Curtis! The doctor has given me proper medication and should help alleviate my condition. I am grateful for your help"
+            }
+          ]
+        }
+      ],
+      "images": [],
+      "clickables": [
+        {
+          "name": "choice",
+          "clickables": [
+            {
+              "name": "1",
+              "text": "Take your grandparents to go see a doctor",
+              "position": {
+                "top": "20%",
+                "left": "20%"
+              },
+              "dimension": {
+                "width": "20%"
+              },
+              "onClick": [
+                {
+                  "type": "showDialogue",
+                  "value": "1",
+                  "hideAfterShow": true
+                },
+                {
+                  "type": "waitForInteraction",
+                  "elementType": "dialogues",
+                  "value": "1"
+                },
+                {
+                  "type": "showNarration",
+                  "value": "1",
+                  "duration": 3000
+                },
+                {
+                  "type": "gotoScene",
+                  "sceneId": 6
+                }
+              ]
+            },
+            {
+              "name": "2",
+              "text": "Attend to your grandparents another day, and prepare dinner for the family",
+              "position": {
+                "top": "20%",
+                "left": "60%"
+              },
+              "dimension": {
+                "width": "20%"
+              },
+              "onClick": [
+                {
+                  "type": "showNarration",
+                  "value": "2",
+                  "duration": 3000
+                },
+                {
+                  "type": "gotoScene",
+                  "sceneId": 6
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "intro": [
+        {
+          "type": "showNarration",
+          "value": "intro",
+          "duration": 2000,
+          "hideAfterShow": true
+        },
+        {
+          "type": "showDialogue",
+          "value": "before",
+          "hideAfterShow": true
+        },
+        {
+          "type": "waitForInteraction",
+          "elementType": "dialogues",
+          "value": "before"
+        },
+        {
+          "type": "showDialogue",
+          "value": "inner",
+          "hideAfterShow": true
+        },
+        {
+          "type": "waitForInteraction",
+          "elementType": "dialogues",
+          "value": "inner"
+        },
+        {
+          "type": "showClickable",
+          "value": "choice"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "background": "/images/school.jpg",
+      "narrations": [
+        {
+          "name": "intro",
+          "text": "Your friends have decided to get matching house t-shirts in school and want you to purchase one."
+        },
+        {
+          "name": "1",
+          "text": "You feel more included within your group of friends, but you had to fork out some of money from your savings. You also feel a little stressed from spending the money unnecessarily."
+        },
+        {
+          "name": "2",
+          "text": "You didn't need to spend money from your savings, but you feel really embarrassed and guilty for making your friends pay for you once again."
+        }
+      ],
+      "dialogues": [
+        {
+          "name": "before",
+          "speeches": [
+            {
+              "character": "Friend",
+              "text": "Hey Curtis! We're going to be designing and printing new house shirts. It's going to be so cool when we all wear it together! Are you in?"
+            }
+          ]
+        },
+        {
+          "name": "inner",
+          "speeches": [
+            {
+              "character": "Curtis",
+              "text": "That sounds like a great idea, but I'm really tight on cash right now. At the same time, I can't say I don't have the money. They're just going to pool some money together and pay for me again! I'd feel so guilty if that were to happen again!"
+            }
+          ]
+        },
+        {
+          "name": "1",
+          "speeches": [
+            {
+              "character": "Friend",
+              "text": "Okay sure! I'm excited!"
+            }
+          ]
+        },
+        {
+          "name": "2",
+          "speeches": [
+            {
+              "character": "Curtis",
+              "text": "Sorry! I need to save up my money for my family."
+            },
+            {
+              "character": "Friend",
+              "text": "Oh that's alright, we can always pool some cash together for you!"
+            }
+          ]
+        }
+      ],
+      "images": [],
+      "clickables": [
+        {
+          "name": "choice",
+          "clickables": [
+            {
+              "name": "1",
+              "text": "Fork out some money from your savings",
+              "position": {
+                "top": "20%",
+                "left": "20%"
+              },
+              "dimension": {
+                "width": "20%"
+              },
+              "onClick": [
+                {
+                  "type": "showDialogue",
+                  "value": "1",
+                  "hideAfterShow": true
+                },
+                {
+                  "type": "waitForInteraction",
+                  "elementType": "dialogues",
+                  "value": "1"
+                },
+                {
+                  "type": "showNarration",
+                  "value": "1",
+                  "duration": 3000
+                },
+                {
+                  "type": "gotoScene",
+                  "sceneId": 7
+                }
+              ]
+            },
+            {
+              "name": "2",
+              "text": "Tell them about your situation",
+              "position": {
+                "top": "20%",
+                "left": "60%"
+              },
+              "dimension": {
+                "width": "20%"
+              },
+              "onClick": [
+                {
+                  "type": "showDialogue",
+                  "value": "2",
+                  "hideAfterShow": true
+                },
+                {
+                  "type": "waitForInteraction",
+                  "elementType": "dialogues",
+                  "value": "2"
+                },
+                {
+                  "type": "showNarration",
+                  "value": "2",
+                  "duration": 3000
+                },
+                {
+                  "type": "gotoScene",
+                  "sceneId": 7
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "intro": [
+        {
+          "type": "showNarration",
+          "value": "intro",
+          "duration": 2000,
+          "hideAfterShow": true
+        },
+        {
+          "type": "showDialogue",
+          "value": "before",
+          "hideAfterShow": true
+        },
+        {
+          "type": "waitForInteraction",
+          "elementType": "dialogues",
+          "value": "before"
+        },
+        {
+          "type": "showDialogue",
+          "value": "inner",
+          "hideAfterShow": true
+        },
+        {
+          "type": "waitForInteraction",
+          "elementType": "dialogues",
+          "value": "inner"
+        },
+        {
+          "type": "showClickable",
+          "value": "choice"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "background": "/images/school2.jpg",
+      "narrations": [
+        {
+          "name": "intro",
+          "text": "Because of your existing responsibilities, you have been busy and are having trouble understanding some of this week’s lessons."
+        },
+        {
+          "name": "1",
+          "text": "You end up heading to the library, which took some cash to travel to. At the same time, you still found it hard to understand the week's syllabus and you feel increasingly stressed."
+        },
+        {
+          "name": "2",
+          "text": "You feel a great sense of relief as your friend agreed to help you. Your friend was also happy that he could help, and it became a chance for you and your friend to bond."
+        }
+      ],
+      "dialogues": [
+        {
+          "name": "inner",
+          "speeches": [
+            {
+              "character": "Curtis",
+              "text": "Should I ask my friend for help? Or just head to the library and try my best to catch up?"
+            }
+          ]
+        }
+      ],
+      "images": [],
+      "clickables": [
+        {
+          "name": "choice",
+          "clickables": [
+            {
+              "name": "1",
+              "src": "/images/book.jpg",
+              "altText": "book - the library",
+              "position": {
+                "top": "20%",
+                "left": "20%"
+              },
+              "dimension": {
+                "width": "20%"
+              },
+              "onClick": [
+                {
+                  "type": "showNarration",
+                  "value": "1",
+                  "duration": 3000
+                },
+                {
+                  "type": "gotoScene",
+                  "sceneId": 8
+                }
+              ]
+            },
+            {
+              "name": "2",
+              "src": "/images/mobile.png",
+              "altText": "phone - calling your friend to ask for help",
+              "position": {
+                "top": "20%",
+                "left": "60%"
+              },
+              "dimension": {
+                "width": "20%"
+              },
+              "onClick": [
+                {
+                  "type": "showNarration",
+                  "value": "2",
+                  "duration": 3000
+                },
+                {
+                  "type": "gotoScene",
+                  "sceneId": 8
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "intro": [
+        {
+          "type": "showNarration",
+          "value": "intro",
+          "duration": 2000,
+          "hideAfterShow": true
+        },
+        {
+          "type": "showDialogue",
+          "value": "inner",
+          "hideAfterShow": true
+        },
+        {
+          "type": "waitForInteraction",
+          "elementType": "dialogues",
+          "value": "inner"
+        },
+        {
+          "type": "showClickable",
+          "value": "choice"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "background": "/images/school.jpg",
+      "narrations": [
+        {
+          "name": "intro",
+          "text": "You have made it to the weekend, but your laptop breaks down so that you can’t finish your remaining tasks."
+        },
+        {
+          "name": "1",
+          "text": "Through some research, you realise that there are organisations that give out free laptops to low income households giving you a great amount of relief. You also learn that there is a community of young people who are facing similar challenges."
+        },
+        {
+          "name": "2",
+          "text": "Going to the library costs you a bit of money for the transport, and studying alone in the library dampens your mood."
+        }
+      ],
+      "dialogues": [
+        {
+          "name": "inner",
+          "speeches": [
+            {
+              "character": "Curtis",
+              "text": "This isn't good, I still have my school assignments to complete. My laptop must've been too old.. "
+            },
+            {
+              "character": "Curtis",
+              "text": "Should I go to the library again? Or maybe I can try reaching out to a charity..."
+            }
+          ]
+        }
+      ],
+      "images": [],
+      "clickables": [
+        {
+          "name": "choice",
+          "clickables": [
+            {
+              "name": "1",
+              "src": "/images/charity.jpg",
+              "altText": "charity",
+              "position": {
+                "top": "20%",
+                "left": "20%"
+              },
+              "dimension": {
+                "width": "20%"
+              },
+              "onClick": [
+                {
+                  "type": "showNarration",
+                  "value": "1",
+                  "duration": 3000
+                },
+                {
+                  "type": "gotoScene",
+                  "sceneId": 9
+                }
+              ]
+            },
+            {
+              "name": "2",
+              "src": "/images/book.jpg",
+              "altText": "book - the library",
+              "position": {
+                "top": "20%",
+                "left": "60%"
+              },
+              "dimension": {
+                "width": "20%"
+              },
+              "onClick": [
+                {
+                  "type": "showNarration",
+                  "value": "1",
+                  "duration": 3000
+                },
+                {
+                  "type": "gotoScene",
+                  "sceneId": 9
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "intro": [
+        {
+          "type": "showNarration",
+          "value": "intro",
+          "duration": 2000,
+          "hideAfterShow": true
+        },
+        {
+          "type": "showDialogue",
+          "value": "inner",
+          "hideAfterShow": true
+        },
+        {
+          "type": "waitForInteraction",
+          "elementType": "dialogues",
+          "value": "inner"
+        },
+        {
+          "type": "showClickable",
+          "value": "choice"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "background": "/images/school2.jpg",
+      "narrations": [
+        {
+          "name": "intro",
+          "text": "Bills have increased this month and your parents are already working overtime to make ends meet. You need to find some dinner for yourself, your grandparents and your siblings."
+        },
+        {
+          "name": "1",
+          "text": "Going to work helps you earn extra cash, but the leftovers you got were nutritionally insufficient for you and your family."
+        },
+        {
+          "name": "2",
+          "text": "By going to the hawker centre, you bought enough food for the family, and received the nutrition that you need."
+        }
+      ],
+      "dialogues": [
+        {
+          "name": "inner",
+          "speeches": [
+            {
+              "character": "Curtis",
+              "text": "Almost time for dinner... Should I go work and grab the leftovers? Or just buy some dinner at the hawker centre?"
+            }
+          ]
+        }
+      ],
+      "images": [],
+      "clickables": [
+        {
+          "name": "choice",
+          "clickables": [
+            {
+              "name": "1",
+              "src": "/images/work.jpg",
+              "altText": "work",
+              "position": {
+                "top": "20%",
+                "left": "20%"
+              },
+              "dimension": {
+                "width": "20%"
+              },
+              "onClick": [
+                {
+                  "type": "showNarration",
+                  "value": "1",
+                  "duration": 3000
+                },
+                {
+                  "type": "gotoScene",
+                  "sceneId": 10
+                }
+              ]
+            },
+            {
+              "name": "2",
+              "src": "/images/food.jpg",
+              "altText": "food",
+              "position": {
+                "top": "20%",
+                "left": "60%"
+              },
+              "dimension": {
+                "width": "20%"
+              },
+              "onClick": [
+                {
+                  "type": "showNarration",
+                  "value": "1",
+                  "duration": 3000
+                },
+                {
+                  "type": "gotoScene",
+                  "sceneId": 10
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "intro": [
+        {
+          "type": "showNarration",
+          "value": "intro",
+          "duration": 2000,
+          "hideAfterShow": true
+        },
+        {
+          "type": "showDialogue",
+          "value": "inner",
+          "hideAfterShow": true
+        },
+        {
+          "type": "waitForInteraction",
+          "elementType": "dialogues",
+          "value": "inner"
+        },
+        {
+          "type": "showClickable",
+          "value": "choice"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "background": "/images/school.jpg",
+      "narrations": [
+        {
+          "name": "intro",
+          "text": "Your teacher notices that your grades are slipping and tries to offer you help by signing you up for free remedial classes after school hours."
+        },
+        {
+          "name": "1",
+          "text": "Taking some time off work to go to the classes gives you some room to breathe, and you have a little more time to rest. However, your parents seem a little upset as you are no longer earning money to help support the family."
+        },
+        {
+          "name": "2",
+          "text": "By skipping the classes, you commit more to your work, earning more money for the family for which your parents are grateful for."
+        },
+        {
+          "name": "3",
+          "text": "Having to juggle between remedial classes, work, and taking care of your family can be increasingly stressful for you. At the same time, you lose out on a lot of sleep and rest. However, you manage to earn some cash for the family and your parents are very grateful for the help."
+        }
+      ],
+      "dialogues": [
+        {
+          "name": "inner",
+          "speeches": [
+            {
+              "character": "Curtis",
+              "text": "My grades haven't been improving for quite some time.. "
+            },
+            {
+              "character": "Curtis",
+              "text": "The remedial classes could help, but I don't have a lot of time, and it might clash with my work. What should I do?"
+            }
+          ]
+        }
+      ],
+      "images": [],
+      "clickables": [
+        {
+          "name": "choice",
+          "clickables": [
+            {
+              "name": "1",
+              "text": "Attend all the classes",
+              "position": {
+                "top": "20%",
+                "left": "20%"
+              },
+              "dimension": {
+                "width": "20%"
+              },
+              "onClick": [
+                {
+                  "type": "showNarration",
+                  "value": "1",
+                  "duration": 3000
+                },
+                {
+                  "type": "gotoScene",
+                  "sceneId": 11
+                }
+              ]
+            },
+            {
+              "name": "2",
+              "text": "Skip the classes",
+              "position": {
+                "top": "20%",
+                "left": "60%"
+              },
+              "dimension": {
+                "width": "20%"
+              },
+              "onClick": [
+                {
+                  "type": "showNarration",
+                  "value": "2",
+                  "duration": 3000
+                },
+                {
+                  "type": "gotoScene",
+                  "sceneId": 11
+                }
+              ]
+            },
+            {
+              "name": "3",
+              "text": "Attend the classes when you can",
+              "position": {
+                "top": "20%",
+                "left": "20%"
+              },
+              "dimension": {
+                "width": "20%"
+              },
+              "onClick": [
+                {
+                  "type": "showNarration",
+                  "value": "3",
+                  "duration": 3000
+                },
+                {
+                  "type": "gotoScene",
+                  "sceneId": 11
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "intro": [
+        {
+          "type": "showNarration",
+          "value": "intro",
+          "duration": 2000,
+          "hideAfterShow": true
+        },
+        {
+          "type": "showDialogue",
+          "value": "inner",
+          "hideAfterShow": true
+        },
+        {
+          "type": "waitForInteraction",
+          "elementType": "dialogues",
+          "value": "inner"
+        },
+        {
+          "type": "showClickable",
+          "value": "choice"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "background": "/images/school2.jpg",
+      "narrations": [
+        {
+          "name": "intro",
+          "text": "You’re finding it difficult to cope with school, work and having to help out at home. You consider quitting either school or work to manage better."
+        },
+        {
+          "name": "1",
+          "text": "Focusing all your time in school helped you to improve your grades, and you start to feel more confident in your own abilities. You have more time for your family and for yourself, and you get to spend more time with your friends as well. However, as you quit your work, you find yourself spending more money than the amount you are saving."
+        },
+        {
+          "name": "2",
+          "text": "By focusing all your time for working, you help bring some more money back home and you realise that you are eating better and saving more. Howver, you do not see your friends anymore and you start to lose contact with them."
+        }
+      ],
+      "dialogues": [
+        {
+          "name": "inner",
+          "speeches": [
+            {
+              "character": "Curtis",
+              "text": "Juggling between family, work and school has become increasingly difficult for me... It really has taken a toll on my mental and physical wellbeing"
+            },
+            {
+              "character": "Curtis",
+              "text": "Maybe I should just focus on work? Or quit working and focus on school?"
+            }
+          ]
+        }
+      ],
+      "images": [],
+      "clickables": [
+        {
+          "name": "choice",
+          "clickables": [
+            {
+              "name": "1",
+              "src": "/images/graduation.jpg",
+              "altText": "study",
+              "position": {
+                "top": "20%",
+                "left": "20%"
+              },
+              "dimension": {
+                "width": "20%"
+              },
+              "onClick": [
+                {
+                  "type": "showNarration",
+                  "value": "1",
+                  "duration": 3000
+                },
+                {
+                  "type": "gotoScene",
+                  "sceneId": 12
+                }
+              ]
+            },
+            {
+              "name": "2",
+              "src": "/images/work.jpg",
+              "altText": "work",
+              "position": {
+                "top": "20%",
+                "left": "60%"
+              },
+              "dimension": {
+                "width": "20%"
+              },
+              "onClick": [
+                {
+                  "type": "showNarration",
+                  "value": "2",
+                  "duration": 3000
+                },
+                {
+                  "type": "gotoScene",
+                  "sceneId": 12
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "intro": [
+        {
+          "type": "showNarration",
+          "value": "intro",
+          "duration": 2000,
+          "hideAfterShow": true
+        },
+        {
+          "type": "showDialogue",
+          "value": "inner",
+          "hideAfterShow": true
+        },
+        {
+          "type": "waitForInteraction",
+          "elementType": "dialogues",
+          "value": "inner"
+        },
+        {
+          "type": "showClickable",
+          "value": "choice"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "background": "/images/end.jpg",
+      "narrations": [
+        {
+          "name": "intro1",
+          "text": "You have reached the end of this exercise. We rarely have the full picture of what our fellow students, friends or family members may be going through. Our actions can have significant positive or negative consequences, so it is up to us to show respect and care."
+        },
+        {
+          "name": "intro2",
+          "text": "By stepping into Curtis’ shoes, you may have realised that: Many young people have caring responsibilities at home which they have to juggle alongside their academic and social life. Most social activities cost money, which may hinder low-income individuals from participating unless there is a more inclusive alternative. Socioeconomic status is a sensitive topic that many may not want to discuss. Are there ways to be accommodating without being intrusive?"
+        }
+      ],
+      "dialogues": [],
+      "images": [],
+      "clickables": [],
+      "intro": [
+        {
+          "type": "showNarration",
+          "value": "intro1",
+          "duration": 2000,
+          "hideAfterShow": true
+        },
+        {
+          "type": "showNarration",
+          "value": "intro2",
+          "duration": 2000,
+          "hideAfterShow": true
+        },
+        {
+          "type": "gotoScene",
+          "sceneId": 13
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "background": "/images/end.jpg",
+      "narrations": [],
+      "dialogues": [],
+      "images": [],
+      "clickables": [
+        {
+          "name": "restart",
+          "clickables": [
+            {
+              "name": "yes",
+              "text": "restart?",
+              "onClick": [
+                {
+                  "type": "gotoScene",
+                  "sceneId": 1
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "intro": [
+        {
+          "type": "wait",
+          "duration": 1500
+        },
+        {
+          "type": "showClickable",
+          "value": "restart"
+        }
+      ]
+    }
+  ]
+}
