@@ -1,9 +1,7 @@
-import { Box, Button } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
-import { is } from 'superstruct'
 import { useAfterInteractionCallback } from '../hooks/useAfterInteractionCallback'
 import { Dialogue as DialogueProps } from '../lib/elements'
-import Speech, { SpeechProps } from './Speech'
+import Speech from './Speech'
 
 const Dialogue: React.FC<DialogueProps> = ({
   shown,
@@ -27,17 +25,6 @@ const Dialogue: React.FC<DialogueProps> = ({
     }
   }
 
-  // function getSpeech(): SpeechProps {
-  //   const speech = speeches[speechIdx]
-  //   return {
-  //     text: speech.text,
-  //     character: speech.character,
-  //     characterImg: testCharacterImg[speech.character],
-  //     isMainCharacter: isMainCharacter[speech.character],
-  //     onClick: nextDialogue,
-  //   }
-  // }
-
   return (
     <div className="w-screen h-screen">
       {speechIdx >= 0 && speechIdx < speeches.length && (
@@ -48,12 +35,3 @@ const Dialogue: React.FC<DialogueProps> = ({
 }
 
 export default Dialogue
-
-const testCharacterImg: { [name: string]: string } = {
-  Julie: '/images/Julie.svg',
-  Jason: '/images/Jason.svg',
-}
-const isMainCharacter: { [name: string]: boolean } = {
-  Julie: true,
-  Jason: false,
-}
