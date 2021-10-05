@@ -1,5 +1,21 @@
 {
   "name": "Clickable Scene Example",
+  "mainCharacter": {
+    "name": "Julie",
+    "images": {
+      "default": "/images/Julie.svg",
+      "happy": "/images/Julie_happy.svg"
+    },
+    "info": ""
+  },
+  "npcs": [
+    {
+      "name": "Jason",
+      "images": {
+        "default": "/images/Jason.svg"
+      }
+    }
+  ],
   "scenes": [
     {
       "id": 1,
@@ -22,13 +38,7 @@
           "text": "Till Next Time!"
         }
       ],
-      "dialogues": [
-        {
-          "name": "sad",
-          "character": "ken",
-          "text": "damnit :("
-        }
-      ],
+      "dialogues": [],
       "images": [
         {
           "name": "ken",
@@ -50,6 +60,7 @@
                 "top": "10%",
                 "left": "20%"
               },
+              "effect": "bounce",
               "dimension": {
                 "width": "200px"
               },
@@ -68,12 +79,6 @@
                 "left": "80%"
               },
               "onClick": [
-                {
-                  "type": "showDialogue",
-                  "value": "sad",
-                  "duration": 1500,
-                  "hideAfterShow": true
-                },
                 {
                   "type": "hideImage",
                   "value": "ken",
