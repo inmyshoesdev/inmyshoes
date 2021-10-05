@@ -1,0 +1,79 @@
+{
+    "name": "Clickable Scene Example",
+    "scenes": [
+        {
+            "id": 1,
+            "background": "/images/school.jpg",
+            "narrations": [
+                {
+                    "name": "intro",
+                    "text": "this is an intro narration. it will auto advance in 10 seconds."
+                },
+                {
+                    "name": "stay",
+                    "text": "this narration has no duration and will be immediately skipped over"
+                },
+                {
+                    "name": "last",
+                    "text": "you will leave this scene in 2 seconds"
+                }
+            ],
+            "dialogues": [],
+            "images": [],
+            "clickables": [],
+            "intro": [
+                {
+                    "type": "showNarration",
+                    "value": "intro",
+                    "duration": 10000,
+                    "hideAfterShow": true
+                },
+                {
+                    "type": "showNarration",
+                    "value": "stay",
+                    "hideAfterShow": true
+                },
+                {
+                    "type": "showNarration",
+                    "value": "last",
+                    "duration": 2000,
+                    "hideAfterShow": true
+                },
+                {
+                    "type": "gotoScene",
+                    "sceneId": 2
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "background": "/images/school.jpg",
+            "narrations": [],
+            "dialogues": [],
+            "images": [],
+            "clickables": [
+                {
+                    "name": "restart",
+                    "clickables": [
+                        {
+                            "name": "yes",
+                            "text": "restart?",
+                            "onClick": [
+                                {
+                                    "type": "gotoScene",
+                                    "sceneId": 1
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "intro": [
+                {
+                    "type": "showClickable",
+                    "value": "restart"
+                }
+            ]
+        }
+    ]
+}
