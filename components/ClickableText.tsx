@@ -1,9 +1,11 @@
 import { Dimension, Position } from '../lib/elements'
+import { getAnimationClass } from './utils'
 
 interface ClickableTextProps {
   text: string
   position?: Position
   dimension?: Dimension
+  effect?: string //'none' | 'pulse' | 'bounce' | 'ping' | 'spin' | 'wiggle'
   onClick: () => void
 }
 
@@ -11,11 +13,16 @@ const ClickableText = ({
   text,
   position = {},
   dimension = {},
+  effect = 'none',
   onClick,
 }: ClickableTextProps) => {
   return (
     <span
-      className="positioned text-md absolute px-4 py-3 text-gray-900 font-semibold bg-gray-100 border border-gray-700 rounded shadow cursor-pointer"
+      className={
+        `positioned text-md absolute px-4 py-3 text-gray-900 
+        font-semibold bg-gray-100 border border-gray-700 
+        rounded shadow cursor-pointer ` + getAnimationClass(effect)
+      }
       onClick={onClick}
       style={{
         top: position?.top || '50%',

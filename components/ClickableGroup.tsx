@@ -65,6 +65,7 @@ const ClickableGroup: React.FC<ClickableGroupProps> = ({
               text={clickable.text}
               position={clickable.position}
               dimension={clickable.dimension}
+              effect={clickable.effect}
               onClick={() => onClick(clickable.name)}
             />
           )
@@ -76,6 +77,7 @@ const ClickableGroup: React.FC<ClickableGroupProps> = ({
               altText={clickable.altText || ''}
               position={clickable.position}
               dimension={clickable.dimension}
+              effect={clickable.effect}
               onClick={() => onClick(clickable.name)}
             />
           )

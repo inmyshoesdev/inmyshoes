@@ -1,10 +1,12 @@
 import { Dimension, Position } from '../lib/elements'
+import { getAnimationClass } from './utils'
 
 interface ClickableImgProps {
   src: string
   altText: string
   position?: Position
   dimension?: Dimension
+  effect?: string //'none' | 'pulse' | 'bounce' | 'ping' | 'spin' | 'wiggle'
   onClick: () => void
 }
 
@@ -13,11 +15,15 @@ const ClickableImg = ({
   altText,
   position = {},
   dimension = {},
+  effect = 'none',
   onClick,
 }: ClickableImgProps) => {
   return (
     <img
-      className="positioned absolute cursor-pointer object-cover"
+      className={
+        'positioned absolute cursor-pointer object-cover ' +
+        getAnimationClass(effect)
+      }
       onClick={onClick}
       alt={altText}
       src={src}
