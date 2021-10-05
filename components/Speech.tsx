@@ -27,7 +27,7 @@ const Speech: React.FC<SpeechProps> = ({
         )}
       </Box>
       <div
-        className="inline-block p-3 w-3/5 h-40 bg-white border border-gray-200 rounded shadow cursor-pointer"
+        className="inline-block p-3 w-3/5 h-40 bg-white border border-gray-200 rounded shadow cursor-pointer select-none"
         onClick={onClick}
       >
         <p className="text-lg font-bold">{character}</p>
