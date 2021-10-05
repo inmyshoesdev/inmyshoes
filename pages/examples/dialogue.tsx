@@ -214,21 +214,3 @@ const TempImage: React.FC<Image> = ({
     </div>
   )
 }
-
-const exampleCharacters = {
-  mainCharacter: {
-    name: 'Julie',
-    images: {
-      default: '/images/Julie.svg',
-    },
-    info: '',
-  },
-  npcs: [
-    {
-      name: 'Jason',
-      images: {
-        default: '/images/Jason.svg',
-      },
-    },
-  ],
-}

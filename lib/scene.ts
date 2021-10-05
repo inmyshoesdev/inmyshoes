@@ -1,5 +1,6 @@
 import { SceneSchema } from '../schema/scene'
 import { Action, makeAction } from './actions'
+import { Character } from './character'
 import {
   allElements,
   ClickableGroup,
@@ -50,7 +51,7 @@ export interface Scene {
   ): ElementValueFor<T> | undefined
 }
 
-export function makeScene(schema: SceneSchema): Scene {
+export function makeScene(schema: SceneSchema, characters: Character[]): Scene {
   const id = schema.id
 
   return {
@@ -63,7 +64,7 @@ export function makeScene(schema: SceneSchema): Scene {
     ),
 
     [dialogues]: schema.dialogues.map((dialogueSchema) =>
-      makeDialogue(dialogueSchema)
+      makeDialogue(dialogueSchema, characters)
     ),
 
     [images]: schema.images.map((imageSchema) => makeImage(imageSchema)),

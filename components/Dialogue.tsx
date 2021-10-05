@@ -27,21 +27,21 @@ const Dialogue: React.FC<DialogueProps> = ({
     }
   }
 
-  function getSpeech(): SpeechProps {
-    const speech = speeches[speechIdx]
-    return {
-      text: speech.text,
-      character: speech.character,
-      characterImg: testCharacterImg[speech.character],
-      isMainCharacter: isMainCharacter[speech.character],
-      onClick: nextDialogue,
-    }
-  }
+  // function getSpeech(): SpeechProps {
+  //   const speech = speeches[speechIdx]
+  //   return {
+  //     text: speech.text,
+  //     character: speech.character,
+  //     characterImg: testCharacterImg[speech.character],
+  //     isMainCharacter: isMainCharacter[speech.character],
+  //     onClick: nextDialogue,
+  //   }
+  // }
 
   return (
     <div className="w-screen h-screen">
       {speechIdx >= 0 && speechIdx < speeches.length && (
-        <Speech {...getSpeech()} />
+        <Speech {...speeches[speechIdx]} onClick={nextDialogue} />
       )}
     </div>
   )
