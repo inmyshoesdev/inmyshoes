@@ -7,11 +7,11 @@
             "narrations": [
                 {
                     "name": "intro",
-                    "text": "this is an intro narration. it will auto advance in 10 seconds."
+                    "text": "this is an intro narration. it will auto advance in 5 seconds."
                 },
                 {
                     "name": "stay",
-                    "text": "this narration has no duration and will be immediately skipped over"
+                    "text": "this narration stays for 3 seconds, then disappears for 1 second"
                 },
                 {
                     "name": "last",
@@ -25,13 +25,19 @@
                 {
                     "type": "showNarration",
                     "value": "intro",
-                    "duration": 10000,
+                    "duration": 5000,
                     "hideAfterShow": true
                 },
                 {
                     "type": "showNarration",
                     "value": "stay",
-                    "hideAfterShow": true
+                    "duration": 3000,
+                    "hideAfterShow": false
+                },
+                {
+                    "type": "hideNarration",
+                    "value": "stay",
+                    "duration": 1000
                 },
                 {
                     "type": "showNarration",
