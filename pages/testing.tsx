@@ -6,7 +6,7 @@ import { Game, makeGame } from '../lib/game'
 import exampleJson from '../schema/example-schema.json'
 import GameDisplay from '../components/GameDisplay'
 
-const SchemaInput: React.FC = () => {
+export const GenericSchemaInput = (jsonData: any) => function SchemaInput() {
   const [inputSchema, setInputSchema] = useState<string>('')
   const debouncedSchema = useDebounce(inputSchema, 500)
 
@@ -18,7 +18,7 @@ const SchemaInput: React.FC = () => {
   }
 
   const loadExample = () => {
-    setInputSchema(JSON.stringify(exampleJson, null, 2))
+    setInputSchema(JSON.stringify(jsonData, null, 2))
   }
 
   useEffect(() => {
@@ -56,4 +56,5 @@ const SchemaInput: React.FC = () => {
   )
 }
 
-export default SchemaInput
+
+export default GenericSchemaInput(exampleJson)

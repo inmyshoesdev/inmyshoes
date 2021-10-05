@@ -1,4 +1,4 @@
-import exampleJson from '../../schema/example-dialogue.json'
+import exampleJson from '../../schema/example-narration.json'
 import { GenericSchemaInput } from '../testing'
 
 export default GenericSchemaInput(exampleJson)
