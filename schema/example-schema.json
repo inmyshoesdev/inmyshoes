@@ -1,5 +1,12 @@
 {
   "name": "example game",
+  "mainCharacter": {
+    "name": "pennywise",
+    "images": {
+      "default": "https://images.unsplash.com/photo-1601513445498-5dbffc8d5d5a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
+    },
+    "info": ""
+  },
   "scenes": [
     {
       "id": 1,
