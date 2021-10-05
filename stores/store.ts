@@ -29,7 +29,7 @@ export const useStore = create<GameStore>((set) => ({
   gotoScene: (sceneId: number) =>
     set(
       produce<GameStore>((state) => {
-        state.game.currentSceneId = sceneId
+        state.game.globalState.currentSceneId = sceneId
       })
     ),
 

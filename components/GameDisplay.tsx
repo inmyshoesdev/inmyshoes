@@ -18,13 +18,13 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
   }, [newGame, loadGame])
 
   return (
-    <div className="flex flex-col items-center w-full my-2 space-y-2">
+    <div className="flex flex-col items-center my-2 w-full space-y-2">
       {game && (
-        <div className="text-2xl font-semibold text-gray-900">{game.name}</div>
+        <div className="text-gray-900 text-2xl font-semibold">{game.name}</div>
       )}
       <div className="w-[80vw] h-[45vw] border shadow">
-        {game.scenes.map((scene, idx) => {
-          if (game?.currentSceneId === scene.id) {
+        {game?.getScenes().map((scene, idx) => {
+          if (game?.globalState.currentSceneId === scene.id) {
             return <SceneDisplay scene={scene} key={idx} />
           }
         })}

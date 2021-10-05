@@ -4,19 +4,17 @@ import {
   Infer,
   object,
   optional,
-  size,
   string,
+  size,
 } from 'superstruct'
-import { MainCharacterSchema, NPCSchema } from './characters'
-import { SceneSchema } from './scene'
+import { MainCharacterSchema, NPCSchema } from './character'
 import { StateSchema } from './state'
 
 export const GameSchema = object({
   name: string(),
-  mainCharacter: MainCharacterSchema,
+  mainCharacters: size(array(MainCharacterSchema), 1, Infinity),
   npcs: defaulted(array(NPCSchema), () => []),
   globalState: optional(StateSchema),
-  scenes: size(array(SceneSchema), 1, Infinity),
 })
 
 export type GameSchema = Infer<typeof GameSchema>

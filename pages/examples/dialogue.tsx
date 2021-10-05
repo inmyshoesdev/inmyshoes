@@ -139,8 +139,8 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
         <div className="text-gray-900 text-2xl font-semibold">{game.name}</div>
       )}
       <div className="w-[80vw] h-[45vw] border shadow">
-        {game.scenes.map((scene, idx) => {
-          if (game?.currentSceneId === scene.id) {
+        {game.getScenes().map((scene, idx) => {
+          if (game?.globalState.currentSceneId === scene.id) {
             return <SceneDisplay scene={scene} key={idx} />
           }
         })}

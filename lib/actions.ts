@@ -65,7 +65,7 @@ export const DefinedActions: Partial<
   gotoScene: ({ args, game }) => {
     const { sceneId } = args
     if (typeof sceneId === 'number') {
-      game.currentSceneId = sceneId
+      game.globalState.currentSceneId = sceneId
     }
   },
 
@@ -117,7 +117,6 @@ function show(elementKey: ElementKeys) {
       console.warn(`no element called ${value}`)
       return
     }
-
     // if (position) {
     //   element.position = position
     // }

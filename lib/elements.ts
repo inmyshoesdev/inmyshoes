@@ -75,7 +75,7 @@ export function makeSpeech(
   if (!characterImage) characterImage = character.images.default
 
   let isMainCharacter = false
-  if ('info' in character) isMainCharacter = true
+  if ('scenes' in character) isMainCharacter = true
 
   return {
     text: schema.text,
