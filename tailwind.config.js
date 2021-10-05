@@ -17,6 +17,9 @@ module.exports = {
         ping: 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite',
         pulse: 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
+      cursor: {
+        pointer: "url(https://soristic.sgp1.digitaloceanspaces.com/general/curhand.cur), auto !important;"
+      },
     },
   },
   variants: {

@@ -30,8 +30,8 @@ const Speech: React.FC<SpeechProps> = ({
         className="inline-block p-3 w-3/5 h-40 bg-white border border-gray-200 rounded shadow cursor-pointer select-none"
         onClick={onClick}
       >
-        <p className="text-lg font-bold">{character}</p>
-        <p className="mt-2">{text}</p>
+        <p className="text-lg font-bold cursor-pointer">{character}</p>
+        <p className="mt-2 cursor-pointer">{text}</p>
       </div>
 
       <Box height={400} className="inline-block mx-5 w-1/5">

@@ -13,18 +13,27 @@ const Home: NextPage = () => {
       <main className="flex flex-col items-center p-5 space-y-5">
         <h1 className="text-4xl">Examples</h1>
         <Link href="/examples/toastable">
-          <a className="text-blue-600">toastable</a>
+          <a className="text-blue-600 cursor-pointer">toastable</a>
         </Link>
         <Link href="/examples/hoverable">
-          <a className="text-blue-600">hoverable</a>
+          <a className="text-blue-600 cursor-pointer">hoverable</a>
         </Link>
         <Link href="/examples/dialogue">
-          <a className="text-blue-600">dialogue</a>
+          <a className="text-blue-600 cursor-pointer">dialogue</a>
+        </Link>
+        <Link href="/examples/narration">
+          <a className="text-blue-600">narration</a>
         </Link>
         <h2 className="text-lg">
           For testing the game, go to{' '}
           <Link href="/testing">
-            <a className="text-blue-600">/testing</a>
+            <a className="text-blue-600 cursor-pointer">/testing</a>
+          </Link>
+        </h2>
+        <h2 className="text-lg">
+          To play the Demo game, go to{' '}
+          <Link href="/demo">
+            <a className="text-blue-600 cursor-pointer">/demo</a>
           </Link>
         </h2>
       </main>
