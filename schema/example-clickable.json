@@ -1,183 +1,185 @@
 {
   "name": "Clickable Scene Example",
-  "mainCharacter": {
-    "name": "Julie",
-    "images": {
-      "default": "/images/Julie.svg",
-      "happy": "/images/Julie_happy.svg"
-    },
-    "info": ""
-  },
+  "mainCharacters": [
+    {
+      "name": "Julie",
+      "images": {
+        "default": "/images/Julie.svg",
+        "happy": "/images/Julie_happy.svg"
+      },
+      "info": "",
+      "scenes": [
+        {
+          "id": 1,
+          "background": "/images/school.jpg",
+          "narrations": [
+            {
+              "name": "intro",
+              "text": "It started with Ken, a year 2 student from the Faculty of Arts and Social Science (FASS)."
+            },
+            {
+              "name": "intro2",
+              "text": "Ken had always wanted to be a part of the local game industry"
+            },
+            {
+              "name": "intro3",
+              "text": "To improve on his resume, should he take up programming and enroll in CS1101S?"
+            },
+            {
+              "name": "win",
+              "text": "Till Next Time!"
+            }
+          ],
+          "dialogues": [],
+          "images": [
+            {
+              "name": "ken",
+              "src": "/images/schoolboy.jpg",
+              "position": {
+                "top": "50%",
+                "left": "10px"
+              }
+            }
+          ],
+          "clickables": [
+            {
+              "name": "yes/no",
+              "clickables": [
+                {
+                  "name": "yes",
+                  "text": "Yes, for all the hardship coming my way, I say yes",
+                  "position": {
+                    "top": "10%",
+                    "left": "20%"
+                  },
+                  "effect": "bounce",
+                  "dimension": {
+                    "width": "200px"
+                  },
+                  "onClick": [
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 2
+                    }
+                  ]
+                },
+                {
+                  "name": "no",
+                  "text": "no",
+                  "position": {
+                    "top": "10%",
+                    "left": "80%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "hideImage",
+                      "value": "ken",
+                      "duration": 0
+                    },
+                    {
+                      "type": "hideNarration",
+                      "value": "intro3",
+                      "duration": 1200
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "win"
+                    }
+                  ]
+                },
+                {
+                  "name": "maybe",
+                  "src": "/images/mobile.png",
+                  "altText": "maybe",
+                  "position": {
+                    "top": "30%",
+                    "left": "45%"
+                  },
+                  "dimension": {
+                    "width": "10rem"
+                  },
+                  "onClick": [
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 2
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "showImage",
+              "value": "ken"
+            },
+            {
+              "type": "showNarration",
+              "value": "intro",
+              "duration": 2000,
+              "hideAfterShow": true
+            },
+            {
+              "type": "showNarration",
+              "value": "intro2",
+              "duration": 3000,
+              "hideAfterShow": true
+            },
+            {
+              "type": "showNarration",
+              "value": "intro3",
+              "duration": 3000,
+              "hideAfterShow": true
+            },
+            {
+              "type": "showClickable",
+              "value": "yes/no"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "background": "https://i.kym-cdn.com/entries/icons/original/000/029/198/Dark_Souls_You_Died_Screen_-_Completely_Black_Screen_0-2_screenshot.png",
+          "narrations": [],
+          "dialogues": [],
+          "images": [],
+          "clickables": [
+            {
+              "name": "restart",
+              "clickables": [
+                {
+                  "name": "yes",
+                  "text": "restart?",
+                  "onClick": [
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "wait",
+              "duration": 1500
+            },
+            {
+              "type": "showClickable",
+              "value": "restart"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "npcs": [
     {
       "name": "Jason",
       "images": {
         "default": "/images/Jason.svg"
       }
-    }
-  ],
-  "scenes": [
-    {
-      "id": 1,
-      "background": "/images/school.jpg",
-      "narrations": [
-        {
-          "name": "intro",
-          "text": "It started with Ken, a year 2 student from the Faculty of Arts and Social Science (FASS)."
-        },
-        {
-          "name": "intro2",
-          "text": "Ken had always wanted to be a part of the local game industry"
-        },
-        {
-          "name": "intro3",
-          "text": "To improve on his resume, should he take up programming and enroll in CS1101S?"
-        },
-        {
-          "name": "win",
-          "text": "Till Next Time!"
-        }
-      ],
-      "dialogues": [],
-      "images": [
-        {
-          "name": "ken",
-          "src": "/images/schoolboy.jpg",
-          "position": {
-            "top": "50%",
-            "left": "10px"
-          }
-        }
-      ],
-      "clickables": [
-        {
-          "name": "yes/no",
-          "clickables": [
-            {
-              "name": "yes",
-              "text": "Yes, for all the hardship coming my way, I say yes",
-              "position": {
-                "top": "10%",
-                "left": "20%"
-              },
-              "effect": "bounce",
-              "dimension": {
-                "width": "200px"
-              },
-              "onClick": [
-                {
-                  "type": "gotoScene",
-                  "sceneId": 2
-                }
-              ]
-            },
-            {
-              "name": "no",
-              "text": "no",
-              "position": {
-                "top": "10%",
-                "left": "80%"
-              },
-              "onClick": [
-                {
-                  "type": "hideImage",
-                  "value": "ken",
-                  "duration": 0
-                },
-                {
-                  "type": "hideNarration",
-                  "value": "intro3",
-                  "duration": 1200
-                },
-                {
-                  "type": "showNarration",
-                  "value": "win"
-                }
-              ]
-            },
-            {
-              "name": "maybe",
-              "src": "/images/mobile.png",
-              "altText": "maybe",
-              "position": {
-                "top": "30%",
-                "left": "45%"
-              },
-              "dimension": {
-                "width": "10rem"
-              },
-              "onClick": [
-                {
-                  "type": "gotoScene",
-                  "sceneId": 2
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "intro": [
-        {
-          "type": "showImage",
-          "value": "ken"
-        },
-        {
-          "type": "showNarration",
-          "value": "intro",
-          "duration": 2000,
-          "hideAfterShow": true
-        },
-        {
-          "type": "showNarration",
-          "value": "intro2",
-          "duration": 3000,
-          "hideAfterShow": true
-        },
-        {
-          "type": "showNarration",
-          "value": "intro3",
-          "duration": 3000,
-          "hideAfterShow": true
-        },
-        {
-          "type": "showClickable",
-          "value": "yes/no"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "background": "https://i.kym-cdn.com/entries/icons/original/000/029/198/Dark_Souls_You_Died_Screen_-_Completely_Black_Screen_0-2_screenshot.png",
-      "narrations": [],
-      "dialogues": [],
-      "images": [],
-      "clickables": [
-        {
-          "name": "restart",
-          "clickables": [
-            {
-              "name": "yes",
-              "text": "restart?",
-              "onClick": [
-                {
-                  "type": "gotoScene",
-                  "sceneId": 1
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "intro": [
-        {
-          "type": "wait",
-          "duration": 1500
-        },
-        {
-          "type": "showClickable",
-          "value": "restart"
-        }
-      ]
     }
   ]
 }

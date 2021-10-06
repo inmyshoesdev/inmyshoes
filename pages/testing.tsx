@@ -3,7 +3,7 @@ import { create } from 'superstruct'
 import { useDebounce } from '../hooks/useDebounce'
 import { GameSchema } from '../schema/game'
 import { Game, makeGame } from '../lib/game'
-import exampleJson from '../schema/example-schema.json'
+import exampleJson from '../schema/mvp.json'
 import GameDisplay from '../components/GameDisplay'
 
 export const GenericSchemaInput = (jsonData: any) => function SchemaInput() {
@@ -39,7 +39,7 @@ export const GenericSchemaInput = (jsonData: any) => function SchemaInput() {
   return (
     <main className="flex flex-col items-center py-5 space-y-5">
       <textarea
-        className="w-full max-w-2xl m-2 font-mono"
+        className="m-2 w-full max-w-2xl font-mono"
         spellCheck={false}
         rows={16}
         onChange={handleInput}
@@ -49,7 +49,7 @@ export const GenericSchemaInput = (jsonData: any) => function SchemaInput() {
         Load Example
       </button>
       {debouncedSchema !== '' && error && (
-        <p className="text-lg text-red-600">Validation Error: {error}</p>
+        <p className="text-red-600 text-lg">Validation Error: {error}</p>
       )}
       {game && <GameDisplay game={game} />}
     </main>

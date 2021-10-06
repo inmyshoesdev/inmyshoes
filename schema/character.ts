@@ -1,13 +1,13 @@
 import {
+  array,
   Infer,
   intersection,
-  literal,
-  object,
-  optional,
   record,
+  size,
   string,
   type,
 } from 'superstruct'
+import { SceneSchema } from './scene'
 
 export const CharacterSchema = type({
   name: string(),
@@ -28,6 +28,7 @@ export const MainCharacterSchema = intersection([
   CharacterSchema,
   type({
     info: string(),
+    scenes: size(array(SceneSchema), 1, Infinity),
   }),
 ])
 export type MainCharacterSchema = Infer<typeof MainCharacterSchema>
