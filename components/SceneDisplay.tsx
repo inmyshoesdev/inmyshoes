@@ -1,10 +1,9 @@
 import { useEffect } from 'react'
-import { useAfterInteractionCallback } from '../hooks/useAfterInteractionCallback'
-import { Image } from '../lib/elements'
 import { Scene } from '../lib/scene'
 import { useStore } from '../stores/store'
 import ClickableGroup from './ClickableGroup'
 import Dialogue from './Dialogue'
+import ImageElement from './ImageElement'
 import Narration from './Narration'
 
 type SceneProps = {
@@ -37,7 +36,7 @@ const SceneDisplay: React.FC<SceneProps> = ({ scene }) => {
         <Dialogue {...dialogue} key={dialogue.name} />
       ))}
       {scene.images.map((image) => (
-        <TempImage {...image} key={image.name}></TempImage>
+        <ImageElement {...image} key={image.name}></ImageElement>
       ))}
       {scene.clickables.map((clickableGroup) => (
         <ClickableGroup
@@ -51,33 +50,3 @@ const SceneDisplay: React.FC<SceneProps> = ({ scene }) => {
 }
 
 export default SceneDisplay
-
-const TempImage: React.FC<Image> = ({
-  shown,
-  src,
-  altText,
-  position,
-  afterInteractionCallback,
-}) => {
-  const handleInteraction = useAfterInteractionCallback(
-    afterInteractionCallback
-  )
-
-  if (!shown) {
-    return null
-  }
-
-  return (
-    <div className="positioned absolute w-1/5" onClick={handleInteraction}>
-      <img src={src} alt={altText || ''} className="object-cover" />
-      <style jsx>{`
-        .positioned {
-          top: ${position.top || 'unset'};
-          right: ${position.right || '0px'};
-          left: ${position.left || '0px'};
-          bottom: ${position.bottom || '5%'};
-        }
-      `}</style>
-    </div>
-  )
-}

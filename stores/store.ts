@@ -22,6 +22,7 @@ export const useStore = create<GameStore>((set) => ({
 
   loadGame: (game: Game) => {
     set({ game })
+    game.preloadImages()
   },
 
   gotoScene: (sceneId: number) =>

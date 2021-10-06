@@ -50,9 +50,13 @@
           "name": "clown",
           "src": "https://images.unsplash.com/photo-1601513445498-5dbffc8d5d5a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80",
           "position": {
-            "top": "50%",
-            "left": "10px"
-          }
+            "top": "15%",
+            "left": "2%"
+          },
+          "dimension": {
+            "height": "30%"
+          },
+          "blendMode": "lighten"
         }
       ],
       "clickables": [
@@ -82,12 +86,6 @@
               },
               "onClick": [
                 {
-                  "type": "showDialogue",
-                  "value": "clown sad",
-                  "duration": 1500,
-                  "hideAfterShow": true
-                },
-                {
                   "type": "hideImage",
                   "value": "clown",
                   "duration": 0
@@ -95,7 +93,13 @@
                 {
                   "type": "hideNarration",
                   "value": "clown decision",
-                  "duration": 1000
+                  "duration": 300
+                },
+                {
+                  "type": "showDialogue",
+                  "value": "clown sad",
+                  "duration": 2000,
+                  "hideAfterShow": true
                 },
                 {
                   "type": "showNarration",
