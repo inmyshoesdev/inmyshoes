@@ -19,6 +19,12 @@ const Dialogue: React.FC<DialogueProps> = ({
     if (speechIdx >= speeches.length) afterAction()
   }, [speechIdx])
 
+  function prevDialogue() {
+    if (speechIdx < speeches.length) {
+      setSpeechIdx(speechIdx - 1)
+    }
+  }
+
   function nextDialogue() {
     if (speechIdx < speeches.length) {
       setSpeechIdx(speechIdx + 1)
@@ -28,7 +34,12 @@ const Dialogue: React.FC<DialogueProps> = ({
   return (
     <div className="w-screen h-screen">
       {speechIdx >= 0 && speechIdx < speeches.length && (
-        <Speech {...speeches[speechIdx]} onClick={nextDialogue} />
+        <Speech
+          {...speeches[speechIdx]}
+          onNext={nextDialogue}
+          onPrev={prevDialogue}
+          prevEnabled={!(speechIdx === 0)}
+        />
       )}
     </div>
   )

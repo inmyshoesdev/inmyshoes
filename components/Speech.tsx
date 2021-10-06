@@ -6,7 +6,10 @@ export interface SpeechProps {
   character: string
   characterImage: string
   isMainCharacter: boolean
-  onClick?: () => void
+  prevEnabled?: boolean
+  nextEnabled?: boolean
+  onNext?: () => void
+  onPrev?: () => void
 }
 
 const Speech: React.FC<SpeechProps> = ({
@@ -14,7 +17,10 @@ const Speech: React.FC<SpeechProps> = ({
   character,
   characterImage,
   isMainCharacter = false,
-  onClick,
+  prevEnabled = true,
+  nextEnabled = true,
+  onNext,
+  onPrev,
 }) => {
   return (
     <div className="absolute bottom-0 flex items-center justify-evenly w-full">
@@ -27,25 +33,28 @@ const Speech: React.FC<SpeechProps> = ({
           />
         )}
       </Box>
-      <div
-        className="inline-block p-3 w-3/5 h-40 bg-white border border-gray-200 rounded shadow cursor-pointer select-none"
-        onClick={onClick}
-      >
-        <p className="text-lg font-bold cursor-pointer">{character}</p>
+      <div className="flex flex-col p-3 w-3/5 h-40 bg-white border border-gray-200 rounded shadow select-none">
+        <p className="h-1/5 text-lg font-bold">{character}</p>
 
-        <div className="mt-2 cursor-pointer">
+        <div className="h-3/5">
           <Typewriter
             key={text}
             onInit={(typewriter) => {
-              typewriter
-                .typeString(`<div class="cursor-pointer">${text}</div>`)
-                .start()
+              typewriter.typeString(`<div>${text}</div>`).start()
             }}
             options={{
               cursor: '',
               delay: 30, // speed adjustment
             }}
           />
+        </div>
+        <div className="flex justify-between h-1/5">
+          <button onClick={onPrev} className="cursor-pointer">
+            Prev
+          </button>
+          <button onClick={onNext} className="cursor-pointer">
+            Next
+          </button>
         </div>
       </div>
 
