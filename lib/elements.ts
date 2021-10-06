@@ -114,12 +114,7 @@ export function makeImage(schema: ImageSchema): Image {
   return {
     shown: false,
     name: schema.name,
-    position: schema.position || {
-      top: '0',
-      right: '0',
-      left: '0',
-      bottom: '0',
-    }, // TODO: settle on a proper default position
+    position: schema.position || {}, // TODO: settle on a proper default position
     dimension: schema.dimension || {},
     src: schema.src,
     altText: schema.altText,

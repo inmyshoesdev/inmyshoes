@@ -27,12 +27,18 @@ const ImageElement: React.FC<Image> = ({
       />
       <style jsx>{`
         .container {
-          top: ${position.top || 'unset'};
+          top: ${position.top || '50%'};
+          left: ${position.left || '50%'};
           right: ${position.right || 'unset'};
-          left: ${position.left || 'unset'};
           bottom: ${position.bottom || 'unset'};
           width: ${dimension.width || 'auto'};
           height: ${dimension.height || 'unset'};
+          transform: ${position.top ||
+          position.left ||
+          position.right ||
+          position.bottom
+            ? 'unset'
+            : 'translate(-50%, -50%)'};
         }
 
         .image {
