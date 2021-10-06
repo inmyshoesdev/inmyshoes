@@ -13,6 +13,10 @@ import { State } from './state'
 export const EmptyGame: Game = {
   name: '',
   globalState: {},
+
+  characterName: '',
+  currentSceneId: 0,
+
   mainCharacters: [] as MainCharacter[],
   npcs: [] as NPC[],
   getScenes() {
@@ -26,6 +30,9 @@ export const EmptyGame: Game = {
 export interface Game {
   name: string
   globalState: State
+
+  characterName: string
+  currentSceneId: number
 
   mainCharacters: MainCharacter[]
   npcs: NPC[]
@@ -45,9 +52,10 @@ export function makeGame(schema: GameSchema): Game {
 
     globalState: {
       ...(schema.globalState ?? {}),
-      characterName: mainCharacters[0].name,
-      currentSceneId: mainCharacters[0].scenes[0].id,
     },
+
+    characterName: mainCharacters[0].name,
+    currentSceneId: mainCharacters[0].scenes[0].id,
 
     mainCharacters: mainCharacters,
     npcs: npcs,
@@ -55,7 +63,7 @@ export function makeGame(schema: GameSchema): Game {
     getScenes() {
       // Get current playing character
       let character = this.mainCharacters.find(
-        (character) => character.name === this.globalState.characterName
+        (character) => character.name === this.characterName
       )
       if (!character) {
         console.error('no current playing character')
@@ -66,7 +74,7 @@ export function makeGame(schema: GameSchema): Game {
     getScene(sceneId: number) {
       // Get current playing character
       let character = this.mainCharacters.find(
-        (character) => character.name === this.globalState.characterName
+        (character) => character.name === this.characterName
       )
       if (!character) {
         console.error('no current playing character')

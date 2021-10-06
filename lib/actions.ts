@@ -65,7 +65,7 @@ export const DefinedActions: Partial<
   gotoScene: ({ args, game }) => {
     const { sceneId } = args
     if (typeof sceneId === 'number') {
-      game.globalState.currentSceneId = sceneId
+      game.currentSceneId = sceneId
     }
   },
 
