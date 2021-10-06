@@ -64,7 +64,7 @@
               "text": "yes",
               "position": {
                 "top": "80%",
-                "left": "24%"
+                "left": "40%"
               },
               "onClick": [
                 {
@@ -78,7 +78,7 @@
               "text": "no",
               "position": {
                 "top": "80%",
-                "left": "86%"
+                "left": "60%"
               },
               "onClick": [
                 {
@@ -95,7 +95,7 @@
                 {
                   "type": "hideNarration",
                   "value": "clown decision",
-                  "duration": 1200
+                  "duration": 1000
                 },
                 {
                   "type": "showNarration",
@@ -137,6 +137,15 @@
         },
         {
           "type": "showClickable",
+          "value": "clown yes/no"
+        },
+        {
+          "type": "waitForInteraction",
+          "elementType": "clickables",
+          "value": "clown yes/no"
+        },
+        {
+          "type": "hideClickable",
           "value": "clown yes/no"
         }
       ]

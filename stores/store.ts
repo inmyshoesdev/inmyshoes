@@ -2,12 +2,10 @@ import produce from 'immer'
 import create from 'zustand'
 import {
   Action,
-  afterInteractionCallback,
   FinishAction,
   isCallable,
   waitForInteraction,
 } from '../lib/actions'
-import { Clickable } from '../lib/elements'
 import { EmptyGame, Game } from '../lib/game'
 
 type GameStore = {
@@ -72,7 +70,7 @@ export const useStore = create<GameStore>((set) => ({
     }>(
       (accum, action) => {
         const { nextTiming, actions } = accum
-        const { name, duration, args } = action
+        const { name, duration } = action
 
         const shouldWaitForInteraction = name === waitForInteraction
 
@@ -118,22 +116,20 @@ export const useStore = create<GameStore>((set) => ({
 
         // schedule the action at the specified timing
         let id = setTimeout(() => {
-          set((state) => {
-            const newGame = produce<Game>(state.game, (game) => {
-              const scene = game.getScene(sceneId)
+          set(
+            produce<GameStore>((state) => {
+              const scene = state.game.getScene(sceneId)
               if (scene) {
                 finishAction = execute({
                   duration,
                   args,
                   scene,
-                  game,
+                  game: state.game,
                   afterInteractionCallback,
                 })
               }
             })
-
-            return { game: newGame }
-          })
+          )
         }, timing)
 
         timerIds.push(id)
@@ -142,16 +138,14 @@ export const useStore = create<GameStore>((set) => ({
         id = setTimeout(() => {
           if (isCallable(finishAction)) {
             const executeFinish = finishAction
-            set((state) => {
-              const newGame = produce<Game>(state.game, (game) => {
-                const scene = game.getScene(sceneId)
+            set(
+              produce<GameStore>((state) => {
+                const scene = state.game.getScene(sceneId)
                 if (scene) {
-                  executeFinish({ scene, game })
+                  executeFinish({ scene, game: state.game })
                 }
               })
-
-              return { game: newGame }
-            })
+            )
           }
         }, timing + duration)
 
@@ -165,6 +159,7 @@ export const useStore = create<GameStore>((set) => ({
       return shouldWaitForInteraction ? [fn] : [...accum, fn]
     }, [])
 
+    // execute all accumulated callbacks
     const cleanupFns = res.map((fn) => fn())
 
     return () => cleanupFns.forEach((fn) => fn())
