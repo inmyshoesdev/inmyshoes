@@ -1,177 +1,195 @@
 {
   "name": "example game",
-  "mainCharacter": {
-    "name": "pennywise",
-    "images": {
-      "default": "https://images.unsplash.com/photo-1601513445498-5dbffc8d5d5a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
-    },
-    "info": ""
-  },
-  "scenes": [
+  "mainCharacters": [
     {
-      "id": 1,
-      "background": "https://images.unsplash.com/photo-1532689193429-29caa23e5268?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80",
-      "narrations": [
+      "name": "pennywise",
+      "images": {
+        "default": "https://images.unsplash.com/photo-1601513445498-5dbffc8d5d5a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
+      },
+      "info": "",
+      "scenes": [
         {
-          "name": "intro",
-          "text": "this is a dark and scary dungeon..."
-        },
-        {
-          "name": "clown decision",
-          "text": "listen to the clown?"
-        },
-        {
-          "name": "win msg",
-          "text": "you won!!!"
-        }
-      ],
-      "dialogues": [
-        {
-          "name": "clown bait",
-          "speeches": [
+          "id": 1,
+          "background": "https://images.unsplash.com/photo-1532689193429-29caa23e5268?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80",
+          "narrations": [
             {
-              "character": "pennywise",
-              "text": "come over here hehe ;o)"
+              "name": "intro",
+              "text": "this is a dark and scary dungeon..."
+            },
+            {
+              "name": "clown decision",
+              "text": "listen to the clown?"
+            },
+            {
+              "name": "win msg",
+              "text": "you won!!!"
             }
-          ]
-        },
-        {
-          "name": "clown sad",
-          "speeches": [
+          ],
+          "dialogues": [
             {
-              "character": "pennywise",
-              "text": "damnit :("
-            }
-          ]
-        }
-      ],
-      "images": [
-        {
-          "name": "clown",
-          "src": "https://images.unsplash.com/photo-1601513445498-5dbffc8d5d5a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80",
-          "position": {
-            "top": "50%",
-            "left": "10px"
-          }
-        }
-      ],
-      "clickables": [
-        {
-          "name": "clown yes/no",
-          "clickables": [
-            {
-              "name": "yes",
-              "text": "yes",
-              "position": {
-                "top": "80%",
-                "left": "24%"
-              },
-              "onClick": [
+              "name": "clown bait",
+              "speeches": [
                 {
-                  "type": "gotoScene",
-                  "sceneId": 2
+                  "character": "pennywise",
+                  "text": "come over here hehe ;o)"
                 }
               ]
             },
             {
-              "name": "no",
-              "text": "no",
-              "position": {
-                "top": "80%",
-                "left": "86%"
-              },
-              "onClick": [
+              "name": "clown sad",
+              "speeches": [
                 {
-                  "type": "showDialogue",
-                  "value": "clown sad",
-                  "duration": 1500,
-                  "hideAfterShow": true
-                },
-                {
-                  "type": "hideImage",
-                  "value": "clown",
-                  "duration": 0
-                },
-                {
-                  "type": "hideNarration",
-                  "value": "clown decision",
-                  "duration": 1200
-                },
-                {
-                  "type": "showNarration",
-                  "value": "win msg"
+                  "character": "pennywise",
+                  "text": "damnit :("
                 }
               ]
             }
-          ]
-        }
-      ],
-      "intro": [
-        {
-          "type": "showNarration",
-          "value": "intro",
-          "duration": 2000,
-          "hideAfterShow": true
-        },
-        {
-          "type": "showDialogue",
-          "value": "clown bait"
-        },
-        {
-          "type": "waitForInteraction",
-          "elementType": "dialogues",
-          "value": "clown bait"
-        },
-        {
-          "type": "hideDialogue",
-          "value": "clown bait"
-        },
-        {
-          "type": "showImage",
-          "value": "clown",
-          "duration": 1500
-        },
-        {
-          "type": "showNarration",
-          "value": "clown decision"
-        },
-        {
-          "type": "showClickable",
-          "value": "clown yes/no"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "background": "https://i.kym-cdn.com/entries/icons/original/000/029/198/Dark_Souls_You_Died_Screen_-_Completely_Black_Screen_0-2_screenshot.png",
-      "narrations": [],
-      "dialogues": [],
-      "images": [],
-      "clickables": [
-        {
-          "name": "restart",
+          ],
+          "images": [
+            {
+              "name": "clown",
+              "src": "https://images.unsplash.com/photo-1601513445498-5dbffc8d5d5a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80",
+              "position": {
+                "top": "15%",
+                "left": "2%"
+              },
+              "dimension": {
+                "height": "30%"
+              },
+              "blendMode": "lighten"
+            }
+          ],
           "clickables": [
             {
-              "name": "yes",
-              "text": "restart?",
-              "onClick": [
+              "name": "clown yes/no",
+              "clickables": [
                 {
-                  "type": "gotoScene",
-                  "sceneId": 1
+                  "name": "yes",
+                  "text": "yes",
+                  "position": {
+                    "top": "80%",
+                    "left": "40%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 2
+                    }
+                  ]
+                },
+                {
+                  "name": "no",
+                  "text": "no",
+                  "position": {
+                    "top": "80%",
+                    "left": "60%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "hideImage",
+                      "value": "clown",
+                      "duration": 0
+                    },
+                    {
+                      "type": "hideNarration",
+                      "value": "clown decision",
+                      "duration": 1200
+                    },
+                    {
+                      "type": "showDialogue",
+                      "value": "clown sad"
+                    },
+                    {
+                      "type": "waitForInteraction",
+                      "elementType": "dialogues",
+                      "value": "clown sad"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "win msg"
+                    }
+                  ]
                 }
               ]
             }
+          ],
+          "intro": [
+            {
+              "type": "showNarration",
+              "value": "intro",
+              "duration": 2000,
+              "hideAfterShow": true
+            },
+            {
+              "type": "showDialogue",
+              "value": "clown bait"
+            },
+            {
+              "type": "waitForInteraction",
+              "elementType": "dialogues",
+              "value": "clown bait"
+            },
+            {
+              "type": "hideDialogue",
+              "value": "clown bait"
+            },
+            {
+              "type": "showImage",
+              "value": "clown",
+              "duration": 1500
+            },
+            {
+              "type": "showNarration",
+              "value": "clown decision"
+            },
+            {
+              "type": "showClickable",
+              "value": "clown yes/no"
+            },
+            {
+              "type": "waitForInteraction",
+              "elementType": "clickables",
+              "value": "clown yes/no"
+            },
+            {
+              "type": "hideClickable",
+              "value": "clown yes/no"
+            }
           ]
-        }
-      ],
-      "intro": [
-        {
-          "type": "wait",
-          "duration": 1500
         },
         {
-          "type": "showClickable",
-          "value": "restart"
+          "id": 2,
+          "background": "https://i.kym-cdn.com/entries/icons/original/000/029/198/Dark_Souls_You_Died_Screen_-_Completely_Black_Screen_0-2_screenshot.png",
+          "narrations": [],
+          "dialogues": [],
+          "images": [],
+          "clickables": [
+            {
+              "name": "restart",
+              "clickables": [
+                {
+                  "name": "yes",
+                  "text": "restart?",
+                  "onClick": [
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "wait",
+              "duration": 1500
+            },
+            {
+              "type": "showClickable",
+              "value": "restart"
+            }
+          ]
         }
       ]
     }

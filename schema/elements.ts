@@ -8,6 +8,7 @@ import {
   type,
   union,
   object,
+  enums,
 } from 'superstruct'
 import { ActionSchema } from './actions'
 
@@ -94,6 +95,26 @@ export const ImageSchema = intersection([
   type({
     src: string(),
     altText: optional(string()),
+    blendMode: optional(
+      enums([
+        'normal',
+        'multiply',
+        'screen',
+        'overlay',
+        'darken',
+        'lighten',
+        'color-dodge',
+        'color-burn',
+        'hard-light',
+        'soft-light',
+        'difference',
+        'exclusion',
+        'hue',
+        'saturation',
+        'color',
+        'luminosity',
+      ])
+    ),
   }),
 ])
 

@@ -117,7 +117,6 @@ function show(elementKey: ElementKeys) {
       console.warn(`no element called ${value}`)
       return
     }
-
     // if (position) {
     //   element.position = position
     // }
