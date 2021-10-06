@@ -1,3 +1,5 @@
+import MarkdownIt from 'markdown-it'
+
 export function getAnimationClass(effect: string) {
   switch (effect) {
     case 'pulse':
@@ -13,4 +15,10 @@ export function getAnimationClass(effect: string) {
     default:
       return ''
   }
+}
+
+// returns string representation of Html
+export const renderMdToHtml = (raw: string): string => {
+  const mdParser = new MarkdownIt()
+  return mdParser.render(raw)
 }
