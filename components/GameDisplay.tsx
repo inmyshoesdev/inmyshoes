@@ -26,7 +26,7 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
       )}
       <Status />
       <div className="w-[80vw] h-[45vw] border shadow">
-        {game.scenes.map((scene, idx) => {
+        {game?.getScenes().map((scene, idx) => {
           if (game?.currentSceneId === scene.id) {
             return <SceneDisplay scene={scene} key={idx} />
           }

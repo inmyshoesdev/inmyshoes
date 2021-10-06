@@ -14,70 +14,100 @@ import { State } from './state'
 
 export const EmptyGame: Game = {
   name: '',
-  currentSceneId: 0,
   globalState: {},
-  mainCharacter: {
-    name: '',
-    images: { default: '' },
-    info: '',
-  },
+
+  characterName: '',
+  currentSceneId: 0,
+
+  mainCharacters: [] as MainCharacter[],
   npcs: [] as NPC[],
-  scenes: [] as Scene[],
+  getScenes() {
+    return []
+  },
   getScene(sceneId: number) {
-    return this.scenes.find((scene) => scene.id === sceneId)
+    return undefined
   },
   preloadImages() {},
 }
 
 export interface Game {
   name: string
-  currentSceneId: number
   globalState: State
 
-  mainCharacter: MainCharacter
+  characterName: string
+  currentSceneId: number
+
+  mainCharacters: MainCharacter[]
   npcs: NPC[]
 
-  scenes: Scene[]
+  getScenes(): Scene[] // Get all scenes of current playing character
   getScene(sceneId: number): Scene | undefined
 
   preloadImages(): void
 }
 
 export function makeGame(schema: GameSchema): Game {
-  const mainCharacter = makeMainCharacter(schema.mainCharacter)
   const npcs = schema.npcs.map((npcSchema) => makeNPC(npcSchema))
-  const characters: Character[] = [mainCharacter, ...npcs]
+  const mainCharacters = schema.mainCharacters.map((character) =>
+    makeMainCharacter(character, npcs)
+  )
+
   return {
     name: schema.name,
-    currentSceneId: schema.scenes[0].id,
-    globalState: { ...(schema.globalState ?? {}) },
 
-    mainCharacter: mainCharacter,
+    globalState: {
+      ...(schema.globalState ?? {}),
+    },
+
+    characterName: mainCharacters[0].name,
+    currentSceneId: mainCharacters[0].scenes[0].id,
+
+    mainCharacters: mainCharacters,
     npcs: npcs,
 
-    scenes: schema.scenes.map((schema) => makeScene(schema, characters)),
+    getScenes() {
+      // Get current playing character
+      let character = this.mainCharacters.find(
+        (character) => character.name === this.characterName
+      )
+      if (!character) {
+        console.error('no current playing character')
+        return []
+      }
+      return character.scenes
+    },
     getScene(sceneId: number) {
-      return this.scenes.find((scene) => scene.id === sceneId)
+      // Get current playing character
+      let character = this.mainCharacters.find(
+        (character) => character.name === this.characterName
+      )
+      if (!character) {
+        console.error('no current playing character')
+        return
+      }
+      return character.getScene(sceneId)
     },
 
     preloadImages() {
       const imageSources: string[] = []
 
-      let characters = [this.mainCharacter, ...this.npcs]
+      let characters = [...this.mainCharacters, ...this.npcs]
       characters.forEach((char) => {
         for (const [_, src] of Object.entries(char.images)) {
           imageSources.push(src)
         }
       })
 
-      this.scenes.forEach((scene) => {
-        imageSources.push(scene.background)
+      this.mainCharacters.forEach(char => {
+        char.scenes.forEach(scene => {
+          imageSources.push(scene.background)
 
-        scene.images.forEach((image) => {
-          imageSources.push(image.src)
+          scene.images.forEach((image) => {
+            imageSources.push(image.src)
+          })
         })
       })
-
+      
       imageSources.forEach((source) => {
         const img = new Image()
         img.src = source
