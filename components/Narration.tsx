@@ -16,14 +16,14 @@ const Narration: React.FC<NarrationProps> = ({
   return (
     <div className="w-screen h-screen">
       <div className="absolute bottom-0 flex items-center justify-evenly w-full">
-        <Box height={400} className="inline-block w-1/5"/>
+        <Box height={400} className="inline-block w-1/5" />
         <div
-          className="inline-block p-3 w-3/5 h-40 bg-white border border-gray-200 rounded shadow cursor-pointer"
+          className="inline-block p-3 w-3/5 h-40 bg-white border border-gray-200 rounded shadow"
           onClick={afterAction}
         >
-          <p className="mt-2"><i>{text}</i></p>
+          <p className="mt-2 italic">{text}</p>
         </div>
-        <Box height={400} className="inline-block w-1/5"/>
+        <Box height={400} className="inline-block w-1/5" />
       </div>
     </div>
   )

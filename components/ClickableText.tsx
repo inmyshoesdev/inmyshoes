@@ -21,7 +21,8 @@ const ClickableText = ({
       className={
         `select-none positioned text-md absolute px-4 py-3 text-gray-900 
         font-semibold bg-gray-100 border border-gray-700 
-        rounded shadow cursor-pointer ` + getAnimationClass(effect)
+        rounded shadow cursor-pointer 
+         hover:bg-gray-300` + getAnimationClass(effect)
       }
       onClick={onClick}
       style={{

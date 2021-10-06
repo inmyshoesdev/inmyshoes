@@ -1,4 +1,5 @@
 import { Box } from '@chakra-ui/react'
+import Typewriter from 'typewriter-effect'
 
 export interface SpeechProps {
   text: string
@@ -31,7 +32,21 @@ const Speech: React.FC<SpeechProps> = ({
         onClick={onClick}
       >
         <p className="text-lg font-bold cursor-pointer">{character}</p>
-        <p className="mt-2 cursor-pointer">{text}</p>
+
+        <div className="mt-2 cursor-pointer">
+          <Typewriter
+            key={text}
+            onInit={(typewriter) => {
+              typewriter
+                .typeString(`<div class="cursor-pointer">${text}</div>`)
+                .start()
+            }}
+            options={{
+              cursor: '',
+              delay: 30, // speed adjustment
+            }}
+          />
+        </div>
       </div>
 
       <Box height={400} className="inline-block mx-5 w-1/5">
