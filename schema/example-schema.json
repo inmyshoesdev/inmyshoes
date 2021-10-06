@@ -50,9 +50,13 @@
               "name": "clown",
               "src": "https://images.unsplash.com/photo-1601513445498-5dbffc8d5d5a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80",
               "position": {
-                "top": "50%",
-                "left": "10px"
-              }
+                "top": "15%",
+                "left": "2%"
+              },
+              "dimension": {
+                "height": "30%"
+              },
+              "blendMode": "lighten"
             }
           ],
           "clickables": [
@@ -64,7 +68,7 @@
                   "text": "yes",
                   "position": {
                     "top": "80%",
-                    "left": "24%"
+                    "left": "40%"
                   },
                   "onClick": [
                     {
@@ -78,15 +82,9 @@
                   "text": "no",
                   "position": {
                     "top": "80%",
-                    "left": "86%"
+                    "left": "60%"
                   },
                   "onClick": [
-                    {
-                      "type": "showDialogue",
-                      "value": "clown sad",
-                      "duration": 1500,
-                      "hideAfterShow": true
-                    },
                     {
                       "type": "hideImage",
                       "value": "clown",
@@ -96,6 +94,15 @@
                       "type": "hideNarration",
                       "value": "clown decision",
                       "duration": 1200
+                    },
+                    {
+                      "type": "showDialogue",
+                      "value": "clown sad"
+                    },
+                    {
+                      "type": "waitForInteraction",
+                      "elementType": "dialogues",
+                      "value": "clown sad"
                     },
                     {
                       "type": "showNarration",
@@ -137,6 +144,15 @@
             },
             {
               "type": "showClickable",
+              "value": "clown yes/no"
+            },
+            {
+              "type": "waitForInteraction",
+              "elementType": "clickables",
+              "value": "clown yes/no"
+            },
+            {
+              "type": "hideClickable",
               "value": "clown yes/no"
             }
           ]

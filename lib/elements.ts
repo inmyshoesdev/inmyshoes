@@ -6,7 +6,7 @@ import {
   SpeechSchema,
 } from '../schema/elements'
 import { Action, makeAction } from './actions'
-import { Character, MainCharacter } from './character'
+import { Character } from './character'
 import { isDefined } from './utils'
 
 // Add a key here and keep the `AllElements` list below in-sync when adding new elements
@@ -35,6 +35,7 @@ export interface Element {
   shown: boolean
   name: string
   position: Position
+  dimension: Dimension
   afterInteractionCallback?: () => () => void
 }
 
@@ -47,6 +48,7 @@ export function makeNarration(schema: NarrationSchema): Narration {
     shown: false,
     name: schema.name,
     position: schema.position || { top: '10%' }, // TODO: settle on a proper default position
+    dimension: schema.dimension || {},
     text: schema.text,
   }
 }
@@ -97,6 +99,7 @@ export function makeDialogue(
     shown: false,
     name: schema.name,
     position: schema.position || { bottom: '10%' }, // TODO: settle on a proper default position
+    dimension: schema.dimension || {},
     speeches: schema.speeches.map((speech) => makeSpeech(speech, characters)),
   }
 }
@@ -104,6 +107,7 @@ export function makeDialogue(
 export interface Image extends Element {
   src: string
   altText?: string
+  blendMode?: string
 }
 
 export function makeImage(schema: ImageSchema): Image {
@@ -111,8 +115,10 @@ export function makeImage(schema: ImageSchema): Image {
     shown: false,
     name: schema.name,
     position: schema.position || {}, // TODO: settle on a proper default position
+    dimension: schema.dimension || {},
     src: schema.src,
     altText: schema.altText,
+    blendMode: schema.blendMode,
   }
 }
 type ClickableText = {

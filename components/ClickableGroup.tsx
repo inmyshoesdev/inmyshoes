@@ -56,7 +56,7 @@ const ClickableGroup: React.FC<ClickableGroupProps> = ({
   }
 
   return (
-    <div className="absolute left-0 top-0 w-full h-full">
+    <>
       {clickables.map((clickable, idx) => {
         if (isClickableText(clickable)) {
           return (
@@ -83,7 +83,7 @@ const ClickableGroup: React.FC<ClickableGroupProps> = ({
           )
         }
       })}
-    </div>
+    </>
   )
 }
 

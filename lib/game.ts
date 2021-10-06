@@ -1,3 +1,4 @@
+import { Img } from '@chakra-ui/image'
 import { GameSchema } from '../schema/game'
 import {
   makeMainCharacter,
@@ -6,6 +7,7 @@ import {
   MainCharacter,
   NPC,
 } from './character'
+import { images } from './elements'
 import { makeScene, Scene } from './scene'
 
 import { State } from './state'
@@ -25,6 +27,7 @@ export const EmptyGame: Game = {
   getScene(sceneId: number) {
     return undefined
   },
+  preloadImages() {},
 }
 
 export interface Game {
@@ -39,6 +42,8 @@ export interface Game {
 
   getScenes(): Scene[] // Get all scenes of current playing character
   getScene(sceneId: number): Scene | undefined
+
+  preloadImages(): void
 }
 
 export function makeGame(schema: GameSchema): Game {
@@ -81,6 +86,32 @@ export function makeGame(schema: GameSchema): Game {
         return
       }
       return character.getScene(sceneId)
+    },
+
+    preloadImages() {
+      const imageSources: string[] = []
+
+      let characters = [...this.mainCharacters, ...this.npcs]
+      characters.forEach((char) => {
+        for (const [_, src] of Object.entries(char.images)) {
+          imageSources.push(src)
+        }
+      })
+
+      this.mainCharacters.forEach(char => {
+        char.scenes.forEach(scene => {
+          imageSources.push(scene.background)
+
+          scene.images.forEach((image) => {
+            imageSources.push(image.src)
+          })
+        })
+      })
+      
+      imageSources.forEach((source) => {
+        const img = new Image()
+        img.src = source
+      })
     },
   }
 }
