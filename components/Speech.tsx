@@ -1,11 +1,17 @@
 import { Box } from '@chakra-ui/react'
+import { Fragment } from 'react'
 import Typewriter from 'typewriter-effect'
+import { Position, Dimension } from '../lib/elements'
 
 export interface SpeechProps {
   text: string
   character: string
   characterImage: string
   isMainCharacter: boolean
+  characterPosition?: Position
+  characterDimension?: Dimension
+  textPosition?: Position
+  textDimension?: Dimension
   prevEnabled?: boolean
   nextEnabled?: boolean
   onNext?: () => void
@@ -17,23 +23,47 @@ const Speech: React.FC<SpeechProps> = ({
   character,
   characterImage,
   isMainCharacter = false,
+  characterPosition,
+  characterDimension,
+  textPosition,
+  textDimension,
   prevEnabled = true,
   nextEnabled = true,
   onNext,
   onPrev,
 }) => {
   return (
-    <div className="absolute bottom-0 flex items-center justify-evenly w-full">
-      <Box height={400} className="inline-block mx-5 w-1/5">
-        {!isMainCharacter && (
+    <Fragment>
+      <div
+        className="absolute"
+        style={{
+          top: characterPosition?.top || 'unset',
+          left: characterPosition?.left || '5%',
+          right: characterPosition?.right || 'unset',
+          bottom: characterPosition?.bottom || '5%',
+          height: characterDimension?.height || 'auto',
+          width: characterDimension?.width || '15%',
+        }}
+      >
+        {isMainCharacter && (
           <img
             src={characterImage}
             alt={character}
             className="m-auto h-full object-contain"
           />
         )}
-      </Box>
-      <div className="flex flex-col p-3 w-3/5 h-40 bg-white border border-gray-200 rounded shadow select-none">
+      </div>
+      <div
+        className="absolute flex flex-col p-3 bg-white border border-gray-200 rounded shadow select-none"
+        style={{
+          top: textPosition?.top || 'unset',
+          left: textPosition?.left || '20%',
+          right: textPosition?.right || 'unset',
+          bottom: textPosition?.bottom || '10%',
+          width: textDimension?.height || '60%',
+          height: textDimension?.width || '30%',
+        }}
+      >
         <p className="h-1/5 text-lg font-bold">{character}</p>
 
         <div className="h-3/5">
@@ -58,16 +88,26 @@ const Speech: React.FC<SpeechProps> = ({
         </div>
       </div>
 
-      <Box height={400} className="inline-block mx-5 w-1/5">
-        {isMainCharacter && (
+      <div
+        className="absolute"
+        style={{
+          top: characterPosition?.top || 'unset',
+          left: characterPosition?.left || 'unset',
+          right: characterPosition?.right || '5%',
+          bottom: characterPosition?.bottom || '5%',
+          height: characterDimension?.height || 'auto',
+          width: characterDimension?.width || '15%',
+        }}
+      >
+        {!isMainCharacter && (
           <img
             src={characterImage}
             alt={character}
             className="m-auto h-full object-contain"
           />
         )}
-      </Box>
-    </div>
+      </div>
+    </Fragment>
   )
 }
 
