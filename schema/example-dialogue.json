@@ -29,7 +29,7 @@
                                 },
                                 {
                                     "character": "Jason",
-                                    "text": "Hey!",
+                                    "text": "Hey! **Hi** \n_Hello_",
                                     "textBoxImage": "/images/dialogue-background.png",
                                     "textDimension": {
                                         "height": "40%"

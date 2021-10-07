@@ -1,8 +1,8 @@
-import { Box } from '@chakra-ui/react'
 import { Fragment } from 'react'
 import Typewriter from 'typewriter-effect'
 import { Position, Dimension } from '../lib/elements'
 import DialogueBox from './DialogueBox'
+import { renderMdToHtml } from './utils'
 
 export interface SpeechProps {
   text: string
@@ -83,7 +83,7 @@ const Speech: React.FC<SpeechProps> = ({
           <Typewriter
             key={text}
             onInit={(typewriter) => {
-              typewriter.typeString(text).start()
+              typewriter.typeString(renderMdToHtml(text)).start()
             }}
             options={{
               cursor: '',
