@@ -4,7 +4,7 @@ export default function Status() {
   return (
     <div
       id="header"
-      className="flex items-center justify-around w-full text-center"
+      className="flex items-center justify-around w-2/3 text-center"
     >
       <Meter name="date">
         <svg
