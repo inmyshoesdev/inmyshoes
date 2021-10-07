@@ -12,6 +12,7 @@
     "@chakra-ui/react": "^1.6.8",
     "@emotion/react": "11",
     "@emotion/styled": "11",
+    "@headlessui/react": "^1.4.1",
     "@tailwindcss/forms": "^0.3.4",
     "framer-motion": "4",
     "immer": "^9.0.6",

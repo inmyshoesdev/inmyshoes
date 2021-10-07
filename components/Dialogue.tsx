@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { Transition } from '@headlessui/react'
 import { useAfterInteractionCallback } from '../hooks/useAfterInteractionCallback'
 import { Dialogue as DialogueProps } from '../lib/elements'
 import Speech from './Speech'
@@ -26,16 +27,17 @@ const Dialogue: React.FC<DialogueProps> = ({
     }
   }
 
-  if (!shown) {
-    return null
-  }
-
   return (
-    <>
+    <Transition
+      show={shown}
+      enter="transition-opacity duration-200"
+      enterFrom="opacity-0"
+      enterTo="opacity-100"
+    >
       {speechIdx >= 0 && speechIdx < speeches.length && (
         <Speech {...speeches[speechIdx]} onClick={nextDialogue} />
       )}
-    </>
+    </Transition>
   )
 }
 

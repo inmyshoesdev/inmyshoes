@@ -1,4 +1,5 @@
 import { useCallback } from 'react'
+import { Transition } from '@headlessui/react'
 import { useRunCleanupFnsOnUnmount } from '../hooks/useRunCleanupFnsOnUnmount'
 import { Action } from '../lib/actions'
 import {
@@ -51,12 +52,13 @@ const ClickableGroup: React.FC<ClickableGroupProps> = ({
     ]
   )
 
-  if (!shown) {
-    return null
-  }
-
   return (
-    <>
+    <Transition
+      show={shown}
+      enter="transition-opacity duration-200"
+      enterFrom="opacity-0"
+      enterTo="opacity-100"
+    >
       {clickables.map((clickable, idx) => {
         if (isClickableText(clickable)) {
           return (
@@ -83,7 +85,7 @@ const ClickableGroup: React.FC<ClickableGroupProps> = ({
           )
         }
       })}
-    </>
+    </Transition>
   )
 }
 

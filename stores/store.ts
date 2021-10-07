@@ -119,7 +119,6 @@ export const useStore = create<GameStore>((set) => ({
 
     // execute all accumulated callbacks
     const cleanupFns = res.map((runtimeAction) => {
-      console.log({ runtimeAction })
       return executor(runtimeAction)
     })
 
