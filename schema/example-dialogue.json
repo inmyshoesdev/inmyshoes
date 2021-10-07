@@ -49,17 +49,10 @@
                         {
                             "type": "showNarration",
                             "value": "intro",
-                            "duration": 2000,
-                            "hideAfterShow": true
+                            "duration": 2000
                         },
                         {
                             "type": "showDialogue",
-                            "value": "julie_jason_greet",
-                            "hideAfterShow": true
-                        },
-                        {
-                            "type": "waitForInteraction",
-                            "elementType": "dialogues",
                             "value": "julie_jason_greet"
                         },
                         {

@@ -21,6 +21,9 @@ const Home: NextPage = () => {
         <Link href="/examples/dialogue">
           <a className="text-blue-600 cursor-pointer">dialogue</a>
         </Link>
+        <Link href="/examples/clickable">
+          <a className="text-blue-600 cursor-pointer">clickable</a>
+        </Link>
         <Link href="/examples/narration">
           <a className="text-blue-600">narration</a>
         </Link>

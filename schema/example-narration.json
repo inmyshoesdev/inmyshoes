@@ -33,14 +33,13 @@
             {
               "type": "showNarration",
               "value": "intro",
-              "duration": 5000,
-              "hideAfterShow": true
+              "duration": 5000
             },
             {
               "type": "showNarration",
               "value": "stay",
               "duration": 3000,
-              "hideAfterShow": false
+              "autoHide": false
             },
             {
               "type": "hideNarration",
@@ -50,8 +49,7 @@
             {
               "type": "showNarration",
               "value": "last",
-              "duration": 2000,
-              "hideAfterShow": true
+              "duration": 2000
             },
             {
               "type": "gotoScene",
