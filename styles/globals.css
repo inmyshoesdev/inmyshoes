@@ -10,3 +10,7 @@
 a {
   @apply !underline !text-blue-500 cursor-pointer;
 }
+
+button {
+  @apply cursor-pointer;
+}
