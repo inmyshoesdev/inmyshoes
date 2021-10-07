@@ -8,5 +8,5 @@
 }
 
 a {
-  @apply !underline cursor-pointer;
+  @apply !underline !text-blue-500 cursor-pointer;
 }
