@@ -93,15 +93,10 @@
                     {
                       "type": "hideNarration",
                       "value": "clown decision",
-                      "duration": 1200
+                      "duration": 600
                     },
                     {
                       "type": "showDialogue",
-                      "value": "clown sad"
-                    },
-                    {
-                      "type": "waitForInteraction",
-                      "elementType": "dialogues",
                       "value": "clown sad"
                     },
                     {

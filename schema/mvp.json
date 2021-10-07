@@ -52,22 +52,22 @@
             {
               "type": "showNarration",
               "value": "intro1",
-              "duration": 1000
+              "duration": 1500
             },
             {
               "type": "showNarration",
               "value": "intro2",
-              "duration": 1000
+              "duration": 1500
             },
             {
               "type": "showNarration",
               "value": "intro3",
-              "duration": 1000
+              "duration": 1500
             },
             {
               "type": "showNarration",
               "value": "intro4",
-              "duration": 1000
+              "duration": 1500
             },
             {
               "type": "showClickable",
