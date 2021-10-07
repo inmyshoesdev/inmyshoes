@@ -9,8 +9,12 @@ export function useRunCleanupFnsOnUnmount() {
   }, [])
 
   return {
-    addCleanupFns(...cleanupFns: (() => void)[]) {
-      cleanupRef.current.push(...cleanupFns)
+    addCleanupFns(...cleanupFns: ((() => void) | undefined)[]) {
+      cleanupFns.forEach((fn) => {
+        if (fn) {
+          cleanupRef.current.push(fn)
+        }
+      })
     },
   }
 }

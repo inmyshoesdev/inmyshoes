@@ -31,12 +31,14 @@ export type Dimension = {
 
 export type ShowArgs = { position?: Position }
 
+export type AfterInteractionCallback = () => (() => void) | undefined // returns a cleanup func or undefined
+
 export interface Element {
   shown: boolean
   name: string
   position: Position
   dimension: Dimension
-  afterInteractionCallback?: () => () => void
+  afterInteractionCallback?: AfterInteractionCallback
 }
 
 export interface Narration extends Element {
@@ -152,7 +154,7 @@ export function isClickableImg(
 export interface ClickableGroup {
   shown: boolean
   name: string
-  afterInteractionCallback?: () => () => void
+  afterInteractionCallback?: AfterInteractionCallback
   clickables: Clickable[]
 }
 
