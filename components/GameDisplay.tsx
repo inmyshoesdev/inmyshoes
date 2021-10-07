@@ -1,6 +1,7 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Game } from '../lib/game'
 import { useStore } from '../stores/store'
+import CharacterInfo from './CharacterInfo'
 import Footer from './Footer'
 import SceneDisplay from './SceneDisplay'
 import Status from './Status'
@@ -32,7 +33,7 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
           }
         })}
       </div>
-      <Footer gameOn={true} />
+      <Footer gameOn={true} characterInfo={game.characterInfo} />
     </div>
   )
 }
