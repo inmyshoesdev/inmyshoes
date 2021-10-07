@@ -6,3 +6,11 @@
   cursor: url('https://soristic.sgp1.digitaloceanspaces.com/general/curpointer.cur'),
     auto !important;
 }
+
+a {
+  @apply !underline !text-blue-500 cursor-pointer;
+}
+
+button {
+  @apply cursor-pointer;
+}

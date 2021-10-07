@@ -17,6 +17,7 @@ export const EmptyGame: Game = {
   globalState: {},
 
   characterName: '',
+  characterInfo: '',
   currentSceneId: 0,
 
   mainCharacters: [] as MainCharacter[],
@@ -35,6 +36,7 @@ export interface Game {
   globalState: State
 
   characterName: string
+  characterInfo: string
   currentSceneId: number
 
   mainCharacters: MainCharacter[]
@@ -60,6 +62,7 @@ export function makeGame(schema: GameSchema): Game {
     },
 
     characterName: mainCharacters[0].name,
+    characterInfo: mainCharacters[0].info,
     currentSceneId: mainCharacters[0].scenes[0].id,
 
     mainCharacters: mainCharacters,
@@ -98,8 +101,8 @@ export function makeGame(schema: GameSchema): Game {
         }
       })
 
-      this.mainCharacters.forEach(char => {
-        char.scenes.forEach(scene => {
+      this.mainCharacters.forEach((char) => {
+        char.scenes.forEach((scene) => {
           imageSources.push(scene.background)
 
           scene.images.forEach((image) => {
@@ -107,7 +110,7 @@ export function makeGame(schema: GameSchema): Game {
           })
         })
       })
-      
+
       imageSources.forEach((source) => {
         const img = new Image()
         img.src = source

@@ -24,7 +24,7 @@ const Demo: React.FC = () => {
   return (
     <>
       <Head>
-        <title>In My Shoes</title>
+        <title>{game?.name}</title>
         <meta name="description" content="In Their Shoes | Soristic" />
         <link rel="icon" href="/favicon.ico" />
         <meta charSet="UTF-8" />
@@ -46,9 +46,7 @@ const Demo: React.FC = () => {
         />
         <meta name="author" content="Soristic" />
       </Head>
-      <main className="flex flex-col items-center py-5 space-y-5">
-        {game && <GameDisplay game={game} />}
-      </main>
+      <main>{game && <GameDisplay game={game} />}</main>
     </>
   )
 }
