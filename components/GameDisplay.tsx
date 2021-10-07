@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Game } from '../lib/game'
 import { useStore } from '../stores/store'
-import CharacterInfo from './CharacterInfo'
 import Footer from './Footer'
 import SceneDisplay from './SceneDisplay'
 import Status from './Status'
@@ -22,9 +21,6 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
 
   return (
     <div className="flex flex-col items-center my-2 w-full space-y-2">
-      {game && (
-        <div className="text-gray-900 text-2xl font-semibold">{game.name}</div>
-      )}
       <Status />
       <div className="w-[80vw] h-[45vw] border shadow">
         {game?.getScenes().map((scene, idx) => {

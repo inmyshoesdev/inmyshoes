@@ -2,7 +2,10 @@ import Meter from './Meter'
 
 export default function Status() {
   return (
-    <div id="header" className="flex items-center justify-around text-center">
+    <div
+      id="header"
+      className="flex items-center justify-around w-full text-center"
+    >
       <Meter name="date">
         <svg
           xmlns="http://www.w3.org/2000/svg"
