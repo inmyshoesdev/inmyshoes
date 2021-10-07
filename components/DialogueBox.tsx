@@ -44,12 +44,7 @@ const DialogueBox: React.FC<PropsWithChildren<DialogueBoxProps>> = ({
             height: dimension?.height || '30%',
           }}
         >
-          <div
-            className="p-[1.5%] bg-grad bg-gradient-from-center flex flex-col w-full h-full bg-white rounded-lg"
-            // style={{
-            //   borderStyle: type === 'monologue' ? 'dashed' : 'solid',
-            // }}
-          >
+          <div className="p-[1.5%] bg-grad bg-gradient-from-center flex flex-col w-full h-full bg-white rounded-lg">
             {children}
           </div>
         </div>

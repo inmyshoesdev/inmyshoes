@@ -92,10 +92,18 @@ const Speech: React.FC<SpeechProps> = ({
           />
         </div>
         <div className="sm:text-[8px] md:text-[12px] lg:text-[18px] flex justify-between h-1/5 text-blue-400">
-          <button onClick={onPrev} className="cursor-pointer">
+          <button
+            onClick={onPrev}
+            className={prevEnabled ? 'cursor-pointer' : 'text-blue-200'}
+            disabled={!prevEnabled}
+          >
             Prev
           </button>
-          <button onClick={onNext} className="cursor-pointer">
+          <button
+            onClick={onNext}
+            className={nextEnabled ? 'cursor-pointer' : 'text-blue-200'}
+            disabled={!nextEnabled}
+          >
             Next
           </button>
         </div>
