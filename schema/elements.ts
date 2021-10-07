@@ -74,6 +74,8 @@ export const SpeechSchema = object({
   text: string(),
   character: string(),
   variant: optional(string()),
+  type: optional(string()),
+  textBoxImage: optional(string()),
   characterPosition: optional(
     type({
       top: optional(string()),

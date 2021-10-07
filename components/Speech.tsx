@@ -2,12 +2,15 @@ import { Box } from '@chakra-ui/react'
 import { Fragment } from 'react'
 import Typewriter from 'typewriter-effect'
 import { Position, Dimension } from '../lib/elements'
+import DialogueBox from './DialogueBox'
 
 export interface SpeechProps {
   text: string
   character: string
   characterImage: string
   isMainCharacter: boolean
+  type?: string
+  textBoxImage?: string
   characterPosition?: Position
   characterDimension?: Dimension
   textPosition?: Position
@@ -23,6 +26,8 @@ const Speech: React.FC<SpeechProps> = ({
   character,
   characterImage,
   isMainCharacter = false,
+  type = '',
+  textBoxImage,
   characterPosition,
   characterDimension,
   textPosition,
@@ -53,24 +58,32 @@ const Speech: React.FC<SpeechProps> = ({
           />
         )}
       </div>
-      <div
-        className="absolute flex flex-col p-3 bg-white border border-gray-200 rounded shadow select-none"
-        style={{
-          top: textPosition?.top || 'unset',
-          left: textPosition?.left || '20%',
-          right: textPosition?.right || 'unset',
-          bottom: textPosition?.bottom || '10%',
-          width: textDimension?.height || '60%',
-          height: textDimension?.width || '30%',
-        }}
+      <DialogueBox
+        image={textBoxImage}
+        position={textPosition}
+        dimension={textDimension}
       >
-        <p className="h-1/5 text-lg font-bold">{character}</p>
+        <div className="h-1/4">
+          <p
+            className="sm:text-[14px] md:text-[18px] lg:text-[22px] h-full font-bold leading-none"
+            style={{
+              fontStyle: type === 'monologue' ? 'italic' : 'normal',
+            }}
+          >
+            {character}
+          </p>
+        </div>
 
-        <div className="h-3/5">
+        <div
+          className="sm:text-[10px] md:text-[14px] lg:text-[20px] h-3/5"
+          style={{
+            fontStyle: type === 'monologue' ? 'italic' : 'normal',
+          }}
+        >
           <Typewriter
             key={text}
             onInit={(typewriter) => {
-              typewriter.typeString(`<div>${text}</div>`).start()
+              typewriter.typeString(text).start()
             }}
             options={{
               cursor: '',
@@ -78,7 +91,7 @@ const Speech: React.FC<SpeechProps> = ({
             }}
           />
         </div>
-        <div className="flex justify-between h-1/5">
+        <div className="sm:text-[8px] md:text-[12px] lg:text-[18px] flex justify-between h-1/5 text-blue-400">
           <button onClick={onPrev} className="cursor-pointer">
             Prev
           </button>
@@ -86,7 +99,7 @@ const Speech: React.FC<SpeechProps> = ({
             Next
           </button>
         </div>
-      </div>
+      </DialogueBox>
 
       <div
         className="absolute"

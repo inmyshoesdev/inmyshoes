@@ -29,7 +29,16 @@
                                 },
                                 {
                                     "character": "Jason",
-                                    "text": "Hey!"
+                                    "text": "Hey!",
+                                    "textBoxImage": "/images/dialogue-background.png",
+                                    "textDimension": {
+                                        "height": "40%"
+                                    }
+                                },
+                                {
+                                    "character": "Julie",
+                                    "text": "He looks friendly...",
+                                    "type": "monologue"
                                 }
                             ]
                         }
