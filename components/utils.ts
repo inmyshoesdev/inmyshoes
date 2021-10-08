@@ -19,6 +19,6 @@ export function getAnimationClass(effect: string) {
 
 // returns string representation of Html
 export const renderMdToHtml = (raw: string): string => {
-  const mdParser = new MarkdownIt()
-  return mdParser.render(raw)
+  const mdParser = new MarkdownIt({ breaks: true })
+  return mdParser.renderInline(raw)
 }

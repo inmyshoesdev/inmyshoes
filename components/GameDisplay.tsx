@@ -21,18 +21,15 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
 
   return (
     <div className="flex flex-col items-center my-2 w-full space-y-2">
-      {game && (
-        <div className="text-gray-900 text-2xl font-semibold">{game.name}</div>
-      )}
       <Status />
-      <div className="w-[80vw] h-[45vw] border shadow">
+      <div className="w-[72vw] h-[40.5vw] border shadow">
         {game?.getScenes().map((scene, idx) => {
           if (game?.currentSceneId === scene.id) {
             return <SceneDisplay scene={scene} key={idx} />
           }
         })}
       </div>
-      <Footer gameOn={true} />
+      <Footer gameOn={true} characterInfo={game.characterInfo} />
     </div>
   )
 }

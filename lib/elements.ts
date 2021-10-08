@@ -61,6 +61,12 @@ export interface Speech {
   character: string
   characterImage: string
   isMainCharacter: boolean
+  type?: string
+  textBoxImage?: string
+  characterPosition?: Position
+  characterDimension?: Dimension
+  textPosition?: Position
+  textDimension?: Dimension
 }
 
 export function makeSpeech(
@@ -86,6 +92,12 @@ export function makeSpeech(
     character: schema.character,
     characterImage: characterImage,
     isMainCharacter: isMainCharacter,
+    type: schema.type,
+    textBoxImage: schema.textBoxImage,
+    characterPosition: schema.characterPosition,
+    characterDimension: schema.characterDimension,
+    textPosition: schema.textPosition,
+    textDimension: schema.textDimension,
   }
 }
 
