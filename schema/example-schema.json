@@ -11,6 +11,11 @@
         {
           "id": 1,
           "background": "https://images.unsplash.com/photo-1532689193429-29caa23e5268?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80",
+          "state": {
+            "health": 10,
+            "hello": "world",
+            "true": false
+          },
           "narrations": [
             {
               "name": "intro",
@@ -67,10 +72,18 @@
                   "name": "yes",
                   "text": "yes",
                   "position": {
-                    "top": "90%",
+                    "bottom": "10%",
                     "left": "37%"
                   },
                   "onClick": [
+                    {
+                      "type": "updateState",
+                      "newState": {
+                        "health": -9,
+                        "hello": "universe",
+                        "true": true
+                      }
+                    },
                     {
                       "type": "gotoScene",
                       "sceneId": 2
@@ -81,7 +94,7 @@
                   "name": "no",
                   "text": "no",
                   "position": {
-                    "top": "90%",
+                    "bottom": "10%",
                     "left": "57%"
                   },
                   "onClick": [

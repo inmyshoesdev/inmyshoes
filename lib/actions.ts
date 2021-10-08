@@ -86,7 +86,14 @@ export const DefinedActions: Partial<
       game.currentSceneId = sceneId
     }
   },
+
   wait: () => {},
+
+  updateState: ({ args, scene }) => {
+    const { newState = {} } = args
+    scene.state.update(newState)
+  },
+
   ...ShowActions,
   ...HideActions,
 }
