@@ -29,7 +29,16 @@
                                 },
                                 {
                                     "character": "Jason",
-                                    "text": "Hey!"
+                                    "text": "Hey! **Hi** \n_Hello_",
+                                    "textBoxImage": "/images/dialogue-background.png",
+                                    "textDimension": {
+                                        "height": "40%"
+                                    }
+                                },
+                                {
+                                    "character": "Julie",
+                                    "text": "He looks friendly...",
+                                    "type": "monologue"
                                 }
                             ]
                         }
@@ -49,17 +58,10 @@
                         {
                             "type": "showNarration",
                             "value": "intro",
-                            "duration": 2000,
-                            "hideAfterShow": true
+                            "duration": 2000
                         },
                         {
                             "type": "showDialogue",
-                            "value": "julie_jason_greet",
-                            "hideAfterShow": true
-                        },
-                        {
-                            "type": "waitForInteraction",
-                            "elementType": "dialogues",
                             "value": "julie_jason_greet"
                         },
                         {

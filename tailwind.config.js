@@ -13,7 +13,7 @@ module.exports = {
         raise: {
           '0%, 100%': {
             boxShadow: '0 0.5em 0.5em -0.4em #ffffff',
-            transform: 'translateY(-0.1em)'
+            transform: 'translateY(-0.1em)',
           },
         },
       },
@@ -25,7 +25,8 @@ module.exports = {
         raise: 'raise 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       cursor: {
-        pointer: "url(https://soristic.sgp1.digitaloceanspaces.com/general/curhand.cur), auto !important;"
+        pointer:
+          'url(https://soristic.sgp1.digitaloceanspaces.com/general/curhand.cur), auto !important;',
       },
     },
   },

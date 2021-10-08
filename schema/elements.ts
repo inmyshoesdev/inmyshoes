@@ -74,6 +74,36 @@ export const SpeechSchema = object({
   text: string(),
   character: string(),
   variant: optional(string()),
+  type: optional(string()),
+  textBoxImage: optional(string()),
+  characterPosition: optional(
+    type({
+      top: optional(string()),
+      left: optional(string()),
+      bottom: optional(string()),
+      right: optional(string()),
+    })
+  ),
+  characterDimension: optional(
+    type({
+      width: optional(string()),
+      height: optional(string()),
+    })
+  ),
+  textPosition: optional(
+    type({
+      top: optional(string()),
+      left: optional(string()),
+      bottom: optional(string()),
+      right: optional(string()),
+    })
+  ),
+  textDimension: optional(
+    type({
+      width: optional(string()),
+      height: optional(string()),
+    })
+  ),
 })
 
 export type SpeechSchema = Infer<typeof SpeechSchema>
