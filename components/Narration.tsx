@@ -56,7 +56,7 @@ const Narration: React.FC<NarrationProps> = ({
         dimension={dimension}
       >
         <div
-          className="sm:text-[10px] md:text-[14px] lg:text-[20px] h-3/5"
+          className="sm:text-[10px] md:text-[14px] lg:text-[20px] h-4/5"
           style={{
             fontStyle: 'italic',
           }}
@@ -98,11 +98,9 @@ const Narration: React.FC<NarrationProps> = ({
       enter="transition-opacity duration-200"
       enterFrom="opacity-0"
       enterTo="opacity-100"
-      className="absolute bottom-0 flex items-center justify-evenly w-full"
+      className="absolute top-0 flex items-center justify-evenly w-full h-full"
     >
-    <Box height={400} className="inline-block w-1/5" />
     <NarrationBox/>
-    <Box height={400} className="inline-block w-1/5" />
     </Transition>
   )
 }

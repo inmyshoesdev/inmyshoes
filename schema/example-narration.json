@@ -15,9 +15,20 @@
           "narrations": [
             {
               "name": "intro",
-              "text": ["this is an **intro** *narration*. it will [auto](https://google.com) advance in 10 seconds. click next to navigate to the next element",
+              "text": ["this is an **intro** *narration*. it will [auto](https://google.com) advance in 10 seconds. click next to navigate",
                 "click prev to go back, and next to continue on",
                 "click prev to go back, and next to end this segment"]
+            },
+            {
+              "name": "position",
+              "text": ["this narration is in a funny position!"],
+              "position": {
+                "top": "35%",
+                "left": "10%"
+              },
+              "dimension": {
+                "width": "200px"
+              }
             },
             {
               "name": "stay",
@@ -36,6 +47,11 @@
               "type": "showNarration",
               "value": "intro",
               "duration": 10000
+            },
+            {
+              "type": "showNarration",
+              "value": "position",
+              "duration": 5000
             },
             {
               "type": "showNarration",
