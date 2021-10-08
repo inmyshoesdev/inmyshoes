@@ -11,8 +11,8 @@ type SceneProps = {
 }
 
 const SceneDisplay: React.FC<SceneProps> = ({ scene }) => {
-  const executeActions = useStore((state: any) => state.executeActions)
-  const resetScene = useStore((state: any) => state.resetScene)
+  const executeActions = useStore((state) => state.executeActions)
+  const resetScene = useStore((state) => state.resetScene)
 
   useEffect(() => {
     resetScene(scene.id)

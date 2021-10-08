@@ -1,3 +1,4 @@
+import { Transition } from '@headlessui/react'
 import { useAfterInteractionCallback } from '../hooks/useAfterInteractionCallback'
 import type { Image } from '../lib/elements'
 
@@ -14,17 +15,20 @@ const ImageElement: React.FC<Image> = ({
     afterInteractionCallback
   )
 
-  if (!shown) {
-    return null
-  }
-
   return (
-    <div className="container absolute mx-auto" onClick={handleInteraction}>
-      <img
-        src={src}
-        alt={altText || ''}
-        className="image w-full h-full object-fill"
-      />
+    <Transition
+      show={shown}
+      enter="transition-opacity duration-200"
+      enterFrom="opacity-0"
+      enterTo="opacity-100"
+    >
+      <div className="container absolute mx-auto" onClick={handleInteraction}>
+        <img
+          src={src}
+          alt={altText || ''}
+          className="image w-full h-full object-fill"
+        />
+      </div>
       <style jsx>{`
         .container {
           top: ${position.top || '50%'};
@@ -45,7 +49,7 @@ const ImageElement: React.FC<Image> = ({
           mix-blend-mode: ${blendMode || 'unset'};
         }
       `}</style>
-    </div>
+    </Transition>
   )
 }
 

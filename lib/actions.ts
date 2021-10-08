@@ -79,7 +79,7 @@ export const DefinedActions: Partial<
   Record<string, (args: ActionArgs) => FinishAction>
 > = {
   // TODO: consider cancelling or not accepting any actions that come
-  // after a gotoScene action, may lead to weird unforceed circumstances
+  // after a gotoScene action, may lead to weird unforseen circumstances
   gotoScene: ({ args, game }) => {
     const { sceneId } = args
     if (typeof sceneId === 'number') {

@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Transition } from '@headlessui/react'
 import { Game } from '../lib/game'
 import { useStore } from '../stores/store'
 import Footer from './Footer'
@@ -22,12 +23,22 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
   return (
     <div className="flex flex-col items-center my-2 w-full space-y-2">
       <Status />
-      <div className="w-[72vw] h-[40.5vw] border shadow">
-        {game?.getScenes().map((scene, idx) => {
-          if (game?.currentSceneId === scene.id) {
-            return <SceneDisplay scene={scene} key={idx} />
-          }
-        })}
+      <div className="w-[72vw] h-[40.5vw] relative bg-white border shadow overflow-hidden">
+        {game?.getScenes().map((scene, idx) => (
+          <Transition
+            show={game?.currentSceneId === scene.id}
+            enter="transition-opacity duration-500"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="transition-opacity duration-500"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+            key={idx}
+            className="absolute inset-0"
+          >
+            <SceneDisplay scene={scene} />
+          </Transition>
+        ))}
       </div>
       <Footer gameOn={true} characterInfo={game.characterInfo} />
     </div>

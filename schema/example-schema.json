@@ -67,8 +67,8 @@
                   "name": "yes",
                   "text": "yes",
                   "position": {
-                    "top": "80%",
-                    "left": "40%"
+                    "top": "90%",
+                    "left": "37%"
                   },
                   "onClick": [
                     {
@@ -81,8 +81,8 @@
                   "name": "no",
                   "text": "no",
                   "position": {
-                    "top": "80%",
-                    "left": "60%"
+                    "top": "90%",
+                    "left": "57%"
                   },
                   "onClick": [
                     {
