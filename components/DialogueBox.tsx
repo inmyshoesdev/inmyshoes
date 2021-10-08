@@ -20,7 +20,7 @@ const DialogueBox: React.FC<PropsWithChildren<DialogueBoxProps>> = ({
         <Box
           bgImage={image}
           bgSize="100% 100%"
-          className="p-[2%] absolute"
+          className="p-[3%] absolute"
           style={{
             top: position?.top || 'unset',
             left: position?.left || '20%',
@@ -44,7 +44,7 @@ const DialogueBox: React.FC<PropsWithChildren<DialogueBoxProps>> = ({
             height: dimension?.height || '30%',
           }}
         >
-          <div className="p-[1.5%] bg-grad bg-gradient-from-center flex flex-col w-full h-full bg-white rounded-lg">
+          <div className="p-[1.5%] flex flex-col w-full h-full bg-white rounded-lg">
             {children}
           </div>
         </div>
