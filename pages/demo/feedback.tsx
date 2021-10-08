@@ -61,7 +61,7 @@ const Feedback: React.FC = () => {
           leave="transition duration-1000"
           leaveFrom="opacity-100 translate-y-0"
           leaveTo="opacity-0 translate-y-2/3"
-          className="grid place-items-center py-8 w-full h-full overflow-y-scroll"
+          className="grid place-items-center px-2 py-8 w-full h-full overflow-y-scroll"
         >
           <SurveyFormWrapper
             formComponent={PostGameForm}

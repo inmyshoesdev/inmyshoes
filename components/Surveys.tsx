@@ -71,12 +71,12 @@ const SurveyFormWrapper: React.FC<SurveyWrapperProps> = ({
   )
 }
 
-// JSX generated using
-// 1. https://stefano.brilli.me/google-forms-html-exporter/
-// 2. https://magic.reactjs.net/htmltojsx.htm
+// To generate the appropriate JSX for a new Google form:
+// 1. Use https://stefano.brilli.me/google-forms-html-exporter/
+// 2. Use https://magic.reactjs.net/htmltojsx.htm
 const PreGameForm: React.FC<FormProps> = ({ submitHandler }) => {
   return (
-    // wrap new forms in a div and include the `<style jsx>{styles}</style>` line to style to form
+    // 3. wrap new forms in a div and include the `<style jsx>{styles}</style>` line to style the form
     <div>
       <style jsx>{styles}</style>
       <form
@@ -84,7 +84,7 @@ const PreGameForm: React.FC<FormProps> = ({ submitHandler }) => {
         target="_self"
         id="bootstrapForm"
         method="POST"
-        onSubmit={submitHandler} // add the submit handler too
+        onSubmit={submitHandler} // 4. add the submit handler too
       >
         <fieldset>
           <h2>
