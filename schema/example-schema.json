@@ -189,6 +189,18 @@
               ]
             }
           ],
+          "links": [
+            {
+              "name": "google",
+              "url": "https://google.com",
+              "text": "Google",
+              "position": {
+                "bottom": "5%",
+                "left": "0",
+                "right": "0"
+              }
+            }
+          ],
           "intro": [
             {
               "type": "updateGlobalState",
@@ -202,7 +214,12 @@
             },
             {
               "type": "showClickable",
-              "value": "restart"
+              "value": "restart",
+              "waitForInteraction": false
+            },
+            {
+              "type": "showLink",
+              "value": "google"
             }
           ]
         }

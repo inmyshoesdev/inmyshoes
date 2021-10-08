@@ -2,6 +2,7 @@ import {
   ClickableGroupSchema,
   DialogueSchema,
   ImageSchema,
+  LinkSchema,
   NarrationSchema,
   SpeechSchema,
 } from '../schema/elements'
@@ -14,8 +15,15 @@ export const narrations = 'narrations'
 export const dialogues = 'dialogues'
 export const images = 'images'
 export const clickables = 'clickables'
+export const links = 'links'
 
-export const allElements = [narrations, dialogues, images, clickables] as const
+export const allElements = [
+  narrations,
+  dialogues,
+  images,
+  clickables,
+  links,
+] as const
 
 export type Position = {
   top?: string
@@ -135,6 +143,23 @@ export function makeImage(schema: ImageSchema): Image {
     blendMode: schema.blendMode,
   }
 }
+
+export interface Link extends Element {
+  url: string
+  text: string
+}
+
+export function makeLink(schema: LinkSchema): Link {
+  return {
+    shown: false,
+    name: schema.name,
+    position: schema.position || {},
+    dimension: schema.dimension || {},
+    url: schema.url,
+    text: schema.text,
+  }
+}
+
 type ClickableText = {
   text: string
 }

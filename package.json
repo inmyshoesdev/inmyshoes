@@ -21,6 +21,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-ga": "^3.3.0",
+    "styled-jsx-plugin-postcss": "^4.0.1",
     "superstruct": "^0.15.2",
     "typewriter-effect": "^2.18.2",
     "zustand": "^3.5.12"
@@ -33,6 +34,7 @@
     "eslint-config-next": "11.1.2",
     "eslint-config-prettier": "^8.3.0",
     "postcss": "^8.3.8",
+    "postcss-preset-env": "^6.7.0",
     "prettier": "^2.4.1",
     "prettier-plugin-tailwind": "^2.2.12",
     "tailwindcss": "^2.2.16",

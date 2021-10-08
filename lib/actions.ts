@@ -64,6 +64,7 @@ const ShowActions: Record<`show${string}`, (args: ActionArgs) => FinishAction> =
     showDialogue: show('dialogues'),
     showImage: show('images'),
     showClickable: show('clickables'),
+    showLink: show('links'),
   }
 
 const HideActions: Record<`hide${string}`, (args: ActionArgs) => FinishAction> =
@@ -72,6 +73,7 @@ const HideActions: Record<`hide${string}`, (args: ActionArgs) => FinishAction> =
     hideNarration: hide('narrations'),
     hideImage: hide('images'),
     hideClickable: hide('clickables'),
+    hideLink: hide('links'),
   }
 
 // Add all actions here!

@@ -42,7 +42,6 @@ const Speech: React.FC<SpeechProps> = ({
   const template = useStateTemplater()
 
   const onDialogueBoxClicked = useCallback(() => {
-    console.log('iam clicked')
     if (!skipTyping) {
       setSkipTyping(true)
       return
