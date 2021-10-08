@@ -93,15 +93,10 @@
                     {
                       "type": "hideNarration",
                       "value": "clown decision",
-                      "duration": 1200
+                      "duration": 600
                     },
                     {
                       "type": "showDialogue",
-                      "value": "clown sad"
-                    },
-                    {
-                      "type": "waitForInteraction",
-                      "elementType": "dialogues",
                       "value": "clown sad"
                     },
                     {
@@ -117,42 +112,26 @@
             {
               "type": "showNarration",
               "value": "intro",
-              "duration": 2000,
-              "hideAfterShow": true
+              "duration": 2000
             },
             {
               "type": "showDialogue",
               "value": "clown bait"
             },
             {
-              "type": "waitForInteraction",
-              "elementType": "dialogues",
-              "value": "clown bait"
-            },
-            {
-              "type": "hideDialogue",
-              "value": "clown bait"
-            },
-            {
               "type": "showImage",
               "value": "clown",
-              "duration": 1500
+              "duration": 500,
+              "autoHide": false
             },
             {
               "type": "showNarration",
-              "value": "clown decision"
+              "value": "clown decision",
+              "duration": 1000,
+              "autoHide": false
             },
             {
               "type": "showClickable",
-              "value": "clown yes/no"
-            },
-            {
-              "type": "waitForInteraction",
-              "elementType": "clickables",
-              "value": "clown yes/no"
-            },
-            {
-              "type": "hideClickable",
               "value": "clown yes/no"
             }
           ]

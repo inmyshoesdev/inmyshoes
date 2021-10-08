@@ -3,18 +3,24 @@ import { create } from 'superstruct'
 import { useDebounce } from '../hooks/useDebounce'
 import { Game, makeGame } from '../lib/game'
 import { GameSchema } from '../schema/game'
+import { useStore } from '../stores/store'
 import GameDisplay from './GameDisplay'
 
-type SchemaArgs = {
+type GameSchemaArgs = {
   examples: { jsonData: any; name: string }[]
 }
 
-export const SchemaInput: React.FC<SchemaArgs> = ({ examples = [] }) => {
+export const GameSchemaInput: React.FC<GameSchemaArgs> = ({
+  examples = [],
+}) => {
   const [inputSchema, setInputSchema] = useState<string>('')
   const debouncedSchema = useDebounce(inputSchema, 500)
 
   const [game, setGame] = useState<Game | undefined>()
   const [error, setError] = useState<string | undefined>()
+
+  const currentSceneId = useStore((state) => state.game.currentSceneId)
+  const gotoScene = useStore((state) => state.gotoScene)
 
   const handleInput: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
     setInputSchema(e.target.value)
@@ -40,7 +46,7 @@ export const SchemaInput: React.FC<SchemaArgs> = ({ examples = [] }) => {
   }, [debouncedSchema])
 
   return (
-    <main className="flex flex-col items-center py-5 space-y-5">
+    <main className="flex flex-col items-center py-5 space-y-6">
       <textarea
         className="m-2 w-full max-w-3xl font-mono"
         spellCheck={false}
@@ -59,6 +65,14 @@ export const SchemaInput: React.FC<SchemaArgs> = ({ examples = [] }) => {
           </button>
         ))}
       </div>
+      <div className="font-semibold">
+        Current Scene:{' '}
+        <input
+          type="number"
+          value={currentSceneId}
+          onChange={(e) => gotoScene(e.target.valueAsNumber)}
+        />
+      </div>
 
       {debouncedSchema !== '' && error && (
         <p className="text-red-600 text-lg">Validation Error: {error}</p>
@@ -68,4 +82,4 @@ export const SchemaInput: React.FC<SchemaArgs> = ({ examples = [] }) => {
   )
 }
 
-export default SchemaInput
+export default GameSchemaInput

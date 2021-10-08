@@ -32,7 +32,7 @@ const ClickableGroup: React.FC<ClickableGroupProps> = ({
           ?.onClickActions ?? ([] as Action[])
 
       hideClickable(sceneId, name)
-      let cleanupFn = executeActions(...actions)
+      let cleanupFn: (() => void) | undefined = executeActions(...actions)
       addCleanupFns(cleanupFn)
 
       if (afterInteractionCallback) {

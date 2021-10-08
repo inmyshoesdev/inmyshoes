@@ -15,10 +15,6 @@ const Dialogue: React.FC<DialogueProps> = ({
     if (shown && speeches.length > 0) setSpeechIdx(0)
   }, [shown, speeches])
 
-  useEffect(() => {
-    if (speechIdx >= speeches.length) afterAction()
-  }, [speechIdx])
-
   function prevDialogue() {
     if (speechIdx < speeches.length) {
       setSpeechIdx(speechIdx - 1)
@@ -29,10 +25,19 @@ const Dialogue: React.FC<DialogueProps> = ({
     if (speechIdx < speeches.length) {
       setSpeechIdx(speechIdx + 1)
     }
+
+    // if speech is the last one, also run the after interaction action
+    if (speechIdx + 1 >= speeches.length) {
+      afterAction()
+    }
+  }
+
+  if (!shown) {
+    return null
   }
 
   return (
-    <div className="w-screen h-screen">
+    <>
       {speechIdx >= 0 && speechIdx < speeches.length && (
         <Speech
           {...speeches[speechIdx]}
@@ -41,7 +46,7 @@ const Dialogue: React.FC<DialogueProps> = ({
           prevEnabled={!(speechIdx === 0)}
         />
       )}
-    </div>
+    </>
   )
 }
 

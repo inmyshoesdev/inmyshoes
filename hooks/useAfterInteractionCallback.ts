@@ -1,8 +1,9 @@
 import { useCallback } from 'react'
+import { AfterInteractionCallback } from '../lib/elements'
 import { useRunCleanupFnsOnUnmount } from './useRunCleanupFnsOnUnmount'
 
 export function useAfterInteractionCallback(
-  afterInteractionCallback?: () => () => void
+  afterInteractionCallback?: AfterInteractionCallback
 ) {
   const { addCleanupFns } = useRunCleanupFnsOnUnmount()
 

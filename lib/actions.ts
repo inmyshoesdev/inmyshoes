@@ -1,6 +1,8 @@
 import { ActionSchema } from '../schema/actions'
+import { DeferredActions } from '../stores/store'
 import { Game } from './game'
-import { ElementKeys, isElementKey, Scene } from './scene'
+import { ElementKeys, Scene } from './scene'
+import { once } from './utils'
 
 // modify any property to have the changes persisted to the game state
 // if called via the `executeActions` method of the store
@@ -13,14 +15,14 @@ export type FinishAction = (({ scene, game }: ModifiableArgs) => void) | void
 
 export function isCallable(
   finishAction: FinishAction
-): finishAction is ({ scene, game }: { scene: Scene; game: Game }) => void {
+): finishAction is ({ scene, game }: ModifiableArgs) => void {
   return finishAction instanceof Object
 }
 
 export type ActionArgs = {
   duration: number
   args: Record<string, any>
-  afterInteractionCallback?: () => () => void
+  deferredActions?: DeferredActions
 } & ModifiableArgs
 
 export interface Action {
@@ -56,6 +58,22 @@ export const makeAction = (
 export const waitForInteraction = 'waitForInteraction'
 export const afterInteractionCallback = 'afterInteractionCallback'
 
+const ShowActions: Record<`show${string}`, (args: ActionArgs) => FinishAction> =
+  {
+    showNarration: show('narrations'),
+    showDialogue: show('dialogues'),
+    showImage: show('images'),
+    showClickable: show('clickables'),
+  }
+
+const HideActions: Record<`hide${string}`, (args: ActionArgs) => FinishAction> =
+  {
+    hideDialogue: hide('dialogues'),
+    hideNarration: hide('narrations'),
+    hideImage: hide('images'),
+    hideClickable: hide('clickables'),
+  }
+
 // Add all actions here!
 export const DefinedActions: Partial<
   Record<string, (args: ActionArgs) => FinishAction>
@@ -68,69 +86,78 @@ export const DefinedActions: Partial<
       game.currentSceneId = sceneId
     }
   },
-
-  showNarration: show('narrations'),
-  hideNarration: hide('narrations'),
-
-  showDialogue: show('dialogues'),
-  hideDialogue: hide('dialogues'),
-
-  showImage: show('images'),
-  hideImage: hide('images'),
-
-  showClickable: show('clickables'),
-  hideClickable: hide('clickables'),
-
   wait: () => {},
-
-  [waitForInteraction]: ({ args, scene, afterInteractionCallback }) => {
-    const { elementType, value } = args
-
-    if (typeof elementType !== 'string') {
-      console.warn(
-        `"type" argument in "waitForInteraction" action should be a string!`
-      )
-      return
-    }
-
-    // TODO: consider whether we should set any element that is currently
-    // not shown to shown if it is the target of his action (otherwise,
-    // users may not be able to interact with it)
-    if (isElementKey(elementType)) {
-      const elem = scene.getElement(value, elementType)
-      if (!elem) {
-        console.warn(`no ${elementType} called ${value}!`)
-        return
-      }
-
-      elem.afterInteractionCallback = afterInteractionCallback
-    }
-  },
+  ...ShowActions,
+  ...HideActions,
 }
 
 function show(elementKey: ElementKeys) {
-  return ({ args, scene }: ActionArgs): FinishAction => {
-    const { value, hideAfterShow, position } = args
+  return ({
+    args,
+    scene,
+    duration,
+    deferredActions,
+  }: ActionArgs): FinishAction => {
+    const { value, autoHide = true } = args
 
     const element = scene.getElement(value, elementKey)
     if (!element) {
       console.warn(`no element called ${value}`)
       return
     }
+
     // if (position) {
     //   element.position = position
     // }
     element.shown = true
 
-    if (hideAfterShow) {
-      return ({ scene }) => {
-        const element = scene.getElement(value, elementKey)
-        if (!element) {
-          console.warn(`no element called ${value}`)
-          return
-        }
+    // if autoHide, then include a hide action in the after interaction callback
+    if (autoHide && deferredActions) {
+      deferredActions.runtimeActions = [
+        {
+          action: {
+            name: `hide${elementKey.toUpperCase()}`,
+            duration: duration,
+            args: { value },
+            sceneId: scene.id,
+            execute: hide(elementKey),
+          },
+          timing: 0,
+        },
+        ...deferredActions.runtimeActions,
+      ]
+    }
 
-        element.shown = false
+    const afterInteractionCallback = deferredActions
+      ? once(() => {
+          const cleanupFns = deferredActions.runtimeActions.map((action) =>
+            deferredActions.deferredExecutor(action)
+          )
+
+          return cleanupFns ? () => cleanupFns.forEach((fn) => fn()) : () => {}
+        })
+      : undefined
+
+    // set the after interaction callback if required
+    if (afterInteractionCallback) {
+      element.afterInteractionCallback = afterInteractionCallback
+    }
+
+    if (duration > 0) {
+      return ({ scene }) => {
+        if (afterInteractionCallback) {
+          afterInteractionCallback()
+
+          // if after interaction callback is not defined, then we manually hide the element here
+        } else if (autoHide) {
+          const element = scene.getElement(value, elementKey)
+          if (!element) {
+            console.warn(`no element called ${value}`)
+            return
+          }
+
+          element.shown = false
+        }
       }
     }
   }

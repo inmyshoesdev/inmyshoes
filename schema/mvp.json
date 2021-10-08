@@ -52,26 +52,22 @@
             {
               "type": "showNarration",
               "value": "intro1",
-              "duration": 1000,
-              "hideAfterShow": true
+              "duration": 1500
             },
             {
               "type": "showNarration",
               "value": "intro2",
-              "duration": 1000,
-              "hideAfterShow": true
+              "duration": 1500
             },
             {
               "type": "showNarration",
               "value": "intro3",
-              "duration": 1000,
-              "hideAfterShow": true
+              "duration": 1500
             },
             {
               "type": "showNarration",
               "value": "intro4",
-              "duration": 1000,
-              "hideAfterShow": true
+              "duration": 1500
             },
             {
               "type": "showClickable",
@@ -134,7 +130,7 @@
                     {
                       "type": "showNarration",
                       "value": "1",
-                      "duration": 3000
+                      "duration": 4000
                     },
                     {
                       "type": "gotoScene",
@@ -156,7 +152,7 @@
                     {
                       "type": "showNarration",
                       "value": "2",
-                      "duration": 3000
+                      "duration": 4000
                     },
                     {
                       "type": "gotoScene",
@@ -171,17 +167,10 @@
             {
               "type": "showNarration",
               "value": "intro",
-              "duration": 2000,
-              "hideAfterShow": true
+              "duration": 2000
             },
             {
               "type": "showDialogue",
-              "value": "inner",
-              "hideAfterShow": true
-            },
-            {
-              "type": "waitForInteraction",
-              "elementType": "dialogues",
               "value": "inner"
             },
             {
@@ -287,24 +276,13 @@
                       "duration": 1000
                     },
                     {
-                      "type": "hideImage",
-                      "value": "Jason",
-                      "duration": 0
-                    },
-                    {
                       "type": "showDialogue",
-                      "value": "after",
-                      "hideAfterShow": true
-                    },
-                    {
-                      "type": "waitForInteraction",
-                      "elementType": "dialogues",
                       "value": "after"
                     },
                     {
                       "type": "showNarration",
                       "value": "1",
-                      "duration": 3000
+                      "duration": 4000
                     },
                     {
                       "type": "gotoScene",
@@ -326,7 +304,7 @@
                     {
                       "type": "showNarration",
                       "value": "2",
-                      "duration": 3000
+                      "duration": 4000
                     },
                     {
                       "type": "gotoScene",
@@ -341,17 +319,10 @@
             {
               "type": "showNarration",
               "value": "intro",
-              "duration": 2000,
-              "hideAfterShow": true
+              "duration": 3000
             },
             {
               "type": "showDialogue",
-              "value": "inner",
-              "hideAfterShow": true
-            },
-            {
-              "type": "waitForInteraction",
-              "elementType": "dialogues",
               "value": "inner"
             },
             {
@@ -445,18 +416,12 @@
                   "onClick": [
                     {
                       "type": "showDialogue",
-                      "value": "1",
-                      "hideAfterShow": true
-                    },
-                    {
-                      "type": "waitForInteraction",
-                      "elementType": "dialogues",
                       "value": "1"
                     },
                     {
                       "type": "showNarration",
                       "value": "1",
-                      "duration": 3000
+                      "duration": 4000
                     },
                     {
                       "type": "gotoScene",
@@ -477,18 +442,12 @@
                   "onClick": [
                     {
                       "type": "showDialogue",
-                      "value": "2",
-                      "hideAfterShow": true
-                    },
-                    {
-                      "type": "waitForInteraction",
-                      "elementType": "dialogues",
                       "value": "2"
                     },
                     {
                       "type": "showNarration",
                       "value": "2",
-                      "duration": 3000
+                      "duration": 4000
                     },
                     {
                       "type": "gotoScene",
@@ -503,27 +462,14 @@
             {
               "type": "showNarration",
               "value": "intro",
-              "duration": 2000,
-              "hideAfterShow": true
+              "duration": 3000
             },
             {
               "type": "showDialogue",
-              "value": "before",
-              "hideAfterShow": true
-            },
-            {
-              "type": "waitForInteraction",
-              "elementType": "dialogues",
               "value": "before"
             },
             {
               "type": "showDialogue",
-              "value": "inner",
-              "hideAfterShow": true
-            },
-            {
-              "type": "waitForInteraction",
-              "elementType": "dialogues",
               "value": "inner"
             },
             {
@@ -608,18 +554,12 @@
                   "onClick": [
                     {
                       "type": "showDialogue",
-                      "value": "1",
-                      "hideAfterShow": true
-                    },
-                    {
-                      "type": "waitForInteraction",
-                      "elementType": "dialogues",
                       "value": "1"
                     },
                     {
                       "type": "showNarration",
                       "value": "1",
-                      "duration": 3000
+                      "duration": 4000
                     },
                     {
                       "type": "gotoScene",
@@ -641,7 +581,7 @@
                     {
                       "type": "showNarration",
                       "value": "2",
-                      "duration": 3000
+                      "duration": 4000
                     },
                     {
                       "type": "gotoScene",
@@ -656,27 +596,14 @@
             {
               "type": "showNarration",
               "value": "intro",
-              "duration": 2000,
-              "hideAfterShow": true
+              "duration": 3000
             },
             {
               "type": "showDialogue",
-              "value": "before",
-              "hideAfterShow": true
-            },
-            {
-              "type": "waitForInteraction",
-              "elementType": "dialogues",
               "value": "before"
             },
             {
               "type": "showDialogue",
-              "value": "inner",
-              "hideAfterShow": true
-            },
-            {
-              "type": "waitForInteraction",
-              "elementType": "dialogues",
               "value": "inner"
             },
             {
@@ -762,18 +689,12 @@
                   "onClick": [
                     {
                       "type": "showDialogue",
-                      "value": "1",
-                      "hideAfterShow": true
-                    },
-                    {
-                      "type": "waitForInteraction",
-                      "elementType": "dialogues",
                       "value": "1"
                     },
                     {
                       "type": "showNarration",
                       "value": "1",
-                      "duration": 3000
+                      "duration": 4000
                     },
                     {
                       "type": "gotoScene",
@@ -794,18 +715,12 @@
                   "onClick": [
                     {
                       "type": "showDialogue",
-                      "value": "2",
-                      "hideAfterShow": true
-                    },
-                    {
-                      "type": "waitForInteraction",
-                      "elementType": "dialogues",
                       "value": "2"
                     },
                     {
                       "type": "showNarration",
                       "value": "2",
-                      "duration": 3000
+                      "duration": 4000
                     },
                     {
                       "type": "gotoScene",
@@ -820,27 +735,14 @@
             {
               "type": "showNarration",
               "value": "intro",
-              "duration": 2000,
-              "hideAfterShow": true
+              "duration": 3000
             },
             {
               "type": "showDialogue",
-              "value": "before",
-              "hideAfterShow": true
-            },
-            {
-              "type": "waitForInteraction",
-              "elementType": "dialogues",
               "value": "before"
             },
             {
               "type": "showDialogue",
-              "value": "inner",
-              "hideAfterShow": true
-            },
-            {
-              "type": "waitForInteraction",
-              "elementType": "dialogues",
               "value": "inner"
             },
             {
@@ -897,7 +799,7 @@
                     {
                       "type": "showNarration",
                       "value": "1",
-                      "duration": 3000
+                      "duration": 4000
                     },
                     {
                       "type": "gotoScene",
@@ -920,7 +822,7 @@
                     {
                       "type": "showNarration",
                       "value": "2",
-                      "duration": 3000
+                      "duration": 4000
                     },
                     {
                       "type": "gotoScene",
@@ -935,17 +837,10 @@
             {
               "type": "showNarration",
               "value": "intro",
-              "duration": 2000,
-              "hideAfterShow": true
+              "duration": 3000
             },
             {
               "type": "showDialogue",
-              "value": "inner",
-              "hideAfterShow": true
-            },
-            {
-              "type": "waitForInteraction",
-              "elementType": "dialogues",
               "value": "inner"
             },
             {
@@ -1006,7 +901,7 @@
                     {
                       "type": "showNarration",
                       "value": "1",
-                      "duration": 3000
+                      "duration": 4000
                     },
                     {
                       "type": "gotoScene",
@@ -1028,8 +923,8 @@
                   "onClick": [
                     {
                       "type": "showNarration",
-                      "value": "1",
-                      "duration": 3000
+                      "value": "2",
+                      "duration": 4000
                     },
                     {
                       "type": "gotoScene",
@@ -1044,17 +939,10 @@
             {
               "type": "showNarration",
               "value": "intro",
-              "duration": 2000,
-              "hideAfterShow": true
+              "duration": 3000
             },
             {
               "type": "showDialogue",
-              "value": "inner",
-              "hideAfterShow": true
-            },
-            {
-              "type": "waitForInteraction",
-              "elementType": "dialogues",
               "value": "inner"
             },
             {
@@ -1111,7 +999,7 @@
                     {
                       "type": "showNarration",
                       "value": "1",
-                      "duration": 3000
+                      "duration": 4000
                     },
                     {
                       "type": "gotoScene",
@@ -1133,8 +1021,8 @@
                   "onClick": [
                     {
                       "type": "showNarration",
-                      "value": "1",
-                      "duration": 3000
+                      "value": "2",
+                      "duration": 4000
                     },
                     {
                       "type": "gotoScene",
@@ -1149,17 +1037,10 @@
             {
               "type": "showNarration",
               "value": "intro",
-              "duration": 2000,
-              "hideAfterShow": true
+              "duration": 3000
             },
             {
               "type": "showDialogue",
-              "value": "inner",
-              "hideAfterShow": true
-            },
-            {
-              "type": "waitForInteraction",
-              "elementType": "dialogues",
               "value": "inner"
             },
             {
@@ -1214,7 +1095,7 @@
                   "text": "Attend all the classes",
                   "position": {
                     "top": "20%",
-                    "left": "20%"
+                    "left": "10%"
                   },
                   "dimension": {
                     "width": "20%"
@@ -1223,7 +1104,7 @@
                     {
                       "type": "showNarration",
                       "value": "1",
-                      "duration": 3000
+                      "duration": 4000
                     },
                     {
                       "type": "gotoScene",
@@ -1236,7 +1117,7 @@
                   "text": "Skip the classes",
                   "position": {
                     "top": "20%",
-                    "left": "60%"
+                    "left": "40%"
                   },
                   "dimension": {
                     "width": "20%"
@@ -1245,7 +1126,7 @@
                     {
                       "type": "showNarration",
                       "value": "2",
-                      "duration": 3000
+                      "duration": 4000
                     },
                     {
                       "type": "gotoScene",
@@ -1258,7 +1139,7 @@
                   "text": "Attend the classes when you can",
                   "position": {
                     "top": "20%",
-                    "left": "20%"
+                    "left": "70%"
                   },
                   "dimension": {
                     "width": "20%"
@@ -1267,7 +1148,7 @@
                     {
                       "type": "showNarration",
                       "value": "3",
-                      "duration": 3000
+                      "duration": 4000
                     },
                     {
                       "type": "gotoScene",
@@ -1282,17 +1163,10 @@
             {
               "type": "showNarration",
               "value": "intro",
-              "duration": 2000,
-              "hideAfterShow": true
+              "duration": 3000
             },
             {
               "type": "showDialogue",
-              "value": "inner",
-              "hideAfterShow": true
-            },
-            {
-              "type": "waitForInteraction",
-              "elementType": "dialogues",
               "value": "inner"
             },
             {
@@ -1315,7 +1189,7 @@
             },
             {
               "name": "2",
-              "text": "By focusing all your time for working, you help bring some more money back home and you realise that you are eating better and saving more. Howver, you do not see your friends anymore and you start to lose contact with them."
+              "text": "By focusing all your time for working, you help bring some more money back home and you realise that you are eating better and saving more. However, you do not see your friends anymore and you start to lose contact with them."
             }
           ],
           "dialogues": [
@@ -1353,7 +1227,7 @@
                     {
                       "type": "showNarration",
                       "value": "1",
-                      "duration": 3000
+                      "duration": 4000
                     },
                     {
                       "type": "gotoScene",
@@ -1376,7 +1250,7 @@
                     {
                       "type": "showNarration",
                       "value": "2",
-                      "duration": 3000
+                      "duration": 4000
                     },
                     {
                       "type": "gotoScene",
@@ -1391,17 +1265,10 @@
             {
               "type": "showNarration",
               "value": "intro",
-              "duration": 2000,
-              "hideAfterShow": true
+              "duration": 2000
             },
             {
               "type": "showDialogue",
-              "value": "inner",
-              "hideAfterShow": true
-            },
-            {
-              "type": "waitForInteraction",
-              "elementType": "dialogues",
               "value": "inner"
             },
             {
@@ -1430,14 +1297,12 @@
             {
               "type": "showNarration",
               "value": "intro1",
-              "duration": 2000,
-              "hideAfterShow": true
+              "duration": 5000
             },
             {
               "type": "showNarration",
               "value": "intro2",
-              "duration": 2000,
-              "hideAfterShow": true
+              "duration": 8000
             },
             {
               "type": "gotoScene",
