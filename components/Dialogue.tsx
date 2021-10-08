@@ -16,6 +16,12 @@ const Dialogue: React.FC<DialogueProps> = ({
     if (shown && speeches.length > 0) setSpeechIdx(0)
   }, [shown, speeches])
 
+  function prevDialogue() {
+    if (speechIdx < speeches.length) {
+      setSpeechIdx(speechIdx - 1)
+    }
+  }
+
   function nextDialogue() {
     if (speechIdx < speeches.length) {
       setSpeechIdx(speechIdx + 1)
@@ -35,7 +41,12 @@ const Dialogue: React.FC<DialogueProps> = ({
       enterTo="opacity-100"
     >
       {speechIdx >= 0 && speechIdx < speeches.length && (
-        <Speech {...speeches[speechIdx]} onClick={nextDialogue} />
+        <Speech
+          {...speeches[speechIdx]}
+          onNext={nextDialogue}
+          onPrev={prevDialogue}
+          prevEnabled={!(speechIdx === 0)}
+        />
       )}
     </Transition>
   )
