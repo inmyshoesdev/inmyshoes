@@ -77,11 +77,6 @@
                       "duration": 0
                     },
                     {
-                      "type": "hideNarration",
-                      "value": "intro3",
-                      "duration": 1200
-                    },
-                    {
                       "type": "showNarration",
                       "value": "win"
                     }
@@ -116,20 +111,17 @@
             {
               "type": "showNarration",
               "value": "intro",
-              "duration": 2000,
-              "hideAfterShow": true
+              "duration": 2000
             },
             {
               "type": "showNarration",
               "value": "intro2",
-              "duration": 3000,
-              "hideAfterShow": true
+              "duration": 3000
             },
             {
               "type": "showNarration",
               "value": "intro3",
-              "duration": 3000,
-              "hideAfterShow": true
+              "duration": 3000
             },
             {
               "type": "showClickable",
