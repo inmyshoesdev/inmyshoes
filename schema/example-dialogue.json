@@ -15,7 +15,7 @@
                     "narrations": [
                         {
                             "name": "intro",
-                            "text": "this is an example dialogue..."
+                            "text": ["this is an example dialogue..."]
                         }
                     ],
                     "dialogues": [

@@ -15,15 +15,15 @@
           "narrations": [
             {
               "name": "intro",
-              "text": "this is an **intro** *narration*. it will [auto](https://google.com) advance in 5 seconds."
+              "text": ["this is an **intro** *narration*. it will [auto](https://google.com) advance in 5 seconds."]
             },
             {
               "name": "stay",
-              "text": "this narration stays for 3 seconds, then disappears for 1 second"
+              "text": ["this narration stays for 3 seconds, then disappears for 1 second"]
             },
             {
               "name": "last",
-              "text": "you will leave this scene in 2 seconds"
+              "text": ["you will leave this scene in 2 seconds"]
             }
           ],
           "dialogues": [],

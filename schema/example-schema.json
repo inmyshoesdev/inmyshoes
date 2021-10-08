@@ -14,15 +14,15 @@
           "narrations": [
             {
               "name": "intro",
-              "text": "this is a dark and scary dungeon..."
+              "text": ["this is a dark and scary dungeon..."]
             },
             {
               "name": "clown decision",
-              "text": "listen to the clown?"
+              "text": ["listen to the clown?"]
             },
             {
               "name": "win msg",
-              "text": "you won!!!"
+              "text": ["you won!!!"]
             }
           ],
           "dialogues": [
