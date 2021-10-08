@@ -42,7 +42,7 @@ export interface Element {
 }
 
 export interface Narration extends Element {
-  text: string
+  text: string[]
 }
 
 export function makeNarration(schema: NarrationSchema): Narration {
