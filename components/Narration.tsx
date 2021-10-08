@@ -13,45 +13,41 @@ const Narration: React.FC<NarrationProps> = ({
   name,
   position,
   dimension,
-  text,
+  texts,
   afterInteractionCallback,
 }) => {
-  // TODO remove later, this is to test implementation only
-  const textArray = text
-  
   const afterAction = useAfterInteractionCallback(afterInteractionCallback)
 
   const [textIdx, setTextIdx] = useState(-1)
 
   useEffect(() => {
-    if (shown && text.length > 0) setTextIdx(0)
-  }, [shown]) // TODO update when text variable changes
+    if (shown && texts.length > 0) setTextIdx(0)
+  }, [shown, texts])
 
   function prevText() {
-    if (textIdx < textArray.length) {
+    if (textIdx < texts.length) {
       setTextIdx(textIdx - 1)
     }
   }
 
   function nextText() {
-    if (textIdx < textArray.length) {
+    if (textIdx < texts.length) {
       setTextIdx(textIdx + 1)
     }
     
     // if speech is the last one, also run the after interaction action
-    if (textIdx + 1 >= textArray.length) {
+    if (textIdx + 1 >= texts.length) {
       afterAction()
     }
   }
 
   const NarrationBox: React.FC = () => {
-    if (textIdx >= textArray.length) {
+    if (textIdx >= texts.length) {
       return null
     }
 
     const prevEnabled = textIdx > 0
     const nextEnabled = true
-    // const nextEnabled = textIdx < textArray.length - 1
     
     return (
       <DialogueBox
@@ -66,9 +62,9 @@ const Narration: React.FC<NarrationProps> = ({
           }}
         >
           <Typewriter
-            key={textArray[textIdx]}
+            key={texts[textIdx]}
             onInit={(typewriter) => {
-              typewriter.typeString(renderMdToHtml(textArray[textIdx])).start()
+              typewriter.typeString(renderMdToHtml(texts[textIdx])).start()
             }}
             options={{
               cursor: '',

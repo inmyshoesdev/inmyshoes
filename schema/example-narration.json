@@ -15,7 +15,9 @@
           "narrations": [
             {
               "name": "intro",
-              "text": ["this is an **intro** *narration*. it will [auto](https://google.com) advance in 5 seconds."]
+              "text": ["this is an **intro** *narration*. it will [auto](https://google.com) advance in 10 seconds. click next to navigate to the next element",
+                "click prev to go back, and next to continue on",
+                "click prev to go back, and next to end this segment"]
             },
             {
               "name": "stay",
@@ -33,7 +35,7 @@
             {
               "type": "showNarration",
               "value": "intro",
-              "duration": 5000
+              "duration": 10000
             },
             {
               "type": "showNarration",

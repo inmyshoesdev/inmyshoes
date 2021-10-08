@@ -42,7 +42,7 @@ export interface Element {
 }
 
 export interface Narration extends Element {
-  text: string[]
+  texts: string[]
 }
 
 export function makeNarration(schema: NarrationSchema): Narration {
@@ -51,7 +51,7 @@ export function makeNarration(schema: NarrationSchema): Narration {
     name: schema.name,
     position: schema.position || { top: '10%' }, // TODO: settle on a proper default position
     dimension: schema.dimension || {},
-    text: schema.text,
+    texts: schema.text,
   }
 }
 
