@@ -94,6 +94,11 @@ export const DefinedActions: Partial<
     scene.state.update(newState)
   },
 
+  updateGlobalState: ({ args, game }) => {
+    const { newState = {} } = args
+    game.globalState.update(newState)
+  },
+
   ...ShowActions,
   ...HideActions,
 }

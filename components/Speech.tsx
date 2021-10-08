@@ -1,5 +1,6 @@
-import { Fragment } from 'react'
+import { Fragment, useCallback, useState } from 'react'
 import Typewriter from 'typewriter-effect'
+import { useStateTemplater } from '../hooks/useStateTemplater'
 import { Position, Dimension } from '../lib/elements'
 import DialogueBox from './DialogueBox'
 import { renderMdToHtml } from './utils'
@@ -37,6 +38,29 @@ const Speech: React.FC<SpeechProps> = ({
   onNext,
   onPrev,
 }) => {
+  const [skipTyping, setSkipTyping] = useState<boolean>(false)
+  const template = useStateTemplater()
+
+  const onDialogueBoxClicked = useCallback(() => {
+    if (!skipTyping) {
+      setSkipTyping(true)
+      return
+    }
+
+    if (onNext) {
+      onNext()
+    }
+  }, [skipTyping, onNext])
+
+  const resetTyping = (fn?: () => void) => {
+    return () => {
+      setSkipTyping(false)
+      if (fn) {
+        fn()
+      }
+    }
+  }
+
   return (
     <Fragment>
       <div
@@ -62,6 +86,7 @@ const Speech: React.FC<SpeechProps> = ({
         image={textBoxImage}
         position={textPosition}
         dimension={textDimension}
+        onClick={onDialogueBoxClicked}
       >
         <div className="h-1/4">
           <p
@@ -80,27 +105,31 @@ const Speech: React.FC<SpeechProps> = ({
             fontStyle: type === 'monologue' ? 'italic' : 'normal',
           }}
         >
-          <Typewriter
-            key={text}
-            onInit={(typewriter) => {
-              typewriter.typeString(renderMdToHtml(text)).start()
-            }}
-            options={{
-              cursor: '',
-              delay: 30, // speed adjustment
-            }}
-          />
+          {skipTyping ? (
+            <p>{template(renderMdToHtml(text))}</p>
+          ) : (
+            <Typewriter
+              key={text}
+              onInit={(typewriter) => {
+                typewriter.typeString(template(renderMdToHtml(text))).start()
+              }}
+              options={{
+                cursor: '',
+                delay: 30, // speed adjustment
+              }}
+            />
+          )}
         </div>
         <div className="sm:text-[8px] md:text-[12px] lg:text-[18px] flex justify-between h-1/5 text-blue-400">
           <button
-            onClick={onPrev}
+            onClick={resetTyping(onPrev)}
             className={prevEnabled ? 'cursor-pointer' : 'text-blue-200'}
             disabled={!prevEnabled}
           >
             Prev
           </button>
           <button
-            onClick={onNext}
+            onClick={resetTyping(onNext)}
             className={nextEnabled ? 'cursor-pointer' : 'text-blue-200'}
             disabled={!nextEnabled}
           >

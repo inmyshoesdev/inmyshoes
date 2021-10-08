@@ -2,12 +2,23 @@ type StateMap = Record<string, string | number | boolean>
 
 export interface State {
   innerState: StateMap
+  hasKey(key: string): boolean
+  get(key: string): string | number | boolean | undefined
   update(newState: any): void
 }
 
 export function makeState(state: any): State {
   return {
     innerState: state,
+
+    hasKey(key: string): boolean {
+      return key in this.innerState
+    },
+
+    get(key: string): string | number | boolean | undefined {
+      return this.innerState[key]
+    },
+
     update(newState: StateMap) {
       for (const [key, val] of Object.entries(newState)) {
         if (key in this.innerState) {

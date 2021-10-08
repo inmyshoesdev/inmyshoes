@@ -1,5 +1,6 @@
+import { useStateTemplater } from '../hooks/useStateTemplater'
 import { Dimension, Position } from '../lib/elements'
-import { getAnimationClass } from './utils'
+import { getAnimationClass, renderMdToHtml } from './utils'
 
 interface ClickableTextProps {
   text: string
@@ -16,6 +17,8 @@ const ClickableText = ({
   effect = 'none',
   onClick,
 }: ClickableTextProps) => {
+  const template = useStateTemplater()
+
   const positionDefined =
     position?.top || position?.left || position?.right || position?.bottom
 
@@ -38,7 +41,7 @@ const ClickableText = ({
         transform: positionDefined ? 'unset' : 'translate(-50%, -50%)',
       }}
     >
-      {text}
+      {template(renderMdToHtml(text))}
     </span>
   )
 }

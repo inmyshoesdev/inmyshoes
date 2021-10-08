@@ -1,6 +1,7 @@
 import { Box } from '@chakra-ui/react'
 import { Transition } from '@headlessui/react'
 import { useAfterInteractionCallback } from '../hooks/useAfterInteractionCallback'
+import { useStateTemplater } from '../hooks/useStateTemplater'
 import { Narration as NarrationProps } from '../lib/elements'
 import { renderMdToHtml } from './utils'
 
@@ -10,6 +11,7 @@ const Narration: React.FC<NarrationProps> = ({
   afterInteractionCallback,
 }) => {
   const afterAction = useAfterInteractionCallback(afterInteractionCallback)
+  const template = useStateTemplater()
 
   return (
     <Transition
@@ -23,7 +25,7 @@ const Narration: React.FC<NarrationProps> = ({
       <div
         className="inline-block mt-2 p-3 w-3/5 h-40 italic bg-white border border-gray-200 rounded shadow"
         onClick={afterAction}
-        dangerouslySetInnerHTML={{ __html: renderMdToHtml(text) }}
+        dangerouslySetInnerHTML={{ __html: template(renderMdToHtml(text)) }}
       ></div>
       <Box height={400} className="inline-block w-1/5" />
     </Transition>

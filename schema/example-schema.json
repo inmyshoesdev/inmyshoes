@@ -1,5 +1,9 @@
 {
   "name": "example game",
+  "globalState": {
+    "numTries": 0,
+    "fear": 0
+  },
   "mainCharacters": [
     {
       "name": "pennywise",
@@ -11,15 +15,10 @@
         {
           "id": 1,
           "background": "https://images.unsplash.com/photo-1532689193429-29caa23e5268?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80",
-          "state": {
-            "health": 10,
-            "hello": "world",
-            "true": false
-          },
           "narrations": [
             {
               "name": "intro",
-              "text": "this is a dark and scary dungeon..."
+              "text": "this is a dark and scary dungeon...\n\nNumber of tries: {numTries}"
             },
             {
               "name": "clown decision",
@@ -72,18 +71,10 @@
                   "name": "yes",
                   "text": "yes",
                   "position": {
-                    "bottom": "10%",
+                    "bottom": "5%",
                     "left": "37%"
                   },
                   "onClick": [
-                    {
-                      "type": "updateState",
-                      "newState": {
-                        "health": -9,
-                        "hello": "universe",
-                        "true": true
-                      }
-                    },
                     {
                       "type": "gotoScene",
                       "sceneId": 2
@@ -94,7 +85,7 @@
                   "name": "no",
                   "text": "no",
                   "position": {
-                    "bottom": "10%",
+                    "bottom": "5%",
                     "left": "57%"
                   },
                   "onClick": [
@@ -119,9 +110,29 @@
                   ]
                 }
               ]
+            },
+            {
+              "name": "fear display",
+              "clickables": [
+                {
+                  "name": "",
+                  "text": "Fear: {fear}",
+                  "position": {
+                    "top": "3%",
+                    "left": "3%"
+                  },
+                  "onClick": []
+                }
+              ]
             }
           ],
           "intro": [
+            {
+              "type": "showClickable",
+              "value": "fear display",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "intro",
@@ -136,6 +147,12 @@
               "value": "clown",
               "duration": 500,
               "autoHide": false
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "fear": 5
+              }
             },
             {
               "type": "showNarration",
@@ -173,6 +190,12 @@
             }
           ],
           "intro": [
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "numTries": 1
+              }
+            },
             {
               "type": "wait",
               "duration": 1500
