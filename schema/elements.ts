@@ -50,7 +50,7 @@ export type ElementSchema = Infer<typeof ElementSchema>
 export const NarrationSchema = intersection([
   ElementSchema,
   type({
-    text: string(),
+    texts: array(string()),
   }),
 ])
 
