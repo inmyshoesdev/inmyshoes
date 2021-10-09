@@ -4,9 +4,11 @@ import { Tooltip } from '@chakra-ui/react'
 function Footer({
   gameOn,
   characterInfo,
+  setBlurBackground,
 }: {
   gameOn: boolean
   characterInfo: string
+  setBlurBackground: React.Dispatch<React.SetStateAction<boolean>>
 }) {
   const [hideCharacterInfo, setHideCharacterInfo] = useState(true)
   const [musicOn, setMusicOn] = useState(false)
@@ -41,6 +43,7 @@ function Footer({
       <CharacterInfo
         hidden={hideCharacterInfo}
         setHidden={setHideCharacterInfo}
+        setBlurBackground={setBlurBackground}
         url={characterInfo}
       />
       <div id="footer" className={`w-96 flex justify-around items-center`}>
@@ -54,7 +57,10 @@ function Footer({
               className="focus:outline-none cursor-pointer"
               aria-label="check current character"
               // disabled={!gameOn}
-              onClick={() => setHideCharacterInfo(!hideCharacterInfo)}
+              onClick={() => {
+                setHideCharacterInfo((state) => !state)
+                setBlurBackground((state) => !state)
+              }}
             >
               {gameOn ? (
                 <div className="flex w-12">
