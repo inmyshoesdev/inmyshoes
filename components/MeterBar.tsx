@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useStore } from '../stores/store'
 
 export interface MeterBarProps {
+  title: string
   state: string
   fullImage: string
   emptyImage: string
@@ -10,6 +11,7 @@ export interface MeterBarProps {
 }
 
 export default function MeterBar({
+  title,
   state,
   fullImage,
   emptyImage,
@@ -27,28 +29,31 @@ export default function MeterBar({
   }, [game.globalState.innerState[state]])
 
   return (
-    <div className="relative">
-      <div
-        style={{
-          width: 'max-content',
-          height: 'max-content',
-        }}
-      >
-        <img src={emptyImage} className="object-none object-left" />
-      </div>
-      <div
-        className="absolute left-0 top-0"
-        style={{
-          width: `${progress}%`,
-          height: '100%',
-          overflow: 'clip',
-        }}
-      >
-        <img
-          src={fullImage}
-          className="object-none object-left"
-          style={{ height: '100%' }}
-        />
+    <div className="flex flex-col">
+      <p>{title}</p>
+      <div className="relative">
+        <div
+          style={{
+            width: 'max-content',
+            height: 'max-content',
+          }}
+        >
+          <img src={emptyImage} className="object-none object-left" />
+        </div>
+        <div
+          className="absolute left-0 top-0"
+          style={{
+            width: `${progress}%`,
+            height: '100%',
+            overflow: 'clip',
+          }}
+        >
+          <img
+            src={fullImage}
+            className="object-none object-left"
+            style={{ height: '100%' }}
+          />
+        </div>
       </div>
     </div>
   )

@@ -42,7 +42,6 @@ const Speech: React.FC<SpeechProps> = ({
   const template = useStateTemplater()
 
   const onDialogueBoxClicked = useCallback(() => {
-    console.log('iam clicked')
     if (!skipTyping) {
       setSkipTyping(true)
       return
@@ -91,7 +90,7 @@ const Speech: React.FC<SpeechProps> = ({
         dimension={textDimension}
         onClick={onDialogueBoxClicked}
       >
-        <div className="mb-2">
+        <div className="h-1/5">
           <p
             className="sm:text-[14px] md:text-[18px] lg:text-[22px] h-full text-xs font-bold leading-none"
             style={{
@@ -103,7 +102,7 @@ const Speech: React.FC<SpeechProps> = ({
         </div>
 
         <div
-          className="text-2xs sm:text-[10px] h-full md:text-sm lg:text-base"
+          className="text-2xs sm:text-[10px] h-3/5 md:text-sm lg:text-base"
           style={{
             fontStyle: type === 'monologue' ? 'italic' : 'normal',
           }}

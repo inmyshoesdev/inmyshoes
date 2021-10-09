@@ -1,13 +1,21 @@
 {
     "name": "Dialogue Example",
     "globalState": {
-        "health": 7
+        "health": 7,
+        "social": 9
     },
     "header": [
         {
             "component": "meter",
             "title": "Health",
             "state": "health",
+            "fullImage": "/images/health-bar-full.jpg",
+            "emptyImage": "/images/health-bar-empty.jpg"
+        },
+        {
+            "component": "meter",
+            "title": "Social",
+            "state": "social",
             "fullImage": "/images/full-bar.png",
             "emptyImage": "/images/empty-bar.png"
         }
