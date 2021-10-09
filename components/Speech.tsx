@@ -65,7 +65,7 @@ const Speech: React.FC<SpeechProps> = ({
       >
         <div className="h-1/4">
           <p
-            className="sm:text-[14px] md:text-[18px] lg:text-[22px] h-full font-bold leading-none"
+            className="sm:text-[14px] md:text-[18px] lg:text-[22px] h-full font-bold leading-none select-none"
             style={{
               fontStyle: type === 'monologue' ? 'italic' : 'normal',
             }}
@@ -75,7 +75,7 @@ const Speech: React.FC<SpeechProps> = ({
         </div>
 
         <div
-          className="sm:text-[10px] md:text-[14px] lg:text-[20px] h-3/5"
+          className="sm:text-[10px] md:text-[14px] lg:text-[20px] h-3/5 select-none"
           style={{
             fontStyle: type === 'monologue' ? 'italic' : 'normal',
           }}

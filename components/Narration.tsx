@@ -21,7 +21,7 @@ const Narration: React.FC<NarrationProps> = ({
     >
       <Box height={400} className="inline-block w-1/5" />
       <div
-        className="inline-block mt-2 p-3 w-3/5 h-40 italic bg-white border border-gray-200 rounded shadow"
+        className="inline-block mt-2 p-3 w-3/5 h-40 italic bg-white border border-gray-200 rounded shadow select-none"
         onClick={afterAction}
         dangerouslySetInnerHTML={{ __html: renderMdToHtml(text) }}
       ></div>
