@@ -104,8 +104,7 @@
                   "onClick": [
                     {
                       "type": "showNarration",
-                      "value": "1",
-                      "duration": 4000
+                      "value": "1"
                     },
                     {
                       "type": "gotoScene",
@@ -126,8 +125,7 @@
                   "onClick": [
                     {
                       "type": "showNarration",
-                      "value": "2",
-                      "duration": 4000
+                      "value": "2"
                     },
                     {
                       "type": "gotoScene",
@@ -141,8 +139,7 @@
           "intro": [
             {
               "type": "showNarration",
-              "value": "intro",
-              "duration": 2000
+              "value": "intro"
             },
             {
               "type": "showDialogue",
@@ -256,8 +253,7 @@
                     },
                     {
                       "type": "showNarration",
-                      "value": "1",
-                      "duration": 4000
+                      "value": "1"
                     },
                     {
                       "type": "gotoScene",
@@ -278,8 +274,7 @@
                   "onClick": [
                     {
                       "type": "showNarration",
-                      "value": "2",
-                      "duration": 4000
+                      "value": "2"
                     },
                     {
                       "type": "gotoScene",
@@ -293,8 +288,7 @@
           "intro": [
             {
               "type": "showNarration",
-              "value": "intro",
-              "duration": 3000
+              "value": "intro"
             },
             {
               "type": "showDialogue",
@@ -395,8 +389,7 @@
                     },
                     {
                       "type": "showNarration",
-                      "value": "1",
-                      "duration": 4000
+                      "value": "1"
                     },
                     {
                       "type": "gotoScene",
@@ -421,8 +414,7 @@
                     },
                     {
                       "type": "showNarration",
-                      "value": "2",
-                      "duration": 4000
+                      "value": "2"
                     },
                     {
                       "type": "gotoScene",
@@ -436,8 +428,7 @@
           "intro": [
             {
               "type": "showNarration",
-              "value": "intro",
-              "duration": 3000
+              "value": "intro"
             },
             {
               "type": "showDialogue",
@@ -533,8 +524,7 @@
                     },
                     {
                       "type": "showNarration",
-                      "value": "1",
-                      "duration": 4000
+                      "value": "1"
                     },
                     {
                       "type": "gotoScene",
@@ -555,8 +545,7 @@
                   "onClick": [
                     {
                       "type": "showNarration",
-                      "value": "2",
-                      "duration": 4000
+                      "value": "2"
                     },
                     {
                       "type": "gotoScene",
@@ -570,8 +559,7 @@
           "intro": [
             {
               "type": "showNarration",
-              "value": "intro",
-              "duration": 3000
+              "value": "intro"
             },
             {
               "type": "showDialogue",
@@ -668,8 +656,7 @@
                     },
                     {
                       "type": "showNarration",
-                      "value": "1",
-                      "duration": 4000
+                      "value": "1"
                     },
                     {
                       "type": "gotoScene",
@@ -694,8 +681,7 @@
                     },
                     {
                       "type": "showNarration",
-                      "value": "2",
-                      "duration": 4000
+                      "value": "2"
                     },
                     {
                       "type": "gotoScene",
@@ -709,8 +695,7 @@
           "intro": [
             {
               "type": "showNarration",
-              "value": "intro",
-              "duration": 3000
+              "value": "intro"
             },
             {
               "type": "showDialogue",
@@ -773,8 +758,7 @@
                   "onClick": [
                     {
                       "type": "showNarration",
-                      "value": "1",
-                      "duration": 4000
+                      "value": "1"
                     },
                     {
                       "type": "gotoScene",
@@ -796,8 +780,7 @@
                   "onClick": [
                     {
                       "type": "showNarration",
-                      "value": "2",
-                      "duration": 4000
+                      "value": "2"
                     },
                     {
                       "type": "gotoScene",
@@ -811,8 +794,7 @@
           "intro": [
             {
               "type": "showNarration",
-              "value": "intro",
-              "duration": 3000
+              "value": "intro"
             },
             {
               "type": "showDialogue",
@@ -875,8 +857,7 @@
                   "onClick": [
                     {
                       "type": "showNarration",
-                      "value": "1",
-                      "duration": 4000
+                      "value": "1"
                     },
                     {
                       "type": "gotoScene",
@@ -898,8 +879,7 @@
                   "onClick": [
                     {
                       "type": "showNarration",
-                      "value": "2",
-                      "duration": 4000
+                      "value": "2"
                     },
                     {
                       "type": "gotoScene",
@@ -913,8 +893,7 @@
           "intro": [
             {
               "type": "showNarration",
-              "value": "intro",
-              "duration": 3000
+              "value": "intro"
             },
             {
               "type": "showDialogue",
@@ -973,8 +952,7 @@
                   "onClick": [
                     {
                       "type": "showNarration",
-                      "value": "1",
-                      "duration": 4000
+                      "value": "1"
                     },
                     {
                       "type": "gotoScene",
@@ -996,8 +974,7 @@
                   "onClick": [
                     {
                       "type": "showNarration",
-                      "value": "2",
-                      "duration": 4000
+                      "value": "2"
                     },
                     {
                       "type": "gotoScene",
@@ -1011,8 +988,7 @@
           "intro": [
             {
               "type": "showNarration",
-              "value": "intro",
-              "duration": 3000
+              "value": "intro"
             },
             {
               "type": "showDialogue",
@@ -1078,8 +1054,7 @@
                   "onClick": [
                     {
                       "type": "showNarration",
-                      "value": "1",
-                      "duration": 4000
+                      "value": "1"
                     },
                     {
                       "type": "gotoScene",
@@ -1100,8 +1075,7 @@
                   "onClick": [
                     {
                       "type": "showNarration",
-                      "value": "2",
-                      "duration": 4000
+                      "value": "2"
                     },
                     {
                       "type": "gotoScene",
@@ -1122,8 +1096,7 @@
                   "onClick": [
                     {
                       "type": "showNarration",
-                      "value": "3",
-                      "duration": 4000
+                      "value": "3"
                     },
                     {
                       "type": "gotoScene",
@@ -1137,8 +1110,7 @@
           "intro": [
             {
               "type": "showNarration",
-              "value": "intro",
-              "duration": 3000
+              "value": "intro"
             },
             {
               "type": "showDialogue",
@@ -1201,8 +1173,7 @@
                   "onClick": [
                     {
                       "type": "showNarration",
-                      "value": "1",
-                      "duration": 4000
+                      "value": "1"
                     },
                     {
                       "type": "gotoScene",
@@ -1224,8 +1195,7 @@
                   "onClick": [
                     {
                       "type": "showNarration",
-                      "value": "2",
-                      "duration": 4000
+                      "value": "2"
                     },
                     {
                       "type": "gotoScene",
@@ -1239,8 +1209,7 @@
           "intro": [
             {
               "type": "showNarration",
-              "value": "intro",
-              "duration": 2000
+              "value": "intro"
             },
             {
               "type": "showDialogue",
