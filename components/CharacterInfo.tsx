@@ -4,10 +4,12 @@ function CharacterInfo({
   url,
   hidden,
   setHidden,
+  setBlurBackground,
 }: {
   url: string
   hidden: boolean
   setHidden: (hidden: boolean) => void
+  setBlurBackground: React.Dispatch<React.SetStateAction<boolean>>
 }) {
   return (
     <div
@@ -27,7 +29,10 @@ function CharacterInfo({
       <div className="flex items-center justify-center">
         <button
           className="px-4 text-center text-lg font-semibold bg-green-400 rounded focus:outline-none"
-          onClick={() => setHidden(true)}
+          onClick={() => {
+            setHidden(true)
+            setBlurBackground((state) => !state)
+          }}
         >
           Resume
         </button>

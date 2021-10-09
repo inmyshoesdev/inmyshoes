@@ -14,7 +14,7 @@ type GameProps = {
 const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
   const game = useStore((state) => state.game)
   const loadGame = useStore((state) => state.loadGame)
-
+  const [blurBackground, setBlurBackground] = useState(false)
   useEffect(() => {
     if (newGame) {
       loadGame(newGame)
@@ -23,9 +23,12 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
 
   return (
     <div className="flex flex-col items-center my-2 w-full space-y-2">
-      {/* <Status /> */}
       <Header header={game?.header} />
-      <div className="w-[72vw] h-[40.5vw] relative bg-white border shadow overflow-hidden">
+      <div
+        className={`w-[72vw] h-[40.5vw] relative bg-white border shadow overflow-hidden ${
+          blurBackground ? 'blur-sm' : ''
+        }`}
+      >
         {game?.getScenes().map((scene, idx) => (
           <Transition
             show={game?.currentSceneId === scene.id}
@@ -42,7 +45,11 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
           </Transition>
         ))}
       </div>
-      <Footer gameOn={true} characterInfo={game.characterInfo} />
+      <Footer
+        gameOn={true}
+        characterInfo={game.characterInfo}
+        setBlurBackground={setBlurBackground}
+      />
     </div>
   )
 }
