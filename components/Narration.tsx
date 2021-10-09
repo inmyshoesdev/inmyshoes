@@ -66,7 +66,7 @@ const Narration: React.FC<NarrationProps> = ({
           <Typewriter
             key={texts[textIdx]}
             onInit={(typewriter) => {
-              typewriter.typeString(renderMdToHtml(texts[textIdx])).start()
+              typewriter.typeString(template(renderMdToHtml(texts[textIdx]))).start()
             }}
             options={{
               cursor: '',
