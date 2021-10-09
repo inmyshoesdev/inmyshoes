@@ -23,6 +23,7 @@ export function makeComponent(
 }
 
 export interface Meter extends Component {
+  state: string
   fullImage: string
   emptyImage: string
 }
@@ -33,6 +34,7 @@ export function makeMeter(schema: MeterSchema, state: State): Meter {
   return {
     component: schema.component,
     title: schema.title,
+    state: schema.state,
     fullImage: schema.fullImage,
     emptyImage: schema.emptyImage,
   }

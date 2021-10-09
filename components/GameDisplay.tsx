@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Transition } from '@headlessui/react'
 import { Game } from '../lib/game'
 import { useStore } from '../stores/store'
@@ -14,7 +14,6 @@ type GameProps = {
 const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
   const game = useStore((state) => state.game)
   const loadGame = useStore((state) => state.loadGame)
-  console.log(game?.globalState.innerState)
 
   useEffect(() => {
     if (newGame) {

@@ -1,5 +1,8 @@
 {
     "name": "Dialogue Example",
+    "globalState": {
+        "health": 7
+    },
     "header": [
         {
             "component": "meter",
@@ -72,6 +75,12 @@
                         {
                             "type": "showDialogue",
                             "value": "julie_jason_greet"
+                        },
+                        {
+                            "type": "updateGlobalState",
+                            "newState": {
+                                "health": 1
+                            }
                         },
                         {
                             "type": "gotoScene",

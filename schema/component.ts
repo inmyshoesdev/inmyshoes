@@ -21,10 +21,18 @@ export const ComponentSchema = object({
 
 export type ComponentSchema = Infer<typeof ComponentSchema>
 
+// {
+//   "component": "meter",
+//   "title": "Health",
+//   "state": "health",
+//   "fullImage": "/images/full-bar.png",
+//   "emptyImage": "/images/empty-bar.png"
+// }
 export const MeterSchema = object({
   component: literal(COMPONENT_TYPE.METER),
   title: string(),
   state: string(),
+  // Might make images optional
   fullImage: string(),
   emptyImage: string(),
 })

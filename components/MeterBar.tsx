@@ -1,13 +1,30 @@
 import { Box } from '@chakra-ui/layout'
 import { useEffect, useState } from 'react'
+import { useStore } from '../stores/store'
 
 export interface MeterBarProps {
+  state: string
   fullImage: string
   emptyImage: string
+  max: number
 }
 
-export default function MeterBar({ fullImage, emptyImage }: MeterBarProps) {
+export default function MeterBar({
+  state,
+  fullImage,
+  emptyImage,
+  max,
+}: MeterBarProps) {
+  const game = useStore((state) => state.game)
   const [progress, setProgress] = useState(0)
+
+  useEffect(() => {
+    let stateValue = (game?.globalState.innerState[state] as number) || 0
+    let progressvalue = max !== 0 ? (stateValue / max) * 100 : 0
+    if (progressvalue < 0) progressvalue = 0
+    else if (progressvalue > 100) progressvalue = 100
+    setProgress(progressvalue)
+  }, [game.globalState.innerState[state]])
 
   return (
     <div className="relative">
@@ -22,7 +39,7 @@ export default function MeterBar({ fullImage, emptyImage }: MeterBarProps) {
       <div
         className="absolute left-0 top-0"
         style={{
-          width: '10%',
+          width: `${progress}%`,
           height: '100%',
           overflow: 'clip',
         }}

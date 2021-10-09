@@ -41,6 +41,7 @@ export const GameSchemaInput: React.FC<GameSchemaArgs> = ({
     let schema
     try {
       schema = create(JSON.parse(debouncedSchema), GameSchema)
+      setGame(makeGame(schema))
     } catch (e) {
       console.log({ e })
       setError(`${e}`)
@@ -49,7 +50,6 @@ export const GameSchemaInput: React.FC<GameSchemaArgs> = ({
     }
 
     setError(undefined)
-    setGame(makeGame(schema))
   }, [debouncedSchema])
 
   return (

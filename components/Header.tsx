@@ -16,12 +16,7 @@ export default function Header({ header = [] }: HeaderProps) {
         switch (component.component) {
           case COMPONENT_TYPE.METER:
             const meter = component as Meter
-            return (
-              <MeterBar
-                fullImage={meter.fullImage}
-                emptyImage={meter.emptyImage}
-              />
-            )
+            return <MeterBar {...meter} max={20} />
         }
       })}
     </div>
