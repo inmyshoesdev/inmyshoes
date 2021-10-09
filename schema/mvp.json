@@ -13,20 +13,11 @@
           "background": "/images/water.png",
           "narrations": [
             {
-              "name": "intro1",
-              "texts": ["In this exercise, you will have the chance to choose a character and discover what youth might go through in various aspects of their life."]
-            },
-            {
-              "name": "intro2",
-              "texts": ["Each character has health, social and wealth points. There is no winning and/or losing in this game."]
-            },
-            {
-              "name": "intro3",
-              "texts": [" Instead, we ask that you think about what life would be like for these characters and the realities of the scenarios."]
-            },
-            {
-              "name": "intro4",
-              "texts": ["Content warnings: mental health, learning disabilities, income issues."]
+              "name": "intro",
+              "texts": ["In this exercise, you will have the chance to choose a character and discover what youth might go through in various aspects of their life.",
+                "Each character has health, social and wealth points. There is no winning and/or losing in this game.",
+                "Instead, we ask that you think about what life would be like for these characters and the realities of the scenarios.",
+                "Content warnings: mental health, learning disabilities, income issues."]
             }
           ],
           "dialogues": [],
@@ -51,23 +42,7 @@
           "intro": [
             {
               "type": "showNarration",
-              "value": "intro1",
-              "duration": 1500
-            },
-            {
-              "type": "showNarration",
-              "value": "intro2",
-              "duration": 1500
-            },
-            {
-              "type": "showNarration",
-              "value": "intro3",
-              "duration": 1500
-            },
-            {
-              "type": "showNarration",
-              "value": "intro4",
-              "duration": 1500
+              "value": "intro"
             },
             {
               "type": "showClickable",
