@@ -16,7 +16,7 @@ export default function Header({ header = [] }: HeaderProps) {
         switch (component.component) {
           case COMPONENT_TYPE.METER:
             const meter = component as Meter
-            return <MeterBar {...meter} max={20} />
+            return <MeterBar {...meter} />
         }
       })}
     </div>

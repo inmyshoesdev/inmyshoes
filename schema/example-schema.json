@@ -1,8 +1,12 @@
 {
   "name": "example game",
   "globalState": {
-    "numTries": 0,
-    "fear": 0
+    "numTries": {
+      "value": 0
+    },
+    "fear": {
+      "value": 0
+    }
   },
   "mainCharacters": [
     {

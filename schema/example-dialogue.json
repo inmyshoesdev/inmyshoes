@@ -1,8 +1,13 @@
 {
     "name": "Dialogue Example",
     "globalState": {
-        "health": 7,
-        "social": 9
+        "health": {
+            "value": 7,
+            "max": 20
+        },
+        "social": {
+            "value": 9
+        }
     },
     "header": [
         {

@@ -29,7 +29,10 @@ export interface Meter extends Component {
 }
 
 export function makeMeter(schema: MeterSchema, state: State): Meter {
-  if (!state.hasKey(schema.state)) throw `no state ${schema.state} found`
+  if (!state.hasKey(schema.state)) throw `no state "${schema.state}" found`
+  let stateType = typeof state.get(schema.state)
+  if (!(stateType === 'number'))
+    throw `state "${schema.state}" is of type ${stateType}, expected number`
 
   return {
     component: schema.component,
