@@ -7,7 +7,7 @@ import {
   MainCharacter,
   NPC,
 } from './character'
-import { Component, makeComponent } from './component'
+import { StateComponent, makeStateComponent } from './component'
 import { images } from './elements'
 import { makeScene, Scene } from './scene'
 
@@ -41,7 +41,7 @@ export interface Game {
   characterInfo: string
   currentSceneId: number
 
-  header: Component[]
+  header: StateComponent[]
   mainCharacters: MainCharacter[]
   npcs: NPC[]
 
@@ -69,7 +69,7 @@ export function makeGame(schema: GameSchema): Game {
 
     header:
       schema.header?.map((component) =>
-        makeComponent(component, globalState)
+        makeStateComponent(component, globalState)
       ) || [],
     mainCharacters: mainCharacters,
     npcs: npcs,

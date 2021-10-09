@@ -1,34 +1,34 @@
 import {
-  ComponentSchema,
+  StateComponentSchema,
   COMPONENT_TYPE,
-  MeterSchema,
+  StateMeterSchema,
 } from '../schema/component'
 import { State } from './state'
 
-export interface Component {
+export interface StateComponent {
   component: COMPONENT_TYPE
   title: string
 }
 
-export function makeComponent(
-  schema: ComponentSchema,
+export function makeStateComponent(
+  schema: StateComponentSchema,
   state: State
-): Component {
+): StateComponent {
   switch (schema.component) {
     case COMPONENT_TYPE.METER:
-      return makeMeter(schema as MeterSchema, state)
+      return makeMeter(schema as StateMeterSchema, state)
     default:
       throw `no component of type ${schema.component}`
   }
 }
 
-export interface Meter extends Component {
+export interface StateMeter extends StateComponent {
   state: string
   fullImage: string
   emptyImage: string
 }
 
-export function makeMeter(schema: MeterSchema, state: State): Meter {
+export function makeMeter(schema: StateMeterSchema, state: State): StateMeter {
   if (!state.hasKey(schema.state)) throw `no state "${schema.state}" found`
   let stateType = typeof state.get(schema.state)
   if (!(stateType === 'number'))

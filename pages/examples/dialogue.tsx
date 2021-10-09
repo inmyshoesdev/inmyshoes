@@ -1,6 +1,5 @@
 import GameSchemaInput from '../../components/GameSchemaInput'
-import Meter from '../../components/Meter'
-import MeterBar from '../../components/MeterBar'
+import Status from '../../components/Status'
 import exampleJson from '../../schema/example-dialogue.json'
 
 export default function DialogueExample() {
@@ -14,6 +13,7 @@ export default function DialogueExample() {
           },
         ]}
       />
+      <Status />
     </div>
   )
 }

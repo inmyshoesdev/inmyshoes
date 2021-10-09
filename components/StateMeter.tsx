@@ -2,19 +2,19 @@ import { Box } from '@chakra-ui/layout'
 import { useEffect, useState } from 'react'
 import { useStore } from '../stores/store'
 
-export interface MeterBarProps {
+export interface StateMeterProps {
   title: string
   state: string
   fullImage: string
   emptyImage: string
 }
 
-export default function MeterBar({
+export default function StateMeter({
   title,
   state,
   fullImage,
   emptyImage,
-}: MeterBarProps) {
+}: StateMeterProps) {
   const game = useStore((state) => state.game)
   const min = game?.globalState.innerState[state].min || 0
   const max = game?.globalState.innerState[state].max || 100
@@ -35,7 +35,7 @@ export default function MeterBar({
 
   return (
     <div className="flex flex-col">
-      <p>{title}</p>
+      <p className="text-sm capitalize">{title}</p>
       <div className="flex justify-center">
         <div className="relative">
           <div

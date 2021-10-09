@@ -11,24 +11,24 @@ import {
 } from 'superstruct'
 
 export enum COMPONENT_TYPE {
-  METER = 'meter',
+  METER = 'state_meter',
 }
 
-export const ComponentSchema = object({
+export const StateComponentSchema = object({
   component: enums(Object.values(COMPONENT_TYPE)),
   title: string(),
 })
 
-export type ComponentSchema = Infer<typeof ComponentSchema>
+export type StateComponentSchema = Infer<typeof StateComponentSchema>
 
 // {
-//   "component": "meter",
+//   "component": "state_meter",
 //   "title": "Health",
 //   "state": "health",
 //   "fullImage": "/images/full-bar.png",
 //   "emptyImage": "/images/empty-bar.png"
 // }
-export const MeterSchema = object({
+export const StateMeterSchema = object({
   component: literal(COMPONENT_TYPE.METER),
   title: string(),
   state: string(),
@@ -37,4 +37,4 @@ export const MeterSchema = object({
   emptyImage: string(),
 })
 
-export type MeterSchema = Infer<typeof MeterSchema>
+export type StateMeterSchema = Infer<typeof StateMeterSchema>

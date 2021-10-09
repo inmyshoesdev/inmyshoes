@@ -10,12 +10,12 @@ import {
   union,
 } from 'superstruct'
 import { MainCharacterSchema, NPCSchema } from './character'
-import { ComponentSchema, MeterSchema } from './component'
+import { StateComponentSchema, StateMeterSchema } from './component'
 import { StateSchema } from './state'
 
 export const GameSchema = object({
   name: string(),
-  header: optional(array(union([MeterSchema, ComponentSchema]))),
+  header: optional(array(union([StateMeterSchema, StateComponentSchema]))),
   mainCharacters: size(array(MainCharacterSchema), 1, Infinity),
   npcs: defaulted(array(NPCSchema), () => []),
   globalState: optional(StateSchema),

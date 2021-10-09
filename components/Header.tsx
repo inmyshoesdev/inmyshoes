@@ -1,9 +1,9 @@
-import { Component, Meter } from '../lib/component'
+import { StateComponent, StateMeter as _StateMeter } from '../lib/component'
 import { COMPONENT_TYPE } from '../schema/component'
-import MeterBar from './MeterBar'
+import StateMeter from './StateMeter'
 
 export interface HeaderProps {
-  header?: Component[]
+  header?: StateComponent[]
 }
 
 export default function Header({ header = [] }: HeaderProps) {
@@ -15,8 +15,8 @@ export default function Header({ header = [] }: HeaderProps) {
       {header.map((component) => {
         switch (component.component) {
           case COMPONENT_TYPE.METER:
-            const meter = component as Meter
-            return <MeterBar {...meter} />
+            const meter = component as _StateMeter
+            return <StateMeter {...meter} key={component.title} />
         }
       })}
     </div>

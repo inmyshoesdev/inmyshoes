@@ -11,14 +11,14 @@
     },
     "header": [
         {
-            "component": "meter",
+            "component": "state_meter",
             "title": "Health",
             "state": "health",
             "fullImage": "/images/health-bar-full.jpg",
             "emptyImage": "/images/health-bar-empty.jpg"
         },
         {
-            "component": "meter",
+            "component": "state_meter",
             "title": "Social",
             "state": "social",
             "fullImage": "/images/full-bar.png",
