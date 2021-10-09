@@ -15,19 +15,19 @@
           "narrations": [
             {
               "name": "intro",
-              "text": "It started with Ken, a year 2 student from the Faculty of Arts and Social Science (FASS)."
+              "texts": ["It started with Ken, a year 2 student from the Faculty of Arts and Social Science (FASS)."]
             },
             {
               "name": "intro2",
-              "text": "Ken had always wanted to be a part of the local game industry"
+              "texts": ["Ken had always wanted to be a part of the local game industry"]
             },
             {
               "name": "intro3",
-              "text": "To improve on his resume, should he take up programming and enroll in CS1101S?"
+              "texts": ["To improve on his resume, should he take up programming and enroll in CS1101S?"]
             },
             {
               "name": "win",
-              "text": "Till Next Time!"
+              "texts": ["Till Next Time!"]
             }
           ],
           "dialogues": [],
