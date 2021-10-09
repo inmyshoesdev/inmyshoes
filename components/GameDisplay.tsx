@@ -14,6 +14,7 @@ type GameProps = {
 const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
   const game = useStore((state) => state.game)
   const loadGame = useStore((state) => state.loadGame)
+  console.log(game?.globalState.innerState)
 
   useEffect(() => {
     if (newGame) {

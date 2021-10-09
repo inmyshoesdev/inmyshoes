@@ -56,17 +56,21 @@ export function makeGame(schema: GameSchema): Game {
   const mainCharacters = schema.mainCharacters.map((character) =>
     makeMainCharacter(character, npcs)
   )
+  const globalState = makeState(schema.globalState ?? {})
 
   return {
     name: schema.name,
 
-    globalState: makeState(schema.globalState ?? {}),
+    globalState: globalState,
 
     characterName: mainCharacters[0].name,
     characterInfo: mainCharacters[0].info,
     currentSceneId: mainCharacters[0].scenes[0].id,
 
-    header: schema.header?.map((component) => makeComponent(component)) || [],
+    header:
+      schema.header?.map((component) =>
+        makeComponent(component, globalState)
+      ) || [],
     mainCharacters: mainCharacters,
     npcs: npcs,
 

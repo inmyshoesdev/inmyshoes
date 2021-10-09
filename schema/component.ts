@@ -24,6 +24,7 @@ export type ComponentSchema = Infer<typeof ComponentSchema>
 export const MeterSchema = object({
   component: literal(COMPONENT_TYPE.METER),
   title: string(),
+  state: string(),
   fullImage: string(),
   emptyImage: string(),
 })
