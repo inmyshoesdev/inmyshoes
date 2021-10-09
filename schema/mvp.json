@@ -1226,12 +1226,9 @@
           "background": "/images/end.jpg",
           "narrations": [
             {
-              "name": "intro1",
-              "texts": ["You have reached the end of this exercise. We rarely have the full picture of what our fellow students, friends or family members may be going through. Our actions can have significant positive or negative consequences, so it is up to us to show respect and care."]
-            },
-            {
-              "name": "intro2",
-              "texts": ["By stepping into Curtis’ shoes, you may have realised that: Many young people have caring responsibilities at home which they have to juggle alongside their academic and social life. Most social activities cost money, which may hinder low-income individuals from participating unless there is a more inclusive alternative. Socioeconomic status is a sensitive topic that many may not want to discuss. Are there ways to be accommodating without being intrusive?"]
+              "name": "intro",
+              "texts": ["You have reached the end of this exercise. We rarely have the full picture of what our fellow students, friends or family members may be going through. Our actions can have significant positive or negative consequences, so it is up to us to show respect and care.",
+                "By stepping into Curtis’ shoes, you may have realised that: Many young people have caring responsibilities at home which they have to juggle alongside their academic and social life. Most social activities cost money, which may hinder low-income individuals from participating unless there is a more inclusive alternative. Socioeconomic status is a sensitive topic that many may not want to discuss. Are there ways to be accommodating without being intrusive?"]
             }
           ],
           "dialogues": [],
@@ -1240,13 +1237,7 @@
           "intro": [
             {
               "type": "showNarration",
-              "value": "intro1",
-              "duration": 5000
-            },
-            {
-              "type": "showNarration",
-              "value": "intro2",
-              "duration": 8000
+              "value": "intro"
             },
             {
               "type": "gotoScene",
