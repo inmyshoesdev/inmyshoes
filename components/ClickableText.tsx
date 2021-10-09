@@ -1,5 +1,6 @@
+import { useStateTemplater } from '../hooks/useStateTemplater'
 import { Dimension, Position } from '../lib/elements'
-import { getAnimationClass } from './utils'
+import { getAnimationClass, renderMdToHtml } from './utils'
 
 interface ClickableTextProps {
   text: string
@@ -16,6 +17,11 @@ const ClickableText = ({
   effect = 'none',
   onClick,
 }: ClickableTextProps) => {
+  const template = useStateTemplater()
+
+  const positionDefined =
+    position?.top || position?.left || position?.right || position?.bottom
+
   return (
     <span
       className={
@@ -26,19 +32,16 @@ const ClickableText = ({
       }
       onClick={onClick}
       style={{
-        top: position?.top || '50%',
-        left: position?.left || '50%',
-        right: position?.right || 'unset',
-        bottom: position?.bottom || 'unset',
+        top: positionDefined ? position?.top || 'unset' : '50%',
+        left: positionDefined ? position?.left || 'unset' : '50%',
+        right: positionDefined ? position?.right || 'unset' : 'unset',
+        bottom: positionDefined ? position?.bottom || 'unset' : 'unset',
         width: dimension?.width || 'auto',
         height: dimension?.height || 'auto',
-        transform:
-          position?.top || position?.left || position?.right || position?.bottom
-            ? 'unset'
-            : 'translate(-50%, -50%)',
+        transform: positionDefined ? 'unset' : 'translate(-50%, -50%)',
       }}
     >
-      {text}
+      {template(renderMdToHtml(text))}
     </span>
   )
 }

@@ -19,6 +19,9 @@ const ClickableImg = ({
   effect = 'none',
   onClick,
 }: ClickableImgProps) => {
+  const positionDefined =
+    position?.top || position?.left || position?.right || position?.bottom
+
   return (
     <Tooltip label={altText} bg="gray.100" p={3} color="black" placement="top">
       <img
@@ -30,19 +33,13 @@ const ClickableImg = ({
         alt={altText}
         src={src}
         style={{
-          top: position?.top || '50%',
-          left: position?.left || '50%',
-          right: position?.right || 'unset',
-          bottom: position?.bottom || 'unset',
+          top: positionDefined ? position?.top || 'unset' : '50%',
+          left: positionDefined ? position?.left || 'unset' : '50%',
+          right: positionDefined ? position?.right || 'unset' : 'unset',
+          bottom: positionDefined ? position?.bottom || 'unset' : 'unset',
           width: dimension?.width || 'auto',
           height: dimension?.height || 'auto',
-          transform:
-            position?.top ||
-            position?.left ||
-            position?.right ||
-            position?.bottom
-              ? 'unset'
-              : 'translate(-50%, -50%)',
+          transform: positionDefined ? 'unset' : 'translate(-50%, -50%)',
         }}
       />
     </Tooltip>
