@@ -6,6 +6,24 @@
             "title": "Health",
             "fullImage": "/images/full-bar.png",
             "emptyImage": "/images/empty-bar.png"
+        },
+        {
+            "component": "meter",
+            "title": "Health",
+            "fullImage": "/images/full-bar.png",
+            "emptyImage": "/images/empty-bar.png"
+        },
+        {
+            "component": "meter",
+            "title": "Health",
+            "fullImage": "/images/full-bar.png",
+            "emptyImage": "/images/empty-bar.png"
+        },
+        {
+            "component": "meter",
+            "title": "Health",
+            "fullImage": "/images/full-bar.png",
+            "emptyImage": "/images/empty-bar.png"
         }
     ],
     "mainCharacters": [

@@ -5,6 +5,7 @@ import { useStore } from '../stores/store'
 import Footer from './Footer'
 import SceneDisplay from './SceneDisplay'
 import Status from './Status'
+import Header from './Header'
 
 type GameProps = {
   game?: Game
@@ -22,7 +23,8 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
 
   return (
     <div className="flex flex-col items-center my-2 w-full space-y-2">
-      <Status />
+      {/* <Status /> */}
+      <Header header={game?.header} />
       <div className="w-[72vw] h-[40.5vw] relative bg-white border shadow overflow-hidden">
         {game?.getScenes().map((scene, idx) => (
           <Transition
