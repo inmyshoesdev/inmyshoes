@@ -30,6 +30,13 @@ export const GameSchemaInput: React.FC<GameSchemaArgs> = ({
     setInputSchema(JSON.stringify(examples[idx].jsonData, null, 2))
   }
 
+  const updateScene: ChangeEventHandler<HTMLInputElement> = (e) => {
+    if (e.target.valueAsNumber === NaN) {
+      return
+    }
+    gotoScene(e.target.valueAsNumber)
+  }
+
   useEffect(() => {
     let schema
     try {
@@ -67,11 +74,7 @@ export const GameSchemaInput: React.FC<GameSchemaArgs> = ({
       </div>
       <div className="font-semibold">
         Current Scene:{' '}
-        <input
-          type="number"
-          value={currentSceneId}
-          onChange={(e) => gotoScene(e.target.valueAsNumber)}
-        />
+        <input type="number" value={currentSceneId} onChange={updateScene} />
       </div>
 
       {debouncedSchema !== '' && error && (

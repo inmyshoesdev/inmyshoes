@@ -28,6 +28,10 @@ module.exports = {
         pointer:
           'url(https://soristic.sgp1.digitaloceanspaces.com/general/curhand.cur), auto !important;',
       },
+      fontSize: {
+        '3xs': '0.5rem',
+        '2xs': '.625rem',
+      }
     },
   },
   variants: {

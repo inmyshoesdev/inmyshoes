@@ -6,12 +6,14 @@ export interface DialogueBoxProps {
   image?: string
   position?: Position
   dimension?: Dimension
+  onClick?: () => void
 }
 
 const DialogueBox: React.FC<PropsWithChildren<DialogueBoxProps>> = ({
   image,
   position,
   dimension,
+  onClick,
   children,
 }) => {
   return (
@@ -35,6 +37,7 @@ const DialogueBox: React.FC<PropsWithChildren<DialogueBoxProps>> = ({
       ) : (
         <div
           className="p-[5px] absolute border-2 border-gray-600 rounded-lg"
+          onClick={onClick}
           style={{
             top: position?.top || 'unset',
             left: position?.left || '20%',
