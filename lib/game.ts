@@ -11,11 +11,11 @@ import { Component, makeComponent } from './component'
 import { images } from './elements'
 import { makeScene, Scene } from './scene'
 
-import { State } from './state'
+import { makeState, State } from './state'
 
 export const EmptyGame: Game = {
   name: '',
-  globalState: {},
+  globalState: makeState({}),
 
   characterName: '',
   characterInfo: '',
@@ -60,9 +60,7 @@ export function makeGame(schema: GameSchema): Game {
   return {
     name: schema.name,
 
-    globalState: {
-      ...(schema.globalState ?? {}),
-    },
+    globalState: makeState(schema.globalState ?? {}),
 
     characterName: mainCharacters[0].name,
     characterInfo: mainCharacters[0].info,

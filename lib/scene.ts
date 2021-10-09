@@ -16,7 +16,7 @@ import {
   Narration,
   narrations,
 } from './elements'
-import { State } from './state'
+import { makeState, State } from './state'
 import { isDefined } from './utils'
 
 export type ElementKeys = typeof allElements[number]
@@ -76,7 +76,7 @@ export function makeScene(schema: SceneSchema, characters: Character[]): Scene {
     intro: schema.intro.map((x) => makeAction(x, id)).filter(isDefined),
     outro: schema.outro.map((x) => makeAction(x, id)).filter(isDefined),
 
-    state: { ...(schema.state ?? {}) },
+    state: makeState(schema.state ?? {}),
 
     getElement<T extends ElementKeys>(
       name: string,

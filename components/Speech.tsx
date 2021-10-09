@@ -1,5 +1,6 @@
-import { Fragment } from 'react'
+import { Fragment, MouseEventHandler, useCallback, useState } from 'react'
 import Typewriter from 'typewriter-effect'
+import { useStateTemplater } from '../hooks/useStateTemplater'
 import { Position, Dimension } from '../lib/elements'
 import DialogueBox from './DialogueBox'
 import { renderMdToHtml } from './utils'
@@ -37,6 +38,32 @@ const Speech: React.FC<SpeechProps> = ({
   onNext,
   onPrev,
 }) => {
+  const [skipTyping, setSkipTyping] = useState<boolean>(false)
+  const template = useStateTemplater()
+
+  const onDialogueBoxClicked = useCallback(() => {
+    console.log('iam clicked')
+    if (!skipTyping) {
+      setSkipTyping(true)
+      return
+    }
+
+    if (onNext) {
+      setSkipTyping(false)
+      onNext()
+    }
+  }, [skipTyping, onNext])
+
+  function resetTyping(fn?: () => void): MouseEventHandler<HTMLButtonElement> {
+    return (e) => {
+      e.stopPropagation()
+      setSkipTyping(false)
+      if (fn) {
+        fn()
+      }
+    }
+  }
+
   return (
     <Fragment>
       <div
@@ -62,10 +89,11 @@ const Speech: React.FC<SpeechProps> = ({
         image={textBoxImage}
         position={textPosition}
         dimension={textDimension}
+        onClick={onDialogueBoxClicked}
       >
-        <div className="h-1/4">
+        <div className="mb-2">
           <p
-            className="sm:text-[14px] md:text-[18px] lg:text-[22px] h-full font-bold leading-none"
+            className="sm:text-[14px] md:text-[18px] lg:text-[22px] h-full text-xs font-bold leading-none"
             style={{
               fontStyle: type === 'monologue' ? 'italic' : 'normal',
             }}
@@ -75,33 +103,41 @@ const Speech: React.FC<SpeechProps> = ({
         </div>
 
         <div
-          className="sm:text-[10px] md:text-[14px] lg:text-[20px] h-3/5"
+          className="text-2xs sm:text-[10px] h-full md:text-sm lg:text-base"
           style={{
             fontStyle: type === 'monologue' ? 'italic' : 'normal',
           }}
         >
-          <Typewriter
-            key={text}
-            onInit={(typewriter) => {
-              typewriter.typeString(renderMdToHtml(text)).start()
-            }}
-            options={{
-              cursor: '',
-              delay: 30, // speed adjustment
-            }}
-          />
+          {skipTyping ? (
+            <p>{template(renderMdToHtml(text))}</p>
+          ) : (
+            <Typewriter
+              key={text}
+              onInit={(typewriter) => {
+                typewriter.typeString(template(renderMdToHtml(text))).start()
+              }}
+              options={{
+                cursor: '',
+                delay: 30, // speed adjustment
+              }}
+            />
+          )}
         </div>
-        <div className="sm:text-[8px] md:text-[12px] lg:text-[18px] flex justify-between h-1/5 text-blue-400">
+        <div className="text-3xs sm:text-[8px] md:text-[12px] lg:text-[18px] flex justify-between -mb-1 text-blue-400">
           <button
-            onClick={onPrev}
-            className={prevEnabled ? 'cursor-pointer' : 'text-blue-200'}
+            onClick={resetTyping(onPrev)}
+            className={`px-2 py-1 rounded ${
+              prevEnabled ? 'cursor-pointer hover:bg-blue-50' : 'text-blue-200'
+            }`}
             disabled={!prevEnabled}
           >
             Prev
           </button>
           <button
-            onClick={onNext}
-            className={nextEnabled ? 'cursor-pointer' : 'text-blue-200'}
+            onClick={resetTyping(onNext)}
+            className={`px-2 py-1 rounded ${
+              nextEnabled ? 'cursor-pointer hover:bg-blue-50' : 'text-blue-200'
+            }`}
             disabled={!nextEnabled}
           >
             Next
