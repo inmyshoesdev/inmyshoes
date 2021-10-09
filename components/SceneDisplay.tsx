@@ -24,7 +24,7 @@ const SceneDisplay: React.FC<SceneProps> = ({ scene }) => {
   }, [scene.intro, executeActions])
 
   return (
-    <div className="relative w-full h-full overflow-hidden">
+    <div className="relative w-full h-full select-none overflow-hidden">
       <img
         className="m-auto w-full h-full object-cover"
         src={scene.background}
