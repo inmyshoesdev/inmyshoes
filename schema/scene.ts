@@ -12,6 +12,7 @@ import {
   ClickableGroupSchema,
   DialogueSchema,
   ImageSchema,
+  LinkSchema,
   NarrationSchema,
 } from './elements'
 import { StateSchema } from './state'
@@ -25,6 +26,7 @@ export const SceneSchema = object({
   dialogues: defaulted(array(DialogueSchema), () => []),
   images: defaulted(array(ImageSchema), () => []),
   clickables: defaulted(array(ClickableGroupSchema), () => []),
+  links: defaulted(array(LinkSchema), () => []),
 
   intro: defaulted(array(ActionSchema), () => []),
   outro: defaulted(array(ActionSchema), () => []),

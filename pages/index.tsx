@@ -27,6 +27,9 @@ const Home: NextPage = () => {
         <Link href="/examples/narration">
           <a className="text-blue-600">narration</a>
         </Link>
+        <Link href="/surveys">
+          <a className="text-blue-600">surveys</a>
+        </Link>
         <h2 className="text-lg">
           For testing the game, go to{' '}
           <Link href="/testing">

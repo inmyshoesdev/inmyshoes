@@ -1257,7 +1257,11 @@
               "clickables": [
                 {
                   "name": "yes",
-                  "text": "restart?",
+                  "text": "Restart?",
+                  "position": {
+                    "bottom": "20%",
+                    "left": "60%"
+                  },
                   "onClick": [
                     {
                       "type": "gotoScene",
@@ -1268,10 +1272,27 @@
               ]
             }
           ],
+          "links": [
+            {
+              "name": "feedback",
+              "url": "/demo/feedback",
+              "text": "Feedback Form",
+              "position": {
+                "bottom": "20%",
+                "left": "30%"
+              }
+            }
+          ],
           "intro": [
             {
               "type": "wait",
               "duration": 1500
+            },
+            {
+              "type": "showLink",
+              "value": "feedback",
+              "waitForInteraction": false,
+              "autoHide": false
             },
             {
               "type": "showClickable",
