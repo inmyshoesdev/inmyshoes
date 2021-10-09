@@ -18,15 +18,15 @@
           "narrations": [
             {
               "name": "intro",
-              "text": ["this is a dark and scary dungeon...\n\nNumber of tries: {numTries}"]
+              "texts": ["this is a dark and scary dungeon...\n\nNumber of tries: {numTries}"]
             },
             {
               "name": "clown decision",
-              "text": ["listen to the clown?"]
+              "texts": ["listen to the clown?"]
             },
             {
               "name": "win msg",
-              "text": ["you won!!!"]
+              "texts": ["you won!!!"]
             }
           ],
           "dialogues": [
