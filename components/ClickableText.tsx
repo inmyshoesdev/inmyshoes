@@ -25,10 +25,10 @@ const ClickableText = ({
   return (
     <span
       className={
-        `positioned text-md absolute px-4 py-3 text-gray-900 
-        font-semibold bg-gray-100 border border-gray-700 
-        rounded shadow cursor-pointer 
-         hover:bg-gray-300` + getAnimationClass(effect)
+        `positioned text-md absolute px-4 py-3  
+        font-semibold text-white border border-gray-300 
+        rounded shadow cursor-pointer bg-gray-700
+         hover:bg-gray-800 bg-opacity-80` + getAnimationClass(effect)
       }
       onClick={onClick}
       style={{
