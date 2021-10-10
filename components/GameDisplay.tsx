@@ -5,6 +5,7 @@ import { useStore } from '../stores/store'
 import Footer from './Footer'
 import SceneDisplay from './SceneDisplay'
 import Status from './Status'
+import Header from './Header'
 import { Spinner } from '@chakra-ui/spinner'
 
 type GameProps = {
@@ -23,7 +24,7 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
 
   return (
     <div className="flex flex-col items-center my-2 w-full space-y-2">
-      <Status />
+      <Header header={game?.header} />
       <div
         className={`w-[72vw] h-[40.5vw] relative bg-white border shadow overflow-hidden ${
           blurBackground ? 'blur-sm' : ''

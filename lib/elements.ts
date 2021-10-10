@@ -63,7 +63,6 @@ export function makeNarration(schema: NarrationSchema): Narration {
   }
 }
 
-// TODO: Change character from string to object
 export interface Speech {
   text: string
   character: string
