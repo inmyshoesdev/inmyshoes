@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   mode: 'jit',
@@ -31,6 +33,9 @@ module.exports = {
       fontSize: {
         '3xs': '0.5rem',
         '2xs': '.625rem',
+      },
+      fontFamily: {
+        sans: ['Rubik', ...defaultTheme.fontFamily.sans]
       },
       colors: {
         "teal": "#009688",
