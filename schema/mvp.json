@@ -842,7 +842,7 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "text": "Should I bring my grandparent to see a doctor today? However, my parents mentioned that they will be working late today, and I need to prepare dinner for the rest of the family..."
+                  "text": "Should I bring my grandmother to see a doctor today? However, my parents mentioned that they will be working late today, and I need to prepare dinner for the rest of the family..."
                 },
                 {
                   "character": "Curtis",
@@ -899,7 +899,7 @@
                 },
                 {
                   "name": "2",
-                  "text": "Attend to your grandparents another day, and prepare dinner for the family",
+                  "text": "Attend to your grandmother another day, and prepare dinner for the family",
                   "position": {
                     "top": "20%",
                     "left": "60%"
