@@ -72,7 +72,7 @@ const Speech: React.FC<SpeechProps> = ({
           left: characterPosition?.left || '5%',
           right: characterPosition?.right || 'unset',
           bottom: characterPosition?.bottom || '5%',
-          height: characterDimension?.height || 'auto',
+          height: characterDimension?.height || '70%',
           width: characterDimension?.width || '15%',
         }}
       >
@@ -102,7 +102,7 @@ const Speech: React.FC<SpeechProps> = ({
         </div>
 
         <div
-          className="text-2xs sm:text-[10px] h-3/5 md:text-sm lg:text-base"
+          className="sm:text-[10px] h-3/5 text-2xs md:text-sm lg:text-base"
           style={{
             fontStyle: type === 'monologue' ? 'italic' : 'normal',
           }}
@@ -122,7 +122,7 @@ const Speech: React.FC<SpeechProps> = ({
             />
           )}
         </div>
-        <div className="text-3xs sm:text-[8px] md:text-[12px] lg:text-[18px] flex justify-between -mb-1 text-blue-400">
+        <div className="sm:text-[8px] md:text-[12px] lg:text-[18px] flex justify-between -mb-1 text-blue-400 text-3xs">
           <button
             onClick={resetTyping(onPrev)}
             className={`px-2 py-1 rounded ${
@@ -151,7 +151,7 @@ const Speech: React.FC<SpeechProps> = ({
           left: characterPosition?.left || 'unset',
           right: characterPosition?.right || '5%',
           bottom: characterPosition?.bottom || '5%',
-          height: characterDimension?.height || 'auto',
+          height: characterDimension?.height || '70%',
           width: characterDimension?.width || '15%',
         }}
       >
