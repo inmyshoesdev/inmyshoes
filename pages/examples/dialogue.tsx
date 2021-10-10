@@ -1,15 +1,19 @@
 import GameSchemaInput from '../../components/GameSchemaInput'
+import Status from '../../components/Status'
 import exampleJson from '../../schema/example-dialogue.json'
 
 export default function DialogueExample() {
   return (
-    <GameSchemaInput
-      examples={[
-        {
-          jsonData: exampleJson,
-          name: 'Example',
-        },
-      ]}
-    />
+    <div>
+      <GameSchemaInput
+        examples={[
+          {
+            jsonData: exampleJson,
+            name: 'Example',
+          },
+        ]}
+      />
+      <Status />
+    </div>
   )
 }

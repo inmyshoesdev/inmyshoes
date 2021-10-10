@@ -20,6 +20,7 @@ const DialogueBox: React.FC<PropsWithChildren<DialogueBoxProps>> = ({
     <Fragment>
       {image ? (
         <Box
+          onClick={onClick}
           bgImage={image}
           bgSize="100% 100%"
           className="p-[3%] absolute"

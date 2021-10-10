@@ -72,7 +72,7 @@ const Speech: React.FC<SpeechProps> = ({
           left: characterPosition?.left || '5%',
           right: characterPosition?.right || 'unset',
           bottom: characterPosition?.bottom || '5%',
-          height: characterDimension?.height || 'auto',
+          height: characterDimension?.height || '70%',
           width: characterDimension?.width || '15%',
         }}
       >
@@ -90,7 +90,7 @@ const Speech: React.FC<SpeechProps> = ({
         dimension={textDimension}
         onClick={onDialogueBoxClicked}
       >
-        <div className="mb-2">
+        <div className="h-1/5">
           <p
             className="sm:text-[14px] md:text-[18px] lg:text-[22px] h-full text-xs font-bold leading-none"
             style={{
@@ -160,7 +160,7 @@ const Speech: React.FC<SpeechProps> = ({
           left: characterPosition?.left || 'unset',
           right: characterPosition?.right || '5%',
           bottom: characterPosition?.bottom || '5%',
-          height: characterDimension?.height || 'auto',
+          height: characterDimension?.height || '70%',
           width: characterDimension?.width || '15%',
         }}
       >

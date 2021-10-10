@@ -1,5 +1,35 @@
 {
     "name": "Dialogue Example",
+    "globalState": {
+        "health": {
+            "value": 10,
+            "max": 20
+        },
+        "social": 9,
+        "date": "Monday"
+    },
+    "header": [
+        {
+            "component": "state_display",
+            "title": "Date",
+            "state": "date",
+            "labelImage": "/images/calendar.png"
+        },
+        {
+            "component": "state_meter",
+            "title": "Health",
+            "state": "health",
+            "fullImage": "/images/health-full.png",
+            "emptyImage": "/images/health-empty.png"
+        },
+        {
+            "component": "state_meter",
+            "title": "Social",
+            "state": "social",
+            "fullImage": "/images/full-bar.png",
+            "emptyImage": "/images/empty-bar.png"
+        }
+    ],
     "mainCharacters": [
         {
             "name": "Julie",
@@ -15,7 +45,9 @@
                     "narrations": [
                         {
                             "name": "intro",
-                            "texts": ["this is an example dialogue..."]
+                            "texts": [
+                                "this is an example dialogue..."
+                            ]
                         }
                     ],
                     "dialogues": [
@@ -63,6 +95,12 @@
                         {
                             "type": "showDialogue",
                             "value": "julie_jason_greet"
+                        },
+                        {
+                            "type": "updateGlobalState",
+                            "newState": {
+                                "social": -1
+                            }
                         },
                         {
                             "type": "gotoScene",

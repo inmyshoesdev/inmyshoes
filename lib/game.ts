@@ -1,4 +1,5 @@
 import { GameSchema } from '../schema/game'
+import { StateComponent, makeStateComponent } from './component'
 import { makeMainCharacter, makeNPC, MainCharacter, NPC } from './character'
 import { Scene } from './scene'
 import { makeState, State } from './state'
@@ -17,6 +18,7 @@ export const EmptyGame: Game = {
   characterInfo: '',
   currentSceneId: 0,
 
+  header: [],
   mainCharacters: [] as MainCharacter[],
   npcs: [] as NPC[],
   getScenes() {
@@ -40,6 +42,7 @@ export interface Game {
   characterInfo: string
   currentSceneId: number
 
+  header: StateComponent[]
   mainCharacters: MainCharacter[]
   npcs: NPC[]
 
@@ -54,17 +57,22 @@ export function makeGame(schema: GameSchema): Game {
   const mainCharacters = schema.mainCharacters.map((character) =>
     makeMainCharacter(character, npcs)
   )
+  const globalState = makeState(schema.globalState ?? {})
 
   return {
     name: schema.name,
 
-    globalState: makeState(schema.globalState ?? {}),
+    globalState: globalState,
     loading: false,
 
     characterName: mainCharacters[0].name,
     characterInfo: mainCharacters[0].info,
     currentSceneId: mainCharacters[0].scenes[0].id,
 
+    header:
+      schema.header?.map((component) =>
+        makeStateComponent(component, globalState)
+      ) || [],
     mainCharacters: mainCharacters,
     npcs: npcs,
 
