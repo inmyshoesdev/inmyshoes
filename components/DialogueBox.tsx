@@ -47,7 +47,7 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
     }
   }, [skipTyping, gotoNext])
 
-  function resetTyping(fn?: () => void): MouseEventHandler<HTMLButtonElement> {
+  function resetTypewriter(fn?: () => void): MouseEventHandler<HTMLButtonElement> {
     return (e) => {
       e.stopPropagation()
       setSkipTyping(false)
@@ -82,7 +82,7 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
   const buttons = (
     <div className="sm:text-[8px] md:text-[12px] lg:text-[18px] flex justify-between -mb-1 text-blue-400 text-3xs">
       <button
-        onClick={resetTyping(gotoPrev)}
+        onClick={resetTypewriter(gotoPrev)}
         className={`px-2 py-1 rounded ${
           prevEnabled ? 'cursor-pointer hover:bg-blue-50' : 'text-blue-200'
         }`}
@@ -91,7 +91,7 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
         Prev
       </button>
       <button
-        onClick={resetTyping(gotoNext)}
+        onClick={resetTypewriter(gotoNext)}
         className={`px-2 py-1 rounded ${
           nextEnabled ? 'cursor-pointer hover:bg-blue-50' : 'text-blue-200'
         }`}
