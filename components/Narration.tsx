@@ -1,5 +1,4 @@
 import { MouseEventHandler, useCallback, useEffect, useState } from 'react'
-import { Box } from '@chakra-ui/react'
 import { Transition } from '@headlessui/react'
 import { useAfterInteractionCallback } from '../hooks/useAfterInteractionCallback'
 import { useStateTemplater } from '../hooks/useStateTemplater'
@@ -19,7 +18,9 @@ const Narration: React.FC<NarrationProps> = ({
   const afterAction = useAfterInteractionCallback(afterInteractionCallback)
   const template = useStateTemplater()
 
-  const [textIdx, setTextIdx] = useState(-1)
+  const [textIdx, setTextIdx] = useState(0)
+  const text = texts[textIdx] || ''
+
   const [skipTyping, setSkipTyping] = useState<boolean>(false)
 
   useEffect(() => {
@@ -64,15 +65,17 @@ const Narration: React.FC<NarrationProps> = ({
     }
   }
 
-  const NarrationBox: React.FC = () => {
-    if (textIdx >= texts.length) {
-      return null
-    }
+  const prevEnabled = textIdx > 0
+  const nextEnabled = true
 
-    const prevEnabled = textIdx > 0
-    const nextEnabled = true
-
-    return (
+  return (
+    <Transition
+      show={shown}
+      enter="transition-opacity duration-200"
+      enterFrom="opacity-0"
+      enterTo="opacity-100"
+      className="absolute top-0 flex items-center justify-evenly w-full h-full"
+    >
       <DialogueBox
         image={''} // could replace this with an image eventually
         position={position}
@@ -89,15 +92,15 @@ const Narration: React.FC<NarrationProps> = ({
             {skipTyping ? (
               <p
                 dangerouslySetInnerHTML={{
-                  __html: template(renderMdToHtml(texts[textIdx])),
+                  __html: template(renderMdToHtml(text)),
                 }}
               />
             ) : (
               <Typewriter
-                key={texts[textIdx]}
+                key={text}
                 onInit={(typewriter) => {
                   typewriter
-                    .typeString(template(renderMdToHtml(texts[textIdx])))
+                    .typeString(template(renderMdToHtml(text)))
                     .callFunction(() => setSkipTyping(true))
                     .start()
                 }}
@@ -130,18 +133,6 @@ const Narration: React.FC<NarrationProps> = ({
           </button>
         </div>
       </DialogueBox>
-    )
-  }
-
-  return (
-    <Transition
-      show={shown}
-      enter="transition-opacity duration-200"
-      enterFrom="opacity-0"
-      enterTo="opacity-100"
-      className="absolute top-0 flex items-center justify-evenly w-full h-full"
-    >
-      <NarrationBox />
     </Transition>
   )
 }
