@@ -102,7 +102,7 @@ const Speech: React.FC<SpeechProps> = ({
         </div>
 
         <div
-          className="h-full text-2xs overflow-y-auto sm:text-xs md:text-sm lg:text-base"
+          className="mt-1 h-full text-2xs overflow-y-auto sm:text-xs md:text-sm lg:text-base"
           style={{
             fontStyle: type === 'monologue' ? 'italic' : 'normal',
           }}

@@ -4,6 +4,7 @@ import create, { SetState } from 'zustand'
 import { Action, FinishAction, isCallable } from '../lib/actions'
 import { EmptyGame, Game } from '../lib/game'
 import { evalCondition } from '../lib/logic'
+import { StateMap } from '../lib/state'
 
 type GameStore = {
   game: Game
@@ -11,10 +12,12 @@ type GameStore = {
   gotoScene: (sceneId: number) => void
   resetScene: (sceneId: number) => void
   hideClickable: (sceneId: number, name: string) => void
+  replaceGlobalState: (newState: StateMap) => void
+  replaceCurrentSceneState: (newState: StateMap) => void
   executeActions: (...actions: Action[]) => () => void
 }
 
-function updateState(
+function update(
   set: SetState<GameStore>,
   fn: (state: WritableDraft<GameStore>) => void
 ) {
@@ -29,18 +32,18 @@ export const useStore = create<GameStore>((set) => ({
 
     await game.preloadImages()
 
-    updateState(set, (state) => {
+    update(set, (state) => {
       state.game.loading = false
     })
   },
 
   gotoScene: (sceneId: number) =>
-    updateState(set, (state) => {
+    update(set, (state) => {
       state.game.currentSceneId = sceneId
     }),
 
   resetScene: (sceneId: number) => {
-    updateState(set, (state) => {
+    update(set, (state) => {
       const scene = state.game.getScene(sceneId)
       if (!scene) {
         return
@@ -56,13 +59,30 @@ export const useStore = create<GameStore>((set) => ({
   },
 
   hideClickable(sceneId: number, name: string) {
-    updateState(set, (state) => {
+    update(set, (state) => {
       const clickable = state.game
         .getScene(sceneId)
         ?.getElement(name, 'clickables')
 
       if (clickable) {
         clickable.shown = false
+      }
+    })
+  },
+
+  replaceGlobalState(newState: StateMap) {
+    update(set, (state) => {
+      state.game.globalState.innerState = newState
+    })
+  },
+
+  replaceCurrentSceneState(newState: StateMap) {
+    update(set, (state) => {
+      const currSceneId = state.game.currentSceneId
+      const currScene = state.game.getScene(currSceneId)
+
+      if (currScene) {
+        currScene.state.innerState = newState
       }
     })
   },
@@ -158,7 +178,7 @@ function makeExecutor(set: SetState<GameStore>): RuntimeActionExecutor {
 
     // schedule the action at the specified timing
     let id = setTimeout(() => {
-      updateState(set, (state) => {
+      update(set, (state) => {
         const scene = state.game.getScene(sceneId)
 
         // check for the condition, if any. if the current state does not
@@ -201,7 +221,7 @@ function makeExecutor(set: SetState<GameStore>): RuntimeActionExecutor {
     id = setTimeout(() => {
       if (isCallable(finishAction)) {
         const executeFinish = finishAction
-        updateState(set, (state) => {
+        update(set, (state) => {
           const scene = state.game.getScene(sceneId)
           if (scene) {
             executeFinish({ scene, game: state.game })
