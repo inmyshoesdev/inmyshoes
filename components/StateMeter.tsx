@@ -35,7 +35,7 @@ export default function StateMeter({
   return (
     <div className="flex flex-col">
       <p className="text-sm capitalize">{title}</p>
-      <div className="flex items-center">
+      <div className="flex justify-center">
         <div className="relative">
           <div
             style={{

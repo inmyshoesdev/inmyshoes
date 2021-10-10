@@ -12,11 +12,16 @@ import {
 // any object with string keys
 export const StateSchema = record(
   string(),
-  type({
-    value: union([string(), number(), boolean()]),
-    min: optional(number()),
-    max: optional(number()),
-  })
+  union([
+    string(),
+    number(),
+    boolean(),
+    type({
+      value: number(),
+      min: optional(number()),
+      max: optional(number()),
+    }),
+  ])
 )
 
 export type StateSchema = Infer<typeof StateSchema>

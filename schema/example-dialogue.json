@@ -2,15 +2,11 @@
     "name": "Dialogue Example",
     "globalState": {
         "health": {
-            "value": 7,
+            "value": 10,
             "max": 20
         },
-        "social": {
-            "value": 9
-        },
-        "date": {
-            "value": "Monday"
-        }
+        "social": 9,
+        "date": "Monday"
     },
     "header": [
         {
@@ -49,7 +45,9 @@
                     "narrations": [
                         {
                             "name": "intro",
-                            "texts": ["this is an example dialogue..."]
+                            "texts": [
+                                "this is an example dialogue..."
+                            ]
                         }
                     ],
                     "dialogues": [

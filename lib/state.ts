@@ -1,7 +1,7 @@
 type StateObj = {
   value: string | number | boolean
   min?: number
-  max: number
+  max?: number
 }
 type StateMap = Record<string, StateObj>
 
@@ -13,8 +13,21 @@ export interface State {
 }
 
 export function makeState(state: any): State {
+  let stateMap: StateMap = {}
+  for (const [key, val] of Object.entries(state)) {
+    switch (typeof val) {
+      case 'string':
+      case 'number':
+      case 'boolean':
+        stateMap[key] = { value: val } as StateObj
+        continue
+      default:
+        stateMap[key] = val as StateObj
+    }
+  }
+
   return {
-    innerState: state,
+    innerState: stateMap,
 
     hasKey(key: string): boolean {
       return key in this.innerState
