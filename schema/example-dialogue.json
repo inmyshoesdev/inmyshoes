@@ -7,15 +7,24 @@
         },
         "social": {
             "value": 9
+        },
+        "date": {
+            "value": "Monday"
         }
     },
     "header": [
         {
+            "component": "state_display",
+            "title": "Date",
+            "state": "date",
+            "labelImage": "/images/calendar.png"
+        },
+        {
             "component": "state_meter",
             "title": "Health",
             "state": "health",
-            "fullImage": "/images/health-bar-full.jpg",
-            "emptyImage": "/images/health-bar-empty.jpg"
+            "fullImage": "/images/health-full.png",
+            "emptyImage": "/images/health-empty.png"
         },
         {
             "component": "state_meter",

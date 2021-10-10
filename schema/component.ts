@@ -8,10 +8,12 @@ import {
   dynamic,
   literal,
   omit,
+  optional,
 } from 'superstruct'
 
 export enum COMPONENT_TYPE {
   METER = 'state_meter',
+  DISPLAY="state_display"
 }
 
 export const StateComponentSchema = object({
@@ -38,3 +40,13 @@ export const StateMeterSchema = object({
 })
 
 export type StateMeterSchema = Infer<typeof StateMeterSchema>
+
+
+export const StateDisplaySchema = object({
+  component: literal(COMPONENT_TYPE.DISPLAY),
+  title: string(),
+  state: string(),
+  labelImage: optional(string()),
+})
+
+export type StateDisplaySchema = Infer<typeof StateDisplaySchema>

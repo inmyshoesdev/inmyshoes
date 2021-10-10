@@ -1,4 +1,3 @@
-import { Box } from '@chakra-ui/layout'
 import { useEffect, useState } from 'react'
 import { useStore } from '../stores/store'
 
@@ -36,7 +35,7 @@ export default function StateMeter({
   return (
     <div className="flex flex-col">
       <p className="text-sm capitalize">{title}</p>
-      <div className="flex justify-center">
+      <div className="flex items-center">
         <div className="relative">
           <div
             style={{
