@@ -102,7 +102,7 @@ const Speech: React.FC<SpeechProps> = ({
         </div>
 
         <div
-          className="text-2xs sm:text-[10px] h-full md:text-sm lg:text-base"
+          className="h-full text-2xs sm:text-xs md:text-sm lg:text-base"
           style={{
             fontStyle: type === 'monologue' ? 'italic' : 'normal',
           }}
@@ -122,7 +122,7 @@ const Speech: React.FC<SpeechProps> = ({
             />
           )}
         </div>
-        <div className="text-3xs sm:text-[8px] md:text-[12px] lg:text-[18px] flex justify-between -mb-1 text-blue-400">
+        <div className="lg:text-[18px] flex justify-between -mb-1 text-blue-400 text-xs sm:text-sm md:text-base">
           <button
             onClick={resetTyping(onPrev)}
             className={`px-2 py-1 rounded ${

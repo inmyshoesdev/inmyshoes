@@ -36,7 +36,7 @@ const Narration: React.FC<NarrationProps> = ({
     if (textIdx < texts.length) {
       setTextIdx(textIdx + 1)
     }
-    
+
     // if speech is the last one, also run the after interaction action
     if (textIdx + 1 >= texts.length) {
       afterAction()
@@ -50,15 +50,15 @@ const Narration: React.FC<NarrationProps> = ({
 
     const prevEnabled = textIdx > 0
     const nextEnabled = true
-    
+
     return (
       <DialogueBox
-        image={""} // could replace this with an image eventually
+        image={''} // could replace this with an image eventually
         position={position}
         dimension={dimension}
       >
         <div
-          className="sm:text-[10px] md:text-[14px] lg:text-[20px] h-4/5"
+          className="h-4/5 text-2xs sm:text-sm md:text-sm lg:text-base"
           style={{
             fontStyle: 'italic',
           }}
@@ -66,7 +66,9 @@ const Narration: React.FC<NarrationProps> = ({
           <Typewriter
             key={texts[textIdx]}
             onInit={(typewriter) => {
-              typewriter.typeString(template(renderMdToHtml(texts[textIdx]))).start()
+              typewriter
+                .typeString(template(renderMdToHtml(texts[textIdx])))
+                .start()
             }}
             options={{
               cursor: '',
@@ -74,7 +76,7 @@ const Narration: React.FC<NarrationProps> = ({
             }}
           />
         </div>
-        <div className="sm:text-[8px] md:text-[12px] lg:text-[18px] flex justify-between h-1/5 text-blue-400">
+        <div className="lg:text-[18px] flex justify-between h-1/5 text-blue-400 text-xs sm:text-sm md:text-base">
           <button
             onClick={prevText}
             className={prevEnabled ? 'cursor-pointer' : 'text-blue-200'}
@@ -102,7 +104,7 @@ const Narration: React.FC<NarrationProps> = ({
       enterTo="opacity-100"
       className="absolute top-0 flex items-center justify-evenly w-full h-full"
     >
-    <NarrationBox/>
+      <NarrationBox />
     </Transition>
   )
 }

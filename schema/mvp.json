@@ -14,10 +14,12 @@
           "narrations": [
             {
               "name": "intro",
-              "texts": ["In this exercise, you will have the chance to choose a character and discover what youth might go through in various aspects of their life.",
+              "texts": [
+                "In this exercise, you will have the chance to choose a character and discover what youth might go through in various aspects of their life.",
                 "Each character has health, social and wealth points. There is no winning and/or losing in this game.",
                 "Instead, we ask that you think about what life would be like for these characters and the realities of the scenarios.",
-                "Content warnings: mental health, learning disabilities, income issues."]
+                "Content warnings: mental health, learning disabilities, income issues."
+              ]
             }
           ],
           "dialogues": [],
@@ -56,15 +58,21 @@
           "narrations": [
             {
               "name": "intro",
-              "texts": ["It’s 5:30am. Both of your parents worked late last night and your siblings need to get ready for school."]
+              "texts": [
+                "It’s 5:30am. Both of your parents worked late last night and your siblings need to get ready for school."
+              ]
             },
             {
               "name": "1",
-              "texts": ["Your parents and siblings are grateful for your help. But, you start to feel the effects of sleep deprivation as you find it difficult to focus in school and at work."]
+              "texts": [
+                "Your parents and siblings are grateful for your help. But, you start to feel the effects of sleep deprivation as you find it difficult to focus in school and at work."
+              ]
             },
             {
               "name": "2",
-              "texts": ["Sleep in and hope that your parents will get up in time"]
+              "texts": [
+                "Sleep in and hope that your parents will get up in time"
+              ]
             }
           ],
           "dialogues": [
@@ -157,15 +165,21 @@
           "narrations": [
             {
               "name": "intro",
-              "texts": ["At school, your teacher tells you to redo one of your assignments by tomorrow. The feedback causes you significant stress along with your other responsibilities. You are worried the extra time needed will make you miss your shift at work."]
+              "texts": [
+                "At school, your teacher tells you to redo one of your assignments by tomorrow. The feedback causes you significant stress along with your other responsibilities. You are worried the extra time needed will make you miss your shift at work."
+              ]
             },
             {
               "name": "1",
-              "texts": ["By mustering up the courage to ask for an extension, you were able to take some stress off. At the same time, your teacher became more aware of your situation and paid more attention to your needs as a student. Subsequently, you were able to go to work for the day and made some extra cash for the family."]
+              "texts": [
+                "By mustering up the courage to ask for an extension, you were able to take some stress off. At the same time, your teacher became more aware of your situation and paid more attention to your needs as a student. Subsequently, you were able to go to work for the day and made some extra cash for the family."
+              ]
             },
             {
               "name": "2",
-              "texts": ["Staying up all night to complete your work was alot of stress for you, and you did not get enough sleep for the next day. You were also unable to report to work and lost out on the day's earnings. "]
+              "texts": [
+                "Staying up all night to complete your work was alot of stress for you, and you did not get enough sleep for the next day. You were also unable to report to work and lost out on the day's earnings. "
+              ]
             }
           ],
           "dialogues": [
@@ -306,15 +320,21 @@
           "narrations": [
             {
               "name": "intro",
-              "texts": ["Some of your classmates invited you to go watch a movie with them after school. You are concerned about the money that you need to spend."]
+              "texts": [
+                "Some of your classmates invited you to go watch a movie with them after school. You are concerned about the money that you need to spend."
+              ]
             },
             {
               "name": "1",
-              "texts": ["After turning down your friend once more, you start to feel like the friendship is fading and you fear that they might no longer ask you out in the future. You head straight home, without having to spend any extra cash."]
+              "texts": [
+                "After turning down your friend once more, you start to feel like the friendship is fading and you fear that they might no longer ask you out in the future. You head straight home, without having to spend any extra cash."
+              ]
             },
             {
               "name": "2",
-              "texts": ["The movie was enjoyable and you had a lot of fun with your friends. It was a memorable day and you feel yourself getting closer to your friends. However, you spent a good amount of your money for the movie and other snacks and you will probably need to work extra hours to make up for it."]
+              "texts": [
+                "The movie was enjoyable and you had a lot of fun with your friends. It was a memorable day and you feel yourself getting closer to your friends. However, you spent a good amount of your money for the movie and other snacks and you will probably need to work extra hours to make up for it."
+              ]
             }
           ],
           "dialogues": [
@@ -450,15 +470,21 @@
           "narrations": [
             {
               "name": "intro",
-              "texts": ["Upon reaching home, you notice that one of your grandparents is feeling unwell and requires medical attention."]
+              "texts": [
+                "Upon reaching home, you notice that one of your grandparents is feeling unwell and requires medical attention."
+              ]
             },
             {
               "name": "1",
-              "texts": ["Your grandparents are grateful for your help. But, as a result, you had to fork up some cash to pay for the medical fees, despite subsidisation through the CHAS card. At the same time, you start to feel a little more stressed as you had to rush back to prepare dinner and do your school work."]
+              "texts": [
+                "Your grandparents are grateful for your help. But, as a result, you had to fork up some cash to pay for the medical fees, despite subsidisation through the CHAS card. At the same time, you start to feel a little more stressed as you had to rush back to prepare dinner and do your school work."
+              ]
             },
             {
               "name": "2",
-              "texts": ["You gain some time for the rest of the day after preparing dinner, and you have some time for your school work and for yourself. You get enough sleep and rest for the next day."]
+              "texts": [
+                "You gain some time for the rest of the day after preparing dinner, and you have some time for your school work and for yourself. You get enough sleep and rest for the next day."
+              ]
             }
           ],
           "dialogues": [
@@ -581,15 +607,21 @@
           "narrations": [
             {
               "name": "intro",
-              "texts": ["Your friends have decided to get matching house t-shirts in school and want you to purchase one."]
+              "texts": [
+                "Your friends have decided to get matching house t-shirts in school and want you to purchase one."
+              ]
             },
             {
               "name": "1",
-              "texts": ["You feel more included within your group of friends, but you had to fork out some of money from your savings. You also feel a little stressed from spending the money unnecessarily."]
+              "texts": [
+                "You feel more included within your group of friends, but you had to fork out some of money from your savings. You also feel a little stressed from spending the money unnecessarily."
+              ]
             },
             {
               "name": "2",
-              "texts": ["You didn't need to spend money from your savings, but you feel really embarrassed and guilty for making your friends pay for you once again."]
+              "texts": [
+                "You didn't need to spend money from your savings, but you feel really embarrassed and guilty for making your friends pay for you once again."
+              ]
             }
           ],
           "dialogues": [
@@ -717,15 +749,21 @@
           "narrations": [
             {
               "name": "intro",
-              "texts": ["Because of your existing responsibilities, you have been busy and are having trouble understanding some of this week’s lessons."]
+              "texts": [
+                "Because of your existing responsibilities, you have been busy and are having trouble understanding some of this week’s lessons."
+              ]
             },
             {
               "name": "1",
-              "texts": ["You end up heading to the library, which took some cash to travel to. At the same time, you still found it hard to understand the week's syllabus and you feel increasingly stressed."]
+              "texts": [
+                "You end up heading to the library, which took some cash to travel to. At the same time, you still found it hard to understand the week's syllabus and you feel increasingly stressed."
+              ]
             },
             {
               "name": "2",
-              "texts": ["You feel a great sense of relief as your friend agreed to help you. Your friend was also happy that he could help, and it became a chance for you and your friend to bond."]
+              "texts": [
+                "You feel a great sense of relief as your friend agreed to help you. Your friend was also happy that he could help, and it became a chance for you and your friend to bond."
+              ]
             }
           ],
           "dialogues": [
@@ -812,15 +850,21 @@
           "narrations": [
             {
               "name": "intro",
-              "texts": ["You have made it to the weekend, but your laptop breaks down so that you can’t finish your remaining tasks."]
+              "texts": [
+                "You have made it to the weekend, but your laptop breaks down so that you can’t finish your remaining tasks."
+              ]
             },
             {
               "name": "1",
-              "texts": ["Through some research, you realise that there are organisations that give out free laptops to low income households giving you a great amount of relief. You also learn that there is a community of young people who are facing similar challenges."]
+              "texts": [
+                "Through some research, you realise that there are organisations that give out free laptops to low income households giving you a great amount of relief. You also learn that there is a community of young people who are facing similar challenges."
+              ]
             },
             {
               "name": "2",
-              "texts": ["Going to the library costs you a bit of money for the transport, and studying alone in the library dampens your mood."]
+              "texts": [
+                "Going to the library costs you a bit of money for the transport, and studying alone in the library dampens your mood."
+              ]
             }
           ],
           "dialogues": [
@@ -911,15 +955,21 @@
           "narrations": [
             {
               "name": "intro",
-              "texts": ["Bills have increased this month and your parents are already working overtime to make ends meet. You need to find some dinner for yourself, your grandparents and your siblings."]
+              "texts": [
+                "Bills have increased this month and your parents are already working overtime to make ends meet. You need to find some dinner for yourself, your grandparents and your siblings."
+              ]
             },
             {
               "name": "1",
-              "texts": ["Going to work helps you earn extra cash, but the leftovers you got were nutritionally insufficient for you and your family."]
+              "texts": [
+                "Going to work helps you earn extra cash, but the leftovers you got were nutritionally insufficient for you and your family."
+              ]
             },
             {
               "name": "2",
-              "texts": ["By going to the hawker centre, you bought enough food for the family, and received the nutrition that you need."]
+              "texts": [
+                "By going to the hawker centre, you bought enough food for the family, and received the nutrition that you need."
+              ]
             }
           ],
           "dialogues": [
@@ -1006,19 +1056,27 @@
           "narrations": [
             {
               "name": "intro",
-              "texts": ["Your teacher notices that your grades are slipping and tries to offer you help by signing you up for free remedial classes after school hours."]
+              "texts": [
+                "Your teacher notices that your grades are slipping and tries to offer you help by signing you up for free remedial classes after school hours."
+              ]
             },
             {
               "name": "1",
-              "texts": ["Taking some time off work to go to the classes gives you some room to breathe, and you have a little more time to rest. However, your parents seem a little upset as you are no longer earning money to help support the family."]
+              "texts": [
+                "Taking some time off work to go to the classes gives you some room to breathe, and you have a little more time to rest. However, your parents seem a little upset as you are no longer earning money to help support the family."
+              ]
             },
             {
               "name": "2",
-              "texts": ["By skipping the classes, you commit more to your work, earning more money for the family for which your parents are grateful for."]
+              "texts": [
+                "By skipping the classes, you commit more to your work, earning more money for the family for which your parents are grateful for."
+              ]
             },
             {
               "name": "3",
-              "texts": ["Having to juggle between remedial classes, work, and taking care of your family can be increasingly stressful for you. At the same time, you lose out on a lot of sleep and rest. However, you manage to earn some cash for the family and your parents are very grateful for the help."]
+              "texts": [
+                "Having to juggle between remedial classes, work, and taking care of your family can be increasingly stressful for you. At the same time, you lose out on a lot of sleep and rest. However, you manage to earn some cash for the family and your parents are very grateful for the help."
+              ]
             }
           ],
           "dialogues": [
@@ -1128,15 +1186,21 @@
           "narrations": [
             {
               "name": "intro",
-              "texts": ["You’re finding it difficult to cope with school, work and having to help out at home. You consider quitting either school or work to manage better."]
+              "texts": [
+                "You’re finding it difficult to cope with school, work and having to help out at home. You consider quitting either school or work to manage better."
+              ]
             },
             {
               "name": "1",
-              "texts": ["Focusing all your time in school helped you to improve your grades, and you start to feel more confident in your own abilities. You have more time for your family and for yourself, and you get to spend more time with your friends as well. However, as you quit your work, you find yourself spending more money than the amount you are saving."]
+              "texts": [
+                "Focusing all your time in school helped you to improve your grades, and you start to feel more confident in your own abilities. You have more time for your family and for yourself, and you get to spend more time with your friends as well. However, as you quit your work, you find yourself spending more money than the amount you are saving."
+              ]
             },
             {
               "name": "2",
-              "texts": ["By focusing all your time for working, you help bring some more money back home and you realise that you are eating better and saving more. However, you do not see your friends anymore and you start to lose contact with them."]
+              "texts": [
+                "By focusing all your time for working, you help bring some more money back home and you realise that you are eating better and saving more. However, you do not see your friends anymore and you start to lose contact with them."
+              ]
             }
           ],
           "dialogues": [
@@ -1227,8 +1291,10 @@
           "narrations": [
             {
               "name": "intro",
-              "texts": ["You have reached the end of this exercise. We rarely have the full picture of what our fellow students, friends or family members may be going through. Our actions can have significant positive or negative consequences, so it is up to us to show respect and care.",
-                "By stepping into Curtis’ shoes, you may have realised that: Many young people have caring responsibilities at home which they have to juggle alongside their academic and social life. Most social activities cost money, which may hinder low-income individuals from participating unless there is a more inclusive alternative. Socioeconomic status is a sensitive topic that many may not want to discuss. Are there ways to be accommodating without being intrusive?"]
+              "texts": [
+                "You have reached the end of this exercise. We rarely have the full picture of what our fellow students, friends or family members may be going through. Our actions can have significant positive or negative consequences, so it is up to us to show respect and care.",
+                "By stepping into Curtis’ shoes, you may have realised that: Many young people have caring responsibilities at home which they have to juggle alongside their academic and social life. Most social activities cost money, which may hinder low-income individuals from participating unless there is a more inclusive alternative. Socioeconomic status is a sensitive topic that many may not want to discuss. Are there ways to be accommodating without being intrusive?"
+              ]
             }
           ],
           "dialogues": [],

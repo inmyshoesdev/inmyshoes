@@ -947,6 +947,11 @@
   dependencies:
     mini-svg-data-uri "^1.2.3"
 
+"@types/json-logic-js@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@types/json-logic-js/-/json-logic-js-1.2.1.tgz#064e777b77b0fcb77f00c2c50fec1387cb33eb47"
+  integrity sha512-g/g+wj/7sgazpiCHiyAtndoNiy/LodLkNG4I9MILAl0UinKKwv3GiPKbtvcE1hIoezQqgDamXfx8Lht62/hHqw==
+
 "@types/json5@^0.0.29":
   version "0.0.29"
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
@@ -3067,6 +3072,11 @@ js-yaml@^3.13.1:
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"
+
+json-logic-js@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/json-logic-js/-/json-logic-js-2.0.1.tgz#ce5399be0ff2f015c016026823c0f5339a96ec4f"
+  integrity sha512-J3hhqM4IY66sL8qyzU7cwLmTAt3kA6ZsYxyuZBEwhcc+OYPTmAHc64fBTXHT6K5RwFeUqJUX1tfO7wpKsUx+9A==
 
 json-parse-better-errors@^1.0.1:
   version "1.0.2"

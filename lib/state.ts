@@ -58,3 +58,44 @@ export function makeState(state: any): State {
     },
   }
 }
+
+const fallbacks = new Map<string, Map<string, string | number | boolean>>()
+
+export function getStateTemplater(globalState: State, currSceneState?: State) {
+  const regex = /\{(.+?)\}/g // matches anything in curly brackes, for eg, "{hello}"
+
+  return (template: string) => {
+    if (!fallbacks.has(template)) {
+      fallbacks.set(template, new Map<string, string | number | boolean>())
+    }
+
+    return template.replaceAll(regex, (substr, match) => {
+      if (currSceneState && currSceneState.hasKey(match)) {
+        const val = currSceneState.get(match)
+
+        if (val !== undefined) {
+          fallbacks.get(template)?.set(match, val)
+        }
+        return `${val}`
+      }
+
+      if (globalState.hasKey(match)) {
+        const val = globalState.get(match)
+
+        if (val !== undefined) {
+          fallbacks.get(template)?.set(match, val)
+        }
+        return `${val}`
+      }
+
+      if (fallbacks.get(template)?.has(match)) {
+        return `${fallbacks.get(template)?.get(match)}`
+      }
+
+      console.warn(
+        `templated variable "${substr}" not found in global state or the current scene's state`
+      )
+      return substr
+    })
+  }
+}
