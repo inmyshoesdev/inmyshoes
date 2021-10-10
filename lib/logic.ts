@@ -18,14 +18,10 @@ export function evalCondition(
   const templater = getStateTemplater(globalState, currSceneState)
   const templatedCondition = templateLogic(condition, templater) as RulesLogic
 
-  console.log({ templatedCondition })
-
   const result = apply(templatedCondition, {
     ...globalState,
     ...currSceneState,
   })
-
-  console.log({ result })
 
   if (typeof result !== 'boolean') {
     return false

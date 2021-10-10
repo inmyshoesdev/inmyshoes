@@ -386,7 +386,7 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "text": "Time to head to school! Should I take public transport or go for a 40min walk today? "
+                  "text": "Time to head to school! Should I take public transport or go for a 40min walk today?"
                 },
                 {
                   "character": "Curtis",
@@ -521,15 +521,15 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "text": "I can't believe I have to redo my assignment... I'm pretty sure I did it correctly, or maybe I was too tired when I first did it?"
+                  "text": "I can't believe I have to redo my assignment..."
                 },
                 {
                   "character": "Curtis",
-                  "text": "Either way, I definitely do not have enough time to complete it by tomrrow, I need to go to work later, and I still need to go home and tend to my siblings. If I were to finish my assignment, I won't have much time to sleep and rest tonight! "
+                  "text": "Right now, I definitely do not have enough time to complete it by tomorrow, I need to go to work later, and I still need to go home and tend to my siblings. If I were to finish my assignment, I won't have time to sleep at all!"
                 },
                 {
                   "character": "Curtis",
-                  "text": "Should I just try and complete the assignment? Or maybe I should speak to Mrs Lee...."
+                  "text": "Should I just try and complete the assignment? Or maybe I should speak to my teacher...."
                 }
               ]
             },
@@ -901,7 +901,7 @@
                 },
                 {
                   "name": "2",
-                  "text": "Attend to your grandparents another day, and prepare dinner for the family",
+                  "text": "Attend to your grandmother another day, and prepare dinner for the family",
                   "position": {
                     "top": "20%",
                     "left": "60%"
@@ -1154,7 +1154,7 @@
                 {
                   "name": "1",
                   "src": "/images/book.jpg",
-                  "altText": "book - the library",
+                  "altText": "Head to the library",
                   "position": {
                     "top": "20%",
                     "left": "20%"
@@ -1183,13 +1183,13 @@
                 {
                   "name": "2",
                   "src": "/images/mobile.png",
-                  "altText": "phone - calling your friend to ask for help",
+                  "altText": "Call your friend to ask for help",
                   "position": {
-                    "top": "20%",
+                    "top": "16%",
                     "left": "60%"
                   },
                   "dimension": {
-                    "width": "20%"
+                    "width": "15%"
                   },
                   "onClick": [
                     {
@@ -1273,7 +1273,7 @@
                 {
                   "name": "1",
                   "src": "/images/charity.jpg",
-                  "altText": "charity",
+                  "altText": "Reach out to a charity",
                   "position": {
                     "top": "20%",
                     "left": "20%"
@@ -1303,7 +1303,7 @@
                 {
                   "name": "2",
                   "src": "/images/book.jpg",
-                  "altText": "book - the library",
+                  "altText": "Back to the library",
                   "position": {
                     "top": "20%",
                     "left": "60%"
@@ -1395,7 +1395,7 @@
                 {
                   "name": "1",
                   "src": "/images/work.jpg",
-                  "altText": "work",
+                  "altText": "Going to work",
                   "position": {
                     "top": "20%",
                     "left": "20%"
@@ -1424,7 +1424,7 @@
                 {
                   "name": "2",
                   "src": "/images/food.jpg",
-                  "altText": "food",
+                  "altText": "Grabbing food at hawker centre",
                   "position": {
                     "top": "20%",
                     "left": "60%"
@@ -1678,7 +1678,7 @@
                 {
                   "name": "1",
                   "src": "/images/graduation.jpg",
-                  "altText": "study",
+                  "altText": "Continue school",
                   "position": {
                     "top": "20%",
                     "left": "20%"
@@ -1708,7 +1708,7 @@
                 {
                   "name": "2",
                   "src": "/images/work.jpg",
-                  "altText": "work",
+                  "altText": "Keep working",
                   "position": {
                     "top": "20%",
                     "left": "60%"
@@ -1731,7 +1731,7 @@
                     },
                     {
                       "type": "gotoScene",
-                      "sceneId": 12
+                      "sceneId": 13
                     }
                   ]
                 }
