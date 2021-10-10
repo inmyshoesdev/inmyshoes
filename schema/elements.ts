@@ -9,6 +9,7 @@ import {
   union,
   object,
   enums,
+  defaulted,
 } from 'superstruct'
 import { ActionSchema } from './actions'
 
@@ -115,6 +116,25 @@ export const DialogueSchema = intersection([
 
 export type DialogueSchema = Infer<typeof DialogueSchema>
 
+const BlendModes = enums([
+  'normal',
+  'multiply',
+  'screen',
+  'overlay',
+  'darken',
+  'lighten',
+  'color-dodge',
+  'color-burn',
+  'hard-light',
+  'soft-light',
+  'difference',
+  'exclusion',
+  'hue',
+  'saturation',
+  'color',
+  'luminosity',
+])
+
 // {
 //     "name": "hello",
 //     "src": "https://example.com/photo.png",
@@ -125,26 +145,7 @@ export const ImageSchema = intersection([
   type({
     src: string(),
     altText: optional(string()),
-    blendMode: optional(
-      enums([
-        'normal',
-        'multiply',
-        'screen',
-        'overlay',
-        'darken',
-        'lighten',
-        'color-dodge',
-        'color-burn',
-        'hard-light',
-        'soft-light',
-        'difference',
-        'exclusion',
-        'hue',
-        'saturation',
-        'color',
-        'luminosity',
-      ])
-    ),
+    blendMode: optional(BlendModes),
   }),
 ])
 
@@ -200,11 +201,15 @@ export type LinkSchema = Infer<typeof LinkSchema>
 // }
 export const ClickableItemSchema = intersection([
   ElementSchema,
-  type({ onClick: array(ActionSchema) }),
+  type({ onClick: defaulted(array(ActionSchema), () => []) }),
   type({ effect: optional(string()) }),
   union([
     type({ text: string() }),
-    type({ src: string(), altText: optional(string()) }),
+    type({
+      src: string(),
+      altText: optional(string()),
+      blendMode: optional(BlendModes),
+    }),
   ]),
 ])
 

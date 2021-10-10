@@ -77,6 +77,7 @@ const ClickableGroup: React.FC<ClickableGroupProps> = ({
               key={idx}
               src={clickable.src}
               altText={clickable.altText || ''}
+              blendMode={clickable.blendMode}
               position={clickable.position}
               dimension={clickable.dimension}
               effect={clickable.effect}
