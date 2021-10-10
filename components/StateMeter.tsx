@@ -14,7 +14,9 @@ export default function StateMeter({
   fullImage,
   emptyImage,
 }: StateMeterProps) {
-  const stateObj = useStore((state) => state.game).globalState.innerState[state]
+  const stateObj = useStore(
+    (gameState) => gameState.game.globalState.innerState[state]
+  )
   const min = stateObj.min || 0
   const max = stateObj.max || (stateObj.value as number)
   const [value, setValue] = useState(stateObj.value)

@@ -13,7 +13,9 @@ export default function StateDisplay({
   state,
   labelImage,
 }: StateDisplayProps) {
-  const stateObj = useStore((state) => state.game).globalState.innerState[state]
+  const stateObj = useStore(
+    (gameState) => gameState.game.globalState.innerState[state]
+  )
   const [value, setValue] = useState<any>(undefined)
 
   useEffect(() => {
