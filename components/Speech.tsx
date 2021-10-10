@@ -1,4 +1,4 @@
-import { Fragment, MouseEventHandler, useCallback, useState } from 'react'
+import { MouseEventHandler, useCallback, useState } from 'react'
 import Typewriter from 'typewriter-effect'
 import { useStateTemplater } from '../hooks/useStateTemplater'
 import { Position, Dimension } from '../lib/elements'
@@ -64,7 +64,7 @@ const Speech: React.FC<SpeechProps> = ({
   }
 
   return (
-    <Fragment>
+    <>
       <div
         className="absolute"
         style={{
@@ -102,25 +102,34 @@ const Speech: React.FC<SpeechProps> = ({
         </div>
 
         <div
-          className="h-full text-2xs sm:text-xs md:text-sm lg:text-base"
+          className="h-full text-2xs overflow-y-auto sm:text-xs md:text-sm lg:text-base"
           style={{
             fontStyle: type === 'monologue' ? 'italic' : 'normal',
           }}
         >
-          {skipTyping ? (
-            <p>{template(renderMdToHtml(text))}</p>
-          ) : (
-            <Typewriter
-              key={text}
-              onInit={(typewriter) => {
-                typewriter.typeString(template(renderMdToHtml(text))).start()
-              }}
-              options={{
-                cursor: '',
-                delay: 30, // speed adjustment
-              }}
-            />
-          )}
+          <div className="scrollbar-thin scrollbar-thumb-gray-500 scrollbar-thumb-rounded scrollbar-track-gray-100 flex flex-col-reverse pr-3 max-h-full overflow-y-auto">
+            {skipTyping ? (
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: template(renderMdToHtml(text)),
+                }}
+              />
+            ) : (
+              <Typewriter
+                key={text}
+                onInit={(typewriter) => {
+                  typewriter
+                    .typeString(template(renderMdToHtml(text)))
+                    .callFunction(() => setSkipTyping(true))
+                    .start()
+                }}
+                options={{
+                  cursor: '',
+                  delay: 25, // speed adjustment
+                }}
+              />
+            )}
+          </div>
         </div>
         <div className="lg:text-[18px] flex justify-between -mb-1 text-blue-400 text-xs sm:text-sm md:text-base">
           <button
@@ -163,7 +172,7 @@ const Speech: React.FC<SpeechProps> = ({
           />
         )}
       </div>
-    </Fragment>
+    </>
   )
 }
 

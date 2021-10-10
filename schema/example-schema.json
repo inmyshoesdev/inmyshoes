@@ -19,7 +19,7 @@
             {
               "name": "intro",
               "texts": [
-                "this is a dark and scary dungeon...\n\nNumber of tries: {numTries}"
+                "this is a **dark and scary** dungeon...\n\nNumber of tries: {numTries}"
               ]
             },
             {
