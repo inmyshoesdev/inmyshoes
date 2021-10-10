@@ -1,21 +1,115 @@
 import { Box } from '@chakra-ui/react'
-import { Fragment, PropsWithChildren } from 'react'
+import { CSSProperties, Fragment, MouseEventHandler, ReactNode, useCallback, useState } from 'react'
+import Typewriter from 'typewriter-effect'
+import { useStateTemplater } from '../hooks/useStateTemplater'
 import { Position, Dimension } from '../lib/elements'
+import { renderMdToHtml } from './utils'
 
 export interface DialogueBoxProps {
   image?: string
   position?: Position
   dimension?: Dimension
-  onClick?: () => void
+  header?: ReactNode
+  bodyClass?: string
+  bodyStyle?: CSSProperties
+  bodyText?: string
+  onNext?: () => void
+  onPrev?: () => void
+  prevEnabled?: boolean
+  nextEnabled?: boolean
 }
 
-const DialogueBox: React.FC<PropsWithChildren<DialogueBoxProps>> = ({
+const DialogueBox: React.FC<DialogueBoxProps> = ({
   image,
   position,
   dimension,
-  onClick,
-  children,
+  header,
+  bodyClass,
+  bodyStyle,
+  bodyText = "",
+  onNext,
+  onPrev,
+  prevEnabled = true,
+  nextEnabled = true,
 }) => {
+  const template = useStateTemplater()
+  const [skipTyping, setSkipTyping] = useState<boolean>(false)
+
+  const onClick = useCallback(() => {
+    if (!skipTyping) {
+      setSkipTyping(true)
+      return
+    }
+
+    if (onNext) {
+      setSkipTyping(false)
+      onNext()
+    }
+  }, [skipTyping, onNext])
+
+  function resetTyping(fn?: () => void): MouseEventHandler<HTMLButtonElement> {
+    return (e) => {
+      e.stopPropagation()
+      setSkipTyping(false)
+      if (fn) {
+        fn()
+      }
+    }
+  }
+
+  const body = (
+    <div
+      className={bodyClass || ""}
+      style={bodyStyle || {}}
+    >
+      {skipTyping ? (
+        <p>{template(renderMdToHtml(bodyText))}</p>
+      ) : (
+        <Typewriter
+          key={bodyText}
+          onInit={(typewriter) => {
+            typewriter.typeString(template(renderMdToHtml(bodyText))).start()
+          }}
+          options={{
+            cursor: '',
+            delay: 30, // speed adjustment
+          }}
+        />
+      )}
+    </div>
+  )
+
+  const buttons = (
+    <div className="sm:text-[8px] md:text-[12px] lg:text-[18px] flex justify-between -mb-1 text-blue-400 text-3xs">
+      <button
+        onClick={resetTyping(onPrev)}
+        className={`px-2 py-1 rounded ${
+          prevEnabled ? 'cursor-pointer hover:bg-blue-50' : 'text-blue-200'
+        }`}
+        disabled={!prevEnabled}
+      >
+        Prev
+      </button>
+      <button
+        onClick={resetTyping(onNext)}
+        className={`px-2 py-1 rounded ${
+          nextEnabled ? 'cursor-pointer hover:bg-blue-50' : 'text-blue-200'
+        }`}
+        disabled={!nextEnabled}
+      >
+        Next
+      </button>
+    </div>
+  )
+
+  const content = (
+    <Fragment>
+      {header}
+      {body}
+      {buttons}
+    </Fragment>
+  )
+
   return (
     <Fragment>
       {image ? (
@@ -33,7 +127,7 @@ const DialogueBox: React.FC<PropsWithChildren<DialogueBoxProps>> = ({
             height: dimension?.height || '30%',
           }}
         >
-          {children}
+          {content}
         </Box>
       ) : (
         <div
@@ -49,7 +143,7 @@ const DialogueBox: React.FC<PropsWithChildren<DialogueBoxProps>> = ({
           }}
         >
           <div className="p-[1.5%] flex flex-col w-full h-full bg-white rounded-lg">
-            {children}
+            {content}
           </div>
         </div>
       )}

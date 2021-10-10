@@ -1,13 +1,10 @@
 import { useEffect, useState } from 'react'
-import { Box } from '@chakra-ui/react'
 import { Transition } from '@headlessui/react'
 import { useAfterInteractionCallback } from '../hooks/useAfterInteractionCallback'
 import { useStateTemplater } from '../hooks/useStateTemplater'
 import { Narration as NarrationProps } from '../lib/elements'
-import { renderMdToHtml } from './utils'
 
 import DialogueBox from './DialogueBox'
-import Typewriter from 'typewriter-effect'
 
 const Narration: React.FC<NarrationProps> = ({
   shown,
@@ -53,44 +50,18 @@ const Narration: React.FC<NarrationProps> = ({
     
     return (
       <DialogueBox
-        image={""} // could replace this with an image eventually
         position={position}
         dimension={dimension}
-      >
-        <div
-          className="sm:text-[10px] md:text-[14px] lg:text-[20px] h-4/5"
-          style={{
-            fontStyle: 'italic',
-          }}
-        >
-          <Typewriter
-            key={texts[textIdx]}
-            onInit={(typewriter) => {
-              typewriter.typeString(template(renderMdToHtml(texts[textIdx]))).start()
-            }}
-            options={{
-              cursor: '',
-              delay: 30, // speed adjustment
-            }}
-          />
-        </div>
-        <div className="sm:text-[8px] md:text-[12px] lg:text-[18px] flex justify-between h-1/5 text-blue-400">
-          <button
-            onClick={prevText}
-            className={prevEnabled ? 'cursor-pointer' : 'text-blue-200'}
-            disabled={!prevEnabled}
-          >
-            Prev
-          </button>
-          <button
-            onClick={nextText}
-            className={nextEnabled ? 'cursor-pointer' : 'text-blue-200'}
-            disabled={!nextEnabled}
-          >
-            Next
-          </button>
-        </div>
-      </DialogueBox>
+        bodyClass="sm:text-[10px] md:text-[14px] lg:text-[20px] h-4/5"
+        bodyStyle={{
+          fontStyle: 'italic',
+        }}
+        bodyText={texts[textIdx]}
+        onNext={nextText}
+        onPrev={prevText}
+        prevEnabled={prevEnabled}
+        nextEnabled={nextEnabled}
+      />
     )
   }
 
