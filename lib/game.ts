@@ -3,6 +3,7 @@ import { StateComponent, makeStateComponent } from './component'
 import { makeMainCharacter, makeNPC, MainCharacter, NPC } from './character'
 import { Scene } from './scene'
 import { makeState, State } from './state'
+import { clickables, isClickableImg } from './elements'
 
 type PreloadImageOptions = {
   timeout?: number
@@ -119,6 +120,14 @@ export function makeGame(schema: GameSchema): Game {
 
           scene.images.forEach((image) => {
             imageSources.add(image.src)
+          })
+
+          scene.clickables.forEach((group) => {
+            group.clickables.forEach((clickable) => {
+              if (isClickableImg(clickable)) {
+                imageSources.add(clickable.src)
+              }
+            })
           })
         })
       })
