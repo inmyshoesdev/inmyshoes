@@ -1181,7 +1181,7 @@
                 {
                   "name": "2",
                   "src": "/images/mobile.png",
-                  "altText": "Calling your friend to ask for help",
+                  "altText": "Call your friend to ask for help",
                   "position": {
                     "top": "16%",
                     "left": "60%"
