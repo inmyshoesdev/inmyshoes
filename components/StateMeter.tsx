@@ -14,14 +14,14 @@ export default function StateMeter({
   fullImage,
   emptyImage,
 }: StateMeterProps) {
-  const game = useStore((state) => state.game)
-  const min = game?.globalState.innerState[state].min || 0
-  const max = game?.globalState.innerState[state].max || 100
+  const stateObj = useStore((state) => state.game).globalState.innerState[state]
+  const min = stateObj.min || 0
+  const max = stateObj.max || 100
   const [value, setValue] = useState(0)
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
-    let stateValue = (game?.globalState.innerState[state].value as number) || 0
+    let stateValue = (stateObj.value as number) || 0
     if (stateValue < min) stateValue = min
 
     let progressvalue = (stateValue / max) * 100
@@ -30,7 +30,7 @@ export default function StateMeter({
 
     setValue(stateValue)
     setProgress(progressvalue)
-  }, [game.globalState.innerState[state].value])
+  }, [stateObj.value])
 
   return (
     <div className="flex flex-col">

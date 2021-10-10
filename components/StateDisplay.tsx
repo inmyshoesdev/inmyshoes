@@ -13,12 +13,12 @@ export default function StateDisplay({
   state,
   labelImage,
 }: StateDisplayProps) {
-  const game = useStore((state) => state.game)
+  const stateObj = useStore((state) => state.game).globalState.innerState[state]
   const [value, setValue] = useState<any>(undefined)
 
   useEffect(() => {
-    setValue(game?.globalState.innerState[state].value)
-  }, [game.globalState.innerState[state].value])
+    setValue(stateObj.value)
+  }, [stateObj.value])
 
   return (
     <div className="flex flex-col items-center h-full">
