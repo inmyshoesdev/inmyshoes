@@ -16,8 +16,8 @@ export default function StateMeter({
 }: StateMeterProps) {
   const stateObj = useStore((state) => state.game).globalState.innerState[state]
   const min = stateObj.min || 0
-  const max = stateObj.max || 100
-  const [value, setValue] = useState(0)
+  const max = stateObj.max || (stateObj.value as number)
+  const [value, setValue] = useState(stateObj.value)
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {

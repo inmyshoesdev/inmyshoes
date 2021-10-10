@@ -1,9 +1,7 @@
 {
   "name": "In My Shoes - Youth",
   "globalState": {
-    "date": {
-      "value": "Monday"
-    },
+    "date": "Monday",
     "wealth": {
       "value": 0,
       "max": 20
