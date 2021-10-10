@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Transition } from '@headlessui/react'
 import { useAfterInteractionCallback } from '../hooks/useAfterInteractionCallback'
-import { useStateTemplater } from '../hooks/useStateTemplater'
 import { Narration as NarrationProps } from '../lib/elements'
 
 import DialogueBox from './DialogueBox'
@@ -15,7 +14,6 @@ const Narration: React.FC<NarrationProps> = ({
   afterInteractionCallback,
 }) => {
   const afterAction = useAfterInteractionCallback(afterInteractionCallback)
-  const template = useStateTemplater()
 
   const [textIdx, setTextIdx] = useState(-1)
 
