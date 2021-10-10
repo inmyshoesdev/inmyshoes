@@ -13,8 +13,8 @@ export interface DialogueBoxProps {
   bodyClass?: string
   bodyStyle?: CSSProperties
   bodyText?: string
-  onNext?: () => void
-  onPrev?: () => void
+  gotoNext?: () => void
+  gotoPrev?: () => void
   prevEnabled?: boolean
   nextEnabled?: boolean
 }
@@ -27,8 +27,8 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
   bodyClass,
   bodyStyle,
   bodyText = "",
-  onNext,
-  onPrev,
+  gotoNext,
+  gotoPrev,
   prevEnabled = true,
   nextEnabled = true,
 }) => {
@@ -41,11 +41,11 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
       return
     }
 
-    if (onNext) {
+    if (gotoNext) {
       setSkipTyping(false)
-      onNext()
+      gotoNext()
     }
-  }, [skipTyping, onNext])
+  }, [skipTyping, gotoNext])
 
   function resetTyping(fn?: () => void): MouseEventHandler<HTMLButtonElement> {
     return (e) => {
@@ -82,7 +82,7 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
   const buttons = (
     <div className="sm:text-[8px] md:text-[12px] lg:text-[18px] flex justify-between -mb-1 text-blue-400 text-3xs">
       <button
-        onClick={resetTyping(onPrev)}
+        onClick={resetTyping(gotoPrev)}
         className={`px-2 py-1 rounded ${
           prevEnabled ? 'cursor-pointer hover:bg-blue-50' : 'text-blue-200'
         }`}
@@ -91,7 +91,7 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
         Prev
       </button>
       <button
-        onClick={resetTyping(onNext)}
+        onClick={resetTyping(gotoNext)}
         className={`px-2 py-1 rounded ${
           nextEnabled ? 'cursor-pointer hover:bg-blue-50' : 'text-blue-200'
         }`}

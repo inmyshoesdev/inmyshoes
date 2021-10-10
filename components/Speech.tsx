@@ -79,8 +79,8 @@ const Speech: React.FC<SpeechProps> = ({
           fontStyle: type === 'monologue' ? 'italic' : 'normal',
         }}
         bodyText={text}
-        onNext={onNext}
-        onPrev={onPrev}
+        gotoNext={onNext}
+        gotoPrev={onPrev}
         prevEnabled={prevEnabled}
         nextEnabled={nextEnabled}
       />

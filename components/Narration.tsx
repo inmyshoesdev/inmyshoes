@@ -57,8 +57,8 @@ const Narration: React.FC<NarrationProps> = ({
           fontStyle: 'italic',
         }}
         bodyText={texts[textIdx]}
-        onNext={nextText}
-        onPrev={prevText}
+        gotoNext={nextText}
+        gotoPrev={prevText}
         prevEnabled={prevEnabled}
         nextEnabled={nextEnabled}
       />
