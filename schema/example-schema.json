@@ -22,15 +22,15 @@
           "narrations": [
             {
               "name": "intro",
-              "text": "this is a dark and scary dungeon...\n\nNumber of tries: {numTries}"
+              "texts": ["this is a dark and scary dungeon...\n\nNumber of tries: {numTries}"]
             },
             {
               "name": "clown decision",
-              "text": "listen to the clown?"
+              "texts": ["listen to the clown?"]
             },
             {
               "name": "win msg",
-              "text": "you won!!!"
+              "texts": ["you won!!!"]
             }
           ],
           "dialogues": [
@@ -193,6 +193,18 @@
               ]
             }
           ],
+          "links": [
+            {
+              "name": "google",
+              "url": "https://google.com",
+              "text": "Google",
+              "position": {
+                "bottom": "5%",
+                "left": "0",
+                "right": "0"
+              }
+            }
+          ],
           "intro": [
             {
               "type": "updateGlobalState",
@@ -206,7 +218,12 @@
             },
             {
               "type": "showClickable",
-              "value": "restart"
+              "value": "restart",
+              "waitForInteraction": false
+            },
+            {
+              "type": "showLink",
+              "value": "google"
             }
           ]
         }

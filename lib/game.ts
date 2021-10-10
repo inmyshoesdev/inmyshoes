@@ -1,21 +1,18 @@
-import { Img } from '@chakra-ui/image'
 import { GameSchema } from '../schema/game'
-import {
-  makeMainCharacter,
-  makeNPC,
-  Character,
-  MainCharacter,
-  NPC,
-} from './character'
 import { StateComponent, makeStateComponent } from './component'
-import { images } from './elements'
-import { makeScene, Scene } from './scene'
-
+import { makeMainCharacter, makeNPC, MainCharacter, NPC } from './character'
+import { Scene } from './scene'
 import { makeState, State } from './state'
+
+type PreloadImageOptions = {
+  timeout?: number
+  minPercentageLoaded?: number
+}
 
 export const EmptyGame: Game = {
   name: '',
   globalState: makeState({}),
+  loading: false,
 
   characterName: '',
   characterInfo: '',
@@ -30,12 +27,16 @@ export const EmptyGame: Game = {
   getScene(sceneId: number) {
     return undefined
   },
-  preloadImages() {},
+
+  preloadImages() {
+    return Promise.resolve()
+  },
 }
 
 export interface Game {
   name: string
   globalState: State
+  loading: boolean
 
   characterName: string
   characterInfo: string
@@ -48,7 +49,7 @@ export interface Game {
   getScenes(): Scene[] // Get all scenes of current playing character
   getScene(sceneId: number): Scene | undefined
 
-  preloadImages(): void
+  preloadImages(options?: PreloadImageOptions): Promise<void>
 }
 
 export function makeGame(schema: GameSchema): Game {
@@ -62,6 +63,7 @@ export function makeGame(schema: GameSchema): Game {
     name: schema.name,
 
     globalState: globalState,
+    loading: false,
 
     characterName: mainCharacters[0].name,
     characterInfo: mainCharacters[0].info,
@@ -97,29 +99,50 @@ export function makeGame(schema: GameSchema): Game {
       return character.getScene(sceneId)
     },
 
-    preloadImages() {
-      const imageSources: string[] = []
+    preloadImages({
+      timeout = 3000,
+      minPercentageLoaded = 50,
+    } = {}): Promise<void> {
+      // gather all the images
+      const imageSources = new Set<string>()
 
       let characters = [...this.mainCharacters, ...this.npcs]
       characters.forEach((char) => {
         for (const [_, src] of Object.entries(char.images)) {
-          imageSources.push(src)
+          imageSources.add(src)
         }
       })
 
       this.mainCharacters.forEach((char) => {
         char.scenes.forEach((scene) => {
-          imageSources.push(scene.background)
+          imageSources.add(scene.background)
 
           scene.images.forEach((image) => {
-            imageSources.push(image.src)
+            imageSources.add(image.src)
           })
         })
       })
 
-      imageSources.forEach((source) => {
-        const img = new Image()
-        img.src = source
+      return new Promise<void>((resolve) => {
+        setTimeout(() => {
+          resolve()
+        }, timeout)
+
+        let loaded = 0
+        const total = imageSources.size
+
+        imageSources.forEach((source) => {
+          const img = new Image()
+          img.onload = () => {
+            loaded++
+
+            if (loaded / total > minPercentageLoaded / 100) {
+              resolve()
+            }
+          }
+
+          img.src = source
+        })
       })
     },
   }

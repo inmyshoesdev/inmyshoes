@@ -1,16 +1,19 @@
 import { Transition } from '@headlessui/react'
+import NextLink from 'next/link'
 import { useAfterInteractionCallback } from '../hooks/useAfterInteractionCallback'
-import type { Image } from '../lib/elements'
+import { useStateTemplater } from '../hooks/useStateTemplater'
+import { Link } from '../lib/elements'
+import { renderMdToHtml } from './utils'
 
-const ImageElement: React.FC<Image> = ({
+const LinkElement: React.FC<Link> = ({
   shown,
-  src,
-  altText,
+  url,
+  text,
   position,
   dimension,
-  blendMode,
   afterInteractionCallback,
 }) => {
+  const template = useStateTemplater()
   const handleInteraction = useAfterInteractionCallback(
     afterInteractionCallback
   )
@@ -25,15 +28,18 @@ const ImageElement: React.FC<Image> = ({
       enterFrom="opacity-0"
       enterTo="opacity-100"
     >
-      <div className="container absolute mx-auto" onClick={handleInteraction}>
-        <img
-          src={src}
-          alt={altText || ''}
-          className="image w-full h-full object-fill"
-        />
+      <div
+        className="positioned absolute mx-auto px-4 py-3 max-w-sm bg-gray-100 hover:bg-gray-200 border border-gray-700 rounded shadow"
+        onClick={handleInteraction}
+      >
+        <NextLink href={url}>
+          <a className="text-md !text-gray-900 !no-underline font-medium cursor-pointer">
+            {template(renderMdToHtml(text))}
+          </a>
+        </NextLink>
       </div>
       <style jsx>{`
-        .container {
+        .positioned {
           top: ${positionDefined ? position?.top || 'unset' : '50%'};
           left: ${positionDefined ? position?.left || 'unset' : '50%'};
           right: ${positionDefined ? position?.right || 'unset' : 'unset'};
@@ -42,13 +48,9 @@ const ImageElement: React.FC<Image> = ({
           height: ${dimension.height || 'unset'};
           transform: ${positionDefined ? 'unset' : 'translate(-50%, -50%)'};
         }
-
-        .image {
-          mix-blend-mode: ${blendMode || 'unset'};
-        }
       `}</style>
     </Transition>
   )
 }
 
-export default ImageElement
+export default LinkElement

@@ -15,15 +15,28 @@
           "narrations": [
             {
               "name": "intro",
-              "text": "this is an **intro** *narration*. it will [auto](https://google.com) advance in 5 seconds."
+              "texts": ["this is an **intro** *narration*. it will [auto](https://google.com) advance in 10 seconds. click next to navigate",
+                "click prev to go back, and next to continue on",
+                "click prev to go back, and next to end this segment"]
+            },
+            {
+              "name": "position",
+              "texts": ["this narration is in a funny position!"],
+              "position": {
+                "top": "35%",
+                "left": "10%"
+              },
+              "dimension": {
+                "width": "200px"
+              }
             },
             {
               "name": "stay",
-              "text": "this narration stays for 3 seconds, then disappears for 1 second"
+              "texts": ["this narration stays for 3 seconds, then disappears for 1 second"]
             },
             {
               "name": "last",
-              "text": "you will leave this scene in 2 seconds"
+              "texts": ["you will leave this scene in 2 seconds"]
             }
           ],
           "dialogues": [],
@@ -33,6 +46,11 @@
             {
               "type": "showNarration",
               "value": "intro",
+              "duration": 10000
+            },
+            {
+              "type": "showNarration",
+              "value": "position",
               "duration": 5000
             },
             {

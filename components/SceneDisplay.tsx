@@ -4,6 +4,7 @@ import { useStore } from '../stores/store'
 import ClickableGroup from './ClickableGroup'
 import Dialogue from './Dialogue'
 import ImageElement from './ImageElement'
+import LinkElement from './LinkElement'
 import Narration from './Narration'
 
 type SceneProps = {
@@ -44,6 +45,9 @@ const SceneDisplay: React.FC<SceneProps> = ({ scene }) => {
           {...clickableGroup}
           key={clickableGroup.name}
         />
+      ))}
+      {scene.links.map((link) => (
+        <LinkElement {...link} key={link.name} />
       ))}
     </div>
   )

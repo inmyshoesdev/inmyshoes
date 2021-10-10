@@ -50,7 +50,7 @@ export type ElementSchema = Infer<typeof ElementSchema>
 export const NarrationSchema = intersection([
   ElementSchema,
   type({
-    text: string(),
+    texts: array(string()),
   }),
 ])
 
@@ -149,6 +149,16 @@ export const ImageSchema = intersection([
 ])
 
 export type ImageSchema = Infer<typeof ImageSchema>
+
+export const LinkSchema = intersection([
+  ElementSchema,
+  type({
+    url: string(),
+    text: string(),
+  }),
+])
+
+export type LinkSchema = Infer<typeof LinkSchema>
 
 // can have either text content or image, such as:
 // {

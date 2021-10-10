@@ -9,9 +9,12 @@ import {
   dialogues,
   Image,
   images,
+  Link,
+  links,
   makeClickableGroup,
   makeDialogue,
   makeImage,
+  makeLink,
   makeNarration,
   Narration,
   narrations,
@@ -39,6 +42,7 @@ export interface Scene {
   [dialogues]: Dialogue[]
   [images]: Image[]
   [clickables]: ClickableGroup[]
+  [links]: Link[]
 
   intro: Action[]
   outro: Action[]
@@ -72,6 +76,8 @@ export function makeScene(schema: SceneSchema, characters: Character[]): Scene {
     [clickables]: schema.clickables.map((clickableGroupSchema) =>
       makeClickableGroup(clickableGroupSchema, id)
     ),
+
+    [links]: schema.links.map((linkSchema) => makeLink(linkSchema)),
 
     intro: schema.intro.map((x) => makeAction(x, id)).filter(isDefined),
     outro: schema.outro.map((x) => makeAction(x, id)).filter(isDefined),

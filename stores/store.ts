@@ -15,9 +15,14 @@ type GameStore = {
 export const useStore = create<GameStore>((set) => ({
   game: EmptyGame,
 
-  loadGame: (game: Game) => {
-    set({ game })
-    game.preloadImages()
+  loadGame: async (game: Game) => {
+    set({ game: { ...game, loading: true } })
+    await game.preloadImages()
+    set(
+      produce<GameStore>((state) => {
+        state.game.loading = false
+      })
+    )
   },
 
   gotoScene: (sceneId: number) =>

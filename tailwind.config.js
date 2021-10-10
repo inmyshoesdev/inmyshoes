@@ -31,6 +31,19 @@ module.exports = {
       fontSize: {
         '3xs': '0.5rem',
         '2xs': '.625rem',
+      },
+      colors: {
+        "teal": "#009688",
+        "teal-50": "#e0f2f1",
+        "teal-100": "#b2dfdb",
+        "teal-200": "#80cbc4",
+        "teal-300": "#4db6ac",
+        "teal-400": "#26a69a",
+        "teal-500": "#009688",
+        "teal-600": "#00897b",
+        "teal-700": "#00796b",
+        "teal-800": "#00695c",
+        "teal-900": "#004d40"
       }
     },
   },
