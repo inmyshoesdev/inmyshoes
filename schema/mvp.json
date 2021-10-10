@@ -579,7 +579,8 @@
                       "newState": {
                         "wealth": 1,
                         "health": 1,
-                        "social": 1
+                        "social": 1,
+                        "approached help": true
                       }
                     },
                     {
@@ -1196,7 +1197,8 @@
                       "type": "updateGlobalState",
                       "newState": {
                         "health": 1,
-                        "social": 1
+                        "social": 1,
+                        "approached help": true
                       }
                     },
                     {
@@ -1287,7 +1289,8 @@
                       "newState": {
                         "wealth": 1,
                         "health": 1,
-                        "social": 1
+                        "social": 1,
+                        "approached help": true
                       }
                     },
                     {
