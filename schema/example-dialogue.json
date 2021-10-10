@@ -99,7 +99,7 @@
                         {
                             "type": "updateGlobalState",
                             "newState": {
-                                "health": 1
+                                "social": -1
                             }
                         },
                         {
