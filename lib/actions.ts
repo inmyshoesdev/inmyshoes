@@ -101,6 +101,10 @@ export const DefinedActions: Partial<
     game.globalState.update(newState)
   },
 
+  resetGlobalState: ({ game }) => {
+    game.globalState.reset()
+  },
+
   ...ShowActions,
   ...HideActions,
 }

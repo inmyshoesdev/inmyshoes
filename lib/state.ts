@@ -7,27 +7,35 @@ type StateMap = Record<string, StateObj>
 
 export interface State {
   innerState: StateMap
+  reset(): void
   hasKey(key: string): boolean
   get(key: string): string | number | boolean | undefined
   update(newState: any): void
 }
 
 export function makeState(state: any): State {
-  let stateMap: StateMap = {}
-  for (const [key, val] of Object.entries(state)) {
-    switch (typeof val) {
-      case 'string':
-      case 'number':
-      case 'boolean':
-        stateMap[key] = { value: val } as StateObj
-        continue
-      default:
-        stateMap[key] = val as StateObj
+  function createStateMap(): StateMap {
+    let stateMap: StateMap = {}
+    for (const [key, val] of Object.entries(state)) {
+      switch (typeof val) {
+        case 'string':
+        case 'number':
+        case 'boolean':
+          stateMap[key] = { value: val } as StateObj
+          continue
+        default:
+          stateMap[key] = val as StateObj
+      }
     }
+    return stateMap
   }
 
   return {
-    innerState: stateMap,
+    innerState: createStateMap(),
+
+    reset(): void {
+      this.innerState = createStateMap()
+    },
 
     hasKey(key: string): boolean {
       return key in this.innerState
