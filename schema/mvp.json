@@ -79,15 +79,6 @@
                   "text": "Go",
                   "onClick": [
                     {
-                      "type": "updateGlobalState",
-                      "newState": {
-                        "date": "Monday",
-                        "wealth": 5,
-                        "health": 10,
-                        "social": 10
-                      }
-                    },
-                    {
                       "type": "gotoScene",
                       "sceneId": 1
                     }
@@ -215,9 +206,15 @@
           ],
           "intro": [
             {
+              "type": "resetGlobalState"
+            },
+            {
               "type": "updateGlobalState",
               "newState": {
-                "date": "Monday"
+                "date": "Monday",
+                "wealth": 5,
+                "health": 10,
+                "social": 10
               }
             },
             {
