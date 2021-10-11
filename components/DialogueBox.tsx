@@ -23,7 +23,7 @@ const DialogueBox: React.FC<PropsWithChildren<DialogueBoxProps>> = ({
           onClick={onClick}
           bgImage={image}
           bgSize="100% 100%"
-          className="p-[3%] absolute"
+          className="p-[3%] absolute flex flex-col"
           style={{
             top: position?.top || 'unset',
             left: position?.left || '20%',
