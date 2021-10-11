@@ -66,7 +66,7 @@ function Footer({
                 <div className="flex w-12">
                   <img
                     className="justify-center cursor-pointer"
-                    src="/images/curtis.png"
+                    src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis.png"
                     alt="Current character image"
                     width={20}
                     height={50}
