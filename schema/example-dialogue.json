@@ -2,10 +2,14 @@
     "name": "Dialogue Example",
     "globalState": {
         "health": {
-            "value": 10,
+            "value": 20,
             "max": 20
         },
-        "social": 9,
+        "social": 10,
+        "wealth": {
+            "value": 5,
+            "max": 10
+        },
         "date": "Monday"
     },
     "header": [
@@ -26,8 +30,15 @@
             "component": "state_meter",
             "title": "Social",
             "state": "social",
-            "fullImage": "/images/full-bar.png",
-            "emptyImage": "/images/empty-bar.png"
+            "fullImage": "/images/health-full.png",
+            "emptyImage": "/images/health-empty.png"
+        },
+        {
+            "component": "state_meter",
+            "title": "Wealth",
+            "state": "wealth",
+            "fullImage": "/images/health-full.png",
+            "emptyImage": "/images/health-empty.png"
         }
     ],
     "mainCharacters": [
