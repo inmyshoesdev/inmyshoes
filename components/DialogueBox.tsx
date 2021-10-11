@@ -1,39 +1,149 @@
 import { Box } from '@chakra-ui/react'
-import { Fragment, PropsWithChildren } from 'react'
+import {
+  CSSProperties,
+  MouseEventHandler,
+  ReactNode,
+  useCallback,
+  useState,
+} from 'react'
+import Typewriter from 'typewriter-effect'
+import { useStateTemplater } from '../hooks/useStateTemplater'
 import { Position, Dimension } from '../lib/elements'
+import { renderMdToHtml } from './utils'
 
 export interface DialogueBoxProps {
   image?: string
   position?: Position
   dimension?: Dimension
-  onClick?: () => void
+  header?: ReactNode
+  bodyClass?: string
+  bodyStyle?: CSSProperties
+  bodyText?: string
+  gotoNext?: () => void
+  gotoPrev?: () => void
+  prevEnabled?: boolean
+  nextEnabled?: boolean
 }
 
-const DialogueBox: React.FC<PropsWithChildren<DialogueBoxProps>> = ({
+const DialogueBox: React.FC<DialogueBoxProps> = ({
   image,
   position,
   dimension,
-  onClick,
-  children,
+  header,
+  bodyStyle,
+  bodyText = '',
+  gotoNext,
+  gotoPrev,
+  prevEnabled = true,
+  nextEnabled = true,
 }) => {
+  const template = useStateTemplater()
+  const [skipTyping, setSkipTyping] = useState<boolean>(false)
+
+  const onClick = useCallback(() => {
+    if (!skipTyping) {
+      setSkipTyping(true)
+      return
+    }
+
+    if (gotoNext) {
+      setSkipTyping(false)
+      gotoNext()
+    }
+  }, [skipTyping, gotoNext])
+
+  function resetTypewriter(
+    fn?: () => void
+  ): MouseEventHandler<HTMLButtonElement> {
+    return (e) => {
+      e.stopPropagation()
+      setSkipTyping(false)
+      if (fn) {
+        fn()
+      }
+    }
+  }
+
+  const body = (
+    <div
+      className="mt-1 h-full text-2xs overflow-y-auto sm:text-xs md:text-sm lg:text-base"
+      style={bodyStyle || {}}
+    >
+      <div className="scrollbar-thin scrollbar-thumb-gray-500 scrollbar-thumb-rounded scrollbar-track-gray-100 flex flex-col-reverse pl-1 pr-2 max-h-full overflow-y-auto">
+        {skipTyping ? (
+          <p
+            dangerouslySetInnerHTML={{
+              __html: template(renderMdToHtml(bodyText)),
+            }}
+          />
+        ) : (
+          <Typewriter
+            key={bodyText}
+            onInit={(typewriter) => {
+              typewriter
+                .typeString(template(renderMdToHtml(bodyText)))
+                .callFunction(() => setSkipTyping(true))
+                .start()
+            }}
+            options={{
+              cursor: '',
+              delay: 25, // speed adjustment
+            }}
+          />
+        )}
+      </div>
+    </div>
+  )
+
+  const buttons = (
+    <div className="flex justify-between text-blue-400 text-2xs sm:text-xs md:text-sm lg:text-lg">
+      <button
+        onClick={resetTypewriter(gotoPrev)}
+        className={`px-2 md:py-1 rounded ${
+          prevEnabled ? 'cursor-pointer hover:bg-blue-50' : 'text-blue-200'
+        }`}
+        disabled={!prevEnabled}
+      >
+        Prev
+      </button>
+      <button
+        onClick={resetTypewriter(gotoNext)}
+        className={`px-2 md:py-1 rounded ${
+          nextEnabled ? 'cursor-pointer hover:bg-blue-50' : 'text-blue-200'
+        }`}
+        disabled={!nextEnabled}
+      >
+        Next
+      </button>
+    </div>
+  )
+
+  const content = (
+    <>
+      {header}
+      {body}
+      {buttons}
+    </>
+  )
+
   return (
-    <Fragment>
+    <>
       {image ? (
         <Box
           onClick={onClick}
           bgImage={image}
           bgSize="100% 100%"
-          className="p-[3%] absolute flex flex-col"
+          className="px-[3%] py-[2%] absolute flex flex-col"
           style={{
             top: position?.top || 'unset',
             left: position?.left || '20%',
             right: position?.right || 'unset',
             bottom: position?.bottom || '10%',
             width: dimension?.width || '60%',
-            height: dimension?.height || '30%',
+            height: dimension?.height || '32%',
           }}
         >
-          {children}
+          {content}
         </Box>
       ) : (
         <div
@@ -45,15 +155,15 @@ const DialogueBox: React.FC<PropsWithChildren<DialogueBoxProps>> = ({
             right: position?.right || 'unset',
             bottom: position?.bottom || '10%',
             width: dimension?.width || '60%',
-            height: dimension?.height || '30%',
+            height: dimension?.height || '32%',
           }}
         >
-          <div className="p-[1.5%] flex flex-col w-full h-full bg-white rounded-lg">
-            {children}
+          <div className="p-[1%] md:p-[1.5%] flex flex-col justify-around w-full h-full bg-white rounded-lg">
+            {content}
           </div>
         </div>
       )}
-    </Fragment>
+    </>
   )
 }
 
