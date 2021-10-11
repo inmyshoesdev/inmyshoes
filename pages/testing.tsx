@@ -1,6 +1,6 @@
 import demoJson from '../schema/mvp.json'
 import exampleJson from '../schema/example-schema.json'
-import GameSchemaInput from '../components/GameSchemaInput'
+import GameSchemaInput from '../components/debugging/GameSchemaInput'
 
 export const TestingPage: React.FC = () => {
   return (

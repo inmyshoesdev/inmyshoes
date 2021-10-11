@@ -1,4 +1,4 @@
-import GameSchemaInput from '../../components/GameSchemaInput'
+import GameSchemaInput from '../../components/debugging/GameSchemaInput'
 import exampleJson from '../../schema/example-narration.json'
 
 export default function DialogueExample() {

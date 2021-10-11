@@ -22,7 +22,13 @@
           "narrations": [
             {
               "name": "intro",
-              "texts": ["this is a dark and scary dungeon...\n\nNumber of tries: {numTries}"]
+              "texts": [
+                "this is a **dark and scary** dungeon...\n\nNumber of tries: {numTries}"
+              ]
+            },
+            {
+              "name": "scared msg",
+              "texts": ["you are very scared..."]
             },
             {
               "name": "clown decision",
@@ -139,8 +145,14 @@
             },
             {
               "type": "showNarration",
-              "value": "intro",
-              "duration": 2000
+              "value": "intro"
+            },
+            {
+              "type": "showNarration",
+              "value": "scared msg",
+              "if": {
+                ">=": ["{fear}", 10]
+              }
             },
             {
               "type": "showDialogue",
