@@ -17,7 +17,7 @@ const Dialogue: React.FC<DialogueProps> = ({
   }, [shown, speeches])
 
   function prevDialogue() {
-    if (speechIdx < speeches.length) {
+    if (speechIdx > 0) {
       setSpeechIdx(speechIdx - 1)
     }
   }
@@ -46,6 +46,9 @@ const Dialogue: React.FC<DialogueProps> = ({
           onNext={nextDialogue}
           onPrev={prevDialogue}
           prevEnabled={!(speechIdx === 0)}
+          nextEnabled={
+            speechIdx < speeches.length - 1 || !!afterInteractionCallback
+          }
         />
       )}
     </Transition>

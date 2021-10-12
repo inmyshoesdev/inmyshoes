@@ -1,6 +1,8 @@
+import { RulesLogic } from 'json-logic-js'
 import { ActionSchema } from '../schema/actions'
 import { DeferredActions } from '../stores/store'
 import { Game } from './game'
+import { makeLogic } from './logic'
 import { ElementKeys, Scene } from './scene'
 import { once } from './utils'
 
@@ -28,6 +30,7 @@ export type ActionArgs = {
 export interface Action {
   name: string
   duration: number
+  condition?: RulesLogic
   args: Record<string, any>
   sceneId: number
   execute: (args: ActionArgs) => FinishAction // like useEffect
@@ -48,15 +51,12 @@ export const makeAction = (
   return {
     name: schema.type,
     duration: schema.duration,
+    condition: makeLogic(schema.if),
     args: rest,
     sceneId: sceneId,
     execute: action,
   }
 }
-
-// names of const actions and arguments
-export const waitForInteraction = 'waitForInteraction'
-export const afterInteractionCallback = 'afterInteractionCallback'
 
 const ShowActions: Record<`show${string}`, (args: ActionArgs) => FinishAction> =
   {
@@ -101,6 +101,10 @@ export const DefinedActions: Partial<
     game.globalState.update(newState)
   },
 
+  resetGlobalState: ({ game }) => {
+    game.globalState.reset()
+  },
+
   ...ShowActions,
   ...HideActions,
 }
@@ -130,7 +134,7 @@ function show(elementKey: ElementKeys) {
       deferredActions.runtimeActions = [
         {
           action: {
-            name: `hide${elementKey.toUpperCase()}`,
+            name: `hide${elementKey}`,
             duration: duration,
             args: { value },
             sceneId: scene.id,

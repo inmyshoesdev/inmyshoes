@@ -166,6 +166,7 @@ type ClickableText = {
 type ClickableImg = {
   src: string
   altText?: string
+  blendMode?: string
 }
 export type Clickable = {
   name: string

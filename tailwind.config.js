@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   mode: 'jit',
@@ -32,6 +34,9 @@ module.exports = {
         '3xs': '0.5rem',
         '2xs': '.625rem',
       },
+      fontFamily: {
+        sans: ['Rubik', ...defaultTheme.fontFamily.sans]
+      },
       colors: {
         "teal": "#009688",
         "teal-50": "#e0f2f1",
@@ -48,7 +53,11 @@ module.exports = {
     },
   },
   variants: {
+    scrollbar: ['rounded'],
     extend: {},
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('tailwind-scrollbar'),
+  ],
 }

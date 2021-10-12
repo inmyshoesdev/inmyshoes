@@ -1,33 +1,44 @@
-type StateObj = {
+export type StateObj = {
   value: string | number | boolean
   min?: number
   max?: number
 }
-type StateMap = Record<string, StateObj>
+
+export type StateMap = Record<string, StateObj>
+
+export type UpdateStateValues = Record<string, string | number | boolean>
 
 export interface State {
   innerState: StateMap
+  reset(): void
   hasKey(key: string): boolean
   get(key: string): string | number | boolean | undefined
-  update(newState: any): void
+  update(newState: UpdateStateValues): void
 }
 
 export function makeState(state: any): State {
-  let stateMap: StateMap = {}
-  for (const [key, val] of Object.entries(state)) {
-    switch (typeof val) {
-      case 'string':
-      case 'number':
-      case 'boolean':
-        stateMap[key] = { value: val } as StateObj
-        continue
-      default:
-        stateMap[key] = val as StateObj
+  function createStateMap(): StateMap {
+    let stateMap: StateMap = {}
+    for (const [key, val] of Object.entries(state)) {
+      switch (typeof val) {
+        case 'string':
+        case 'number':
+        case 'boolean':
+          stateMap[key] = { value: val } as StateObj
+          continue
+        default:
+          stateMap[key] = val as StateObj
+      }
     }
+    return stateMap
   }
 
   return {
-    innerState: stateMap,
+    innerState: createStateMap(),
+
+    reset(): void {
+      this.innerState = createStateMap()
+    },
 
     hasKey(key: string): boolean {
       return key in this.innerState
@@ -37,7 +48,7 @@ export function makeState(state: any): State {
       return this.innerState[key].value
     },
 
-    update(newState: StateMap) {
+    update(newState: UpdateStateValues) {
       for (const [key, val] of Object.entries(newState)) {
         if (key in this.innerState) {
           if (
@@ -82,5 +93,46 @@ export function makeState(state: any): State {
         console.warn(`update applied with non-existent key "${key}"`)
       }
     },
+  }
+}
+
+const fallbacks = new Map<string, Map<string, string | number | boolean>>()
+
+export function getStateTemplater(globalState: State, currSceneState?: State) {
+  const regex = /\{(.+?)\}/g // matches anything in curly brackes, for eg, "{hello}"
+
+  return (template: string) => {
+    if (!fallbacks.has(template)) {
+      fallbacks.set(template, new Map<string, string | number | boolean>())
+    }
+
+    return template.replaceAll(regex, (substr, match) => {
+      if (currSceneState && currSceneState.hasKey(match)) {
+        const val = currSceneState.get(match)
+
+        if (val !== undefined) {
+          fallbacks.get(template)?.set(match, val)
+        }
+        return `${val}`
+      }
+
+      if (globalState.hasKey(match)) {
+        const val = globalState.get(match)
+
+        if (val !== undefined) {
+          fallbacks.get(template)?.set(match, val)
+        }
+        return `${val}`
+      }
+
+      if (fallbacks.get(template)?.has(match)) {
+        return `${fallbacks.get(template)?.get(match)}`
+      }
+
+      console.warn(
+        `templated variable "${substr}" not found in global state or the current scene's state`
+      )
+      return substr
+    })
   }
 }

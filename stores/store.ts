@@ -1,7 +1,10 @@
 import produce from 'immer'
+import { WritableDraft } from 'immer/dist/internal'
 import create, { SetState } from 'zustand'
 import { Action, FinishAction, isCallable } from '../lib/actions'
 import { EmptyGame, Game } from '../lib/game'
+import { evalCondition } from '../lib/logic'
+import { StateMap } from '../lib/state'
 
 type GameStore = {
   game: Game
@@ -9,7 +12,16 @@ type GameStore = {
   gotoScene: (sceneId: number) => void
   resetScene: (sceneId: number) => void
   hideClickable: (sceneId: number, name: string) => void
+  replaceGlobalState: (newState: StateMap) => void
+  replaceCurrentSceneState: (newState: StateMap) => void
   executeActions: (...actions: Action[]) => () => void
+}
+
+function update(
+  set: SetState<GameStore>,
+  fn: (state: WritableDraft<GameStore>) => void
+) {
+  set(produce<GameStore>(fn))
 }
 
 export const useStore = create<GameStore>((set) => ({
@@ -17,50 +29,62 @@ export const useStore = create<GameStore>((set) => ({
 
   loadGame: async (game: Game) => {
     set({ game: { ...game, loading: true } })
+
     await game.preloadImages()
-    set(
-      produce<GameStore>((state) => {
-        state.game.loading = false
-      })
-    )
+
+    update(set, (state) => {
+      state.game.loading = false
+    })
   },
 
   gotoScene: (sceneId: number) =>
-    set(
-      produce<GameStore>((state) => {
-        state.game.currentSceneId = sceneId
-      })
-    ),
+    update(set, (state) => {
+      state.game.currentSceneId = sceneId
+    }),
 
   resetScene: (sceneId: number) => {
-    set(
-      produce<GameStore>((state) => {
-        const scene = state.game.getScene(sceneId)
-        if (!scene) {
-          return
-        }
+    update(set, (state) => {
+      const scene = state.game.getScene(sceneId)
+      if (!scene) {
+        return
+      }
 
-        scene.narrations.forEach((narration) => (narration.shown = false))
-        scene.dialogues.forEach((dialogue) => (dialogue.shown = false))
-        scene.images.forEach((image) => (image.shown = false))
-        scene.clickables.forEach((clickable) => (clickable.shown = false))
-        // TODO: may need to add more to reset other states
-      })
-    )
+      scene.narrations.forEach((narration) => (narration.shown = false))
+      scene.dialogues.forEach((dialogue) => (dialogue.shown = false))
+      scene.images.forEach((image) => (image.shown = false))
+      scene.clickables.forEach((clickable) => (clickable.shown = false))
+      scene.links.forEach((link) => (link.shown = false))
+      // TODO: may need to add more to reset other states
+    })
   },
 
   hideClickable(sceneId: number, name: string) {
-    set(
-      produce<GameStore>((state) => {
-        const clickable = state.game
-          .getScene(sceneId)
-          ?.getElement(name, 'clickables')
+    update(set, (state) => {
+      const clickable = state.game
+        .getScene(sceneId)
+        ?.getElement(name, 'clickables')
 
-        if (clickable) {
-          clickable.shown = false
-        }
-      })
-    )
+      if (clickable) {
+        clickable.shown = false
+      }
+    })
+  },
+
+  replaceGlobalState(newState: StateMap) {
+    update(set, (state) => {
+      state.game.globalState.innerState = newState
+    })
+  },
+
+  replaceCurrentSceneState(newState: StateMap) {
+    update(set, (state) => {
+      const currSceneId = state.game.currentSceneId
+      const currScene = state.game.getScene(currSceneId)
+
+      if (currScene) {
+        currScene.state.innerState = newState
+      }
+    })
   },
 
   executeActions: (...allActions: Action[]) => {
@@ -147,27 +171,48 @@ export type DeferredActions = {
 function makeExecutor(set: SetState<GameStore>): RuntimeActionExecutor {
   return (runtimeAction: RuntimeAction) => {
     const { action, timing, deferredActions } = runtimeAction
-    const { duration, args, sceneId, execute } = action
+    const { duration, condition, args, sceneId, execute } = action
 
     let timerIds: ReturnType<typeof setTimeout>[] = []
     let finishAction: FinishAction = undefined
 
     // schedule the action at the specified timing
     let id = setTimeout(() => {
-      set(
-        produce<GameStore>((state) => {
-          const scene = state.game.getScene(sceneId)
-          if (scene) {
-            finishAction = execute({
-              duration,
-              args,
-              scene,
-              game: state.game,
-              deferredActions,
-            })
+      update(set, (state) => {
+        const scene = state.game.getScene(sceneId)
+
+        // check for the condition, if any. if the current state does not
+        // fulfill the conditions, return without executing the action.
+        if (condition) {
+          const fulfilled = evalCondition(
+            condition,
+            state.game.globalState,
+            scene?.state
+          )
+
+          if (!fulfilled) {
+            if (!deferredActions) {
+              return
+            }
+
+            // if there are deferred actions, execute them immediately.
+            const res = deferredActions.runtimeActions.map(
+              deferredActions.deferredExecutor
+            )
+            return () => res.forEach((fn) => fn())
           }
-        })
-      )
+        }
+
+        if (scene) {
+          finishAction = execute({
+            duration,
+            args,
+            scene,
+            game: state.game,
+            deferredActions,
+          })
+        }
+      })
     }, timing)
 
     timerIds.push(id)
@@ -176,14 +221,12 @@ function makeExecutor(set: SetState<GameStore>): RuntimeActionExecutor {
     id = setTimeout(() => {
       if (isCallable(finishAction)) {
         const executeFinish = finishAction
-        set(
-          produce<GameStore>((state) => {
-            const scene = state.game.getScene(sceneId)
-            if (scene) {
-              executeFinish({ scene, game: state.game })
-            }
-          })
-        )
+        update(set, (state) => {
+          const scene = state.game.getScene(sceneId)
+          if (scene) {
+            executeFinish({ scene, game: state.game })
+          }
+        })
       }
     }, timing + duration)
 

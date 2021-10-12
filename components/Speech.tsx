@@ -1,4 +1,3 @@
-import { Fragment } from 'react'
 import { Position, Dimension } from '../lib/elements'
 import DialogueBox from './DialogueBox'
 
@@ -49,7 +48,7 @@ const Speech: React.FC<SpeechProps> = ({
   )
 
   return (
-    <Fragment>
+    <>
       <div
         className="absolute"
         style={{
@@ -74,7 +73,6 @@ const Speech: React.FC<SpeechProps> = ({
         position={textPosition}
         dimension={textDimension}
         header={header}
-        bodyClass="sm:text-[10px] h-3/5 text-2xs md:text-sm lg:text-base"
         bodyStyle={{
           fontStyle: type === 'monologue' ? 'italic' : 'normal',
         }}
@@ -104,7 +102,7 @@ const Speech: React.FC<SpeechProps> = ({
           />
         )}
       </div>
-    </Fragment>
+    </>
   )
 }
 

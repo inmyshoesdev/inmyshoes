@@ -13,7 +13,8 @@
     "social": {
       "value": 0,
       "max": 20
-    }
+    },
+    "approached help": false
   },
   "header": [
     {
@@ -26,29 +27,32 @@
       "component": "state_meter",
       "title": "Wealth",
       "state": "wealth",
-      "fullImage": "/images/full-bar.png",
-      "emptyImage": "/images/empty-bar.png"
+      "fullImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/full-wealth.png",
+      "emptyImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/empty-wealth.png"
     },
     {
       "component": "state_meter",
       "title": "Health",
       "state": "health",
-      "fullImage": "/images/health-full.png",
-      "emptyImage": "/images/health-empty.png"
+      "fullImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/full-health.png",
+      "emptyImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/empty-health.png"
     },
     {
       "component": "state_meter",
       "title": "Social",
       "state": "social",
-      "fullImage": "/images/full-bar.png",
-      "emptyImage": "/images/empty-bar.png"
+      "fullImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/full-social.png",
+      "emptyImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/empty-social.png"
     }
   ],
   "mainCharacters": [
     {
       "name": "Curtis",
       "images": {
-        "default": "/images/curtis.png"
+        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis.png",
+        "sleeping": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-sleeping-day-1.png",
+        "decide": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-decide-day-2.png",
+        "frustrated": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-frustrated-day-3.png"
       },
       "info": "https://soristic.sgp1.digitaloceanspaces.com/youth/videos/Curtis.mp4",
       "scenes": [
@@ -62,6 +66,7 @@
                 "In this exercise, you will have the chance to choose a character and discover what youth might go through in various aspects of their life.",
                 "Each character has health, social and wealth points. There is no winning and/or losing in this game.",
                 "Instead, we ask that you think about what life would be like for these characters and the realities of the scenarios.",
+                "Just like real people, the characters will fare better if their financial, physical and social needs are taken care of. So try and keep them up if you can.",
                 "Content warnings: mental health, learning disabilities, income issues."
               ]
             }
@@ -77,17 +82,8 @@
                   "text": "Go",
                   "onClick": [
                     {
-                      "type": "updateGlobalState",
-                      "newState": {
-                        "date": "Monday",
-                        "wealth": 5,
-                        "health": 10,
-                        "social": 10
-                      }
-                    },
-                    {
                       "type": "gotoScene",
-                      "sceneId": 1
+                      "sceneId": 0.5
                     }
                   ]
                 }
@@ -106,8 +102,110 @@
           ]
         },
         {
+          "id": 0.5,
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-household.jpg",
+          "narrations": [
+            {
+              "name": "household",
+              "texts": [
+                "You are Curtis. You are from a low-income family. You live in a rental one-room flat."
+              ]
+            },
+            {
+              "name": "family",
+              "texts": [
+                "In addition to your parents, you live with your two grandparents (who are also cleaners), and two younger siblings."
+              ]
+            },
+            {
+              "name": "work",
+              "texts": [
+                "You work a part-time job at a fast food restaurant and have a little bit of savings. You find it hard to make friends because you are embarrassed about your situation."
+              ]
+            }
+          ],
+          "dialogues": [],
+          "images": [
+            {
+              "name": "family",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-family-image.jpg",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            },
+            {
+              "name": "work",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-work.jpg",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
+          "clickables": [
+            {
+              "name": "next",
+              "clickables": [
+                {
+                  "name": "1",
+                  "text": "Go",
+                  "onClick": [
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "resetGlobalState"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "date": "Monday",
+                "wealth": 5,
+                "health": 10,
+                "social": 10
+              }
+            },
+            {
+              "type": "showNarration",
+              "value": "household"
+            },
+            {
+              "type": "showImage",
+              "value": "family",
+              "autoHide": false,
+              "duration": 1
+            },
+            {
+              "type": "showNarration",
+              "value": "family"
+            },
+            {
+              "type": "showImage",
+              "value": "work",
+              "autoHide": false,
+              "duration": 1
+            },
+            {
+              "type": "showNarration",
+              "value": "work"
+            },
+            {
+              "type": "gotoScene",
+              "sceneId": 1
+            }
+          ]
+        },
+        {
           "id": 1,
-          "background": "/images/school.jpg",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-household.jpg",
           "narrations": [
             {
               "name": "intro",
@@ -134,15 +232,39 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "text": "It's 5:30 already..? I'm still so tired from working last night."
+                  "variant": "decide",
+                  "text": "It's 5:30 already..? I'm still so tired from working last night.",
+                  "characterDimension": {
+                    "height": "50%",
+                    "width": "20%"
+                  },
+                  "characterPosition": {
+                    "left": "0%"
+                  }
                 },
                 {
                   "character": "Curtis",
-                  "text": "Mom and Dad came home late from work last night and are still fast asleep."
+                  "variant": "decide",
+                  "text": "Mom and Dad came home late from work last night and are still fast asleep.",
+                  "characterDimension": {
+                    "height": "50%",
+                    "width": "20%"
+                  },
+                  "characterPosition": {
+                    "left": "0%"
+                  }
                 },
                 {
                   "character": "Curtis",
-                  "text": "Should I wake Chris and Chloe up for school? Or do I sleep in and hope Mum or Dad wakes up?"
+                  "text": "Should I wake Chris and Chloe up for school? Or do I sleep in and hope Mum or Dad wakes up?",
+                  "variant": "decide",
+                  "characterDimension": {
+                    "height": "50%",
+                    "width": "20%"
+                  },
+                  "characterPosition": {
+                    "left": "0%"
+                  }
                 }
               ]
             }
@@ -213,9 +335,15 @@
           ],
           "intro": [
             {
+              "type": "resetGlobalState"
+            },
+            {
               "type": "updateGlobalState",
               "newState": {
-                "date": "Monday"
+                "date": "Monday",
+                "wealth": 5,
+                "health": 10,
+                "social": 10
               }
             },
             {
@@ -234,7 +362,7 @@
         },
         {
           "id": 2,
-          "background": "/images/school2.jpg",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-day-2.jpg",
           "narrations": [
             {
               "name": "intro",
@@ -261,11 +389,27 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "text": "Time for breakfast! There isn't much food at home though, only some leftovers which isn't enough for me and my parents."
+                  "text": "Time for breakfast! There isn't much food at home though, only some leftovers which isn't enough for me and my parents.",
+                  "variant": "decide",
+                  "characterDimension": {
+                    "height": "50%",
+                    "width": "20%"
+                  },
+                  "characterPosition": {
+                    "left": "0%"
+                  }
                 },
                 {
                   "character": "Curtis",
-                  "text": "I could go to school and purchase a subsidised meal just for today... But I really should save the little money that I have. Maybe I should just share the leftovers with Mom and Dad?"
+                  "text": "I could go to school and purchase a subsidised meal just for today... But I really should save the little money that I have. Maybe I should just share the leftovers with Mom and Dad?",
+                  "variant": "decide",
+                  "characterDimension": {
+                    "height": "50%",
+                    "width": "20%"
+                  },
+                  "characterPosition": {
+                    "left": "0%"
+                  }
                 }
               ]
             }
@@ -357,7 +501,7 @@
         },
         {
           "id": 3,
-          "background": "/images/school2.jpg",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-day-3-road.jpg",
           "narrations": [
             {
               "name": "intro",
@@ -479,7 +623,7 @@
         },
         {
           "id": 4,
-          "background": "/images/school2.jpg",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-day-3-school.jpg",
           "narrations": [
             {
               "name": "intro",
@@ -506,11 +650,26 @@
               "speeches": [
                 {
                   "character": "Mrs Lee",
-                  "text": "Curtis, your assignment was poorly done. Please redo it and hand it in to me tomorrow."
+                  "text": "Curtis, your assignment was poorly done. Please redo it and hand it in to me tomorrow.",
+                  "characterDimension": {
+                    "height": "50%",
+                    "width": "20%"
+                  },
+                  "characterPosition": {
+                    "right": "0%"
+                  }
                 },
                 {
                   "character": "Curtis",
-                  "text": "Okay, thank you Mrs Lee."
+                  "text": "Okay, thank you Mrs Lee.",
+                  "variant": "frustrated",
+                  "characterDimension": {
+                    "height": "50%",
+                    "width": "20%"
+                  },
+                  "characterPosition": {
+                    "left": "0%"
+                  }
                 }
               ]
             },
@@ -519,15 +678,39 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "text": "I can't believe I have to redo my assignment..."
+                  "text": "I can't believe I have to redo my assignment...",
+                  "variant": "frustrated",
+                  "characterDimension": {
+                    "height": "50%",
+                    "width": "20%"
+                  },
+                  "characterPosition": {
+                    "left": "0%"
+                  }
                 },
                 {
                   "character": "Curtis",
-                  "text": "Right now, I definitely do not have enough time to complete it by tomorrow, I need to go to work later, and I still need to go home and tend to my siblings. If I were to finish my assignment, I won't have time to sleep at all!"
+                  "text": "Right now, I definitely do not have enough time to complete it by tomorrow, I need to go to work later, and I still need to go home and tend to my siblings. If I were to finish my assignment, I won't have time to sleep at all!",
+                  "variant": "frustrated",
+                  "characterDimension": {
+                    "height": "50%",
+                    "width": "20%"
+                  },
+                  "characterPosition": {
+                    "left": "0%"
+                  }
                 },
                 {
                   "character": "Curtis",
-                  "text": "Should I just try and complete the assignment? Or maybe I should speak to my teacher...."
+                  "text": "Should I just try and complete the assignment? Or maybe I should speak to my teacher....",
+                  "variant": "frustrated",
+                  "characterDimension": {
+                    "height": "50%",
+                    "width": "20%"
+                  },
+                  "characterPosition": {
+                    "left": "0%"
+                  }
                 }
               ]
             },
@@ -536,19 +719,50 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "text": "Ummm, excuse me Mrs Lee, is it okay if I request for an extension for this assignment?"
+                  "text": "Ummm, excuse me Mrs Lee, is it okay if I request for an extension for this assignment?",
+                  "variant": "frustrated",
+                  "characterDimension": {
+                    "height": "50%",
+                    "width": "20%"
+                  },
+                  "characterPosition": {
+                    "left": "0%"
+                  }
                 },
                 {
                   "character": "Curtis",
-                  "text": "I need to report for work later, and I still need to help out at home later today. I don't think I have the time to complete the assignment."
+                  "text": "I need to report for work later, and I still need to help out at home later today. I don't think I have the time to complete the assignment.",
+                  "variant": "frustrated",
+                  "characterDimension": {
+                    "height": "50%",
+                    "width": "20%"
+                  },
+                  "characterPosition": {
+                    "left": "0%"
+                  }
                 },
                 {
                   "character": "Mrs Lee",
-                  "text": "Oh! I was not totally aware of your situation. I apologise. Sure, you don't need to submit it tomorrow, how about by the end of next week?"
+                  "text": "Oh! I was not totally aware of your situation. I apologise. Sure, you don't need to submit it tomorrow, how about by the end of next week?",
+                  "characterDimension": {
+                    "height": "50%",
+                    "width": "20%"
+                  },
+                  "characterPosition": {
+                    "right": "0%"
+                  }
                 },
                 {
                   "character": "Curtis",
-                  "text": "Yes, that would work! Thank you so much!"
+                  "text": "Yes, that would work! Thank you so much!",
+                  "variant": "frustrated",
+                  "characterDimension": {
+                    "height": "50%",
+                    "width": "20%"
+                  },
+                  "characterPosition": {
+                    "left": "0%"
+                  }
                 }
               ]
             }
@@ -577,7 +791,8 @@
                       "newState": {
                         "wealth": 1,
                         "health": 1,
-                        "social": 1
+                        "social": 1,
+                        "approached help": true
                       }
                     },
                     {
@@ -624,6 +839,10 @@
             {
               "type": "showNarration",
               "value": "intro"
+            },
+            {
+              "type": "showDialogue",
+              "value": "teacher"
             },
             {
               "type": "showDialogue",
@@ -1194,7 +1413,8 @@
                       "type": "updateGlobalState",
                       "newState": {
                         "health": 1,
-                        "social": 1
+                        "social": 1,
+                        "approached help": true
                       }
                     },
                     {
@@ -1285,7 +1505,8 @@
                       "newState": {
                         "wealth": 1,
                         "health": 1,
-                        "social": 1
+                        "social": 1,
+                        "approached help": true
                       }
                     },
                     {
@@ -1802,6 +2023,114 @@
                   ]
                 }
               ]
+            },
+            {
+              "name": "health badge",
+              "clickables": [
+                {
+                  "name": "health",
+                  "src": "/images/health-badge.png",
+                  "position": {
+                    "top": "8%",
+                    "left": "35%"
+                  },
+                  "dimension": {
+                    "width": "30%"
+                  }
+                },
+                {
+                  "name": "health message",
+                  "text": "You have been trying to take better care of your physical and mental health the past week and it shows! You feel more energized and rejuvenated compared to before.\n\n*You have earned a Health Badge!*",
+                  "position": {
+                    "bottom": "10%",
+                    "left": "23%"
+                  },
+                  "dimension": {
+                    "width": "54%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "social badge",
+              "clickables": [
+                {
+                  "name": "social",
+                  "src": "/images/social-badge.png",
+                  "position": {
+                    "top": "8%",
+                    "left": "35%"
+                  },
+                  "dimension": {
+                    "width": "30%"
+                  }
+                },
+                {
+                  "name": "social message",
+                  "text": "You have put in the effort this week to spend more time and connect with your friends and family. You feel your relationships with them have strengthened.\n\n*You have earned a Social Badge!*",
+                  "position": {
+                    "bottom": "10%",
+                    "left": "23%"
+                  },
+                  "dimension": {
+                    "width": "54%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "wealth badge",
+              "clickables": [
+                {
+                  "name": "wealth",
+                  "src": "/images/wealth-badge.png",
+                  "position": {
+                    "top": "8%",
+                    "left": "35%"
+                  },
+                  "dimension": {
+                    "width": "30%"
+                  }
+                },
+                {
+                  "name": "wealth message",
+                  "text": "Your efforts at saving and earning money in the past week have been effective. While income issues don't disappear overnight, you feel you can go into the next week with a slightly better sense of financial security.\n\n*You have earned a Wealth Badge!*",
+                  "position": {
+                    "bottom": "10%",
+                    "left": "23%"
+                  },
+                  "dimension": {
+                    "width": "54%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "helping hand badge",
+              "clickables": [
+                {
+                  "name": "helping hand",
+                  "src": "/images/helping-hand-badge.png",
+                  "position": {
+                    "top": "8%",
+                    "left": "35%"
+                  },
+                  "dimension": {
+                    "width": "30%"
+                  }
+                },
+                {
+                  "name": "helping hand message",
+                  "text": "You have been open to approaching other for help this week. Remember, you are not alone in your journey!\n\n*You have earned a Helping Hand Badge!*",
+                  "position": {
+                    "bottom": "10%",
+                    "left": "23%"
+                  },
+                  "dimension": {
+                    "width": "54%"
+                  }
+                }
+              ]
             }
           ],
           "links": [
@@ -1818,7 +2147,51 @@
           "intro": [
             {
               "type": "wait",
-              "duration": 1500
+              "duration": 1000
+            },
+            {
+              "type": "showClickable",
+              "value": "health badge",
+              "if": {
+                ">=": [
+                  "{health}",
+                  15
+                ]
+              }
+            },
+            {
+              "type": "showClickable",
+              "value": "social badge",
+              "if": {
+                ">=": [
+                  "{social}",
+                  15
+                ]
+              }
+            },
+            {
+              "type": "showClickable",
+              "value": "wealth badge",
+              "if": {
+                ">=": [
+                  "{wealth}",
+                  6
+                ]
+              }
+            },
+            {
+              "type": "showClickable",
+              "value": "helping hand badge",
+              "if": {
+                "==": [
+                  "{approached help}",
+                  true
+                ]
+              }
+            },
+            {
+              "type": "wait",
+              "duration": 500
             },
             {
               "type": "showLink",
@@ -1839,7 +2212,7 @@
     {
       "name": "Mrs Lee",
       "images": {
-        "default": "/images/Julie.svg"
+        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/mrs-lee.png"
       }
     },
     {

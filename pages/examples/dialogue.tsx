@@ -1,4 +1,4 @@
-import GameSchemaInput from '../../components/GameSchemaInput'
+import GameSchemaInput from '../../components/debugging/GameSchemaInput'
 import Status from '../../components/Status'
 import exampleJson from '../../schema/example-dialogue.json'
 

@@ -6,15 +6,10 @@ import {
   optional,
   string,
   size,
-  dynamic,
   union,
 } from 'superstruct'
 import { MainCharacterSchema, NPCSchema } from './character'
-import {
-  StateComponentSchema,
-  StateDisplaySchema,
-  StateMeterSchema,
-} from './component'
+import { StateDisplaySchema, StateMeterSchema } from './component'
 import { StateSchema } from './state'
 
 export const GameSchema = object({

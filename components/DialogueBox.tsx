@@ -2,7 +2,6 @@ import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons'
 import { Box, IconButton } from '@chakra-ui/react'
 import {
   CSSProperties,
-  Fragment,
   MouseEventHandler,
   ReactNode,
   useCallback,
@@ -32,7 +31,6 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
   position,
   dimension,
   header,
-  bodyClass,
   bodyStyle,
   bodyText = '',
   gotoNext,
@@ -68,26 +66,38 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
   }
 
   const body = (
-    <div className={bodyClass || ''} style={bodyStyle || {}}>
-      {skipTyping ? (
-        <p>{template(renderMdToHtml(bodyText))}</p>
-      ) : (
-        <Typewriter
-          key={bodyText}
-          onInit={(typewriter) => {
-            typewriter.typeString(template(renderMdToHtml(bodyText))).start()
-          }}
-          options={{
-            cursor: '',
-            delay: 30, // speed adjustment
-          }}
-        />
-      )}
+    <div
+      className="mt-1 h-full text-2xs overflow-y-auto sm:text-xs md:text-sm lg:text-base"
+      style={bodyStyle || {}}
+    >
+      <div className="scrollbar-thin scrollbar-thumb-gray-500 scrollbar-thumb-rounded scrollbar-track-gray-100 flex flex-col-reverse pl-1 pr-2 max-h-full overflow-y-auto">
+        {skipTyping ? (
+          <p
+            dangerouslySetInnerHTML={{
+              __html: template(renderMdToHtml(bodyText)),
+            }}
+          />
+        ) : (
+          <Typewriter
+            key={bodyText}
+            onInit={(typewriter) => {
+              typewriter
+                .typeString(template(renderMdToHtml(bodyText)))
+                .callFunction(() => setSkipTyping(true))
+                .start()
+            }}
+            options={{
+              cursor: '',
+              delay: 25, // speed adjustment
+            }}
+          />
+        )}
+      </div>
     </div>
   )
 
   const buttons = (
-    <div className="sm:text-[8px] md:text-[12px] lg:text-[18px] flex justify-between -mb-1 text-blue-400 text-3xs">
+    <div className="flex justify-between text-blue-400 text-2xs sm:text-xs md:text-sm lg:text-lg">
       <IconButton
         aria-label="previous"
         variant="ghost"
@@ -98,7 +108,7 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
             boxSize={6}
           />
         }
-        className={`px-2 py-1 rounded ${
+        className={`px-2 md:py-1 rounded ${
           prevEnabled ? 'cursor-pointer hover:bg-blue-50' : 'text-blue-200'
         }`}
         isDisabled={!prevEnabled}
@@ -113,7 +123,7 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
             boxSize={6}
           />
         }
-        className={`px-2 py-1 rounded ${
+        className={`px-2 md:py-1 rounded ${
           nextEnabled ? 'cursor-pointer hover:bg-blue-50' : 'text-blue-200'
         }`}
         isDisabled={!nextEnabled}
@@ -122,28 +132,28 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
   )
 
   const content = (
-    <Fragment>
+    <>
       {header}
       {body}
       {buttons}
-    </Fragment>
+    </>
   )
 
   return (
-    <Fragment>
+    <>
       {image ? (
         <Box
           onClick={onClick}
           bgImage={image}
           bgSize="100% 100%"
-          className="p-[3%] absolute"
+          className="px-[3%] py-[2%] absolute flex flex-col"
           style={{
             top: position?.top || 'unset',
             left: position?.left || '20%',
             right: position?.right || 'unset',
             bottom: position?.bottom || '10%',
             width: dimension?.width || '60%',
-            height: dimension?.height || '30%',
+            height: dimension?.height || '32%',
           }}
         >
           {content}
@@ -158,15 +168,15 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
             right: position?.right || 'unset',
             bottom: position?.bottom || '10%',
             width: dimension?.width || '60%',
-            height: dimension?.height || '30%',
+            height: dimension?.height || '32%',
           }}
         >
-          <div className="p-[1.5%] flex flex-col w-full h-full bg-white rounded-lg">
+          <div className="p-[1%] md:p-[1.5%] flex flex-col justify-around w-full h-full bg-white rounded-lg">
             {content}
           </div>
         </div>
       )}
-    </Fragment>
+    </>
   )
 }
 

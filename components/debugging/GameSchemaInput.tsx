@@ -1,10 +1,11 @@
 import { ChangeEventHandler, useEffect, useState } from 'react'
-import { create } from 'superstruct'
-import { useDebounce } from '../hooks/useDebounce'
-import { Game, makeGame } from '../lib/game'
-import { GameSchema } from '../schema/game'
-import { useStore } from '../stores/store'
-import GameDisplay from './GameDisplay'
+import { create, object } from 'superstruct'
+import { useDebounce } from '../../hooks/useDebounce'
+import { Game, makeGame } from '../../lib/game'
+import { GameSchema } from '../../schema/game'
+import { useStore } from '../../stores/store'
+import GameDisplay from '../GameDisplay'
+import { StateSchemaInput } from './StateSchemaInput'
 
 type GameSchemaArgs = {
   examples: { jsonData: any; name: string }[]
@@ -17,9 +18,17 @@ export const GameSchemaInput: React.FC<GameSchemaArgs> = ({
   const debouncedSchema = useDebounce(inputSchema, 500)
 
   const [game, setGame] = useState<Game | undefined>()
-  const [error, setError] = useState<string | undefined>()
+  const [gameError, setGameError] = useState<string | undefined>()
 
   const currentSceneId = useStore((state) => state.game.currentSceneId)
+  const globalState = useStore((state) => state.game.globalState)
+  const updateGlobalState = useStore((state) => state.replaceGlobalState)
+  const currentSceneState = useStore(
+    (state) => state.game.getScene(currentSceneId)?.state
+  )
+  const updateCurrentSceneState = useStore(
+    (state) => state.replaceCurrentSceneState
+  )
   const gotoScene = useStore((state) => state.gotoScene)
 
   const handleInput: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
@@ -44,12 +53,12 @@ export const GameSchemaInput: React.FC<GameSchemaArgs> = ({
       setGame(makeGame(schema))
     } catch (e) {
       console.log({ e })
-      setError(`${e}`)
+      setGameError(`${e}`)
       setGame(undefined)
       return
     }
 
-    setError(undefined)
+    setGameError(undefined)
   }, [debouncedSchema])
 
   return (
@@ -72,14 +81,31 @@ export const GameSchemaInput: React.FC<GameSchemaArgs> = ({
           </button>
         ))}
       </div>
-      <div className="font-semibold">
-        Current Scene:{' '}
-        <input type="number" value={currentSceneId} onChange={updateScene} />
+      {debouncedSchema !== '' && gameError && (
+        <p className="text-red-600 text-lg">Validation Error: {gameError}</p>
+      )}
+      <div className="grid gap-4 grid-cols-1 place-items-center p-4 w-4/5 font-semibold bg-gray-100 rounded-lg sm:grid-cols-2 lg:grid-cols-3">
+        <div className="flex flex-col items-center sm:col-span-2 lg:col-span-1">
+          Current Scene:{' '}
+          <input
+            className="rounded-md"
+            type="number"
+            value={currentSceneId}
+            onChange={updateScene}
+          />
+        </div>
+        <StateSchemaInput
+          state={globalState}
+          stateName="Global State"
+          updateState={updateGlobalState}
+        />
+        <StateSchemaInput
+          state={currentSceneState}
+          stateName="Current Scene State"
+          updateState={updateCurrentSceneState}
+        />
       </div>
 
-      {debouncedSchema !== '' && error && (
-        <p className="text-red-600 text-lg">Validation Error: {error}</p>
-      )}
       {game && <GameDisplay game={game} />}
     </main>
   )

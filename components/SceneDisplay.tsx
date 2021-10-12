@@ -30,14 +30,14 @@ const SceneDisplay: React.FC<SceneProps> = ({ scene }) => {
         src={scene.background}
         alt={scene.backgroundAltText ?? ''}
       />
+      {scene.images.map((image) => (
+        <ImageElement {...image} key={image.name}></ImageElement>
+      ))}
       {scene.narrations.map((narration) => (
         <Narration {...narration} key={narration.name} />
       ))}
       {scene.dialogues.map((dialogue) => (
         <Dialogue {...dialogue} key={dialogue.name} />
-      ))}
-      {scene.images.map((image) => (
-        <ImageElement {...image} key={image.name}></ImageElement>
       ))}
       {scene.clickables.map((clickableGroup) => (
         <ClickableGroup
