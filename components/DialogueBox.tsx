@@ -1,5 +1,13 @@
-import { Box } from '@chakra-ui/react'
-import { CSSProperties, Fragment, MouseEventHandler, ReactNode, useCallback, useState } from 'react'
+import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons'
+import { Box, IconButton } from '@chakra-ui/react'
+import {
+  CSSProperties,
+  Fragment,
+  MouseEventHandler,
+  ReactNode,
+  useCallback,
+  useState,
+} from 'react'
 import Typewriter from 'typewriter-effect'
 import { useStateTemplater } from '../hooks/useStateTemplater'
 import { Position, Dimension } from '../lib/elements'
@@ -26,7 +34,7 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
   header,
   bodyClass,
   bodyStyle,
-  bodyText = "",
+  bodyText = '',
   gotoNext,
   gotoPrev,
   prevEnabled = true,
@@ -47,7 +55,9 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
     }
   }, [skipTyping, gotoNext])
 
-  function resetTypewriter(fn?: () => void): MouseEventHandler<HTMLButtonElement> {
+  function resetTypewriter(
+    fn?: () => void
+  ): MouseEventHandler<HTMLButtonElement> {
     return (e) => {
       e.stopPropagation()
       setSkipTyping(false)
@@ -58,10 +68,7 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
   }
 
   const body = (
-    <div
-      className={bodyClass || ""}
-      style={bodyStyle || {}}
-    >
+    <div className={bodyClass || ''} style={bodyStyle || {}}>
       {skipTyping ? (
         <p>{template(renderMdToHtml(bodyText))}</p>
       ) : (
@@ -81,24 +88,36 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
 
   const buttons = (
     <div className="sm:text-[8px] md:text-[12px] lg:text-[18px] flex justify-between -mb-1 text-blue-400 text-3xs">
-      <button
+      <IconButton
+        aria-label="previous"
+        variant="ghost"
         onClick={resetTypewriter(gotoPrev)}
+        icon={
+          <ArrowBackIcon
+            className={`${prevEnabled ? 'cursor-pointer' : ''} `}
+            boxSize={6}
+          />
+        }
         className={`px-2 py-1 rounded ${
           prevEnabled ? 'cursor-pointer hover:bg-blue-50' : 'text-blue-200'
         }`}
-        disabled={!prevEnabled}
-      >
-        Prev
-      </button>
-      <button
+        isDisabled={!prevEnabled}
+      />
+      <IconButton
+        aria-label="next"
+        variant="ghost"
         onClick={resetTypewriter(gotoNext)}
+        icon={
+          <ArrowForwardIcon
+            className={`${nextEnabled ? 'cursor-pointer' : ''}`}
+            boxSize={6}
+          />
+        }
         className={`px-2 py-1 rounded ${
           nextEnabled ? 'cursor-pointer hover:bg-blue-50' : 'text-blue-200'
         }`}
-        disabled={!nextEnabled}
-      >
-        Next
-      </button>
+        isDisabled={!nextEnabled}
+      />
     </div>
   )
 

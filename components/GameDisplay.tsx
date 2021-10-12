@@ -4,10 +4,9 @@ import { Game } from '../lib/game'
 import { useStore } from '../stores/store'
 import Footer from './Footer'
 import SceneDisplay from './SceneDisplay'
-import Status from './Status'
 import Header from './Header'
 import { Spinner } from '@chakra-ui/spinner'
-
+import { DisplayControl } from './DisplayControl'
 type GameProps = {
   game?: Game
 }
@@ -16,19 +15,24 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
   const game = useStore((state) => state.game)
   const loadGame = useStore((state) => state.loadGame)
   const [blurBackground, setBlurBackground] = useState(false)
+  const [sizeAdjustment, setSizeAdjustment] = useState(0)
   useEffect(() => {
     if (newGame) {
       loadGame(newGame)
     }
   }, [newGame, loadGame])
-
   return (
     <div className="flex flex-col items-center my-2 w-full space-y-2">
       <Header header={game?.header} />
+      <DisplayControl setSizeAdjustment={setSizeAdjustment} />
       <div
-        className={`w-[72vw] h-[40.5vw] relative bg-white border shadow overflow-hidden ${
+        className={`relative bg-white border shadow overflow-hidden ${
           blurBackground ? 'blur-sm' : ''
-        }`}
+        } `}
+        style={{
+          width: `${72 + sizeAdjustment}vw`,
+          height: `${40.5 + sizeAdjustment}vw`,
+        }}
       >
         {game?.getScenes().map((scene, idx) => (
           <Transition

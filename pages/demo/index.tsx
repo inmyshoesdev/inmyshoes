@@ -9,6 +9,7 @@ import GameDisplay from '../../components/GameDisplay'
 import { PreGameForm, SurveyFormWrapper } from '../../components/Surveys'
 import { Transition } from '@headlessui/react'
 import FullscreenBtn from '../../components/FullscreenBtn'
+import ScreenSizeAdjustment from '../../components/ScreenSizeAdjustment'
 
 const Demo: React.FC = () => {
   const [pregameSurveyDone, setPregameSurveyDone] = useState<boolean>(false)
@@ -107,7 +108,6 @@ const Demo: React.FC = () => {
             />
           </Transition>
         </div>
-        <FullscreenBtn />
       </main>
     </>
   )
