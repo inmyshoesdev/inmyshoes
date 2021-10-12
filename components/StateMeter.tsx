@@ -62,7 +62,7 @@ export default function StateMeter({
             />
           </div>
         </div>
-        <p className="mx-[10px] font-bold">{value}</p>
+        <p className="mx-[10px] mt-2 font-bold">{value}</p>
       </div>
     </div>
   )
