@@ -2,14 +2,14 @@ import FullscreenBtn from './FullscreenBtn'
 import ScreenSizeAdjustment from './ScreenSizeAdjustment'
 
 export function DisplayControl({
-  setSizeAdjustment,
+  setStoredScreenWidth,
 }: {
-  setSizeAdjustment: React.Dispatch<React.SetStateAction<number>>
+  setStoredScreenWidth: React.Dispatch<React.SetStateAction<number>>
 }) {
   return (
     <>
       <FullscreenBtn />
-      <ScreenSizeAdjustment setSizeAdjustment={setSizeAdjustment} />
+      <ScreenSizeAdjustment setStoredScreenWidth={setStoredScreenWidth} />
     </>
   )
 }

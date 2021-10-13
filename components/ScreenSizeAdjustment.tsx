@@ -4,9 +4,9 @@ import { AddIcon, MinusIcon } from '@chakra-ui/icons'
 import { Tooltip } from '@chakra-ui/react'
 
 export default function ScreenSizeAdjustment({
-  setSizeAdjustment,
+  setStoredScreenWidth,
 }: {
-  setSizeAdjustment: React.Dispatch<React.SetStateAction<number>>
+  setStoredScreenWidth: React.Dispatch<React.SetStateAction<number>>
 }): JSX.Element {
   return (
     <div className="absolute right-10 top-1 mx-4 focus:outline-none">
@@ -16,7 +16,9 @@ export default function ScreenSizeAdjustment({
           variant="ghost"
           icon={<MinusIcon className="cursor-pointer" />}
           onClick={() =>
-            setSizeAdjustment((state) => Math.max(state - 16 / 9, -64 / 9))
+            setStoredScreenWidth((state: number) =>
+              Math.max(state - 0.5625, 69.75)
+            )
           }
         />
       </Tooltip>
@@ -26,7 +28,9 @@ export default function ScreenSizeAdjustment({
           variant="ghost"
           icon={<AddIcon className="cursor-pointer" />}
           onClick={() =>
-            setSizeAdjustment((state) => Math.min(state + 16 / 9, 64 / 9))
+            setStoredScreenWidth((state: number) =>
+              Math.min(state + 0.5625, 80)
+            )
           }
         />
       </Tooltip>

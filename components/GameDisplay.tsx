@@ -7,6 +7,7 @@ import SceneDisplay from './SceneDisplay'
 import Header from './Header'
 import { Spinner } from '@chakra-ui/spinner'
 import { DisplayControl } from './DisplayControl'
+import useLocalStorage from '../hooks/useLocalStorage'
 type GameProps = {
   game?: Game
 }
@@ -15,7 +16,10 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
   const game = useStore((state) => state.game)
   const loadGame = useStore((state) => state.loadGame)
   const [blurBackground, setBlurBackground] = useState(false)
-  const [sizeAdjustment, setSizeAdjustment] = useState(0)
+  const [storedScreenWidth, setStoredScreenWidth] = useLocalStorage(
+    'ims-screenWidth',
+    72
+  )
   useEffect(() => {
     if (newGame) {
       loadGame(newGame)
@@ -24,14 +28,14 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
   return (
     <div className="flex flex-col items-center my-2 w-full space-y-2">
       <Header header={game?.header} />
-      <DisplayControl setSizeAdjustment={setSizeAdjustment} />
+      <DisplayControl setStoredScreenWidth={setStoredScreenWidth} />
       <div
         className={`relative bg-white border shadow overflow-hidden ${
           blurBackground ? 'blur-sm' : ''
         } `}
         style={{
-          width: `${72 + sizeAdjustment}vw`,
-          height: `${40.5 + sizeAdjustment}vw`,
+          aspectRatio: '16/9',
+          width: `${storedScreenWidth}vw`,
         }}
       >
         {game?.getScenes().map((scene, idx) => (
