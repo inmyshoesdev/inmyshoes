@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import CharacterInfo from './CharacterInfo'
 import { Tooltip } from '@chakra-ui/react'
+import { useSound } from 'use-sound'
+
 function Footer({
   gameOn,
   characterInfo,
@@ -12,32 +14,9 @@ function Footer({
 }) {
   const [hideCharacterInfo, setHideCharacterInfo] = useState(true)
   const [musicOn, setMusicOn] = useState(false)
-  const [audio, setAudio] = useState<HTMLAudioElement | undefined>(undefined)
-  useEffect(() => {
-    const audioElement = new Audio()
-    audioElement.volume = 0.05
-    audioElement.src = '/music/bensound-jazzcomedy.mp3'
-    audioElement.loop = true
-    setAudio(audioElement)
-  }, [])
-
-  // comment out autoplay for now
-  //   useEffect(() => {
-  //     if (audio) {
-  //       const tryToPlay = setInterval(() => {
-  //         audio
-  //           .play()
-  //           .then(() => {
-  //             clearInterval(tryToPlay)
-  //             setMusicOn(true)
-  //           })
-  //           .catch((error) => {
-  //             console.info('User has not interacted with document yet:)')
-  //           })
-  //       }, 1000)
-  //     }
-  //   }, [audio])
-
+  const [play, { stop }] = useSound('/music/bensound-jazzcomedy.mp3', {
+    volume: 0.5,
+  })
   return (
     <>
       <CharacterInfo
@@ -105,13 +84,12 @@ function Footer({
           className="z-10 focus:outline-none"
           id="soundOnBtn"
           onClick={() => {
-            setMusicOn(!musicOn)
-            if (musicOn && audio !== undefined) {
-              audio.muted = true
-            } else if (audio !== undefined) {
-              audio.play()
-              audio.muted = false
+            if (musicOn) {
+              stop()
+            } else {
+              play()
             }
+            setMusicOn(!musicOn)
           }}
           aria-label="sound on off button"
         >
