@@ -1,3 +1,4 @@
+import useSound from 'use-sound'
 import { useStateTemplater } from '../hooks/useStateTemplater'
 import { Dimension, Position } from '../lib/elements'
 import { getAnimationClass, renderMdToHtml } from './utils'
@@ -21,9 +22,17 @@ const ClickableText = ({
 
   const positionDefined =
     position?.top || position?.left || position?.right || position?.bottom
-
+  const [play, { stop }] = useSound('/sounds/pop-up-on.mp3', { volume: 0.25 })
+  const [playOff] = useSound('/sounds/pop-up-off.mp3', { volume: 0.15 })
   return (
-    <span
+    <button
+      onMouseEnter={() => {
+        play()
+      }}
+      onMouseLeave={() => {
+        stop()
+        playOff()
+      }}
       className={
         `positioned text-xs sm:text-sm lg:text-base text-center absolute px-4 py-3  
         font-medium text-white border border-gray-300 
