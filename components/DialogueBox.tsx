@@ -1,4 +1,5 @@
-import { Box } from '@chakra-ui/react'
+import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons'
+import { Box, IconButton } from '@chakra-ui/react'
 import {
   CSSProperties,
   MouseEventHandler,
@@ -97,24 +98,36 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
 
   const buttons = (
     <div className="flex justify-between text-blue-400 text-2xs sm:text-xs md:text-sm lg:text-lg">
-      <button
+      <IconButton
+        aria-label="previous"
+        variant="ghost"
         onClick={resetTypewriter(gotoPrev)}
+        icon={
+          <ArrowBackIcon
+            className={`${prevEnabled ? 'cursor-pointer' : ''} `}
+            boxSize={6}
+          />
+        }
         className={`px-2 md:py-1 rounded ${
           prevEnabled ? 'cursor-pointer hover:bg-blue-50' : 'text-blue-200'
         }`}
-        disabled={!prevEnabled}
-      >
-        Prev
-      </button>
-      <button
+        isDisabled={!prevEnabled}
+      />
+      <IconButton
+        aria-label="next"
+        variant="ghost"
         onClick={resetTypewriter(gotoNext)}
+        icon={
+          <ArrowForwardIcon
+            className={`${nextEnabled ? 'cursor-pointer' : ''}`}
+            boxSize={6}
+          />
+        }
         className={`px-2 md:py-1 rounded ${
           nextEnabled ? 'cursor-pointer hover:bg-blue-50' : 'text-blue-200'
         }`}
-        disabled={!nextEnabled}
-      >
-        Next
-      </button>
+        isDisabled={!nextEnabled}
+      />
     </div>
   )
 
