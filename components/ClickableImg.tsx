@@ -1,4 +1,5 @@
 import { Tooltip } from '@chakra-ui/tooltip'
+import useSound from 'use-sound'
 import { Dimension, Position } from '../lib/elements'
 import { getAnimationClass } from './utils'
 
@@ -23,6 +24,7 @@ const ClickableImg = ({
 }: ClickableImgProps) => {
   const positionDefined =
     position?.top || position?.left || position?.right || position?.bottom
+  const [play] = useSound('/sounds/pop-down.mp3', { volume: 0.2 })
 
   return (
     <>
@@ -38,7 +40,10 @@ const ClickableImg = ({
             'positioned image absolute cursor-pointer object-cover ' +
             getAnimationClass(effect)
           }
-          onClick={onClick}
+          onClick={() => {
+            play()
+            onClick()
+          }}
           alt={altText}
           src={src}
           style={{

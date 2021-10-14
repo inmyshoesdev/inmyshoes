@@ -27,6 +27,7 @@
     "styled-jsx-plugin-postcss": "^4.0.1",
     "superstruct": "^0.15.2",
     "typewriter-effect": "^2.18.2",
+    "use-sound": "^4.0.1",
     "zustand": "^3.5.12"
   },
   "devDependencies": {
