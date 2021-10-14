@@ -1,5 +1,5 @@
 import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons'
-import { Box, IconButton } from '@chakra-ui/react'
+import { Box, IconButton, useBreakpointValue } from '@chakra-ui/react'
 import {
   CSSProperties,
   MouseEventHandler,
@@ -67,12 +67,13 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
 
   const body = (
     <div
-      className="mt-1 h-full text-2xs overflow-y-auto sm:text-xs md:text-sm lg:text-base"
+      className="mt-1 h-full text-xs overflow-y-auto sm:text-sm md:text-base lg:text-lg xl:text-xl"
       style={bodyStyle || {}}
     >
       <div className="scrollbar-thin scrollbar-thumb-gray-500 scrollbar-thumb-rounded scrollbar-track-gray-100 flex flex-col-reverse pl-1 pr-2 max-h-full overflow-y-auto">
         {skipTyping ? (
-          <p
+          <span
+            className="font-handwritten leading-relaxed"
             dangerouslySetInnerHTML={{
               __html: template(renderMdToHtml(bodyText)),
             }}
@@ -89,6 +90,8 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
             options={{
               cursor: '',
               delay: 25, // speed adjustment
+              wrapperClassName:
+                'Typewriter__wrapper font-handwritten leading-relaxed',
             }}
           />
         )}
@@ -96,36 +99,33 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
     </div>
   )
 
+  const buttonSize = useBreakpointValue(['xs', 'sm', 'sm', 'md'])
   const buttons = (
-    <div className="flex justify-between text-blue-400 text-2xs sm:text-xs md:text-sm lg:text-lg">
+    <div className="flex justify-between text-blue-400">
       <IconButton
         aria-label="previous"
         variant="ghost"
         onClick={resetTypewriter(gotoPrev)}
+        size={buttonSize}
         icon={
           <ArrowBackIcon
             className={`${prevEnabled ? 'cursor-pointer' : ''} `}
-            boxSize={6}
+            boxSize={[3, 4, 5, 6]}
           />
         }
-        className={`px-2 md:py-1 rounded ${
-          prevEnabled ? 'cursor-pointer hover:bg-blue-50' : 'text-blue-200'
-        }`}
         isDisabled={!prevEnabled}
       />
       <IconButton
         aria-label="next"
         variant="ghost"
         onClick={resetTypewriter(gotoNext)}
+        size={buttonSize}
         icon={
           <ArrowForwardIcon
             className={`${nextEnabled ? 'cursor-pointer' : ''}`}
-            boxSize={6}
+            boxSize={[3, 4, 5, 6]}
           />
         }
-        className={`px-2 md:py-1 rounded ${
-          nextEnabled ? 'cursor-pointer hover:bg-blue-50' : 'text-blue-200'
-        }`}
         isDisabled={!nextEnabled}
       />
     </div>
@@ -160,7 +160,7 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
         </Box>
       ) : (
         <div
-          className="p-[5px] absolute border-2 border-gray-600 rounded-lg"
+          className="rounded-handdrawn border-3 absolute bg-white border-gray-900 shadow-sm"
           onClick={onClick}
           style={{
             top: position?.top || 'unset',
@@ -171,7 +171,7 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
             height: dimension?.height || '32%',
           }}
         >
-          <div className="p-[1%] md:p-[1.5%] flex flex-col justify-around w-full h-full bg-white rounded-lg">
+          <div className="px-[1%] md:px-[1.75%] flex flex-col justify-around py-1 w-full h-full md:pb-2 md:pt-3">
             {content}
           </div>
         </div>

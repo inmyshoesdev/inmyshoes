@@ -210,3 +210,17 @@ body {
     url('/fonts/rubik-v14-latin-800italic.ttf') format('truetype'),
     url('/fonts/rubik-v14-latin-800italic.svg#Rubik') format('svg');
 }
+
+/* dekko-regular - latin */
+@font-face {
+  font-family: 'Dekko';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/dekko-v9-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+    url('/fonts/dekko-v9-latin-regular.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/dekko-v9-latin-regular.woff2') format('woff2'),
+    url('/fonts/dekko-v9-latin-regular.woff') format('woff'),
+    url('/fonts/dekko-v9-latin-regular.ttf') format('truetype'),
+    url('/fonts/dekko-v9-latin-regular.svg#Dekko') format('svg');
+}

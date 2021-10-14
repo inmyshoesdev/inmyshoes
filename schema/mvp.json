@@ -640,7 +640,7 @@
             {
               "name": "2",
               "texts": [
-                "Staying up all night to complete your work was alot of stress for you, and you did not get enough sleep for the next day. You were also unable to report to work and lost out on the day's earnings. "
+                "Staying up all night to complete your work was a lot of stress for you, and you did not get enough sleep for the next day. You were also unable to report to work and lost out on the day's earnings. "
               ]
             }
           ],
@@ -1474,7 +1474,7 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "text": "Ugh... What luck! I still have my school assignments to complete. My laptop must've been too old.."
+                  "text": "Ugh... What luck! I still have my school assignments to complete. My laptop must've been too old..."
                 },
                 {
                   "character": "Curtis",
@@ -2153,40 +2153,28 @@
               "type": "showClickable",
               "value": "health badge",
               "if": {
-                ">=": [
-                  "{health}",
-                  15
-                ]
+                ">=": ["{health}", 15]
               }
             },
             {
               "type": "showClickable",
               "value": "social badge",
               "if": {
-                ">=": [
-                  "{social}",
-                  15
-                ]
+                ">=": ["{social}", 15]
               }
             },
             {
               "type": "showClickable",
               "value": "wealth badge",
               "if": {
-                ">=": [
-                  "{wealth}",
-                  6
-                ]
+                ">=": ["{wealth}", 6]
               }
             },
             {
               "type": "showClickable",
               "value": "helping hand badge",
               "if": {
-                "==": [
-                  "{approached help}",
-                  true
-                ]
+                "==": ["{approached help}", true]
               }
             },
             {
