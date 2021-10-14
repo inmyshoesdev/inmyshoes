@@ -22,24 +22,19 @@ const ClickableText = ({
 
   const positionDefined =
     position?.top || position?.left || position?.right || position?.bottom
-  const [play, { stop }] = useSound('/sounds/pop-up-on.mp3', { volume: 0.25 })
-  const [playOff] = useSound('/sounds/pop-up-off.mp3', { volume: 0.15 })
+  const [play] = useSound('/sounds/pop-down.mp3', { volume: 0.2 })
   return (
     <button
-      onMouseEnter={() => {
-        play()
-      }}
-      onMouseLeave={() => {
-        stop()
-        playOff()
-      }}
       className={
         `positioned text-xs sm:text-sm lg:text-base text-center absolute px-4 py-3  
         font-medium text-white border border-gray-300 
         rounded shadow cursor-pointer bg-gray-700
          hover:bg-gray-800 bg-opacity-80` + getAnimationClass(effect)
       }
-      onClick={onClick}
+      onClick={() => {
+        play()
+        onClick()
+      }}
       style={{
         top: positionDefined ? position?.top || 'unset' : '50%',
         left: positionDefined ? position?.left || 'unset' : '50%',
