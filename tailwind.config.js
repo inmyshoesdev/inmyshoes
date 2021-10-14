@@ -35,21 +35,31 @@ module.exports = {
         '2xs': '.625rem',
       },
       fontFamily: {
-        sans: ['Rubik', ...defaultTheme.fontFamily.sans]
+        sans: ['Rubik', ...defaultTheme.fontFamily.sans],
+        handwritten: ['Dekko', 'Rubik', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        "teal": "#009688",
-        "teal-50": "#e0f2f1",
-        "teal-100": "#b2dfdb",
-        "teal-200": "#80cbc4",
-        "teal-300": "#4db6ac",
-        "teal-400": "#26a69a",
-        "teal-500": "#009688",
-        "teal-600": "#00897b",
-        "teal-700": "#00796b",
-        "teal-800": "#00695c",
-        "teal-900": "#004d40"
-      }
+        'teal': '#009688',
+        'teal-50': '#e0f2f1',
+        'teal-100': '#b2dfdb',
+        'teal-200': '#80cbc4',
+        'teal-300': '#4db6ac',
+        'teal-400': '#26a69a',
+        'teal-500': '#009688',
+        'teal-600': '#00897b',
+        'teal-700': '#00796b',
+        'teal-800': '#00695c',
+        'teal-900': '#004d40'
+      },
+      borderRadius: {
+        'handdrawn': '300px 15px 175px 15px/15px 175px 15px 300px'
+      },
+      borderWidth: {
+        '3': '3px'
+      },
+      lineHeight: {
+        'relaxed': '1.67'
+       }
     },
   },
   variants: {
