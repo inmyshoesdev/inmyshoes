@@ -2,6 +2,7 @@ import { useState } from 'react'
 import CharacterInfo from './CharacterInfo'
 import { Tooltip } from '@chakra-ui/react'
 import { useSound } from 'use-sound'
+import { CharacterInfoSlide } from '../lib/character'
 
 function Footer({
   gameOn,
@@ -9,7 +10,7 @@ function Footer({
   setBlurBackground,
 }: {
   gameOn: boolean
-  characterInfo: string
+  characterInfo: CharacterInfoSlide[]
   setBlurBackground: React.Dispatch<React.SetStateAction<boolean>>
 }) {
   const [hideCharacterInfo, setHideCharacterInfo] = useState(true)
@@ -23,7 +24,7 @@ function Footer({
         hidden={hideCharacterInfo}
         setHidden={setHideCharacterInfo}
         setBlurBackground={setBlurBackground}
-        url={characterInfo}
+        characterInfo={characterInfo}
       />
       <div id="footer" className={`w-96 flex justify-around items-center`}>
         <div>
