@@ -8,6 +8,8 @@ import Header from './Header'
 import { Spinner } from '@chakra-ui/spinner'
 import { DisplayControl } from './DisplayControl'
 import useLocalStorage from '../hooks/useLocalStorage'
+import { CharacterSelection } from './CharacterSelection'
+import { useDisclosure } from '@chakra-ui/hooks'
 type GameProps = {
   game?: Game
 }
@@ -15,20 +17,31 @@ type GameProps = {
 const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
   const game = useStore((state) => state.game)
   const loadGame = useStore((state) => state.loadGame)
+  const updateCharacter = useStore((state) => state.updateCharacter)
+  const [characterSelected, setCharacterSelected] = useState(false)
   const [blurBackground, setBlurBackground] = useState(false)
   const [storedScreenWidth, setStoredScreenWidth] = useLocalStorage(
     'ims-screenWidth',
     72
   )
+  const { isOpen, onOpen, onClose } = useDisclosure()
   useEffect(() => {
     if (newGame) {
       loadGame(newGame)
     }
-  }, [newGame, loadGame])
+    onOpen()
+  }, [newGame, loadGame, onOpen])
   return (
     <div className="flex flex-col items-center my-2 w-full space-y-2">
       <Header header={game?.header} />
       <DisplayControl setStoredScreenWidth={setStoredScreenWidth} />
+      <CharacterSelection
+        isOpen={isOpen}
+        onClose={onClose}
+        mainCharacters={game.mainCharacters}
+        setCharacterSelected={setCharacterSelected}
+        updateCharacter={updateCharacter}
+      />
       <div
         className={`relative bg-white border shadow overflow-hidden ${
           blurBackground ? 'blur-sm' : ''
@@ -38,21 +51,22 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
           width: `${storedScreenWidth}vw`,
         }}
       >
-        {game?.getScenes().map((scene, idx) => (
-          <Transition
-            show={!game.loading && game?.currentSceneId === scene.id}
-            enter="transition-opacity duration-500"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="transition-opacity duration-500"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-            key={idx}
-            className="absolute inset-0"
-          >
-            <SceneDisplay scene={scene} />
-          </Transition>
-        ))}
+        {characterSelected &&
+          game?.getScenes().map((scene, idx) => (
+            <Transition
+              show={!game.loading && game?.currentSceneId === scene.id}
+              enter="transition-opacity duration-500"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="transition-opacity duration-500"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+              key={idx}
+              className="absolute inset-0"
+            >
+              <SceneDisplay scene={scene} />
+            </Transition>
+          ))}
         <Transition
           show={game.loading}
           leave="transition-opacity duration-1000"
