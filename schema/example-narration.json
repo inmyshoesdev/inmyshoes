@@ -15,13 +15,17 @@
           "narrations": [
             {
               "name": "intro",
-              "texts": ["this is an **intro** *narration*. it will [auto](https://google.com) advance in 10 seconds. click next to navigate",
+              "texts": [
+                "this is an **intro** *narration*. it will [auto](https://google.com) advance in 10 seconds. click next to navigate",
                 "click prev to go back, and next to continue on",
-                "click prev to go back, and next to end this segment"]
+                "click prev to go back, and next to end this segment"
+              ]
             },
             {
               "name": "position",
-              "texts": ["this narration is in a funny position!"],
+              "texts": [
+                "this narration is in a funny position!"
+              ],
               "position": {
                 "top": "35%",
                 "left": "10%"
@@ -32,11 +36,15 @@
             },
             {
               "name": "stay",
-              "texts": ["this narration stays for 3 seconds, then disappears for 1 second"]
+              "texts": [
+                "this narration stays for 3 seconds, then disappears for 1 second"
+              ]
             },
             {
               "name": "last",
-              "texts": ["you will leave this scene in 2 seconds"]
+              "texts": [
+                "you will leave this scene in 2 seconds"
+              ]
             }
           ],
           "dialogues": [],
@@ -84,7 +92,7 @@
           "clickables": [
             {
               "name": "restart",
-              "clickables": [
+              "options": [
                 {
                   "name": "yes",
                   "text": "restart?",

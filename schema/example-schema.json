@@ -28,15 +28,21 @@
             },
             {
               "name": "scared msg",
-              "texts": ["you are very scared..."]
+              "texts": [
+                "you are very scared..."
+              ]
             },
             {
               "name": "clown decision",
-              "texts": ["listen to the clown?"]
+              "texts": [
+                "listen to the clown?"
+              ]
             },
             {
               "name": "win msg",
-              "texts": ["you won!!!"]
+              "texts": [
+                "you won!!!"
+              ]
             }
           ],
           "dialogues": [
@@ -76,7 +82,7 @@
           "clickables": [
             {
               "name": "clown yes/no",
-              "clickables": [
+              "options": [
                 {
                   "name": "yes",
                   "text": "yes",
@@ -123,7 +129,7 @@
             },
             {
               "name": "fear display",
-              "clickables": [
+              "options": [
                 {
                   "name": "",
                   "text": "Fear: {fear}",
@@ -151,7 +157,10 @@
               "type": "showNarration",
               "value": "scared msg",
               "if": {
-                ">=": ["{fear}", 10]
+                ">=": [
+                  "{fear}",
+                  10
+                ]
               }
             },
             {
@@ -191,7 +200,7 @@
           "clickables": [
             {
               "name": "restart",
-              "clickables": [
+              "options": [
                 {
                   "name": "yes",
                   "text": "restart?",

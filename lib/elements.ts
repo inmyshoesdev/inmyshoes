@@ -202,10 +202,10 @@ export function makeClickableGroup(
   return {
     shown: false,
     name: schema.name,
-    clickables: schema.clickables.map((clickable) => {
+    clickables: schema.options.map((option) => {
       return {
-        ...clickable,
-        onClickActions: clickable.onClick
+        ...option,
+        onClickActions: option.onClick
           .map((x) => makeAction(x, sceneId))
           .filter(isDefined),
       }

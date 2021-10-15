@@ -215,7 +215,7 @@ export const ClickableItemSchema = intersection([
 
 export const ClickableGroupSchema = intersection([
   type({ name: string() }),
-  type({ clickables: size(array(ClickableItemSchema), 0, Infinity) }),
+  type({ options: size(array(ClickableItemSchema), 0, Infinity) }),
 ])
 
 export type ClickableGroupSchema = Infer<typeof ClickableGroupSchema>

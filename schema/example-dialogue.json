@@ -128,7 +128,7 @@
                     "clickables": [
                         {
                             "name": "restart",
-                            "clickables": [
+                            "options": [
                                 {
                                     "name": "yes",
                                     "text": "restart?",
