@@ -1,5 +1,7 @@
+import { apply, RulesLogic } from 'json-logic-js'
 import {
   ClickableGroupSchema,
+  ClickableItemSchema,
   DialogueSchema,
   ImageSchema,
   LinkSchema,
@@ -8,6 +10,8 @@ import {
 } from '../schema/elements'
 import { Action, makeAction } from './actions'
 import { Character } from './character'
+import { evalCondition, makeLogic } from './logic'
+import { State } from './state'
 import { isDefined } from './utils'
 
 // Add a key here and keep the `AllElements` list below in-sync when adding new elements
@@ -174,6 +178,9 @@ export type Clickable = {
   dimension?: Dimension
   effect?: string
   onClickActions: Action[]
+  disabledCondition?: RulesLogic
+  disabledLabel?: string
+  isDisabled(globalState: State, currSceneState?: State): boolean | undefined
 } & (ClickableText | ClickableImg)
 
 export function isClickableText(
@@ -203,12 +210,36 @@ export function makeClickableGroup(
     shown: false,
     name: schema.name,
     clickables: schema.options.map((option) => {
-      return {
-        ...option,
-        onClickActions: option.onClick
-          .map((x) => makeAction(x, sceneId))
-          .filter(isDefined),
-      }
+      const onClickActions = option.onClick
+        .map((x) => makeAction(x, sceneId))
+        .filter(isDefined)
+      return makeClickable(option, onClickActions)
     }),
+  }
+}
+
+function makeClickable(
+  schema: ClickableItemSchema,
+  onClickActions: Action[]
+): Clickable {
+  return {
+    ...schema,
+    onClickActions: onClickActions,
+    disabledCondition: makeLogic(schema.disabled?.if),
+    disabledLabel: schema.disabled?.label,
+    isDisabled(
+      globalState: State,
+      currSceneState?: State
+    ): boolean | undefined {
+      if (!this.disabledCondition) {
+        return undefined
+      } else {
+        return evalCondition(
+          this.disabledCondition,
+          globalState,
+          currSceneState
+        )
+      }
+    },
   }
 }

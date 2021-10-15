@@ -12,6 +12,7 @@ import {
   defaulted,
 } from 'superstruct'
 import { ActionSchema } from './actions'
+import { LogicSchema } from './logic'
 
 // {
 //     "name": "hello",
@@ -201,8 +202,16 @@ export type LinkSchema = Infer<typeof LinkSchema>
 // }
 export const ClickableItemSchema = intersection([
   ElementSchema,
-  type({ onClick: defaulted(array(ActionSchema), () => []) }),
-  type({ effect: optional(string()) }),
+  type({
+    onClick: defaulted(array(ActionSchema), () => []),
+    effect: optional(string()),
+    disabled: optional(
+      type({
+        if: optional(LogicSchema),
+        label: optional(string()),
+      })
+    ),
+  }),
   union([
     type({ text: string() }),
     type({
@@ -212,6 +221,8 @@ export const ClickableItemSchema = intersection([
     }),
   ]),
 ])
+
+export type ClickableItemSchema = Infer<typeof ClickableItemSchema>
 
 export const ClickableGroupSchema = intersection([
   type({ name: string() }),

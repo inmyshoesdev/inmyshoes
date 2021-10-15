@@ -22,6 +22,10 @@ const ClickableGroup: React.FC<ClickableGroupProps> = ({
   sceneId,
   afterInteractionCallback,
 }) => {
+  const globalState = useStore((state) => state.game.globalState)
+  const currSceneState = useStore(
+    (state) => state.game.getScene(state.game.currentSceneId)?.state
+  )
   const executeActions = useStore((state) => state.executeActions)
   const hideClickable = useStore((state) => state.hideClickable)
   const { addCleanupFns } = useRunCleanupFnsOnUnmount()
@@ -68,6 +72,8 @@ const ClickableGroup: React.FC<ClickableGroupProps> = ({
               position={clickable.position}
               dimension={clickable.dimension}
               effect={clickable.effect}
+              disabled={clickable.isDisabled(globalState, currSceneState)}
+              disabledLabel={clickable.disabledLabel}
               onClick={() => onClick(clickable.name)}
             />
           )
@@ -81,6 +87,8 @@ const ClickableGroup: React.FC<ClickableGroupProps> = ({
               position={clickable.position}
               dimension={clickable.dimension}
               effect={clickable.effect}
+              disabled={clickable.isDisabled(globalState, currSceneState)}
+              disabledLabel={clickable.disabledLabel}
               onClick={() => onClick(clickable.name)}
             />
           )

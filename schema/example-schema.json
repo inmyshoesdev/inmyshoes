@@ -6,7 +6,8 @@
     },
     "fear": {
       "value": 0
-    }
+    },
+    "gullibility": 2
   },
   "mainCharacters": [
     {
@@ -123,7 +124,43 @@
                       "type": "showNarration",
                       "value": "win msg"
                     }
-                  ]
+                  ],
+                  "disabled": {
+                    "if": {
+                      ">=": [
+                        "{fear}",
+                        10
+                      ]
+                    },
+                    "label": "You are too afraid"
+                  }
+                },
+                {
+                  "name": "image",
+                  "src": "/images/charity.jpg",
+                  "altText": "Reach out to a charity",
+                  "position": {
+                    "top": "50%",
+                    "left": "20%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 2
+                    }
+                  ],
+                  "disabled": {
+                    "if": {
+                      ">=": [
+                        "{fear}",
+                        10
+                      ]
+                    },
+                    "label": "You are too afraid"
+                  }
                 }
               ]
             },
