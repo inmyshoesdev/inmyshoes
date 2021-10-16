@@ -50,7 +50,7 @@ const Narration: React.FC<NarrationProps> = ({
       className="absolute top-0 flex items-center justify-evenly w-full h-full"
     >
       <DialogueBox
-        image="./images/narration-box.png"
+        image="./images/narration-background.png"
         position={position}
         dimension={dimension}
         bodyStyle={{
