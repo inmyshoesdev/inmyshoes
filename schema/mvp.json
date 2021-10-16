@@ -428,6 +428,15 @@
                   "dimension": {
                     "width": "20%"
                   },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
+                  },
                   "onClick": [
                     {
                       "type": "updateGlobalState",
@@ -578,6 +587,15 @@
                   },
                   "dimension": {
                     "width": "20%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
                   },
                   "onClick": [
                     {
@@ -973,6 +991,15 @@
                   "dimension": {
                     "width": "20%"
                   },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
+                  },
                   "onClick": [
                     {
                       "type": "showDialogue",
@@ -1093,6 +1120,15 @@
                   },
                   "dimension": {
                     "width": "20%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
                   },
                   "onClick": [
                     {
@@ -1247,6 +1283,15 @@
                   "dimension": {
                     "width": "20%"
                   },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
+                  },
                   "onClick": [
                     {
                       "type": "showDialogue",
@@ -1378,6 +1423,15 @@
                   },
                   "dimension": {
                     "width": "20%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
                   },
                   "onClick": [
                     {
@@ -1530,6 +1584,15 @@
                   "dimension": {
                     "width": "20%"
                   },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
+                  },
                   "onClick": [
                     {
                       "type": "updateGlobalState",
@@ -1650,6 +1713,15 @@
                   },
                   "dimension": {
                     "width": "20%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
                   },
                   "onClick": [
                     {
@@ -1904,6 +1976,15 @@
                   },
                   "dimension": {
                     "width": "20%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
                   },
                   "onClick": [
                     {

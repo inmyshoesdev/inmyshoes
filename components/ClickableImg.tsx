@@ -63,7 +63,7 @@ const ClickableImg = ({
             width: dimension?.width || 'auto',
             height: dimension?.height || 'auto',
             transform: positionDefined ? 'unset' : 'translate(-50%, -50%)',
-            opacity: disabled ? 0.8 : 1,
+            filter: disabled ? 'brightness(50%)' : '',
           }}
         />
       </Tooltip>

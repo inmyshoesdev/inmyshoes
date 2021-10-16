@@ -41,10 +41,10 @@ const ClickableText = ({
         className={
           `positioned text-xs sm:text-sm lg:text-base text-center absolute px-4 py-3  
         font-medium text-white border border-gray-300 
-        rounded shadow bg-gray-700 ` +
+        rounded shadow bg-opacity-80 ` +
           (disabled
-            ? 'cursor-default '
-            : 'cursor-pointer hover:bg-gray-800 bg-opacity-80 ') +
+            ? 'cursor-default bg-gray-400 '
+            : 'cursor-pointer bg-gray-700 hover:bg-gray-800 ') +
           getAnimationClass(effect)
         }
         onClick={
