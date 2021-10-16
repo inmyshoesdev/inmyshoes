@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { Progress } from '@chakra-ui/react'
+import { Line, Circle } from 'rc-progress'
 import { useStore } from '../stores/store'
 
 export interface StateMeterProps {
@@ -35,9 +37,31 @@ export default function StateMeter({
   }, [stateObj.value])
 
   return (
-    <div className="flex flex-col">
-      <p className="text-sm capitalize">{title}</p>
-      <div className="flex justify-center">
+    <div className="flex flex-col w-1/4 h-full overflow-hidden">
+      <p className="h-1/3 text-sm capitalize">{title}</p>
+      <div className="flex flex-grow flex-shrink items-center h-2/3">
+        <div className="flex items-center h-full">
+          <img
+            src="/images/Social.png"
+            className="px-2 w-1/5 h-full object-contain"
+          />
+
+          <Line
+            percent={progress}
+            strokeColor="#ed239A"
+            strokeLinecap="round"
+            strokeWidth={10}
+            trailWidth={10}
+            style={{
+              width: '80%',
+              height: '50%',
+              // borderRadius: 10,
+            }}
+          />
+        </div>
+      </div>
+
+      {/* <div className="flex justify-center">
         <div className="relative">
           <div
             style={{
@@ -63,7 +87,7 @@ export default function StateMeter({
           </div>
         </div>
         <p className="mx-[10px] mt-2 font-bold">{value}</p>
-      </div>
+      </div> */}
     </div>
   )
 }
