@@ -27,7 +27,7 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
   }, [newGame, loadGame])
   return (
     <div className="flex flex-col items-center my-2 w-full space-y-2">
-      <Header header={game?.header} />
+      <Header header={game.header} />
       <DisplayControl setStoredScreenWidth={setStoredScreenWidth} />
       <div
         className={`relative bg-white border shadow overflow-hidden ${

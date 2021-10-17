@@ -13,7 +13,7 @@ import {
 
 export enum COMPONENT_TYPE {
   METER = 'state_meter',
-  DISPLAY="state_display"
+  DISPLAY = 'state_display',
 }
 
 export const StateComponentSchema = object({
@@ -27,20 +27,18 @@ export type StateComponentSchema = Infer<typeof StateComponentSchema>
 //   "component": "state_meter",
 //   "title": "Health",
 //   "state": "health",
-//   "fullImage": "/images/full-bar.png",
-//   "emptyImage": "/images/empty-bar.png"
+//   "iconImage": "/images/Health.png"
+//   "color": "#800000"
 // }
 export const StateMeterSchema = object({
   component: literal(COMPONENT_TYPE.METER),
   title: string(),
   state: string(),
-  // Might make images optional
-  fullImage: string(),
-  emptyImage: string(),
+  iconImage: optional(string()),
+  color: optional(string()),
 })
 
 export type StateMeterSchema = Infer<typeof StateMeterSchema>
-
 
 export const StateDisplaySchema = object({
   component: literal(COMPONENT_TYPE.DISPLAY),
