@@ -1,7 +1,7 @@
 {
   "name": "In My Shoes - Youth",
   "globalState": {
-    "date": "Monday",
+    "day": "Monday",
     "wealth": {
       "value": 0,
       "max": 20
@@ -19,30 +19,30 @@
   "header": [
     {
       "component": "state_display",
-      "title": "Date",
-      "state": "date",
+      "title": "Day",
+      "state": "day",
       "labelImage": "/images/calendar.png"
-    },
-    {
-      "component": "state_meter",
-      "title": "Wealth",
-      "state": "wealth",
-      "fullImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/full-wealth.png",
-      "emptyImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/empty-wealth.png"
     },
     {
       "component": "state_meter",
       "title": "Health",
       "state": "health",
-      "fullImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/full-health.png",
-      "emptyImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/empty-health.png"
+      "iconImage": "/images/Health.png",
+      "color": "#e9242b"
     },
     {
       "component": "state_meter",
       "title": "Social",
       "state": "social",
-      "fullImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/full-social.png",
-      "emptyImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/empty-social.png"
+      "iconImage": "/images/Social.png",
+      "color": "#ffcca1"
+    },
+    {
+      "component": "state_meter",
+      "title": "Wealth",
+      "state": "wealth",
+      "iconImage": "/images/Wealth.png",
+      "color": "#fee214"
     }
   ],
   "mainCharacters": [
@@ -180,7 +180,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "date": "Monday",
+                "day": "Monday",
                 "wealth": 5,
                 "health": 10,
                 "social": 10
@@ -353,7 +353,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "date": "Monday",
+                "day": "Monday",
                 "wealth": 5,
                 "health": 10,
                 "social": 10
@@ -504,7 +504,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "date": "Tuesday"
+                "day": "Tuesday"
               }
             },
             {
@@ -635,7 +635,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "date": "Wednesday"
+                "day": "Wednesday"
               }
             },
             {
@@ -1042,7 +1042,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "date": "Thursday"
+                "day": "Thursday"
               }
             },
             {
@@ -1366,7 +1366,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "date": "Friday"
+                "day": "Friday"
               }
             },
             {
@@ -1631,7 +1631,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "date": "Saturday"
+                "day": "Saturday"
               }
             },
             {
@@ -1761,7 +1761,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "date": "Sunday"
+                "day": "Sunday"
               }
             },
             {
@@ -1919,7 +1919,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "date": "Monday"
+                "day": "Monday"
               }
             },
             {

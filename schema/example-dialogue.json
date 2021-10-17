@@ -23,22 +23,22 @@
             "component": "state_meter",
             "title": "Health",
             "state": "health",
-            "fullImage": "/images/health-full.png",
-            "emptyImage": "/images/health-empty.png"
+            "iconImage": "/images/Health.png",
+            "color": "#e9242b"
         },
         {
             "component": "state_meter",
             "title": "Social",
             "state": "social",
-            "fullImage": "/images/health-full.png",
-            "emptyImage": "/images/health-empty.png"
+            "iconImage": "/images/Social.png",
+            "color": "#ffcca1"
         },
         {
             "component": "state_meter",
             "title": "Wealth",
             "state": "wealth",
-            "fullImage": "/images/health-full.png",
-            "emptyImage": "/images/health-empty.png"
+            "iconImage": "/images/Wealth.png",
+            "color": "#fee214"
         }
     ],
     "mainCharacters": [

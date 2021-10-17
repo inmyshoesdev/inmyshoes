@@ -27,8 +27,8 @@ export function makeStateComponent(
 
 export interface StateMeter extends StateComponent {
   state: string
-  fullImage: string
-  emptyImage: string
+  iconImage?: string
+  color?: string
 }
 
 export function makeStateMeter(
@@ -44,8 +44,8 @@ export function makeStateMeter(
     component: schema.component,
     title: schema.title,
     state: schema.state,
-    fullImage: schema.fullImage,
-    emptyImage: schema.emptyImage,
+    iconImage: schema.iconImage,
+    color: schema.color,
   }
 }
 
