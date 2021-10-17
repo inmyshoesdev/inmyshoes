@@ -8,6 +8,7 @@ import Header from './Header'
 import { Spinner } from '@chakra-ui/spinner'
 import { DisplayControl } from './DisplayControl'
 import useLocalStorage from '../hooks/useLocalStorage'
+import CharacterInfo from './CharacterInfo'
 type GameProps = {
   game?: Game
 }
@@ -16,6 +17,7 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
   const game = useStore((state) => state.game)
   const loadGame = useStore((state) => state.loadGame)
   const [blurBackground, setBlurBackground] = useState(false)
+  const [hideCharacterInfo, setHideCharacterInfo] = useState(true)
   const [storedScreenWidth, setStoredScreenWidth] = useLocalStorage(
     'ims-screenWidth',
     72
@@ -30,9 +32,7 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
       <Header header={game?.header} />
       <DisplayControl setStoredScreenWidth={setStoredScreenWidth} />
       <div
-        className={`relative bg-white border shadow overflow-hidden ${
-          blurBackground ? 'blur-sm' : ''
-        } `}
+        className={`relative bg-white border shadow overflow-hidden`}
         style={{
           aspectRatio: '16/9',
           width: `${storedScreenWidth}vw`,
@@ -48,7 +48,7 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
             key={idx}
-            className="absolute inset-0"
+            className={`absolute inset-0 ${blurBackground ? 'blur-sm' : ''}`}
           >
             <SceneDisplay scene={scene} />
           </Transition>
@@ -71,11 +71,17 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
             />
           )}
         </Transition>
+        <CharacterInfo
+          hidden={hideCharacterInfo}
+          setHidden={setHideCharacterInfo}
+          setBlurBackground={setBlurBackground}
+          characterInfo={game.characterInfo}
+        />
       </div>
       <Footer
         gameOn={true}
-        characterInfo={game.characterInfo}
         setBlurBackground={setBlurBackground}
+        setHideCharacterInfo={setHideCharacterInfo}
       />
     </div>
   )
