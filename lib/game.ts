@@ -1,6 +1,12 @@
 import { GameSchema } from '../schema/game'
 import { StateComponent, makeStateComponent } from './component'
-import { makeMainCharacter, makeNPC, MainCharacter, NPC } from './character'
+import {
+  makeMainCharacter,
+  makeNPC,
+  MainCharacter,
+  NPC,
+  CharacterInfoSlide,
+} from './character'
 import { Scene } from './scene'
 import { makeState, State } from './state'
 import { clickables, isClickableImg } from './elements'
@@ -16,7 +22,9 @@ export const EmptyGame: Game = {
   loading: false,
 
   characterName: '',
-  characterInfo: '',
+  characterInfo: [
+    { text: 'Charater Information', backgroundImage: '/images/water.png' },
+  ],
   currentSceneId: 0,
 
   header: [],
@@ -40,7 +48,7 @@ export interface Game {
   loading: boolean
 
   characterName: string
-  characterInfo: string
+  characterInfo: CharacterInfoSlide[]
   currentSceneId: number
 
   header: StateComponent[]

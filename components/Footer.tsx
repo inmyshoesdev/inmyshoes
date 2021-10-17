@@ -1,30 +1,22 @@
 import { useState } from 'react'
-import CharacterInfo from './CharacterInfo'
 import { Tooltip } from '@chakra-ui/react'
 import { useSound } from 'use-sound'
 
 function Footer({
   gameOn,
-  characterInfo,
   setBlurBackground,
+  setHideCharacterInfo,
 }: {
   gameOn: boolean
-  characterInfo: string
   setBlurBackground: React.Dispatch<React.SetStateAction<boolean>>
+  setHideCharacterInfo: React.Dispatch<React.SetStateAction<boolean>>
 }) {
-  const [hideCharacterInfo, setHideCharacterInfo] = useState(true)
   const [musicOn, setMusicOn] = useState(false)
   const [play, { stop }] = useSound('/music/bensound-jazzcomedy.mp3', {
     volume: 0.5,
   })
   return (
     <>
-      <CharacterInfo
-        hidden={hideCharacterInfo}
-        setHidden={setHideCharacterInfo}
-        setBlurBackground={setBlurBackground}
-        url={characterInfo}
-      />
       <div id="footer" className={`w-96 flex justify-around items-center`}>
         <div>
           <Tooltip

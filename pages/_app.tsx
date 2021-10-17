@@ -1,4 +1,6 @@
 import '../styles/globals.css'
+import 'swiper/css'
+import 'swiper/css/effect-cards'
 import type { AppProps } from 'next/app'
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import { createBreakpoints } from '@chakra-ui/theme-tools'

@@ -59,7 +59,7 @@ module.exports = {
       },
       lineHeight: {
         'relaxed': '1.67'
-       }
+      }
     },
   },
   variants: {
