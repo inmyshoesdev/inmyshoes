@@ -443,10 +443,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -603,10 +600,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -1006,10 +1000,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -1136,10 +1127,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -1298,10 +1286,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -1439,10 +1424,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -1599,10 +1581,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -1729,10 +1708,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -1992,10 +1968,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -2247,40 +2220,28 @@
               "type": "showClickable",
               "value": "health badge",
               "if": {
-                ">=": [
-                  "{health}",
-                  15
-                ]
+                ">=": ["{health}", 15]
               }
             },
             {
               "type": "showClickable",
               "value": "social badge",
               "if": {
-                ">=": [
-                  "{social}",
-                  15
-                ]
+                ">=": ["{social}", 15]
               }
             },
             {
               "type": "showClickable",
               "value": "wealth badge",
               "if": {
-                ">=": [
-                  "{wealth}",
-                  6
-                ]
+                ">=": ["{wealth}", 6]
               }
             },
             {
               "type": "showClickable",
               "value": "helping hand badge",
               "if": {
-                "==": [
-                  "{approached help}",
-                  true
-                ]
+                "==": ["{approached help}", true]
               }
             },
             {
@@ -2337,7 +2298,7 @@
           "clickables": [
             {
               "name": "next",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "text": "Go",
@@ -2385,7 +2346,7 @@
           "clickables": [
             {
               "name": "next",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "text": "Go",
@@ -2498,7 +2459,7 @@
           "clickables": [
             {
               "name": "choice",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "text": "Wake up at 6:00am to complete your homework.",
@@ -2616,13 +2577,13 @@
           "clickables": [
             {
               "name": "restart",
-              "clickables": [
+              "options": [
                 {
                   "name": "yes",
                   "text": "Restart?",
                   "position": {
                     "bottom": "20%",
-                    "left": "50%"
+                    "left": "45%"
                   },
                   "onClick": [
                     {
@@ -2636,7 +2597,7 @@
                   "text": "Play another character?",
                   "position": {
                     "bottom": "20%",
-                    "left": "70%"
+                    "left": "64%"
                   },
                   "onClick": [
                     {

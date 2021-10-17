@@ -22,6 +22,7 @@ export const EmptyGame: Game = {
   loading: false,
 
   characterName: '',
+  characterImage: '',
   characterInfo: [
     { text: 'Charater Information', backgroundImage: '/images/water.png' },
   ],
@@ -48,6 +49,7 @@ export interface Game {
   loading: boolean
 
   characterName: string
+  characterImage: string
   characterInfo: CharacterInfoSlide[]
   currentSceneId: number
 
@@ -75,6 +77,7 @@ export function makeGame(schema: GameSchema): Game {
     loading: false,
 
     characterName: mainCharacters[0].name,
+    characterImage: mainCharacters[0].images.default,
     characterInfo: mainCharacters[0].info,
     currentSceneId: mainCharacters[0].scenes[0].id,
 

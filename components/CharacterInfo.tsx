@@ -53,7 +53,7 @@ function CharacterInfo({
       </div>
       <div className="z-10 flex items-center justify-center">
         <button
-          className="px-4 text-center text-lg font-semibold bg-green-400 rounded focus:outline-none"
+          className="px-4 text-center text-lg font-semibold bg-green-400 rounded focus:outline-none cursor-pointer"
           onClick={() => {
             setHidden(true)
             setBlurBackground((state) => !state)

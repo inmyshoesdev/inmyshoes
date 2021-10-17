@@ -4,10 +4,12 @@ import { useSound } from 'use-sound'
 
 function Footer({
   gameOn,
+  characterImage,
   setBlurBackground,
   setHideCharacterInfo,
 }: {
   gameOn: boolean
+  characterImage: string
   setBlurBackground: React.Dispatch<React.SetStateAction<boolean>>
   setHideCharacterInfo: React.Dispatch<React.SetStateAction<boolean>>
 }) {
@@ -27,7 +29,7 @@ function Footer({
             <button
               className="focus:outline-none cursor-pointer"
               aria-label="check current character"
-              // disabled={!gameOn}
+              disabled={!gameOn}
               onClick={() => {
                 setHideCharacterInfo((state) => !state)
                 setBlurBackground((state) => !state)
@@ -37,7 +39,7 @@ function Footer({
                 <div className="flex w-12">
                   <img
                     className="justify-center cursor-pointer"
-                    src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis.png"
+                    src={characterImage}
                     alt="Current character image"
                     width={20}
                     height={50}
