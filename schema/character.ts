@@ -27,7 +27,11 @@ export type NPCSchema = Infer<typeof NPCSchema>
 export const MainCharacterSchema = intersection([
   CharacterSchema,
   type({
-    info: string(),
+    info: size(
+      array(type({ text: string(), backgroundImage: string() })),
+      1,
+      Infinity
+    ),
     scenes: size(array(SceneSchema), 1, Infinity),
   }),
 ])

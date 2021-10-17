@@ -7,7 +7,12 @@
         "default": "/images/Julie.svg",
         "happy": "/images/Julie_happy.svg"
       },
-      "info": "",
+      "info": [
+        {
+          "text": "You are Julie.",
+          "backgroundImage": "/images/school.jpg"
+        }
+      ],
       "scenes": [
         {
           "id": 1,
@@ -15,15 +20,21 @@
           "narrations": [
             {
               "name": "intro",
-              "texts": ["It started with Ken, a year 2 student from the Faculty of Arts and Social Science (FASS)."]
+              "texts": [
+                "It started with Ken, a year 2 student from the Faculty of Arts and Social Science (FASS)."
+              ]
             },
             {
               "name": "intro2",
-              "texts": ["Ken had always wanted to be a part of the local game industry"]
+              "texts": [
+                "Ken had always wanted to be a part of the local game industry"
+              ]
             },
             {
               "name": "intro3",
-              "texts": ["To improve on his resume, should he take up programming and enroll in CS1101S?"]
+              "texts": [
+                "To improve on his resume, should he take up programming and enroll in CS1101S?"
+              ]
             },
             {
               "name": "win",
