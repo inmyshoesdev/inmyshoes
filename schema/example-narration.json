@@ -28,7 +28,9 @@
             },
             {
               "name": "position",
-              "texts": ["this narration is in a funny position!"],
+              "texts": [
+                "this narration is in a funny position!"
+              ],
               "position": {
                 "top": "35%",
                 "left": "10%"
@@ -45,7 +47,9 @@
             },
             {
               "name": "last",
-              "texts": ["you will leave this scene in 2 seconds"]
+              "texts": [
+                "you will leave this scene in 2 seconds"
+              ]
             }
           ],
           "dialogues": [],
@@ -93,7 +97,7 @@
           "clickables": [
             {
               "name": "restart",
-              "clickables": [
+              "options": [
                 {
                   "name": "yes",
                   "text": "restart?",

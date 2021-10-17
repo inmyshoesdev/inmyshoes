@@ -10,6 +10,8 @@ interface ClickableImgProps {
   position?: Position
   dimension?: Dimension
   effect?: string //'none' | 'pulse' | 'bounce' | 'ping' | 'spin' | 'wiggle'
+  disabled?: boolean
+  disabledLabel?: string
   onClick: () => void
 }
 
@@ -20,6 +22,8 @@ const ClickableImg = ({
   position = {},
   dimension = {},
   effect = 'none',
+  disabled,
+  disabledLabel,
   onClick,
 }: ClickableImgProps) => {
   const positionDefined =
@@ -29,21 +33,26 @@ const ClickableImg = ({
   return (
     <>
       <Tooltip
-        label={altText}
-        bg="gray.100"
+        label={disabled ? disabledLabel : altText}
+        bg={disabled ? 'red.400' : 'gray.100'}
         p={3}
         color="black"
         placement="top"
       >
         <img
           className={
-            'positioned image absolute cursor-pointer object-cover ' +
-            getAnimationClass(effect)
+            'positioned image absolute object-cover ' +
+            getAnimationClass(effect) +
+            (disabled ? '' : 'cursor-pointer')
           }
-          onClick={() => {
-            play()
-            onClick()
-          }}
+          onClick={
+            disabled
+              ? undefined
+              : () => {
+                  play()
+                  onClick()
+                }
+          }
           alt={altText}
           src={src}
           style={{
@@ -54,6 +63,7 @@ const ClickableImg = ({
             width: dimension?.width || 'auto',
             height: dimension?.height || 'auto',
             transform: positionDefined ? 'unset' : 'translate(-50%, -50%)',
+            filter: disabled ? 'brightness(50%)' : '',
           }}
         />
       </Tooltip>
