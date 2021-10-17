@@ -54,7 +54,20 @@
         "decide": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-decide-day-2.png",
         "frustrated": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-frustrated-day-3.png"
       },
-      "info": "https://soristic.sgp1.digitaloceanspaces.com/youth/videos/Curtis.mp4",
+      "info": [
+        {
+          "text": "You are from a low-income family. You live in a rental one-room flat.",
+          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-household.jpg"
+        },
+        {
+          "text": "In addition to your parents, you live with your two grandparents (who are also cleaners), and two younger siblings.",
+          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-family-image.jpg"
+        },
+        {
+          "text": "You work a part-time job at a fast food restaurant and have a little bit of savings. You find it hard to make friends because you are embarrassed about your situation.",
+          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-work.jpg"
+        }
+      ],
       "scenes": [
         {
           "id": 0,
@@ -76,7 +89,7 @@
           "clickables": [
             {
               "name": "next",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "text": "Go",
@@ -146,7 +159,7 @@
           "clickables": [
             {
               "name": "next",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "text": "Go",
@@ -273,7 +286,7 @@
           "clickables": [
             {
               "name": "choice",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "text": "Get up and get your siblings ready for school",
@@ -417,7 +430,7 @@
           "clickables": [
             {
               "name": "choice",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "text": "Head to school and purchase a subsidised meal",
@@ -427,6 +440,15 @@
                   },
                   "dimension": {
                     "width": "20%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
                   },
                   "onClick": [
                     {
@@ -540,7 +562,7 @@
           "clickables": [
             {
               "name": "choice",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "text": "Walk",
@@ -578,6 +600,15 @@
                   },
                   "dimension": {
                     "width": "20%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
                   },
                   "onClick": [
                     {
@@ -770,7 +801,7 @@
           "clickables": [
             {
               "name": "choice",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "text": "Approach your teacher and ask for an extension",
@@ -931,7 +962,7 @@
           "clickables": [
             {
               "name": "choice",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "text": "Save money and head straight home",
@@ -972,6 +1003,15 @@
                   },
                   "dimension": {
                     "width": "20%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
                   },
                   "onClick": [
                     {
@@ -1083,7 +1123,7 @@
           "clickables": [
             {
               "name": "choice",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "text": "Take your grandmother to go see a doctor",
@@ -1093,6 +1133,15 @@
                   },
                   "dimension": {
                     "width": "20%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
                   },
                   "onClick": [
                     {
@@ -1236,7 +1285,7 @@
           "clickables": [
             {
               "name": "choice",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "text": "Fork out some money from your savings",
@@ -1246,6 +1295,15 @@
                   },
                   "dimension": {
                     "width": "20%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
                   },
                   "onClick": [
                     {
@@ -1367,7 +1425,7 @@
           "clickables": [
             {
               "name": "choice",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "src": "/images/book.jpg",
@@ -1378,6 +1436,15 @@
                   },
                   "dimension": {
                     "width": "20%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
                   },
                   "onClick": [
                     {
@@ -1487,7 +1554,7 @@
           "clickables": [
             {
               "name": "choice",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "src": "/images/charity.jpg",
@@ -1529,6 +1596,15 @@
                   },
                   "dimension": {
                     "width": "20%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
                   },
                   "onClick": [
                     {
@@ -1610,7 +1686,7 @@
           "clickables": [
             {
               "name": "choice",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "src": "/images/work.jpg",
@@ -1650,6 +1726,15 @@
                   },
                   "dimension": {
                     "width": "20%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
                   },
                   "onClick": [
                     {
@@ -1741,7 +1826,7 @@
           "clickables": [
             {
               "name": "choice",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "text": "Attend all the classes",
@@ -1893,7 +1978,7 @@
           "clickables": [
             {
               "name": "choice",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "src": "/images/graduation.jpg",
@@ -1904,6 +1989,15 @@
                   },
                   "dimension": {
                     "width": "20%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
                   },
                   "onClick": [
                     {
@@ -2007,7 +2101,7 @@
           "clickables": [
             {
               "name": "restart",
-              "clickables": [
+              "options": [
                 {
                   "name": "yes",
                   "text": "Restart?",
@@ -2026,7 +2120,7 @@
             },
             {
               "name": "health badge",
-              "clickables": [
+              "options": [
                 {
                   "name": "health",
                   "src": "/images/health-badge.png",
@@ -2053,7 +2147,7 @@
             },
             {
               "name": "social badge",
-              "clickables": [
+              "options": [
                 {
                   "name": "social",
                   "src": "/images/social-badge.png",
@@ -2080,7 +2174,7 @@
             },
             {
               "name": "wealth badge",
-              "clickables": [
+              "options": [
                 {
                   "name": "wealth",
                   "src": "/images/wealth-badge.png",
@@ -2107,7 +2201,7 @@
             },
             {
               "name": "helping hand badge",
-              "clickables": [
+              "options": [
                 {
                   "name": "helping hand",
                   "src": "/images/helping-hand-badge.png",

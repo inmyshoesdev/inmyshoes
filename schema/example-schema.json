@@ -6,7 +6,8 @@
     },
     "fear": {
       "value": 0
-    }
+    },
+    "gullibility": 2
   },
   "mainCharacters": [
     {
@@ -14,7 +15,12 @@
       "images": {
         "default": "https://images.unsplash.com/photo-1601513445498-5dbffc8d5d5a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
       },
-      "info": "",
+      "info": [
+        {
+          "text": "You are pennywise.",
+          "backgroundImage": "https://images.unsplash.com/photo-1532689193429-29caa23e5268?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80"
+        }
+      ],
       "scenes": [
         {
           "id": 1,
@@ -28,15 +34,21 @@
             },
             {
               "name": "scared msg",
-              "texts": ["you are very scared..."]
+              "texts": [
+                "you are very scared..."
+              ]
             },
             {
               "name": "clown decision",
-              "texts": ["listen to the clown?"]
+              "texts": [
+                "listen to the clown?"
+              ]
             },
             {
               "name": "win msg",
-              "texts": ["you won!!!"]
+              "texts": [
+                "you won!!!"
+              ]
             }
           ],
           "dialogues": [
@@ -76,7 +88,7 @@
           "clickables": [
             {
               "name": "clown yes/no",
-              "clickables": [
+              "options": [
                 {
                   "name": "yes",
                   "text": "yes",
@@ -117,13 +129,49 @@
                       "type": "showNarration",
                       "value": "win msg"
                     }
-                  ]
+                  ],
+                  "disabled": {
+                    "if": {
+                      ">=": [
+                        "{fear}",
+                        10
+                      ]
+                    },
+                    "label": "You are too afraid"
+                  }
+                },
+                {
+                  "name": "image",
+                  "src": "/images/charity.jpg",
+                  "altText": "Reach out to a charity",
+                  "position": {
+                    "top": "50%",
+                    "left": "20%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 2
+                    }
+                  ],
+                  "disabled": {
+                    "if": {
+                      ">=": [
+                        "{fear}",
+                        10
+                      ]
+                    },
+                    "label": "You are too afraid"
+                  }
                 }
               ]
             },
             {
               "name": "fear display",
-              "clickables": [
+              "options": [
                 {
                   "name": "",
                   "text": "Fear: {fear}",
@@ -151,7 +199,10 @@
               "type": "showNarration",
               "value": "scared msg",
               "if": {
-                ">=": ["{fear}", 10]
+                ">=": [
+                  "{fear}",
+                  10
+                ]
               }
             },
             {
@@ -191,7 +242,7 @@
           "clickables": [
             {
               "name": "restart",
-              "clickables": [
+              "options": [
                 {
                   "name": "yes",
                   "text": "restart?",

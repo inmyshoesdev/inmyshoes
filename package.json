@@ -27,6 +27,7 @@
     "react-ga": "^3.3.0",
     "styled-jsx-plugin-postcss": "^4.0.1",
     "superstruct": "^0.15.2",
+    "swiper": "^7.0.8",
     "typewriter-effect": "^2.18.2",
     "use-sound": "^4.0.1",
     "zustand": "^3.5.12"

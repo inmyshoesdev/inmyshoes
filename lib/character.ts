@@ -9,8 +9,12 @@ export interface Character {
   }
 }
 
+export interface CharacterInfoSlide {
+  text: string
+  backgroundImage: string
+}
 export interface MainCharacter extends Character {
-  info: string
+  info: CharacterInfoSlide[]
   scenes: Scene[]
   getScene(sceneId: number): Scene | undefined
 }

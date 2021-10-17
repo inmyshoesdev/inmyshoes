@@ -48,7 +48,12 @@
                 "default": "/images/Julie.svg",
                 "happy": "/images/Julie_happy.svg"
             },
-            "info": "",
+            "info": [
+                {
+                    "text": "You are Julie.",
+                    "backgroundImage": "/images/school.jpg"
+                }
+            ],
             "scenes": [
                 {
                     "id": 1,
@@ -128,7 +133,7 @@
                     "clickables": [
                         {
                             "name": "restart",
-                            "clickables": [
+                            "options": [
                                 {
                                     "name": "yes",
                                     "text": "restart?",
