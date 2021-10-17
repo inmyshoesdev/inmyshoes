@@ -11,10 +11,6 @@ a {
   @apply !underline !text-blue-500 cursor-pointer;
 }
 
-button {
-  @apply cursor-pointer;
-}
-
 body {
   --chakra-fonts-body: Rubik, ui-sans-serif, system-ui, -apple-system,
     BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',

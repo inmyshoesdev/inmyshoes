@@ -16,7 +16,7 @@ function CharacterInfo({
     <div
       className={`${
         hidden ? 'hidden' : ''
-      } absolute w-[55vw] top-20 xl:top-24 flex flex-col items-center gap-4`}
+      } w-[45vw] mx-auto flex flex-col items-center gap-4`}
       style={{
         aspectRatio: '16/9',
       }}
@@ -25,7 +25,7 @@ function CharacterInfo({
       {/* <button className="justify-content flex mx-auto px-2 font-semibold bg-yellow-600 rounded-sm focus:outline-none">
         Reselect
       </button> */}
-      <h1 className="px-2 text-white bg-gray-700 opacity-90">
+      <h1 className="px-2 text-white text-xl bg-gray-700 opacity-90">
         Character Information
       </h1>
       <div className="w-1/2 h-full text-xs sm:w-full sm:text-base">
@@ -51,8 +51,7 @@ function CharacterInfo({
           ))}
         </Swiper>
       </div>
-
-      <div className="flex items-center justify-center">
+      <div className="z-10 flex items-center justify-center">
         <button
           className="px-4 text-center text-lg font-semibold bg-green-400 rounded focus:outline-none"
           onClick={() => {

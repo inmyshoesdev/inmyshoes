@@ -6,7 +6,8 @@
     },
     "fear": {
       "value": 0
-    }
+    },
+    "gullibility": 2
   },
   "mainCharacters": [
     {
@@ -33,15 +34,21 @@
             },
             {
               "name": "scared msg",
-              "texts": ["you are very scared..."]
+              "texts": [
+                "you are very scared..."
+              ]
             },
             {
               "name": "clown decision",
-              "texts": ["listen to the clown?"]
+              "texts": [
+                "listen to the clown?"
+              ]
             },
             {
               "name": "win msg",
-              "texts": ["you won!!!"]
+              "texts": [
+                "you won!!!"
+              ]
             }
           ],
           "dialogues": [
@@ -81,7 +88,7 @@
           "clickables": [
             {
               "name": "clown yes/no",
-              "clickables": [
+              "options": [
                 {
                   "name": "yes",
                   "text": "yes",
@@ -122,13 +129,49 @@
                       "type": "showNarration",
                       "value": "win msg"
                     }
-                  ]
+                  ],
+                  "disabled": {
+                    "if": {
+                      ">=": [
+                        "{fear}",
+                        10
+                      ]
+                    },
+                    "label": "You are too afraid"
+                  }
+                },
+                {
+                  "name": "image",
+                  "src": "/images/charity.jpg",
+                  "altText": "Reach out to a charity",
+                  "position": {
+                    "top": "50%",
+                    "left": "20%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 2
+                    }
+                  ],
+                  "disabled": {
+                    "if": {
+                      ">=": [
+                        "{fear}",
+                        10
+                      ]
+                    },
+                    "label": "You are too afraid"
+                  }
                 }
               ]
             },
             {
               "name": "fear display",
-              "clickables": [
+              "options": [
                 {
                   "name": "",
                   "text": "Fear: {fear}",
@@ -156,7 +199,10 @@
               "type": "showNarration",
               "value": "scared msg",
               "if": {
-                ">=": ["{fear}", 10]
+                ">=": [
+                  "{fear}",
+                  10
+                ]
               }
             },
             {
@@ -196,7 +242,7 @@
           "clickables": [
             {
               "name": "restart",
-              "clickables": [
+              "options": [
                 {
                   "name": "yes",
                   "text": "restart?",

@@ -1,7 +1,7 @@
 {
   "name": "In My Shoes - Youth",
   "globalState": {
-    "date": "Monday",
+    "day": "Monday",
     "wealth": {
       "value": 0,
       "max": 20
@@ -19,30 +19,30 @@
   "header": [
     {
       "component": "state_display",
-      "title": "Date",
-      "state": "date",
+      "title": "Day",
+      "state": "day",
       "labelImage": "/images/calendar.png"
-    },
-    {
-      "component": "state_meter",
-      "title": "Wealth",
-      "state": "wealth",
-      "fullImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/full-wealth.png",
-      "emptyImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/empty-wealth.png"
     },
     {
       "component": "state_meter",
       "title": "Health",
       "state": "health",
-      "fullImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/full-health.png",
-      "emptyImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/empty-health.png"
+      "iconImage": "/images/Health.png",
+      "color": "#e9242b"
     },
     {
       "component": "state_meter",
       "title": "Social",
       "state": "social",
-      "fullImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/full-social.png",
-      "emptyImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/empty-social.png"
+      "iconImage": "/images/Social.png",
+      "color": "#ffcca1"
+    },
+    {
+      "component": "state_meter",
+      "title": "Wealth",
+      "state": "wealth",
+      "iconImage": "/images/Wealth.png",
+      "color": "#fee214"
     }
   ],
   "mainCharacters": [
@@ -89,7 +89,7 @@
           "clickables": [
             {
               "name": "next",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "text": "Go",
@@ -159,7 +159,7 @@
           "clickables": [
             {
               "name": "next",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "text": "Go",
@@ -180,7 +180,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "date": "Monday",
+                "day": "Monday",
                 "wealth": 5,
                 "health": 10,
                 "social": 10
@@ -286,7 +286,7 @@
           "clickables": [
             {
               "name": "choice",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "text": "Get up and get your siblings ready for school",
@@ -353,7 +353,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "date": "Monday",
+                "day": "Monday",
                 "wealth": 5,
                 "health": 10,
                 "social": 10
@@ -430,7 +430,7 @@
           "clickables": [
             {
               "name": "choice",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "text": "Head to school and purchase a subsidised meal",
@@ -440,6 +440,15 @@
                   },
                   "dimension": {
                     "width": "20%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
                   },
                   "onClick": [
                     {
@@ -495,7 +504,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "date": "Tuesday"
+                "day": "Tuesday"
               }
             },
             {
@@ -553,7 +562,7 @@
           "clickables": [
             {
               "name": "choice",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "text": "Walk",
@@ -592,6 +601,15 @@
                   "dimension": {
                     "width": "20%"
                   },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
+                  },
                   "onClick": [
                     {
                       "type": "updateGlobalState",
@@ -617,7 +635,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "date": "Wednesday"
+                "day": "Wednesday"
               }
             },
             {
@@ -783,7 +801,7 @@
           "clickables": [
             {
               "name": "choice",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "text": "Approach your teacher and ask for an extension",
@@ -944,7 +962,7 @@
           "clickables": [
             {
               "name": "choice",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "text": "Save money and head straight home",
@@ -986,6 +1004,15 @@
                   "dimension": {
                     "width": "20%"
                   },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
+                  },
                   "onClick": [
                     {
                       "type": "showDialogue",
@@ -1015,7 +1042,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "date": "Thursday"
+                "day": "Thursday"
               }
             },
             {
@@ -1096,7 +1123,7 @@
           "clickables": [
             {
               "name": "choice",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "text": "Take your grandmother to go see a doctor",
@@ -1106,6 +1133,15 @@
                   },
                   "dimension": {
                     "width": "20%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
                   },
                   "onClick": [
                     {
@@ -1249,7 +1285,7 @@
           "clickables": [
             {
               "name": "choice",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "text": "Fork out some money from your savings",
@@ -1259,6 +1295,15 @@
                   },
                   "dimension": {
                     "width": "20%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
                   },
                   "onClick": [
                     {
@@ -1321,7 +1366,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "date": "Friday"
+                "day": "Friday"
               }
             },
             {
@@ -1380,7 +1425,7 @@
           "clickables": [
             {
               "name": "choice",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "src": "/images/book.jpg",
@@ -1391,6 +1436,15 @@
                   },
                   "dimension": {
                     "width": "20%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
                   },
                   "onClick": [
                     {
@@ -1500,7 +1554,7 @@
           "clickables": [
             {
               "name": "choice",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "src": "/images/charity.jpg",
@@ -1543,6 +1597,15 @@
                   "dimension": {
                     "width": "20%"
                   },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
+                  },
                   "onClick": [
                     {
                       "type": "updateGlobalState",
@@ -1568,7 +1631,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "date": "Saturday"
+                "day": "Saturday"
               }
             },
             {
@@ -1623,7 +1686,7 @@
           "clickables": [
             {
               "name": "choice",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "src": "/images/work.jpg",
@@ -1664,6 +1727,15 @@
                   "dimension": {
                     "width": "20%"
                   },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
+                  },
                   "onClick": [
                     {
                       "type": "updateGlobalState",
@@ -1689,7 +1761,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "date": "Sunday"
+                "day": "Sunday"
               }
             },
             {
@@ -1754,7 +1826,7 @@
           "clickables": [
             {
               "name": "choice",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "text": "Attend all the classes",
@@ -1847,7 +1919,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "date": "Monday"
+                "day": "Monday"
               }
             },
             {
@@ -1906,7 +1978,7 @@
           "clickables": [
             {
               "name": "choice",
-              "clickables": [
+              "options": [
                 {
                   "name": "1",
                   "src": "/images/graduation.jpg",
@@ -1917,6 +1989,15 @@
                   },
                   "dimension": {
                     "width": "20%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
+                    },
+                    "label": "You don't have enough wealth..."
                   },
                   "onClick": [
                     {
@@ -2020,7 +2101,7 @@
           "clickables": [
             {
               "name": "restart",
-              "clickables": [
+              "options": [
                 {
                   "name": "yes",
                   "text": "Restart?",
@@ -2039,7 +2120,7 @@
             },
             {
               "name": "health badge",
-              "clickables": [
+              "options": [
                 {
                   "name": "health",
                   "src": "/images/health-badge.png",
@@ -2066,7 +2147,7 @@
             },
             {
               "name": "social badge",
-              "clickables": [
+              "options": [
                 {
                   "name": "social",
                   "src": "/images/social-badge.png",
@@ -2093,7 +2174,7 @@
             },
             {
               "name": "wealth badge",
-              "clickables": [
+              "options": [
                 {
                   "name": "wealth",
                   "src": "/images/wealth-badge.png",
@@ -2120,7 +2201,7 @@
             },
             {
               "name": "helping hand badge",
-              "clickables": [
+              "options": [
                 {
                   "name": "helping hand",
                   "src": "/images/helping-hand-badge.png",
@@ -2166,28 +2247,40 @@
               "type": "showClickable",
               "value": "health badge",
               "if": {
-                ">=": ["{health}", 15]
+                ">=": [
+                  "{health}",
+                  15
+                ]
               }
             },
             {
               "type": "showClickable",
               "value": "social badge",
               "if": {
-                ">=": ["{social}", 15]
+                ">=": [
+                  "{social}",
+                  15
+                ]
               }
             },
             {
               "type": "showClickable",
               "value": "wealth badge",
               "if": {
-                ">=": ["{wealth}", 6]
+                ">=": [
+                  "{wealth}",
+                  6
+                ]
               }
             },
             {
               "type": "showClickable",
               "value": "helping hand badge",
               "if": {
-                "==": ["{approached help}", true]
+                "==": [
+                  "{approached help}",
+                  true
+                ]
               }
             },
             {
