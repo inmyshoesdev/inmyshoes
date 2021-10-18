@@ -1,4 +1,3 @@
-import { CharacterInfoSlide } from '../lib/character'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { A11y, EffectCards, Mousewheel } from 'swiper'
 import { Button } from '@chakra-ui/button'
@@ -9,23 +8,23 @@ import {
   PopoverContent,
   PopoverHeader,
   PopoverBody,
-  PopoverFooter,
   PopoverArrow,
   PopoverCloseButton,
 } from '@chakra-ui/react'
 function CharacterInfo({
-  characterInfo,
+  characterSelected,
   hidden,
   setHidden,
   setBlurBackground,
 }: {
-  characterInfo: CharacterInfoSlide[]
+  characterSelected: boolean
   hidden: boolean
   setHidden: (hidden: boolean) => void
   setBlurBackground: React.Dispatch<React.SetStateAction<boolean>>
 }) {
   const setCharacterSelected = useStore((state) => state.setCharacterSelected)
-
+  const characterIndex = useStore((state) => state.game.characterIndex)
+  const game = useStore((state) => state.game)
   return (
     <div
       className={`${
@@ -44,21 +43,23 @@ function CharacterInfo({
           effect="cards"
           mousewheel={true}
           className="h-full"
+          key={characterIndex}
         >
-          {characterInfo.map((info) => (
-            <SwiperSlide
-              key={info.text}
-              className="flex"
-              style={{
-                backgroundImage: `url(${info.backgroundImage})`,
-                backgroundSize: 'cover',
-              }}
-            >
-              <p className="self-end mx-auto p-1 text-center text-white bg-gray-800 opacity-90">
-                {info.text}
-              </p>
-            </SwiperSlide>
-          ))}
+          {characterSelected &&
+            game.mainCharacters[characterIndex].info.map((info) => (
+              <SwiperSlide
+                key={info.text}
+                className="flex"
+                style={{
+                  backgroundImage: `url(${info.backgroundImage})`,
+                  backgroundSize: 'cover',
+                }}
+              >
+                <p className="self-end mx-auto p-1 text-center text-white bg-gray-800 opacity-90">
+                  {info.text}
+                </p>
+              </SwiperSlide>
+            ))}
         </Swiper>
       </div>
       <div className="z-10 flex flex-col gap-2 items-center justify-center">

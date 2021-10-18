@@ -1,15 +1,16 @@
 import { useState } from 'react'
 import { Tooltip } from '@chakra-ui/react'
 import { useSound } from 'use-sound'
+import { useStore } from '../stores/store'
 
 function Footer({
-  gameOn,
-  characterImage,
+  characterSelected,
+  characterIndex,
   setBlurBackground,
   setHideCharacterInfo,
 }: {
-  gameOn: boolean
-  characterImage: string
+  characterSelected: boolean
+  characterIndex: number
   setBlurBackground: React.Dispatch<React.SetStateAction<boolean>>
   setHideCharacterInfo: React.Dispatch<React.SetStateAction<boolean>>
 }) {
@@ -17,6 +18,7 @@ function Footer({
   const [play, { stop }] = useSound('/music/bensound-jazzcomedy.mp3', {
     volume: 0.5,
   })
+  const game = useStore((state) => state.game)
   return (
     <>
       <div id="footer" className={`w-96 flex justify-around items-center`}>
@@ -29,17 +31,17 @@ function Footer({
             <button
               className="focus:outline-none cursor-pointer"
               aria-label="check current character"
-              disabled={!gameOn}
+              disabled={!characterSelected}
               onClick={() => {
                 setHideCharacterInfo((state) => !state)
                 setBlurBackground((state) => !state)
               }}
             >
-              {gameOn ? (
+              {characterSelected ? (
                 <div className="flex w-12">
                   <img
                     className="justify-center cursor-pointer"
-                    src={characterImage}
+                    src={game.mainCharacters[characterIndex].images.default}
                     alt="Current character image"
                     width={20}
                     height={50}

@@ -47,14 +47,9 @@ export const useStore = create<GameStore>((set) => ({
 
   updateCharacter: (characterIndex: number) => {
     update(set, (state) => {
-      ;(state.game.characterName =
-        state.game.mainCharacters[characterIndex].name),
-        (state.game.characterImage =
-          state.game.mainCharacters[characterIndex].images.default),
-        (state.game.characterInfo =
-          state.game.mainCharacters[characterIndex].info),
-        (state.game.currentSceneId =
-          state.game.mainCharacters[characterIndex].scenes[0].id)
+      state.game.characterIndex = characterIndex
+      state.game.currentSceneId =
+        state.game.mainCharacters[characterIndex].scenes[0].id
     })
   },
   gotoScene: (sceneId: number) =>

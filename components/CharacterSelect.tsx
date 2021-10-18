@@ -4,14 +4,15 @@ import { A11y, EffectCube, Mousewheel } from 'swiper'
 import { useState } from 'react'
 import { useStore } from '../stores/store'
 function CharacterSelect({
+  characterSelected,
   mainCharacters,
   updateCharacter,
 }: {
+  characterSelected: boolean
   mainCharacters: MainCharacter[]
   updateCharacter: (characterIndex: number) => void
 }) {
   const setCharacterSelected = useStore((state) => state.setCharacterSelected)
-  const { characterSelected } = useStore((state) => state.game)
   const [characterIndex, setCharacterIndex] = useState(0)
   function finishSelection() {
     updateCharacter(characterIndex)
@@ -34,7 +35,7 @@ function CharacterSelect({
           modules={[A11y, Mousewheel, EffectCube]}
           effect="cube"
           mousewheel={true}
-          className="h-[30vh] w-[20vw] lg:h-[50vh]"
+          className="h-[30vh] w-[30vw] lg:h-[50vh] xl:h-[60vh]"
           onSlideChange={(swiper) => {
             setCharacterIndex(swiper.activeIndex)
           }}

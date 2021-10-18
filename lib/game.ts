@@ -1,15 +1,9 @@
 import { GameSchema } from '../schema/game'
 import { StateComponent, makeStateComponent } from './component'
-import {
-  makeMainCharacter,
-  makeNPC,
-  MainCharacter,
-  NPC,
-  CharacterInfoSlide,
-} from './character'
+import { makeMainCharacter, makeNPC, MainCharacter, NPC } from './character'
 import { Scene } from './scene'
 import { makeState, State } from './state'
-import { clickables, isClickableImg } from './elements'
+import { isClickableImg } from './elements'
 
 type PreloadImageOptions = {
   timeout?: number
@@ -21,12 +15,8 @@ export const EmptyGame: Game = {
   globalState: makeState({}),
   loading: false,
 
+  characterIndex: 0,
   characterSelected: false,
-  characterName: '',
-  characterImage: '',
-  characterInfo: [
-    { text: 'Charater Information', backgroundImage: '/images/water.png' },
-  ],
   currentSceneId: 0,
 
   header: [],
@@ -50,9 +40,7 @@ export interface Game {
   loading: boolean
 
   characterSelected: boolean
-  characterName: string
-  characterImage: string
-  characterInfo: CharacterInfoSlide[]
+  characterIndex: number
   currentSceneId: number
 
   header: StateComponent[]
@@ -77,11 +65,8 @@ export function makeGame(schema: GameSchema): Game {
 
     globalState: globalState,
     loading: false,
-
+    characterIndex: 0,
     characterSelected: false,
-    characterName: mainCharacters[0].name,
-    characterImage: mainCharacters[0].images.default,
-    characterInfo: mainCharacters[0].info,
     currentSceneId: mainCharacters[0].scenes[0].id,
 
     header:
@@ -93,9 +78,7 @@ export function makeGame(schema: GameSchema): Game {
 
     getScenes() {
       // Get current playing character
-      let character = this.mainCharacters.find(
-        (character) => character.name === this.characterName
-      )
+      const character = this.mainCharacters[this.characterIndex]
       if (!character) {
         console.error('no current playing character')
         return []
@@ -104,9 +87,7 @@ export function makeGame(schema: GameSchema): Game {
     },
     getScene(sceneId: number) {
       // Get current playing character
-      let character = this.mainCharacters.find(
-        (character) => character.name === this.characterName
-      )
+      const character = this.mainCharacters[this.characterIndex]
       if (!character) {
         console.error('no current playing character')
         return

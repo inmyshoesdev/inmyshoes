@@ -33,7 +33,6 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
     <div className="flex flex-col items-center my-2 w-full space-y-2">
       <Header header={game.header} />
       <DisplayControl setStoredScreenWidth={setStoredScreenWidth} />
-
       <div
         className={`relative bg-white border shadow overflow-hidden`}
         style={{
@@ -76,19 +75,20 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
           )}
         </Transition>
         <CharacterInfo
+          characterSelected={game.characterSelected}
           hidden={hideCharacterInfo}
           setHidden={setHideCharacterInfo}
           setBlurBackground={setBlurBackground}
-          characterInfo={game.characterInfo}
         />
         <CharacterSelect
+          characterSelected={game.characterSelected}
           mainCharacters={game.mainCharacters}
           updateCharacter={updateCharacter}
         />
       </div>
       <Footer
-        gameOn={game.characterSelected}
-        characterImage={game.characterImage}
+        characterSelected={game.characterSelected}
+        characterIndex={game.characterIndex}
         setBlurBackground={setBlurBackground}
         setHideCharacterInfo={setHideCharacterInfo}
       />
