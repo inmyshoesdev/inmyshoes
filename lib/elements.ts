@@ -61,8 +61,8 @@ export function makeNarration(schema: NarrationSchema): Narration {
   return {
     shown: false,
     name: schema.name,
-    position: schema.position || { top: '10%' }, // TODO: settle on a proper default position
-    dimension: schema.dimension || { width: '60%', height: '30%' },
+    position: schema.position || { top: '10%', left: '10%' }, // TODO: settle on a proper default position
+    dimension: schema.dimension || {},
     texts: schema.texts,
   }
 }
@@ -108,7 +108,7 @@ export function makeSpeech(
     characterPosition: schema.characterPosition,
     characterDimension: schema.characterDimension,
     textPosition: schema.textPosition,
-    textDimension: schema.textDimension,
+    textDimension: schema.textDimension || { height: '32%' },
   }
 }
 
