@@ -15,6 +15,8 @@ type GameStore = {
   replaceGlobalState: (newState: StateMap) => void
   replaceCurrentSceneState: (newState: StateMap) => void
   executeActions: (...actions: Action[]) => () => void
+  updateCharacter: (characterIndex: number) => void
+  setCharacterSelected: (newState: boolean) => void
 }
 
 function update(
@@ -37,6 +39,19 @@ export const useStore = create<GameStore>((set) => ({
     })
   },
 
+  setCharacterSelected: (newState: boolean) => {
+    update(set, (state) => {
+      state.game.characterSelected = newState
+    })
+  },
+
+  updateCharacter: (characterIndex: number) => {
+    update(set, (state) => {
+      state.game.characterIndex = characterIndex
+      state.game.currentSceneId =
+        state.game.mainCharacters[characterIndex].scenes[0].id
+    })
+  },
   gotoScene: (sceneId: number) =>
     update(set, (state) => {
       state.game.currentSceneId = sceneId

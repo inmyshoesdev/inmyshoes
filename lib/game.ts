@@ -1,15 +1,9 @@
 import { GameSchema } from '../schema/game'
 import { StateComponent, makeStateComponent } from './component'
-import {
-  makeMainCharacter,
-  makeNPC,
-  MainCharacter,
-  NPC,
-  CharacterInfoSlide,
-} from './character'
+import { makeMainCharacter, makeNPC, MainCharacter, NPC } from './character'
 import { Scene } from './scene'
 import { makeState, State } from './state'
-import { clickables, isClickableImg } from './elements'
+import { isClickableImg } from './elements'
 
 type PreloadImageOptions = {
   timeout?: number
@@ -21,10 +15,8 @@ export const EmptyGame: Game = {
   globalState: makeState({}),
   loading: false,
 
-  characterName: '',
-  characterInfo: [
-    { text: 'Charater Information', backgroundImage: '/images/water.png' },
-  ],
+  characterIndex: 0,
+  characterSelected: false,
   currentSceneId: 0,
 
   header: [],
@@ -47,8 +39,8 @@ export interface Game {
   globalState: State
   loading: boolean
 
-  characterName: string
-  characterInfo: CharacterInfoSlide[]
+  characterSelected: boolean
+  characterIndex: number
   currentSceneId: number
 
   header: StateComponent[]
@@ -73,9 +65,8 @@ export function makeGame(schema: GameSchema): Game {
 
     globalState: globalState,
     loading: false,
-
-    characterName: mainCharacters[0].name,
-    characterInfo: mainCharacters[0].info,
+    characterIndex: 0,
+    characterSelected: false,
     currentSceneId: mainCharacters[0].scenes[0].id,
 
     header:
@@ -87,9 +78,7 @@ export function makeGame(schema: GameSchema): Game {
 
     getScenes() {
       // Get current playing character
-      let character = this.mainCharacters.find(
-        (character) => character.name === this.characterName
-      )
+      const character = this.mainCharacters[this.characterIndex]
       if (!character) {
         console.error('no current playing character')
         return []
@@ -98,9 +87,7 @@ export function makeGame(schema: GameSchema): Game {
     },
     getScene(sceneId: number) {
       // Get current playing character
-      let character = this.mainCharacters.find(
-        (character) => character.name === this.characterName
-      )
+      const character = this.mainCharacters[this.characterIndex]
       if (!character) {
         console.error('no current playing character')
         return
