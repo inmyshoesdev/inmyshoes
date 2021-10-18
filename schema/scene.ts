@@ -19,7 +19,7 @@ import { StateSchema } from './state'
 
 export const SceneSchema = object({
   id: number(),
-  background: string(),
+  background: optional(string()),
   backgroundAltText: optional(string()),
 
   narrations: defaulted(array(NarrationSchema), () => []),

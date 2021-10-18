@@ -34,7 +34,7 @@ export type ElementValueFor<T extends ElementKeys> = Scene[T][0]
 
 export interface Scene {
   id: number
-  background: string
+  background?: string
   backgroundAltText?: string | undefined
 
   // use the defined element keys to index Scene

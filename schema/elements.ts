@@ -53,6 +53,7 @@ export const NarrationSchema = intersection([
   ElementSchema,
   type({
     texts: array(string()),
+    textBoxImage: optional(string()),
   }),
 ])
 

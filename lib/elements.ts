@@ -55,15 +55,17 @@ export interface Element {
 
 export interface Narration extends Element {
   texts: string[]
+  textBoxImage?: string
 }
 
 export function makeNarration(schema: NarrationSchema): Narration {
   return {
     shown: false,
     name: schema.name,
-    position: schema.position || { top: '10%', left: '10%' }, // TODO: settle on a proper default position
-    dimension: schema.dimension || {},
+    position: schema.position || { top: '10%', left: '20%' }, // TODO: settle on a proper default position
+    dimension: schema.dimension || { height: '30%' },
     texts: schema.texts,
+    textBoxImage: schema.textBoxImage,
   }
 }
 

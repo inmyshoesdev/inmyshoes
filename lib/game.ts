@@ -124,7 +124,9 @@ export function makeGame(schema: GameSchema): Game {
 
       this.mainCharacters.forEach((char) => {
         char.scenes.forEach((scene) => {
-          imageSources.add(scene.background)
+          if (scene.background) {
+            imageSources.add(scene.background)
+          }
 
           scene.images.forEach((image) => {
             imageSources.add(image.src)

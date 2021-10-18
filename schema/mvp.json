@@ -218,13 +218,33 @@
         },
         {
           "id": 1,
-          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-household.jpg",
+          "background": "/images/background-black.jpg",
           "narrations": [
+            {
+              "name": "day",
+              "texts": [
+                "**Day 1 - Monday**"
+              ],
+              "textBoxImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/description-box.png",
+              "dimension": {
+                "width": "30%",
+                "height": "20%"
+              },
+              "position": {
+                "top": "5%",
+                "left": "5%"
+              }
+            },
             {
               "name": "intro",
               "texts": [
                 "It’s 5:30am. Both of your parents worked late last night and your siblings need to get ready for school."
-              ]
+              ],
+              "textBoxImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/description-box.png",
+              "position": {
+                "bottom": "5%",
+                "right": "5%"
+              }
             },
             {
               "name": "woke",
@@ -265,7 +285,8 @@
                     "width": "20%"
                   },
                   "characterPosition": {
-                    "left": "0%"
+                    "left": "0%",
+                    "bottom": "5%"
                   }
                 },
                 {
@@ -277,13 +298,23 @@
                     "width": "20%"
                   },
                   "characterPosition": {
-                    "left": "0%"
+                    "left": "0%",
+                    "bottom": "5%"
                   }
                 }
               ]
             }
           ],
-          "images": [],
+          "images": [
+            {
+              "name": "home",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-background-home.jpg",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "clickables": [
             {
               "name": "choice",
@@ -362,7 +393,22 @@
             },
             {
               "type": "showNarration",
+              "value": "day",
+              "autoHide": false
+            },
+            {
+              "type": "showNarration",
               "value": "intro"
+            },
+            {
+              "type": "hideNarration",
+              "value": "day"
+            },
+            {
+              "type": "showImage",
+              "value": "home",
+              "autoHide": false,
+              "duration": 1
             },
             {
               "type": "showDialogue",
@@ -410,7 +456,8 @@
                     "width": "20%"
                   },
                   "characterPosition": {
-                    "left": "0%"
+                    "left": "0%",
+                    "bottom": "5%"
                   }
                 },
                 {
@@ -422,7 +469,8 @@
                     "width": "20%"
                   },
                   "characterPosition": {
-                    "left": "0%"
+                    "left": "0%",
+                    "bottom": "5%"
                   }
                 }
               ]

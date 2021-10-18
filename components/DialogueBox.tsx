@@ -148,10 +148,10 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
             bgSize="100% 100%"
             className="px-[3%] py-[2%] absolute flex flex-col"
             style={{
-              top: position?.top || 'unset',
-              left: position?.left || '20%',
-              right: position?.right || 'unset',
-              bottom: position?.bottom || '10%',
+              top: position ? position.top : 'unset',
+              left: position ? position.left : '20%',
+              right: position ? position.right : 'unset',
+              bottom: position ? position.bottom : '10%',
               width: dimension?.width || '60%',
               height: dimension?.height || 'unset',
             }}
