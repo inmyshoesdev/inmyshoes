@@ -21,7 +21,7 @@
       "component": "state_display",
       "title": "Day",
       "state": "day",
-      "labelImage": "/images/calendar.png"
+      "iconImage": "/images/calendar.png"
     },
     {
       "component": "state_meter",
@@ -252,7 +252,8 @@
                     "width": "20%"
                   },
                   "characterPosition": {
-                    "left": "0%"
+                    "left": "0%",
+                    "bottom": "5%"
                   }
                 },
                 {

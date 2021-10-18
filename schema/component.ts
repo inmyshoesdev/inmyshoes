@@ -40,11 +40,17 @@ export const StateMeterSchema = object({
 
 export type StateMeterSchema = Infer<typeof StateMeterSchema>
 
+// {
+//   "component": "state_display",
+//   "title": "Date",
+//   "state": "date",
+//   "iconImage": "/images/calendar.png"
+// }
 export const StateDisplaySchema = object({
   component: literal(COMPONENT_TYPE.DISPLAY),
   title: string(),
   state: string(),
-  labelImage: optional(string()),
+  iconImage: optional(string()),
 })
 
 export type StateDisplaySchema = Infer<typeof StateDisplaySchema>
