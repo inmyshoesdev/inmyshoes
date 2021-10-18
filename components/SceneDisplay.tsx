@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { ActionSequence } from '../lib/action-sequence'
 import { Scene } from '../lib/scene'
 import { useStore } from '../stores/store'
 import ClickableGroup from './ClickableGroup'
@@ -20,7 +21,7 @@ const SceneDisplay: React.FC<SceneProps> = ({ scene }) => {
   }, [resetScene, scene.id])
 
   useEffect(() => {
-    return executeActions(...scene.intro)
+    return executeActions(new ActionSequence(...scene.intro))
   }, [scene.intro, executeActions])
 
   return (

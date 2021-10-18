@@ -34,21 +34,15 @@
             },
             {
               "name": "scared msg",
-              "texts": [
-                "you are very scared..."
-              ]
+              "texts": ["you are very scared..."]
             },
             {
               "name": "clown decision",
-              "texts": [
-                "listen to the clown?"
-              ]
+              "texts": ["listen to the clown?"]
             },
             {
               "name": "win msg",
-              "texts": [
-                "you won!!!"
-              ]
+              "texts": ["you won!!!"]
             }
           ],
           "dialogues": [
@@ -132,10 +126,7 @@
                   ],
                   "disabled": {
                     "if": {
-                      ">=": [
-                        "{fear}",
-                        10
-                      ]
+                      ">=": ["{fear}", 10]
                     },
                     "label": "You are too afraid"
                   }
@@ -159,10 +150,7 @@
                   ],
                   "disabled": {
                     "if": {
-                      ">=": [
-                        "{fear}",
-                        10
-                      ]
+                      ">=": ["{fear}", 10]
                     },
                     "label": "You are too afraid"
                   }
@@ -199,10 +187,7 @@
               "type": "showNarration",
               "value": "scared msg",
               "if": {
-                ">=": [
-                  "{fear}",
-                  10
-                ]
+                ">=": ["{fear}", 10]
               }
             },
             {

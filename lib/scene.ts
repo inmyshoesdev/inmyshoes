@@ -1,5 +1,5 @@
 import { SceneSchema } from '../schema/scene'
-import { Action, makeAction } from './actions'
+import { Action, compileActions, makeAction } from './actions'
 import { Character } from './character'
 import {
   allElements,
@@ -79,8 +79,8 @@ export function makeScene(schema: SceneSchema, characters: Character[]): Scene {
 
     [links]: schema.links.map((linkSchema) => makeLink(linkSchema)),
 
-    intro: schema.intro.map((x) => makeAction(x, id)).filter(isDefined),
-    outro: schema.outro.map((x) => makeAction(x, id)).filter(isDefined),
+    intro: compileActions(schema.intro, id),
+    outro: compileActions(schema.outro, id),
 
     state: makeState(schema.state ?? {}),
 

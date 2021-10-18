@@ -45,3 +45,50 @@ export function tryConvertBool(str: string): [boolean, boolean] {
 
   return [false, false]
 }
+
+export function capitalizeFirst(str: string): string {
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
+// adapted from: https://stackoverflow.com/a/47112177
+// essentially creates a Promise which can be resolved from outside the
+// Promise's closure.
+export class Deferred<T> {
+  private _promise: Promise<T>
+  resolve!: (value: T | PromiseLike<T>) => void
+  reject!: (reason?: any) => void
+
+  then: <TResult1 = T, TResult2 = never>(
+    onfulfilled?:
+      | ((value: T) => TResult1 | PromiseLike<TResult1>)
+      | undefined
+      | null,
+    onrejected?:
+      | ((reason: any) => TResult2 | PromiseLike<TResult2>)
+      | undefined
+      | null
+  ) => Promise<TResult1 | TResult2>
+
+  catch: <TResult = never>(
+    onrejected?:
+      | ((reason: any) => TResult | PromiseLike<TResult>)
+      | undefined
+      | null
+  ) => Promise<T | TResult>;
+
+  [Symbol.toStringTag] = 'Promise'
+
+  constructor() {
+    this._promise = new Promise<T>((resolve, reject) => {
+      // assign the resolve and reject functions to `this`
+      // making them usable on the class instance
+      this.resolve = resolve
+      this.reject = reject
+    })
+
+    this._promise.then
+    // bind `then` and `catch` to implement the same interface as Promise
+    this.then = this._promise.then.bind(this._promise)
+    this.catch = this._promise.catch.bind(this._promise)
+  }
+}

@@ -1,5 +1,4 @@
 import { Transition } from '@headlessui/react'
-import { useAfterInteractionCallback } from '../hooks/useAfterInteractionCallback'
 import type { Image } from '../lib/elements'
 
 const ImageElement: React.FC<Image> = ({
@@ -11,10 +10,6 @@ const ImageElement: React.FC<Image> = ({
   blendMode,
   afterInteractionCallback,
 }) => {
-  const handleInteraction = useAfterInteractionCallback(
-    afterInteractionCallback
-  )
-
   const positionDefined =
     position?.top || position?.left || position?.right || position?.bottom
 
@@ -25,7 +20,10 @@ const ImageElement: React.FC<Image> = ({
       enterFrom="opacity-0"
       enterTo="opacity-100"
     >
-      <div className="container absolute mx-auto" onClick={handleInteraction}>
+      <div
+        className="container absolute mx-auto"
+        onClick={afterInteractionCallback}
+      >
         <img
           src={src}
           alt={altText || ''}

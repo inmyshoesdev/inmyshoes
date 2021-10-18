@@ -1,10 +1,9 @@
 import { RulesLogic } from 'json-logic-js'
 import { ActionSchema } from '../schema/actions'
-import { DeferredActions } from '../stores/store'
+import { AfterInteractionCallback } from './elements'
 import { Game } from './game'
 import { makeLogic } from './logic'
 import { ElementKeys, Scene } from './scene'
-import { once } from './utils'
 
 // modify any property to have the changes persisted to the game state
 // if called via the `executeActions` method of the store
@@ -24,7 +23,7 @@ export function isCallable(
 export type ActionArgs = {
   duration: number
   args: Record<string, any>
-  deferredActions?: DeferredActions
+  afterInteractionCallback?: AfterInteractionCallback
 } & ModifiableArgs
 
 export interface Action {
@@ -36,15 +35,58 @@ export interface Action {
   execute: (args: ActionArgs) => FinishAction // like useEffect
 }
 
-export const makeAction = (
+export function compileActions(
+  schemas: ActionSchema[],
+  sceneId: number
+): Action[] {
+  return schemas.reduce<Action[]>((accum, schema) => {
+    const action = makeAction(schema, sceneId)
+    if (!action) {
+      return accum
+    }
+
+    const { name, args, duration } = action
+    const { value, autoHide = true, waitForInteraction = true } = args
+
+    if (
+      name in ShowActions &&
+      autoHide &&
+      (duration != 0 || waitForInteraction)
+    ) {
+      const hideActionName = name.replace('show', 'hide') as `hide${string}`
+      const hideAction = HideActions[hideActionName]
+
+      if (!hideAction) {
+        console.warn(`no hide action with name ${hideActionName}`)
+        return [...accum, action]
+      }
+
+      return [
+        ...accum,
+        action,
+        {
+          name: hideActionName,
+          duration: duration,
+          args: { value },
+          sceneId: sceneId,
+          execute: HideActions[hideActionName],
+        },
+      ]
+    }
+
+    return [...accum, action]
+  }, [])
+}
+
+export function makeAction(
   schema: ActionSchema,
   sceneId: number
-): Action | undefined => {
+): Action | undefined {
   const { type, duration, ...rest } = schema
 
   const action = DefinedActions[type]
   if (!action) {
-    console.log(`no action matching type ${type}`)
+    console.warn(`no action matching type ${type}`)
     return undefined
   }
 
@@ -58,23 +100,23 @@ export const makeAction = (
   }
 }
 
+const elements: Record<string, ElementKeys> = {
+  Narration: 'narrations',
+  Dialogue: 'dialogues',
+  Image: 'images',
+  Clickable: 'clickables',
+  Link: 'links',
+}
+
 const ShowActions: Record<`show${string}`, (args: ActionArgs) => FinishAction> =
-  {
-    showNarration: show('narrations'),
-    showDialogue: show('dialogues'),
-    showImage: show('images'),
-    showClickable: show('clickables'),
-    showLink: show('links'),
-  }
+  Object.fromEntries(
+    Object.entries(elements).map(([name, key]) => [`show${name}`, show(key)])
+  )
 
 const HideActions: Record<`hide${string}`, (args: ActionArgs) => FinishAction> =
-  {
-    hideDialogue: hide('dialogues'),
-    hideNarration: hide('narrations'),
-    hideImage: hide('images'),
-    hideClickable: hide('clickables'),
-    hideLink: hide('links'),
-  }
+  Object.fromEntries(
+    Object.entries(elements).map(([name, key]) => [`hide${name}`, hide(key)])
+  )
 
 // Add all actions here!
 export const DefinedActions: Partial<
@@ -113,10 +155,9 @@ function show(elementKey: ElementKeys) {
   return ({
     args,
     scene,
-    duration,
-    deferredActions,
+    afterInteractionCallback,
   }: ActionArgs): FinishAction => {
-    const { value, autoHide = true } = args
+    const { value } = args
 
     const element = scene.getElement(value, elementKey)
     if (!element) {
@@ -129,54 +170,9 @@ function show(elementKey: ElementKeys) {
     // }
     element.shown = true
 
-    // if autoHide, then include a hide action in the after interaction callback
-    if (autoHide && deferredActions) {
-      deferredActions.runtimeActions = [
-        {
-          action: {
-            name: `hide${elementKey}`,
-            duration: duration,
-            args: { value },
-            sceneId: scene.id,
-            execute: hide(elementKey),
-          },
-          timing: 0,
-        },
-        ...deferredActions.runtimeActions,
-      ]
-    }
-
-    const afterInteractionCallback = deferredActions
-      ? once(() => {
-          const cleanupFns = deferredActions.runtimeActions.map((action) =>
-            deferredActions.deferredExecutor(action)
-          )
-
-          return cleanupFns ? () => cleanupFns.forEach((fn) => fn()) : () => {}
-        })
-      : undefined
-
     // set the after interaction callback if required
     if (afterInteractionCallback) {
       element.afterInteractionCallback = afterInteractionCallback
-    }
-
-    if (duration > 0) {
-      return ({ scene }) => {
-        if (afterInteractionCallback) {
-          afterInteractionCallback()
-
-          // if after interaction callback is not defined, then we manually hide the element here
-        } else if (autoHide) {
-          const element = scene.getElement(value, elementKey)
-          if (!element) {
-            console.warn(`no element called ${value}`)
-            return
-          }
-
-          element.shown = false
-        }
-      }
     }
   }
 }

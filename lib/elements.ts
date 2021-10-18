@@ -1,4 +1,4 @@
-import { apply, RulesLogic } from 'json-logic-js'
+import { RulesLogic } from 'json-logic-js'
 import {
   ClickableGroupSchema,
   ClickableItemSchema,
@@ -43,8 +43,7 @@ export type Dimension = {
 
 export type ShowArgs = { position?: Position }
 
-export type AfterInteractionCallback = () => (() => void) | undefined // returns a cleanup func or undefined
-
+export type AfterInteractionCallback = () => void
 export interface Element {
   shown: boolean
   name: string

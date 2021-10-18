@@ -1,5 +1,6 @@
 import {
   array,
+  defaulted,
   Infer,
   intersection,
   record,
@@ -7,6 +8,7 @@ import {
   string,
   type,
 } from 'superstruct'
+import { EventSchema } from './events'
 import { SceneSchema } from './scene'
 
 export const CharacterSchema = type({
@@ -33,6 +35,7 @@ export const MainCharacterSchema = intersection([
       Infinity
     ),
     scenes: size(array(SceneSchema), 1, Infinity),
+    events: defaulted(array(EventSchema), () => []),
   }),
 ])
 export type MainCharacterSchema = Infer<typeof MainCharacterSchema>
