@@ -101,7 +101,7 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
 
   const buttonSize = useBreakpointValue(['xs', 'sm', 'sm', 'md'])
   const buttons = (
-    <div className="flex justify-between text-blue-400">
+    <div className="flex justify-between">
       <IconButton
         aria-label="previous"
         variant="ghost"
