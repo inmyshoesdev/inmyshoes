@@ -105,8 +105,8 @@ export const DefinedActions: Partial<
     game.globalState.reset()
   },
 
-  reselectCharacter: () => {
-    location.reload()
+  reselectCharacter: ({ game }) => {
+    game.characterSelected = false
   },
 
   ...ShowActions,

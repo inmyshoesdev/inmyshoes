@@ -2,29 +2,25 @@ import { MainCharacter } from '../lib/character'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { A11y, EffectCube, Mousewheel } from 'swiper'
 import { useState } from 'react'
+import { useStore } from '../stores/store'
 function CharacterSelect({
   mainCharacters,
-  setCharacterSelected,
   updateCharacter,
-  hidden,
-  setHidden,
 }: {
   mainCharacters: MainCharacter[]
-  hidden: boolean
-  setHidden: (hidden: boolean) => void
-  setCharacterSelected: (isSelected: boolean) => void
   updateCharacter: (characterIndex: number) => void
 }) {
+  const setCharacterSelected = useStore((state) => state.setCharacterSelected)
+  const { characterSelected } = useStore((state) => state.game)
   const [characterIndex, setCharacterIndex] = useState(0)
   function finishSelection() {
-    setHidden(true)
     updateCharacter(characterIndex)
     setCharacterSelected(true)
   }
   return (
     <div
       className={`${
-        hidden ? 'hidden' : ''
+        characterSelected ? 'hidden' : ''
       } w-auto mx-auto flex flex-col items-center gap-4`}
       style={{
         aspectRatio: '16/9',
@@ -38,7 +34,7 @@ function CharacterSelect({
           modules={[A11y, Mousewheel, EffectCube]}
           effect="cube"
           mousewheel={true}
-          className="h-[50vh] w-[20vw]"
+          className="h-[30vh] w-[20vw] lg:h-[50vh]"
           onSlideChange={(swiper) => {
             setCharacterIndex(swiper.activeIndex)
           }}
@@ -55,7 +51,7 @@ function CharacterSelect({
       </div>
       <div className="z-10 flex items-center justify-center">
         <button
-          className="px-4 text-center text-lg font-semibold bg-green-400 rounded focus:outline-none"
+          className="px-4 text-center text-lg font-semibold bg-green-400 rounded focus:outline-none cursor-pointer"
           onClick={finishSelection}
         >
           Go

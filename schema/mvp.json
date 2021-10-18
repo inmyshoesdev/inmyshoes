@@ -2367,7 +2367,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "date": "Monday",
+                "day": "Monday",
                 "wealth": 5,
                 "health": 10,
                 "social": 10
@@ -2525,7 +2525,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "date": "Monday",
+                "day": "Monday",
                 "wealth": 10,
                 "health": 10,
                 "social": 10

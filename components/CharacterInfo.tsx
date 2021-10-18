@@ -1,6 +1,18 @@
 import { CharacterInfoSlide } from '../lib/character'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { A11y, EffectCards, Mousewheel } from 'swiper'
+import { Button } from '@chakra-ui/button'
+import { useStore } from '../stores/store'
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverHeader,
+  PopoverBody,
+  PopoverFooter,
+  PopoverArrow,
+  PopoverCloseButton,
+} from '@chakra-ui/react'
 function CharacterInfo({
   characterInfo,
   hidden,
@@ -12,6 +24,8 @@ function CharacterInfo({
   setHidden: (hidden: boolean) => void
   setBlurBackground: React.Dispatch<React.SetStateAction<boolean>>
 }) {
+  const setCharacterSelected = useStore((state) => state.setCharacterSelected)
+
   return (
     <div
       className={`${
@@ -21,10 +35,6 @@ function CharacterInfo({
         aspectRatio: '16/9',
       }}
     >
-      {/* todo implement reselect */}
-      {/* <button className="justify-content flex mx-auto px-2 font-semibold bg-yellow-600 rounded-sm focus:outline-none">
-        Reselect
-      </button> */}
       <h1 className="px-2 text-white text-xl bg-gray-700 opacity-90">
         Character Information
       </h1>
@@ -51,9 +61,9 @@ function CharacterInfo({
           ))}
         </Swiper>
       </div>
-      <div className="z-10 flex items-center justify-center">
+      <div className="z-10 flex flex-col gap-2 items-center justify-center">
         <button
-          className="px-4 text-center text-lg font-semibold bg-green-400 rounded focus:outline-none cursor-pointer"
+          className="px-4 text-center text-lg font-semibold bg-green-400 rounded cursor-pointer"
           onClick={() => {
             setHidden(true)
             setBlurBackground((state) => !state)
@@ -61,6 +71,34 @@ function CharacterInfo({
         >
           Resume
         </button>
+        <Popover>
+          <PopoverTrigger>
+            <button className="justify-content z-20 flex mx-auto px-2 font-semibold bg-yellow-400 rounded cursor-pointer">
+              Reselect
+            </button>
+          </PopoverTrigger>
+          <PopoverContent>
+            <PopoverArrow />
+            <PopoverCloseButton />
+            <PopoverHeader>Confirmation!</PopoverHeader>
+            <PopoverBody>
+              Are you sure you want to go back to the character selection stage?
+              <Button
+                variant="outline"
+                size="sm"
+                colorScheme="green"
+                className="ml-2 cursor-pointer"
+                onClick={() => {
+                  setHidden(true)
+                  setBlurBackground((state) => !state)
+                  setCharacterSelected(false)
+                }}
+              >
+                Yes
+              </Button>
+            </PopoverBody>
+          </PopoverContent>
+        </Popover>
       </div>
     </div>
   )

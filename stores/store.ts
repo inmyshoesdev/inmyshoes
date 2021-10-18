@@ -16,6 +16,7 @@ type GameStore = {
   replaceCurrentSceneState: (newState: StateMap) => void
   executeActions: (...actions: Action[]) => () => void
   updateCharacter: (characterIndex: number) => void
+  setCharacterSelected: (newState: boolean) => void
 }
 
 function update(
@@ -35,6 +36,12 @@ export const useStore = create<GameStore>((set) => ({
 
     update(set, (state) => {
       state.game.loading = false
+    })
+  },
+
+  setCharacterSelected: (newState: boolean) => {
+    update(set, (state) => {
+      state.game.characterSelected = newState
     })
   },
 

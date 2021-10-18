@@ -18,10 +18,8 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
   const game = useStore((state) => state.game)
   const loadGame = useStore((state) => state.loadGame)
   const updateCharacter = useStore((state) => state.updateCharacter)
-  const [characterSelected, setCharacterSelected] = useState(false)
   const [blurBackground, setBlurBackground] = useState(false)
   const [hideCharacterInfo, setHideCharacterInfo] = useState(true)
-  const [hideCharacterSelect, setHideCharacterSelect] = useState(false)
   const [storedScreenWidth, setStoredScreenWidth] = useLocalStorage(
     'ims-screenWidth',
     72
@@ -43,7 +41,7 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
           width: `${storedScreenWidth}vw`,
         }}
       >
-        {characterSelected &&
+        {game.characterSelected &&
           game?.getScenes().map((scene, idx) => (
             <Transition
               show={!game.loading && game?.currentSceneId === scene.id}
@@ -84,15 +82,12 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
           characterInfo={game.characterInfo}
         />
         <CharacterSelect
-          hidden={hideCharacterSelect}
-          setHidden={setHideCharacterSelect}
           mainCharacters={game.mainCharacters}
-          setCharacterSelected={setCharacterSelected}
           updateCharacter={updateCharacter}
         />
       </div>
       <Footer
-        gameOn={characterSelected}
+        gameOn={game.characterSelected}
         characterImage={game.characterImage}
         setBlurBackground={setBlurBackground}
         setHideCharacterInfo={setHideCharacterInfo}

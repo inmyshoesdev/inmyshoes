@@ -21,6 +21,7 @@ export const EmptyGame: Game = {
   globalState: makeState({}),
   loading: false,
 
+  characterSelected: false,
   characterName: '',
   characterImage: '',
   characterInfo: [
@@ -48,6 +49,7 @@ export interface Game {
   globalState: State
   loading: boolean
 
+  characterSelected: boolean
   characterName: string
   characterImage: string
   characterInfo: CharacterInfoSlide[]
@@ -76,6 +78,7 @@ export function makeGame(schema: GameSchema): Game {
     globalState: globalState,
     loading: false,
 
+    characterSelected: false,
     characterName: mainCharacters[0].name,
     characterImage: mainCharacters[0].images.default,
     characterInfo: mainCharacters[0].info,
