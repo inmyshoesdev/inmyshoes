@@ -35,7 +35,7 @@ function CharacterSelect({
           modules={[A11y, Mousewheel, EffectCube]}
           effect="cube"
           mousewheel={true}
-          className="h-[30vh] w-[30vw] lg:h-[50vh] xl:h-[60vh]"
+          className="h-[20vh] w-[30vw] md:h-[25vh] lg:h-[30vh] xl:h-[50vh]"
           onSlideChange={(swiper) => {
             setCharacterIndex(swiper.activeIndex)
           }}
