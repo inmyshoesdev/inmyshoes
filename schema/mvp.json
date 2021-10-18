@@ -77,8 +77,12 @@
               "name": "intro",
               "texts": [
                 "In this exercise, you will have the chance to choose a character and discover what youth might go through in various aspects of their life.",
-                "Each character has health, social and wealth points. There is no winning and/or losing in this game.",
-                "Instead, we ask that you think about what life would be like for these characters and the realities of the scenarios.",
+                "Each character has a health, social and wealth meter. As these are meant to reflect the physical, social and financial conditions of the characters, their starting values will differ depending on the character being played."
+              ]
+            },
+            {
+              "name": "intro2",
+              "texts": [
                 "Just like real people, the characters will fare better if their financial, physical and social needs are taken care of. So try and keep them up if you can.",
                 "Content warnings: mental health, learning disabilities, income issues."
               ]
@@ -105,8 +109,36 @@
           ],
           "intro": [
             {
+              "type": "updateGlobalState",
+              "newState": {
+                "wealth": 5,
+                "health": 10,
+                "social": 10
+              }
+            },
+            {
               "type": "showNarration",
               "value": "intro"
+            },
+            {
+              "type": "wait",
+              "duration": 1000
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "wealth": 2,
+                "health": -3,
+                "social": -1
+              }
+            },
+            {
+              "type": "wait",
+              "duration": 1000
+            },
+            {
+              "type": "showNarration",
+              "value": "intro2"
             },
             {
               "type": "showClickable",
