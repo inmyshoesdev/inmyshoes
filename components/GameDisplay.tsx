@@ -9,6 +9,7 @@ import { Spinner } from '@chakra-ui/spinner'
 import { DisplayControl } from './DisplayControl'
 import useLocalStorage from '../hooks/useLocalStorage'
 import CharacterInfo from './CharacterInfo'
+import CharacterSelect from './CharacterSelect'
 type GameProps = {
   game?: Game
 }
@@ -16,6 +17,7 @@ type GameProps = {
 const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
   const game = useStore((state) => state.game)
   const loadGame = useStore((state) => state.loadGame)
+  const updateCharacter = useStore((state) => state.updateCharacter)
   const [blurBackground, setBlurBackground] = useState(false)
   const [hideCharacterInfo, setHideCharacterInfo] = useState(true)
   const [storedScreenWidth, setStoredScreenWidth] = useLocalStorage(
@@ -38,21 +40,22 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
           width: `${storedScreenWidth}vw`,
         }}
       >
-        {game?.getScenes().map((scene, idx) => (
-          <Transition
-            show={!game.loading && game?.currentSceneId === scene.id}
-            enter="transition-opacity duration-500"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="transition-opacity duration-500"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-            key={idx}
-            className={`absolute inset-0 ${blurBackground ? 'blur-sm' : ''}`}
-          >
-            <SceneDisplay scene={scene} />
-          </Transition>
-        ))}
+        {game.characterSelected &&
+          game?.getScenes().map((scene, idx) => (
+            <Transition
+              show={!game.loading && game?.currentSceneId === scene.id}
+              enter="transition-opacity duration-500"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="transition-opacity duration-500"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+              key={idx}
+              className={`absolute inset-0 ${blurBackground ? 'blur-sm' : ''}`}
+            >
+              <SceneDisplay scene={scene} />
+            </Transition>
+          ))}
         <Transition
           show={game.loading}
           leave="transition-opacity duration-1000"
@@ -72,14 +75,20 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
           )}
         </Transition>
         <CharacterInfo
+          characterSelected={game.characterSelected}
           hidden={hideCharacterInfo}
           setHidden={setHideCharacterInfo}
           setBlurBackground={setBlurBackground}
-          characterInfo={game.characterInfo}
+        />
+        <CharacterSelect
+          characterSelected={game.characterSelected}
+          mainCharacters={game.mainCharacters}
+          updateCharacter={updateCharacter}
         />
       </div>
       <Footer
-        gameOn={true}
+        characterSelected={game.characterSelected}
+        characterIndex={game.characterIndex}
         setBlurBackground={setBlurBackground}
         setHideCharacterInfo={setHideCharacterInfo}
       />

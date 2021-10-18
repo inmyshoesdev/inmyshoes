@@ -77,8 +77,12 @@
               "name": "intro",
               "texts": [
                 "In this exercise, you will have the chance to choose a character and discover what youth might go through in various aspects of their life.",
-                "Each character has health, social and wealth points. There is no winning and/or losing in this game.",
-                "Instead, we ask that you think about what life would be like for these characters and the realities of the scenarios.",
+                "Each character has a health, social and wealth meter. As these are meant to reflect the physical, social and financial conditions of the characters, their starting values will differ depending on the character being played."
+              ]
+            },
+            {
+              "name": "intro2",
+              "texts": [
                 "Just like real people, the characters will fare better if their financial, physical and social needs are taken care of. So try and keep them up if you can.",
                 "Content warnings: mental health, learning disabilities, income issues."
               ]
@@ -105,8 +109,36 @@
           ],
           "intro": [
             {
+              "type": "updateGlobalState",
+              "newState": {
+                "wealth": 5,
+                "health": 10,
+                "social": 10
+              }
+            },
+            {
               "type": "showNarration",
               "value": "intro"
+            },
+            {
+              "type": "wait",
+              "duration": 1000
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "wealth": 2,
+                "health": -3,
+                "social": -1
+              }
+            },
+            {
+              "type": "wait",
+              "duration": 1000
+            },
+            {
+              "type": "showNarration",
+              "value": "intro2"
             },
             {
               "type": "showClickable",
@@ -492,10 +524,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -652,10 +681,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -1055,10 +1081,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -1185,10 +1208,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -1347,10 +1367,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -1488,10 +1505,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -1648,10 +1662,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -1778,10 +1789,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -2041,10 +2049,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -2296,45 +2301,409 @@
               "type": "showClickable",
               "value": "health badge",
               "if": {
-                ">=": [
-                  "{health}",
-                  15
-                ]
+                ">=": ["{health}", 15]
               }
             },
             {
               "type": "showClickable",
               "value": "social badge",
               "if": {
-                ">=": [
-                  "{social}",
-                  15
-                ]
+                ">=": ["{social}", 15]
               }
             },
             {
               "type": "showClickable",
               "value": "wealth badge",
               "if": {
-                ">=": [
-                  "{wealth}",
-                  6
-                ]
+                ">=": ["{wealth}", 6]
               }
             },
             {
               "type": "showClickable",
               "value": "helping hand badge",
               "if": {
-                "==": [
-                  "{approached help}",
-                  true
-                ]
+                "==": ["{approached help}", true]
               }
             },
             {
               "type": "wait",
               "duration": 500
+            },
+            {
+              "type": "showLink",
+              "value": "feedback",
+              "waitForInteraction": false,
+              "autoHide": false
+            },
+            {
+              "type": "showClickable",
+              "value": "restart"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Belinda",
+      "images": {
+        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Belinda.png"
+      },
+      "info": [
+        {
+          "text": "You are from a middle-income family.",
+          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-household.jpg"
+        },
+        {
+          "text": "In addition to your parents, you also live with your two younger siblings.",
+          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-family-image.jpg"
+        },
+        {
+          "text": "You are dyslexic.",
+          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-work.jpg"
+        }
+      ],
+      "scenes": [
+        {
+          "id": 0,
+          "background": "/images/water.png",
+          "narrations": [
+            {
+              "name": "intro",
+              "texts": [
+                "In this exercise, you will have the chance to choose a character and discover what youth might go through in various aspects of their life."
+              ]
+            }
+          ],
+          "dialogues": [],
+          "images": [],
+          "clickables": [
+            {
+              "name": "next",
+              "options": [
+                {
+                  "name": "1",
+                  "text": "Go",
+                  "onClick": [
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 0.5
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "showNarration",
+              "value": "intro"
+            },
+            {
+              "type": "showClickable",
+              "value": "next"
+            }
+          ]
+        },
+        {
+          "id": 0.5,
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-household.jpg",
+          "narrations": [
+            {
+              "name": "household",
+              "texts": ["You are Belinda. You are from a middle-income family."]
+            }
+          ],
+          "dialogues": [],
+          "images": [
+            {
+              "name": "family",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-family-image.jpg",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
+          "clickables": [
+            {
+              "name": "next",
+              "options": [
+                {
+                  "name": "1",
+                  "text": "Go",
+                  "onClick": [
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "resetGlobalState"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "day": "Monday",
+                "wealth": 5,
+                "health": 10,
+                "social": 10
+              }
+            },
+            {
+              "type": "showNarration",
+              "value": "household"
+            },
+            {
+              "type": "gotoScene",
+              "sceneId": 1
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-household.jpg",
+          "narrations": [
+            {
+              "name": "intro",
+              "texts": [
+                "It’s 6:00am. Despite having stayed up till 3:00am the previous night and asked your friends to help you over the weekend, you were not able to complete your homework that is due this morning. What do you do?"
+              ]
+            }
+          ],
+          "dialogues": [
+            {
+              "name": "inner",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "text": "I'm so tired from staying up last night to finish my work",
+                  "characterDimension": {
+                    "height": "50%",
+                    "width": "20%"
+                  },
+                  "characterPosition": {
+                    "left": "0%"
+                  }
+                },
+                {
+                  "character": "Belinda",
+                  "text": "*checks time* oh no its already 6am? should i get up and try to finiish it again?",
+                  "characterDimension": {
+                    "height": "50%",
+                    "width": "20%"
+                  },
+                  "characterPosition": {
+                    "left": "0%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "1",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "text": "Ok I guess I will try to finish it again. I dont want to disappoint my teachers again",
+                  "characterDimension": {
+                    "height": "50%",
+                    "width": "20%"
+                  },
+                  "characterPosition": {
+                    "left": "0%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "2",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "text": "It's no use, I won't be able to finish it anyway, might as well get some rest",
+                  "characterDimension": {
+                    "height": "50%",
+                    "width": "20%"
+                  },
+                  "characterPosition": {
+                    "left": "0%"
+                  }
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "clickables": [
+            {
+              "name": "choice",
+              "options": [
+                {
+                  "name": "1",
+                  "text": "Wake up at 6:00am to complete your homework.",
+                  "position": {
+                    "top": "20%",
+                    "left": "20%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": -1,
+                        "social": 1
+                      }
+                    },
+                    {
+                      "type": "showDialogue",
+                      "value": "1"
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 2
+                    }
+                  ]
+                },
+                {
+                  "name": "2",
+                  "text": "Sleep till 7:00am to get enough rest for school.",
+                  "position": {
+                    "top": "20%",
+                    "left": "60%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "social": -1
+                      }
+                    },
+                    {
+                      "type": "showDialogue",
+                      "value": "2"
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 2
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "resetGlobalState"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "day": "Monday",
+                "wealth": 10,
+                "health": 10,
+                "social": 10
+              }
+            },
+            {
+              "type": "showNarration",
+              "value": "intro"
+            },
+            {
+              "type": "showDialogue",
+              "value": "inner"
+            },
+            {
+              "type": "showClickable",
+              "value": "choice"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "background": "/images/end.jpg",
+          "narrations": [
+            {
+              "name": "intro",
+              "texts": ["You have reached the end of this exercise."]
+            }
+          ],
+          "dialogues": [],
+          "images": [],
+          "clickables": [],
+          "intro": [
+            {
+              "type": "showNarration",
+              "value": "intro"
+            },
+            {
+              "type": "gotoScene",
+              "sceneId": 3
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "background": "/images/end.jpg",
+          "narrations": [],
+          "dialogues": [],
+          "images": [],
+          "clickables": [
+            {
+              "name": "restart",
+              "options": [
+                {
+                  "name": "yes",
+                  "text": "Restart?",
+                  "position": {
+                    "bottom": "20%",
+                    "left": "45%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 1
+                    }
+                  ]
+                },
+                {
+                  "name": "another",
+                  "text": "Play another character?",
+                  "position": {
+                    "bottom": "20%",
+                    "left": "64%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "reselectCharacter"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "name": "feedback",
+              "url": "/demo/feedback",
+              "text": "Feedback Form",
+              "position": {
+                "bottom": "20%",
+                "left": "20%"
+              }
+            }
+          ],
+          "intro": [
+            {
+              "type": "wait",
+              "duration": 1000
             },
             {
               "type": "showLink",
