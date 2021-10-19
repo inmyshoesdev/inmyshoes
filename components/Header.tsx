@@ -7,7 +7,6 @@ import { COMPONENT_TYPE } from '../schema/component'
 import StateMeter from './StateMeter'
 import StateDisplay from './StateDisplay'
 import useLocalStorage from '../hooks/useLocalStorage'
-import { Fragment, useState } from 'react'
 
 export interface HeaderProps {
   header?: StateComponent[]
@@ -18,6 +17,7 @@ export default function Header({ header = [] }: HeaderProps) {
     'ims-screenWidth',
     72
   )
+
   return (
     <div
       id="header"

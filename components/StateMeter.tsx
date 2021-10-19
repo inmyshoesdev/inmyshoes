@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Transition } from '@headlessui/react'
 import { Line } from 'rc-progress'
 import { useStore } from '../stores/store'
 
@@ -34,7 +33,7 @@ export default function StateMeter({
 
     setValue(stateValue)
     setProgress(progressvalue)
-  }, [stateObj.value])
+  }, [max, min, stateObj.value])
 
   return (
     <div className="flex flex-col w-1/4 h-full overflow-hidden">
@@ -42,20 +41,35 @@ export default function StateMeter({
       <div className="flex flex-grow flex-shrink items-center h-2/3">
         <div className="flex items-center h-full">
           {iconImage && (
-            <img src={iconImage} className="px-2 w-1/5 h-full object-contain" />
+            <img
+              src={iconImage}
+              className="px-2 w-1/5 h-full object-contain"
+              alt={`${title} icon`}
+            />
           )}
 
-          <Line
-            percent={progress}
-            strokeColor={color || '#00BFFF'}
-            strokeLinecap="round"
-            strokeWidth={10}
-            trailWidth={10}
-            style={{
-              width: '80%',
-              height: '50%',
-            }}
-          />
+          <div className="border border-gray-800 rounded-full overflow-hidden">
+            <Line
+              percent={progress}
+              strokeColor={color || '#00BFFF'}
+              strokeLinecap="square"
+              strokeWidth={10}
+              trailWidth={10}
+              className="fix-transitions"
+              style={{
+                width: '100%',
+                height: '100%',
+              }}
+            />
+            <style jsx global>{`
+              .rc-progress-line-path {
+                --easing-function: cubic-bezier(0.39, 1.49, 0.84, 1);
+                transition: stroke-dashoffset 0.4s var(--easing-function) 0s,
+                  stroke-dasharray 0.4s var(--easing-function) 0s,
+                  stroke 0.4s linear 0s !important;
+              }
+            `}</style>
+          </div>
         </div>
       </div>
     </div>
