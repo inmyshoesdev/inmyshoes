@@ -1,7 +1,9 @@
-import { RulesLogic, apply } from 'json-logic-js'
+import { RulesLogic, apply, add_operation } from 'json-logic-js'
 import { LogicSchema } from '../schema/logic'
 import { getStateTemplater, State } from './state'
 import { tryConvertBool, tryConvertNumeric } from './utils'
+
+add_operation('random', () => Math.random() * 100)
 
 export function makeLogic(schema?: LogicSchema): RulesLogic | undefined {
   if (!schema) {
