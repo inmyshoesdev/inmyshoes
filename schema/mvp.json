@@ -54,10 +54,12 @@
         "breakfast": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-variant-decide-breakfast.png",
         "frustrated": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-variant-assignment.png",
         "grateful": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-variant-assignment-grateful.png",
-        "troubled": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-variant-movie.png",
+        "troubled": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-variant-house-t-shirt.png",
+        "smile": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-variant-movie.png",
         "decide": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-variant-decide.png",
         "tired": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-variant-tired.png",
-        "casual": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-variant-casual-wear.png"
+        "casual": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-variant-casual-wear.png",
+        "laptop": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-variant-laptop.png"
       },
       "info": [
         {
@@ -1544,7 +1546,7 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "variant": "troubled",
+                  "variant": "smile",
                   "text": "Okay! Let's go catch that movie! ",
                   "textDimension": {
                     "height": "30%",
@@ -1971,25 +1973,59 @@
         },
         {
           "id": 7,
-          "background": "/images/school.jpg",
+          "background": "/images/background-black.jpg",
           "narrations": [
+            {
+              "name": "day",
+              "texts": [
+                "**Day 5 - Friday**"
+              ],
+              "dimension": {
+                "width": "22%",
+                "height": "20%"
+              },
+              "position": {
+                "top": "5%",
+                "left": "5%"
+              }
+            },
             {
               "name": "intro",
               "texts": [
                 "Your friends have decided to get matching house t-shirts in school and want you to purchase one."
-              ]
+              ],
+              "position": {
+                "bottom": "5%",
+                "right": "5%"
+              }
             },
             {
               "name": "1",
               "texts": [
                 "You feel more included within your group of friends, but you had to fork out some of money from your savings. You also feel a little stressed from spending the money unnecessarily."
-              ]
+              ],
+              "dimension": {
+                "width": "50%",
+                "height": "30%"
+              },
+              "position": {
+                "bottom": "2%",
+                "right": "2%"
+              }
             },
             {
               "name": "2",
               "texts": [
                 "You didn't need to spend money from your savings, but you feel really embarrassed and guilty for making your friends pay for you once again."
-              ]
+              ],
+              "dimension": {
+                "width": "50%",
+                "height": "30%"
+              },
+              "position": {
+                "bottom": "2%",
+                "right": "2%"
+              }
             }
           ],
           "dialogues": [
@@ -1998,7 +2034,24 @@
               "speeches": [
                 {
                   "character": "Dennis",
-                  "text": "Hey Curtis! We're going to be designing and printing new house shirts. It's going to be so cool when we all wear it together! Are you in?"
+                  "variant": "house-t-shirt",
+                  "text": "Hey Curtis! We're going to be designing and printing new house shirts. It's going to be so cool when we all wear it together! Are you in?",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "40%",
+                    "bottom": "10%"
+                  },
+                  "characterDimension": {
+                    "height": "75%",
+                    "width": "38%"
+                  },
+                  "characterPosition": {
+                    "left": "5%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             },
@@ -2007,7 +2060,45 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "text": "That sounds like a great idea, but I'm really tight on cash right now. At the same time, I can't say I don't have the money. They're just going to pool some money together and pay for me again! I'd feel so guilty if that were to happen again!"
+                  "variant": "troubled",
+                  "text": "That sounds like a great idea, but I'm really tight on cash right now.",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "20%",
+                    "top": "30%"
+                  },
+                  "characterDimension": {
+                    "height": "75%",
+                    "width": "38%"
+                  },
+                  "characterPosition": {
+                    "right": "0%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Curtis",
+                  "variant": "troubled",
+                  "text": "At the same time, I can't say I don't have the money. They're just going to pool some money together and pay for me again! I'd feel so guilty if that were to happen again!",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "20%",
+                    "top": "30%"
+                  },
+                  "characterDimension": {
+                    "height": "75%",
+                    "width": "38%"
+                  },
+                  "characterPosition": {
+                    "right": "0%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             },
@@ -2016,7 +2107,24 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "text": "Okay sure! I'm excited!"
+                  "variant": "smile",
+                  "text": "Okay sure! I'm excited!",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "25%",
+                    "bottom": "10%"
+                  },
+                  "characterDimension": {
+                    "height": "75%",
+                    "width": "38%"
+                  },
+                  "characterPosition": {
+                    "right": "0%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             },
@@ -2025,16 +2133,59 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "text": "Sorry! I need to save up my money for my family."
+                  "variant": "troubled",
+                  "text": "Sorry! I need to save up my money for my family.",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "25%",
+                    "bottom": "10%"
+                  },
+                  "characterDimension": {
+                    "height": "75%",
+                    "width": "38%"
+                  },
+                  "characterPosition": {
+                    "right": "0%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Dennis",
-                  "text": "Oh that's alright, we can always pool some cash together for you!"
+                  "variant": "house-t-shirt",
+                  "text": "Oh that's alright, we can always pool some cash together for you!",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "40%",
+                    "bottom": "10%"
+                  },
+                  "characterDimension": {
+                    "height": "75%",
+                    "width": "38%"
+                  },
+                  "characterPosition": {
+                    "left": "5%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             }
           ],
-          "images": [],
+          "images": [
+            {
+              "name": "classroom",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-background-classroom.jpg",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "clickables": [
             {
               "name": "choice",
@@ -2124,7 +2275,23 @@
             },
             {
               "type": "showNarration",
+              "value": "day",
+              "autoHide": false,
+              "duration": 1000
+            },
+            {
+              "type": "showNarration",
               "value": "intro"
+            },
+            {
+              "type": "hideNarration",
+              "value": "day"
+            },
+            {
+              "type": "showImage",
+              "value": "classroom",
+              "autoHide": false,
+              "duration": 1
             },
             {
               "type": "showDialogue",
@@ -2142,25 +2309,45 @@
         },
         {
           "id": 8,
-          "background": "/images/school2.jpg",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-background-classroom.jpg",
           "narrations": [
             {
               "name": "intro",
               "texts": [
                 "Because of your existing responsibilities, you have been busy and are having trouble understanding some of this week’s lessons."
-              ]
+              ],
+              "position": {
+                "bottom": "5%",
+                "right": "5%"
+              }
             },
             {
               "name": "1",
               "texts": [
                 "You end up heading to the library, which took some cash to travel to. At the same time, you still found it hard to understand the week's syllabus and you feel increasingly stressed."
-              ]
+              ],
+              "dimension": {
+                "width": "50%",
+                "height": "30%"
+              },
+              "position": {
+                "bottom": "10%",
+                "left": "15%"
+              }
             },
             {
               "name": "2",
               "texts": [
                 "You feel a great sense of relief as your friend agreed to help you. Your friend was also happy that he could help, and it became a chance for you and your friend to bond."
-              ]
+              ],
+              "dimension": {
+                "width": "50%",
+                "height": "30%"
+              },
+              "position": {
+                "bottom": "10%",
+                "left": "45%"
+              }
             }
           ],
           "dialogues": [
@@ -2169,22 +2356,72 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "text": "Should I ask my friend for help? Or just head to the library and try my best to catch up?"
+                  "variant": "troubled",
+                  "text": "Should I ask my friend for help? Or just head to the library and try my best to catch up?",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "20%",
+                    "top": "30%"
+                  },
+                  "characterDimension": {
+                    "height": "75%",
+                    "width": "38%"
+                  },
+                  "characterPosition": {
+                    "right": "0%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             }
           ],
-          "images": [],
+          "images": [
+            {
+              "name": "library",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-background-library.jpg",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            },
+            {
+              "name": "curtis-tired",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-variant-tired.png",
+              "dimension": {
+                "height": "75%",
+                "width": "38%"
+              },
+              "position": {
+                "right": "0%",
+                "bottom": "0%"
+              }
+            },
+            {
+              "name": "dennis",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/dennis-variant-house-t-shirt.png",
+              "dimension": {
+                "height": "75%",
+                "width": "38%"
+              },
+              "position": {
+                "left": "5%",
+                "bottom": "0%"
+              }
+            }
+          ],
           "clickables": [
             {
               "name": "choice",
               "options": [
                 {
                   "name": "1",
-                  "src": "/images/book.jpg",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/options-book.png",
                   "altText": "Head to the library",
                   "position": {
-                    "top": "20%",
+                    "top": "35%",
                     "left": "20%"
                   },
                   "dimension": {
@@ -2208,6 +2445,18 @@
                       }
                     },
                     {
+                      "type": "showImage",
+                      "value": "library",
+                      "autoHide": false,
+                      "duration": 1
+                    },
+                    {
+                      "type": "showImage",
+                      "value": "curtis-tired",
+                      "autoHide": false,
+                      "duration": 1
+                    },
+                    {
                       "type": "showNarration",
                       "value": "1"
                     },
@@ -2219,14 +2468,14 @@
                 },
                 {
                   "name": "2",
-                  "src": "/images/mobile.png",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/options-phone.png",
                   "altText": "Call your friend to ask for help",
                   "position": {
-                    "top": "16%",
+                    "top": "30%",
                     "left": "60%"
                   },
                   "dimension": {
-                    "width": "15%"
+                    "width": "20%"
                   },
                   "onClick": [
                     {
@@ -2236,6 +2485,12 @@
                         "social": 1,
                         "approached help": true
                       }
+                    },
+                    {
+                      "type": "showImage",
+                      "value": "dennis",
+                      "autoHide": false,
+                      "duration": 1
                     },
                     {
                       "type": "showNarration",
@@ -2267,25 +2522,59 @@
         },
         {
           "id": 9,
-          "background": "/images/school.jpg",
+          "background": "/images/background-black.jpg",
           "narrations": [
+            {
+              "name": "day",
+              "texts": [
+                "**Day 5 - Friday**"
+              ],
+              "dimension": {
+                "width": "22%",
+                "height": "20%"
+              },
+              "position": {
+                "top": "5%",
+                "left": "5%"
+              }
+            },
             {
               "name": "intro",
               "texts": [
                 "You have made it to the weekend, but your laptop breaks down so that you can’t finish your remaining tasks."
-              ]
+              ],
+              "position": {
+                "bottom": "5%",
+                "right": "5%"
+              }
             },
             {
               "name": "1",
               "texts": [
                 "Through some research, you realise that there are organisations that give out free laptops to low income households giving you a great amount of relief. You also learn that there is a community of young people who are facing similar challenges."
-              ]
+              ],
+              "dimension": {
+                "width": "50%",
+                "height": "30%"
+              },
+              "position": {
+                "bottom": "2%",
+                "right": "2%"
+              }
             },
             {
               "name": "2",
               "texts": [
                 "Going to the library costs you a bit of money for the transport, and studying alone in the library dampens your mood."
-              ]
+              ],
+              "dimension": {
+                "width": "50%",
+                "height": "30%"
+              },
+              "position": {
+                "bottom": "2%",
+                "right": "2%"
+              }
             }
           ],
           "dialogues": [
@@ -2294,30 +2583,81 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "text": "Ugh... What luck! I still have my school assignments to complete. My laptop must've been too old..."
+                  "variant": "laptop",
+                  "text": "Ugh... What luck! I still have my school assignments to complete. My laptop must've been too old...",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "30%",
+                    "top": "30%"
+                  },
+                  "characterDimension": {
+                    "height": "75%",
+                    "width": "unset"
+                  },
+                  "characterPosition": {
+                    "right": "0%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Curtis",
-                  "text": "Should I go to the library again? Or maybe I can try reaching out to a charity..."
+                  "variant": "laptop",
+                  "text": "Should I go to the library again? Or maybe I can try reaching out to a charity...",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "30%",
+                    "top": "30%"
+                  },
+                  "characterDimension": {
+                    "height": "75%",
+                    "width": "unset"
+                  },
+                  "characterPosition": {
+                    "right": "0%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             }
           ],
-          "images": [],
+          "images": [
+            {
+              "name": "home",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-intro-household.jpg",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            },
+            {
+              "name": "library",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-background-library.jpg",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "clickables": [
             {
               "name": "choice",
               "options": [
                 {
                   "name": "1",
-                  "src": "/images/charity.jpg",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/options-charity.png",
                   "altText": "Reach out to a charity",
                   "position": {
-                    "top": "20%",
+                    "top": "35%",
                     "left": "20%"
                   },
                   "dimension": {
-                    "width": "20%"
+                    "width": "15%"
                   },
                   "onClick": [
                     {
@@ -2341,11 +2681,11 @@
                 },
                 {
                   "name": "2",
-                  "src": "/images/book.jpg",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/options-book.png",
                   "altText": "Back to the library",
                   "position": {
-                    "top": "20%",
-                    "left": "60%"
+                    "top": "30%",
+                    "right": "20%"
                   },
                   "dimension": {
                     "width": "20%"
@@ -2366,6 +2706,12 @@
                         "wealth": -1,
                         "health": -1
                       }
+                    },
+                    {
+                      "type": "showImage",
+                      "value": "library",
+                      "autoHide": false,
+                      "duration": 1
                     },
                     {
                       "type": "showNarration",
@@ -2389,7 +2735,23 @@
             },
             {
               "type": "showNarration",
+              "value": "day",
+              "autoHide": false,
+              "duration": 1000
+            },
+            {
+              "type": "showNarration",
               "value": "intro"
+            },
+            {
+              "type": "hideNarration",
+              "value": "day"
+            },
+            {
+              "type": "showImage",
+              "value": "home",
+              "autoHide": false,
+              "duration": 1
             },
             {
               "type": "showDialogue",
@@ -2403,25 +2765,59 @@
         },
         {
           "id": 10,
-          "background": "/images/school2.jpg",
+          "background": "/images/background-black.jpg",
           "narrations": [
+            {
+              "name": "day",
+              "texts": [
+                "**Day 6 - Saturday**"
+              ],
+              "dimension": {
+                "width": "22%",
+                "height": "20%"
+              },
+              "position": {
+                "top": "5%",
+                "left": "5%"
+              }
+            },
             {
               "name": "intro",
               "texts": [
                 "Bills have increased this month and your parents are already working overtime to make ends meet. You need to find some dinner for yourself, your grandparents and your siblings."
-              ]
+              ],
+              "position": {
+                "bottom": "5%",
+                "right": "5%"
+              }
             },
             {
               "name": "1",
               "texts": [
                 "Going to work helps you earn extra cash, but the leftovers you got were nutritionally insufficient for you and your family."
-              ]
+              ],
+              "dimension": {
+                "width": "50%",
+                "height": "30%"
+              },
+              "position": {
+                "bottom": "2%",
+                "right": "2%"
+              }
             },
             {
               "name": "2",
               "texts": [
                 "By going to the hawker centre, you bought enough food for the family, and received the nutrition that you need."
-              ]
+              ],
+              "dimension": {
+                "width": "50%",
+                "height": "30%"
+              },
+              "position": {
+                "bottom": "2%",
+                "right": "2%"
+              }
             }
           ],
           "dialogues": [
@@ -2430,26 +2826,68 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "text": "Almost time for dinner... Should I go work and grab the leftovers? Or just buy some dinner at the hawker centre?"
+                  "variant": "casual",
+                  "text": "Almost time for dinner... Should I go work and grab the leftovers? Or just buy some dinner at the hawker centre?",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "30%",
+                    "top": "30%"
+                  },
+                  "characterDimension": {
+                    "height": "75%",
+                    "width": "unset"
+                  },
+                  "characterPosition": {
+                    "right": "0%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             }
           ],
-          "images": [],
+          "images": [
+            {
+              "name": "home",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-intro-household.jpg",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            },
+            {
+              "name": "hawker-centre",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-background-hawker-centre.jpg",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            },
+            {
+              "name": "work",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-intro-work.jpg",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "clickables": [
             {
               "name": "choice",
               "options": [
                 {
                   "name": "1",
-                  "src": "/images/work.jpg",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/options-fries.png",
                   "altText": "Going to work",
                   "position": {
-                    "top": "20%",
+                    "top": "35%",
                     "left": "20%"
                   },
                   "dimension": {
-                    "width": "20%"
+                    "width": "15%"
                   },
                   "onClick": [
                     {
@@ -2458,6 +2896,12 @@
                         "wealth": 1,
                         "health": -1
                       }
+                    },
+                    {
+                      "type": "showImage",
+                      "value": "work",
+                      "autoHide": false,
+                      "duration": 1
                     },
                     {
                       "type": "showNarration",
@@ -2471,14 +2915,14 @@
                 },
                 {
                   "name": "2",
-                  "src": "/images/food.jpg",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/options-takeaway.png",
                   "altText": "Grabbing food at hawker centre",
                   "position": {
-                    "top": "20%",
-                    "left": "60%"
+                    "top": "35%",
+                    "right": "20%"
                   },
                   "dimension": {
-                    "width": "20%"
+                    "width": "30%"
                   },
                   "disabled": {
                     "if": {
@@ -2496,6 +2940,12 @@
                         "wealth": -1,
                         "health": 1
                       }
+                    },
+                    {
+                      "type": "showImage",
+                      "value": "hawker-centre",
+                      "autoHide": false,
+                      "duration": 1
                     },
                     {
                       "type": "showNarration",
@@ -2519,7 +2969,23 @@
             },
             {
               "type": "showNarration",
+              "value": "day",
+              "autoHide": false,
+              "duration": 1000
+            },
+            {
+              "type": "showNarration",
               "value": "intro"
+            },
+            {
+              "type": "hideNarration",
+              "value": "day"
+            },
+            {
+              "type": "showImage",
+              "value": "home",
+              "autoHide": false,
+              "duration": 1
             },
             {
               "type": "showDialogue",
