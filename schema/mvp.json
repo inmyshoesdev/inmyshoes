@@ -1,5 +1,14 @@
 {
   "name": "In My Shoes - Youth",
+  "about": {
+    "logo": {
+      "src": "/images/mainlogo.png",
+      "width": "150",
+      "height": "0"
+    },
+    "backgroundMusic": "/music/bensound-jazzcomedy.mp3",
+    "credits": "![Soristic](/images/soristic.jpg)\nThe simulation activity development was supported by multiple stakeholder, which includes a group of students from National University of Singapore. The characters were developed after rounds of interviews with people from various backgrounds and situations. This allows us to craft out a simulation that portraits similar events faced. Subsequently, Soristic has been improving the simulation by introducing more new characters as well as conducting workshop.\nRoyalty Free Music from Bensound."
+  },
   "globalState": {
     "day": "Monday",
     "wealth": {
