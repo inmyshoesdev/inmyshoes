@@ -226,7 +226,7 @@
               "type": "showImage",
               "value": "family",
               "autoHide": false,
-              "duration": 1
+              "waitForInteraction": false
             },
             {
               "type": "showNarration",
@@ -236,7 +236,7 @@
               "type": "showImage",
               "value": "work",
               "autoHide": false,
-              "duration": 1
+              "waitForInteraction": false
             },
             {
               "type": "showNarration",
