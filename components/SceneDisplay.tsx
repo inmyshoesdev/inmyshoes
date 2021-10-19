@@ -25,34 +25,41 @@ const SceneDisplay: React.FC<SceneProps> = ({ scene }) => {
   }, [scene.intro, executeActions])
 
   return (
-    <div className="relative w-full h-full select-none overflow-hidden">
-      {scene.background !== NoBackground && (
-        <img
-          className="m-auto w-full h-full object-cover"
-          src={scene.background}
-          alt={scene.backgroundAltText ?? ''}
-        />
-      )}
-      {scene.images.map((image) => (
-        <ImageElement {...image} key={image.name}></ImageElement>
-      ))}
-      {scene.narrations.map((narration) => (
-        <Narration {...narration} key={narration.name} />
-      ))}
-      {scene.dialogues.map((dialogue) => (
-        <Dialogue {...dialogue} key={dialogue.name} />
-      ))}
-      {scene.clickables.map((clickableGroup) => (
-        <ClickableGroup
-          sceneId={scene.id}
-          {...clickableGroup}
-          key={clickableGroup.name}
-        />
-      ))}
-      {scene.links.map((link) => (
-        <LinkElement {...link} key={link.name} />
-      ))}
-    </div>
+    <>
+      <div className="relative w-full h-full select-none overflow-hidden">
+        {scene.background !== NoBackground && (
+          <img
+            className="m-auto w-full h-full object-cover"
+            src={scene.background}
+            alt={scene.backgroundAltText ?? ''}
+          />
+        )}
+        {scene.images.map((image) => (
+          <ImageElement {...image} key={image.name}></ImageElement>
+        ))}
+        {scene.narrations.map((narration) => (
+          <Narration {...narration} key={narration.name} />
+        ))}
+        {scene.dialogues.map((dialogue) => (
+          <Dialogue {...dialogue} key={dialogue.name} />
+        ))}
+        {scene.clickables.map((clickableGroup) => (
+          <ClickableGroup
+            sceneId={scene.id}
+            {...clickableGroup}
+            key={clickableGroup.name}
+          />
+        ))}
+        {scene.links.map((link) => (
+          <LinkElement {...link} key={link.name} />
+        ))}
+      </div>
+      <style jsx>{`
+        div > :global(*) {
+          pointer-events: auto;
+        }
+      `}</style>
+    </>
   )
 }
 

@@ -46,7 +46,7 @@ export function compileEvents(
 
   // combine the elements from all the events into 1 scene, which will
   // be overlayed on top of the normal scene. to prevent name collisions,
-  // with prefix the element name with the name of the event, which should
+  // we prefix the element name with the name of the event, which should
   // be unique.
   const eventNarrations = schema.flatMap((event) =>
     event.narrations.map((narration) => {

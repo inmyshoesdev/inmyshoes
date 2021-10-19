@@ -11,6 +11,7 @@ import {
   validate,
 } from 'superstruct'
 import { TriggerEvents } from '../lib/defined-actions'
+import { ActionSchema } from './actions'
 import { MainCharacterSchema, NPCSchema } from './character'
 import { StateDisplaySchema, StateMeterSchema } from './component'
 import { TriggerEventsSchema } from './events'
@@ -30,26 +31,34 @@ export const GameSchema = refine(gameSchema, 'GameSchema', (value) => {
   value.mainCharacters.forEach((character) => {
     const eventNames = new Set(character.events.map((event) => event.name))
 
-    character.scenes.forEach((scene) => {
-      scene.intro.forEach((action) => {
-        if (action.type === TriggerEvents) {
-          const [err, events] = validate(action['events'], TriggerEventsSchema)
+    const validateActionSchema = (action: ActionSchema) => {
+      if (action.type === TriggerEvents) {
+        const [err, events] = validate(action['events'], TriggerEventsSchema)
 
-          if (err || !events) {
+        if (err || !events) {
+          valid = false
+          errMsg = err?.message || ''
+          return
+        }
+
+        Object.keys(events).forEach((eventName) => {
+          if (!eventNames.has(eventName)) {
             valid = false
-            errMsg = err?.message || ''
+            errMsg = `No event with name "${eventName}" found, please ensure all "${TriggerEvents}" actions refer to existing events`
             return
           }
+        })
+      }
+    }
 
-          Object.keys(events).forEach((eventName) => {
-            if (!eventNames.has(eventName)) {
-              valid = false
-              errMsg = `No event with name "${eventName}" found, please ensure all "${TriggerEvents}" actions refer to existing events`
-              return
-            }
-          })
-        }
-      })
+    character.scenes.forEach((scene) => {
+      scene.clickables.forEach((clickable) =>
+        clickable.options.forEach((option) =>
+          option.onClick.forEach(validateActionSchema)
+        )
+      )
+      scene.intro.forEach(validateActionSchema)
+      scene.outro.forEach(validateActionSchema)
     })
   })
 

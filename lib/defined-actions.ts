@@ -81,7 +81,7 @@ export type DefinedActionsToArgs = {
   updateGlobalState: { newState: UpdateStateValues }
   resetGlobalState: any
   reselectCharacter: any
-  executeActionGroup: { actions: ActionSchema[] }
+  [ExecuteActionGroup]: { actions: ActionSchema[] }
   [TriggerEvents]: {
     events: TriggerEventsSchema
     eventSchemas: Map<string, EventSchema> // not provided by user

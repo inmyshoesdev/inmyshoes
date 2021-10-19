@@ -86,7 +86,9 @@ export function makeAction(
 
   const [validationErr, args] = validateArgs(rest)
   if (validationErr) {
-    throw validationErr
+    throw new Error(
+      `${validationErr.message}  (action type: ${type}, scene: ${sceneId})`
+    )
   }
 
   return {
