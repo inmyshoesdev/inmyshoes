@@ -51,22 +51,26 @@
       "images": {
         "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis.png",
         "sleeping": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-variant-sleeping.png",
-        "decide": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-variant-decide-breakfast.png",
-        "frustrated": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-assignment.png",
-        "grateful": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-assignment-grateful.png"
+        "breakfast": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-variant-decide-breakfast.png",
+        "frustrated": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-variant-assignment.png",
+        "grateful": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-variant-assignment-grateful.png",
+        "troubled": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-variant-movie.png",
+        "decide": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-variant-decide.png",
+        "tired": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-variant-tired.png",
+        "casual": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-variant-casual-wear.png"
       },
       "info": [
         {
           "text": "You are from a low-income family. You live in a rental one-room flat.",
-          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-household.jpg"
+          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-intro-household.jpg"
         },
         {
           "text": "In addition to your parents, you live with your two grandparents (who are also cleaners), and two younger siblings.",
-          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-family-image.jpg"
+          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-intro-family-image.jpg"
         },
         {
           "text": "You work a part-time job at a fast food restaurant and have a little bit of savings. You find it hard to make friends because you are embarrassed about your situation.",
-          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-work.jpg"
+          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-intro-work.jpg"
         }
       ],
       "scenes": [
@@ -149,7 +153,7 @@
         },
         {
           "id": 0.5,
-          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-household.jpg",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-intro-household.jpg",
           "narrations": [
             {
               "name": "household",
@@ -174,7 +178,7 @@
           "images": [
             {
               "name": "family",
-              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-family-image.jpg",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-intro-family-image.jpg",
               "dimension": {
                 "width": "100%",
                 "height": "100%"
@@ -182,7 +186,7 @@
             },
             {
               "name": "work",
-              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-work.jpg",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-intro-work.jpg",
               "dimension": {
                 "width": "100%",
                 "height": "100%"
@@ -594,7 +598,7 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "variant": "decide",
+                  "variant": "breakfast",
                   "text": "Time for breakfast! There isn't much food at home though, only some leftovers which isn't enough for me and my parents.",
                   "textBoxImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/inner-dialogue-text-box.png",
                   "characterDimension": {
@@ -616,7 +620,7 @@
                 },
                 {
                   "character": "Curtis",
-                  "variant": "decide",
+                  "variant": "breakfast",
                   "text": "I could go to school and purchase a subsidised meal just for today... But I really should save the little money that I have. Maybe I should just share the leftovers with Mom and Dad?",
                   "textBoxImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/inner-dialogue-text-box.png",
                   "characterDimension": {
@@ -761,25 +765,59 @@
         },
         {
           "id": 3,
-          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-day-3-road.jpg",
+          "background": "/images/background-black.jpg",
           "narrations": [
+            {
+              "name": "day",
+              "texts": [
+                "**Day 3 - Wednesday**"
+              ],
+              "dimension": {
+                "width": "22%",
+                "height": "20%"
+              },
+              "position": {
+                "top": "5%",
+                "left": "5%"
+              }
+            },
             {
               "name": "intro",
               "texts": [
                 "After waking up early and making breakfast, it is almost time to leave for school."
-              ]
+              ],
+              "position": {
+                "bottom": "5%",
+                "right": "5%"
+              }
             },
             {
               "name": "walked",
               "texts": [
                 "You managed to save some money by walking to school, but you missed out on spending some time with your friends and could not catch up with them."
-              ]
+              ],
+              "dimension": {
+                "width": "50%",
+                "height": "30%"
+              },
+              "position": {
+                "bottom": "2%",
+                "right": "2%"
+              }
             },
             {
               "name": "transport",
               "texts": [
                 "You spent some money to top-up your transport card and managed to reach school early. You had the chance to spend some time with your friends before classes, bonding more."
-              ]
+              ],
+              "dimension": {
+                "width": "50%",
+                "height": "30%"
+              },
+              "position": {
+                "bottom": "2%",
+                "right": "2%"
+              }
             }
           ],
           "dialogues": [
@@ -788,13 +826,57 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "text": "Time to head to school! Should I take public transport or go for a 40min walk today?"
+                  "text": "Time to head to school! Should I take public transport or go for a 40min walk today?",
+                  "textBoxImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/inner-dialogue-text-box.png",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "45%"
+                  },
+                  "textPosition": {
+                    "right": "5%",
+                    "bottom": "10%"
+                  }
                 },
                 {
                   "character": "Curtis",
-                  "text": "I would need to spend some money if I were to take public transport, but I will definitely be able to reach school earlier..."
+                  "text": "I would need to spend some money if I were to take public transport, but I will definitely be able to reach school earlier...",
+                  "textBoxImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/inner-dialogue-text-box.png",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "45%"
+                  },
+                  "textPosition": {
+                    "right": "5%",
+                    "bottom": "10%"
+                  }
                 }
               ]
+            }
+          ],
+          "images": [
+            {
+              "name": "phone",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-background-phone.jpg",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            },
+            {
+              "name": "crossroad",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-background-crossroad.jpg",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
             }
           ],
           "clickables": [
@@ -878,11 +960,33 @@
             },
             {
               "type": "showNarration",
+              "value": "day",
+              "autoHide": false,
+              "duration": 1000
+            },
+            {
+              "type": "showNarration",
               "value": "intro"
+            },
+            {
+              "type": "hideNarration",
+              "value": "day"
+            },
+            {
+              "type": "showImage",
+              "value": "phone",
+              "autoHide": false,
+              "duration": 1
             },
             {
               "type": "showDialogue",
               "value": "inner"
+            },
+            {
+              "type": "showImage",
+              "value": "crossroad",
+              "autoHide": false,
+              "duration": 1
             },
             {
               "type": "showClickable",
@@ -892,25 +996,45 @@
         },
         {
           "id": 4,
-          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-day-3-school.jpg",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-background-corridor.jpg",
           "narrations": [
             {
               "name": "intro",
               "texts": [
                 "At school, your teacher tells you to redo one of your assignments by tomorrow. The feedback causes you significant stress along with your other responsibilities. You are worried the extra time needed will make you miss your shift at work."
-              ]
+              ],
+              "position": {
+                "bottom": "5%",
+                "right": "5%"
+              }
             },
             {
               "name": "1",
               "texts": [
                 "By mustering up the courage to ask for an extension, you were able to take some stress off. At the same time, your teacher became more aware of your situation and paid more attention to your needs as a student. Subsequently, you were able to go to work for the day and made some extra cash for the family."
-              ]
+              ],
+              "dimension": {
+                "width": "50%",
+                "height": "30%"
+              },
+              "position": {
+                "bottom": "2%",
+                "right": "2%"
+              }
             },
             {
               "name": "2",
               "texts": [
                 "Staying up all night to complete your work was a lot of stress for you, and you did not get enough sleep for the next day. You were also unable to report to work and lost out on the day's earnings. "
-              ]
+              ],
+              "dimension": {
+                "width": "50%",
+                "height": "30%"
+              },
+              "position": {
+                "bottom": "2%",
+                "right": "2%"
+              }
             }
           ],
           "dialogues": [
@@ -920,24 +1044,42 @@
                 {
                   "character": "Mrs Lee",
                   "text": "Curtis, your assignment was poorly done. Please redo it and hand it in to me tomorrow.",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "30%",
+                    "bottom": "5%"
+                  },
                   "characterDimension": {
-                    "height": "50%",
-                    "width": "20%"
+                    "height": "60%",
+                    "width": "33%"
                   },
                   "characterPosition": {
-                    "right": "0%"
+                    "left": "0%",
+                    "bottom": "0%"
                   }
                 },
                 {
                   "character": "Curtis",
                   "text": "Okay, thank you Mrs Lee.",
                   "variant": "frustrated",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "30%",
+                    "bottom": "5%"
+                  },
                   "characterDimension": {
-                    "height": "50%",
-                    "width": "20%"
+                    "height": "75%",
+                    "width": "38%"
                   },
                   "characterPosition": {
-                    "left": "0%"
+                    "right": "0%",
+                    "bottom": "0%"
                   }
                 }
               ]
@@ -947,38 +1089,65 @@
               "speeches": [
                 {
                   "character": "Curtis",
+                  "variant": "frustrated",
                   "text": "I can't believe I have to redo my assignment...",
-                  "variant": "frustrated",
+                  "textDimension": {
+                    "height": "35%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "20%",
+                    "bottom": "15%"
+                  },
                   "characterDimension": {
-                    "height": "50%",
-                    "width": "20%"
+                    "height": "75%",
+                    "width": "38%"
                   },
                   "characterPosition": {
-                    "left": "0%"
+                    "right": "0%",
+                    "bottom": "0%"
                   }
                 },
                 {
                   "character": "Curtis",
+                  "variant": "frustrated",
                   "text": "Right now, I definitely do not have enough time to complete it by tomorrow, I need to go to work later, and I still need to go home and tend to my siblings. If I were to finish my assignment, I won't have time to sleep at all!",
-                  "variant": "frustrated",
+                  "textDimension": {
+                    "height": "35%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "20%",
+                    "bottom": "15%"
+                  },
                   "characterDimension": {
-                    "height": "50%",
-                    "width": "20%"
+                    "height": "75%",
+                    "width": "38%"
                   },
                   "characterPosition": {
-                    "left": "0%"
+                    "right": "0%",
+                    "bottom": "0%"
                   }
                 },
                 {
                   "character": "Curtis",
-                  "text": "Should I just try and complete the assignment? Or maybe I should speak to my teacher....",
                   "variant": "frustrated",
+                  "text": "Should I just try and complete the assignment? Or maybe I should speak to Mrs Lee...",
+                  "textDimension": {
+                    "height": "35%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "20%",
+                    "bottom": "15%"
+                  },
                   "characterDimension": {
-                    "height": "50%",
-                    "width": "20%"
+                    "height": "75%",
+                    "width": "38%"
                   },
                   "characterPosition": {
-                    "left": "0%"
+                    "right": "0%",
+                    "bottom": "0%"
                   }
                 }
               ]
@@ -988,52 +1157,107 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "text": "Ummm, excuse me Mrs Lee, is it okay if I request for an extension for this assignment?",
                   "variant": "frustrated",
+                  "text": "Ummm, excuse me Mrs Lee, is it okay if I request for an extension for this assignment?",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "30%",
+                    "bottom": "5%"
+                  },
                   "characterDimension": {
-                    "height": "50%",
-                    "width": "20%"
+                    "height": "75%",
+                    "width": "38%"
                   },
                   "characterPosition": {
-                    "left": "0%"
+                    "right": "0%",
+                    "bottom": "0%"
                   }
                 },
                 {
                   "character": "Curtis",
-                  "text": "I need to report for work later, and I still need to help out at home later today. I don't think I have the time to complete the assignment.",
                   "variant": "frustrated",
+                  "text": "I need to report for work later, and I still need to help out at home later today. I don't think I have the time to complete the assignment.",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "30%",
+                    "bottom": "5%"
+                  },
                   "characterDimension": {
-                    "height": "50%",
-                    "width": "20%"
+                    "height": "75%",
+                    "width": "38%"
                   },
                   "characterPosition": {
-                    "left": "0%"
+                    "right": "0%",
+                    "bottom": "0%"
                   }
                 },
                 {
                   "character": "Mrs Lee",
+                  "variant": "smile",
                   "text": "Oh! I was not totally aware of your situation. I apologise. Sure, you don't need to submit it tomorrow, how about by the end of next week?",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "30%",
+                    "bottom": "5%"
+                  },
                   "characterDimension": {
-                    "height": "50%",
-                    "width": "20%"
+                    "height": "60%",
+                    "width": "33%"
                   },
                   "characterPosition": {
-                    "right": "0%"
+                    "left": "0%",
+                    "bottom": "0%"
                   }
                 },
                 {
                   "character": "Curtis",
+                  "variant": "grateful",
                   "text": "Yes, that would work! Thank you so much!",
-                  "variant": "frustrated",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "30%",
+                    "bottom": "5%"
+                  },
                   "characterDimension": {
-                    "height": "50%",
-                    "width": "20%"
+                    "height": "75%",
+                    "width": "38%"
                   },
                   "characterPosition": {
-                    "left": "0%"
+                    "right": "0%",
+                    "bottom": "0%"
                   }
                 }
               ]
+            }
+          ],
+          "images": [
+            {
+              "name": "classroom",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-background-classroom.jpg",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            },
+            {
+              "name": "home",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-intro-household.jpg",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
             }
           ],
           "clickables": [
@@ -1065,6 +1289,10 @@
                       }
                     },
                     {
+                      "type": "hideImage",
+                      "value": "classroom"
+                    },
+                    {
                       "type": "showNarration",
                       "value": "1"
                     },
@@ -1092,6 +1320,12 @@
                       }
                     },
                     {
+                      "type": "showImage",
+                      "value": "home",
+                      "autoHide": false,
+                      "duration": 1
+                    },
+                    {
                       "type": "showNarration",
                       "value": "2"
                     },
@@ -1110,6 +1344,12 @@
               "value": "intro"
             },
             {
+              "type": "showImage",
+              "value": "classroom",
+              "autoHide": false,
+              "duration": 1
+            },
+            {
               "type": "showDialogue",
               "value": "teacher"
             },
@@ -1125,25 +1365,59 @@
         },
         {
           "id": 5,
-          "background": "/images/school.jpg",
+          "background": "/images/background-black.jpg",
           "narrations": [
+            {
+              "name": "day",
+              "texts": [
+                "**Day 4 - Thursday**"
+              ],
+              "dimension": {
+                "width": "22%",
+                "height": "20%"
+              },
+              "position": {
+                "top": "5%",
+                "left": "5%"
+              }
+            },
             {
               "name": "intro",
               "texts": [
                 "Some of your classmates invited you to go watch a movie with them after school. You are concerned about the money that you need to spend."
-              ]
+              ],
+              "position": {
+                "bottom": "5%",
+                "right": "5%"
+              }
             },
             {
               "name": "rejected",
               "texts": [
                 "After turning down your friend once more, you start to feel like the friendship is fading and you fear that they might no longer ask you out in the future. You head straight home, without having to spend any extra cash."
-              ]
+              ],
+              "dimension": {
+                "width": "50%",
+                "height": "30%"
+              },
+              "position": {
+                "bottom": "2%",
+                "right": "2%"
+              }
             },
             {
               "name": "agreed",
               "texts": [
                 "The movie was enjoyable and you had a lot of fun with your friends. It was a memorable day and you feel yourself getting closer to your friends. However, you spent a good amount of your money for the movie and other snacks and you will probably need to work extra hours to make up for it."
-              ]
+              ],
+              "dimension": {
+                "width": "50%",
+                "height": "30%"
+              },
+              "position": {
+                "bottom": "2%",
+                "right": "2%"
+              }
             }
           ],
           "dialogues": [
@@ -1152,7 +1426,23 @@
               "speeches": [
                 {
                   "character": "Dennis",
-                  "text": "Hey, Curtis! It's been awhile since we hung out as a group. How about we go catch a movie today?"
+                  "text": "Hey, Curtis! It's been awhile since we hung out as a group. How about we go catch a movie today?",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "50%",
+                    "top": "35%"
+                  },
+                  "characterDimension": {
+                    "height": "90%",
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "5%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             },
@@ -1161,11 +1451,45 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "text": "I'm really tight on cash now but I've  been turning Dennis down for the past few times..."
+                  "variant": "troubled",
+                  "text": "I'm really tight on cash now but I've  been turning Dennis down for the past few times...",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "right": "50%",
+                    "top": "35%"
+                  },
+                  "characterDimension": {
+                    "height": "90%",
+                    "width": "45%"
+                  },
+                  "characterPosition": {
+                    "right": "0%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Curtis",
-                  "text": " I really do want to spend more time with him, but I can't be spending money like that... What should I do?"
+                  "variant": "troubled",
+                  "text": " I really do want to spend more time with him, but I can't be spending money like that... What should I do?",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "right": "50%",
+                    "top": "35%"
+                  },
+                  "characterDimension": {
+                    "height": "90%",
+                    "width": "45%"
+                  },
+                  "characterPosition": {
+                    "right": "0%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             },
@@ -1174,11 +1498,44 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "text": "Sorry! I have to head home today. Maybe some other time?"
+                  "variant": "troubled",
+                  "text": "Sorry! I have to head home today. Maybe some other time?",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "right": "50%",
+                    "top": "35%"
+                  },
+                  "characterDimension": {
+                    "height": "90%",
+                    "width": "45%"
+                  },
+                  "characterPosition": {
+                    "right": "0%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Dennis",
-                  "text": "Again? Oh alright, next time then! Take care, Curtis!"
+                  "text": "Again? Oh alright, next time then! Take care, Curtis!",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "50%",
+                    "top": "35%"
+                  },
+                  "characterDimension": {
+                    "height": "90%",
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "5%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             },
@@ -1187,16 +1544,66 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "text": "Okay! Let's go catch that movie! "
+                  "variant": "troubled",
+                  "text": "Okay! Let's go catch that movie! ",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "right": "50%",
+                    "top": "35%"
+                  },
+                  "characterDimension": {
+                    "height": "90%",
+                    "width": "45%"
+                  },
+                  "characterPosition": {
+                    "right": "0%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Dennis",
-                  "text": "Nice! We're gonna have so much fun, Curtis!"
+                  "text": "Nice! We're gonna have so much fun, Curtis!",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "50%",
+                    "top": "35%"
+                  },
+                  "characterDimension": {
+                    "height": "90%",
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "5%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             }
           ],
-          "images": [],
+          "images": [
+            {
+              "name": "corridor",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-background-corridor.jpg",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            },
+            {
+              "name": "theatre",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-background-theatre.jpg",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "clickables": [
             {
               "name": "choice",
@@ -1264,6 +1671,12 @@
                       }
                     },
                     {
+                      "type": "showImage",
+                      "value": "theatre",
+                      "autoHide": false,
+                      "duration": 1
+                    },
+                    {
                       "type": "showNarration",
                       "value": "agreed"
                     },
@@ -1285,7 +1698,23 @@
             },
             {
               "type": "showNarration",
+              "value": "day",
+              "autoHide": false,
+              "duration": 1000
+            },
+            {
+              "type": "showNarration",
               "value": "intro"
+            },
+            {
+              "type": "hideNarration",
+              "value": "day"
+            },
+            {
+              "type": "showImage",
+              "value": "corridor",
+              "autoHide": false,
+              "duration": 1
             },
             {
               "type": "showDialogue",
@@ -1303,25 +1732,45 @@
         },
         {
           "id": 6,
-          "background": "/images/school2.jpg",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-intro-household.jpg",
           "narrations": [
             {
               "name": "intro",
               "texts": [
                 "Upon reaching home, you notice that your grandmother is feeling unwell and requires medical attention."
-              ]
+              ],
+              "position": {
+                "bottom": "5%",
+                "right": "5%"
+              }
             },
             {
               "name": "1",
               "texts": [
                 "Your grandmother is grateful for your help. But, as a result, you had to fork up some cash to pay for the medical fees, despite subsidisation through the CHAS card. At the same time, you start to feel a little more stressed as you had to rush back to prepare dinner and do your school work."
-              ]
+              ],
+              "dimension": {
+                "width": "50%",
+                "height": "30%"
+              },
+              "position": {
+                "bottom": "2%",
+                "right": "2%"
+              }
             },
             {
               "name": "2",
               "texts": [
                 "You gain some time for the rest of the day after preparing dinner, and you have some time for your school work and for yourself. You get enough sleep and rest for the next day."
-              ]
+              ],
+              "dimension": {
+                "width": "50%",
+                "height": "30%"
+              },
+              "position": {
+                "bottom": "2%",
+                "right": "2%"
+              }
             }
           ],
           "dialogues": [
@@ -1330,7 +1779,23 @@
               "speeches": [
                 {
                   "character": "Grandma",
-                  "text": "Ah Curtis... You're home. I am not feeling well right now, could you take me to the doctor?"
+                  "text": "Ah Curtis... You're home. I am not feeling well right now, could you take me to the doctor?",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "50%"
+                  },
+                  "textPosition": {
+                    "left": "40%",
+                    "top": "35%"
+                  },
+                  "characterDimension": {
+                    "height": "70%",
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "5%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             },
@@ -1339,11 +1804,45 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "text": "Should I bring my grandmother to see a doctor today? However, my parents mentioned that they will be working late today, and I need to prepare dinner for the rest of the family..."
+                  "variant": "decide",
+                  "text": "Should I bring my grandmother to see a doctor today? However, my parents mentioned that they will be working late today, and I need to prepare dinner for the rest of the family...",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "50%"
+                  },
+                  "textPosition": {
+                    "right": "40%",
+                    "top": "35%"
+                  },
+                  "characterDimension": {
+                    "height": "90%",
+                    "width": "45%"
+                  },
+                  "characterPosition": {
+                    "right": "0%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Curtis",
-                  "text": "What should I do?"
+                  "variant": "decide",
+                  "text": "What should I do?",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "50%"
+                  },
+                  "textPosition": {
+                    "right": "40%",
+                    "top": "35%"
+                  },
+                  "characterDimension": {
+                    "height": "90%",
+                    "width": "45%"
+                  },
+                  "characterPosition": {
+                    "right": "0%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             },
@@ -1352,7 +1851,23 @@
               "speeches": [
                 {
                   "character": "Grandma",
-                  "text": "Thank you so much Curtis! The doctor has given me proper medication and I feel much better now!"
+                  "text": "Thank you so much Curtis! The doctor has given me proper medication and I feel much better now!",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "50%"
+                  },
+                  "textPosition": {
+                    "left": "40%",
+                    "top": "35%"
+                  },
+                  "characterDimension": {
+                    "height": "70%",
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "5%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             }
@@ -2924,19 +3439,21 @@
     {
       "name": "Mrs Lee",
       "images": {
-        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/mrs-lee.png"
+        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/mrs-lee.png",
+        "smile": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/mrs-lee-variant-smile.png"
       }
     },
     {
       "name": "Dennis",
       "images": {
-        "default": "/images/friend.png"
+        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/dennis.png",
+        "house-t-shirt": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/dennis-variant-house-t-shirt.png"
       }
     },
     {
       "name": "Grandma",
       "images": {
-        "default": "/images/grandma.png"
+        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/grandma.png"
       }
     }
   ]

@@ -68,21 +68,6 @@ const Speech: React.FC<SpeechProps> = ({
           />
         )}
       </div>
-      <DialogueBox
-        image={textBoxImage || './images/dialogue-background.png'}
-        position={textPosition}
-        dimension={textDimension}
-        header={header}
-        bodyStyle={{
-          fontStyle: type === 'monologue' ? 'italic' : 'normal',
-        }}
-        bodyText={text}
-        gotoNext={onNext}
-        gotoPrev={onPrev}
-        prevEnabled={prevEnabled}
-        nextEnabled={nextEnabled}
-      />
-
       <div
         className="absolute"
         style={{
@@ -102,6 +87,20 @@ const Speech: React.FC<SpeechProps> = ({
           />
         )}
       </div>
+      <DialogueBox
+        image={textBoxImage || './images/dialogue-background.png'}
+        position={textPosition}
+        dimension={textDimension}
+        header={header}
+        bodyStyle={{
+          fontStyle: type === 'monologue' ? 'italic' : 'normal',
+        }}
+        bodyText={text}
+        gotoNext={onNext}
+        gotoPrev={onPrev}
+        prevEnabled={prevEnabled}
+        nextEnabled={nextEnabled}
+      />
     </>
   )
 }
