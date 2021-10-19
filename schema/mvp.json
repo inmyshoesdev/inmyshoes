@@ -50,9 +50,10 @@
       "name": "Curtis",
       "images": {
         "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis.png",
-        "sleeping": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-sleeping-day-1.png",
-        "decide": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-decide-day-2.png",
-        "frustrated": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-frustrated-day-3.png"
+        "sleeping": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-variant-sleeping.png",
+        "decide": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-variant-decide-breakfast.png",
+        "frustrated": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-assignment.png",
+        "grateful": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-assignment-grateful.png"
       },
       "info": [
         {
@@ -257,9 +258,8 @@
               "texts": [
                 "**Day 1 - Monday**"
               ],
-              "textBoxImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/description-box.png",
               "dimension": {
-                "width": "30%",
+                "width": "22%",
                 "height": "20%"
               },
               "position": {
@@ -272,7 +272,6 @@
               "texts": [
                 "It’s 5:30am. Both of your parents worked late last night and your siblings need to get ready for school."
               ],
-              "textBoxImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/description-box.png",
               "position": {
                 "bottom": "5%",
                 "right": "5%"
@@ -282,13 +281,29 @@
               "name": "woke",
               "texts": [
                 "Your parents and siblings are grateful for your help. But, you start to feel the effects of sleep deprivation as you find it difficult to focus in school and at work."
-              ]
+              ],
+              "dimension": {
+                "width": "50%",
+                "height": "30%"
+              },
+              "position": {
+                "bottom": "2%",
+                "right": "2%"
+              }
             },
             {
               "name": "slept",
               "texts": [
                 "You manage to get the much needed rest, and you are ready to take the day on. However, your siblings are late for school and the are upset at you for not waking them up."
-              ]
+              ],
+              "dimension": {
+                "width": "50%",
+                "height": "30%"
+              },
+              "position": {
+                "bottom": "2%",
+                "right": "2%"
+              }
             }
           ],
           "dialogues": [
@@ -297,41 +312,68 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "variant": "decide",
+                  "variant": "sleeping",
                   "text": "It's 5:30 already..? I'm still so tired from working last night.",
+                  "textBoxImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/inner-dialogue-text-box.png",
                   "characterDimension": {
-                    "height": "50%",
-                    "width": "20%"
+                    "height": "40%",
+                    "width": "41%"
                   },
                   "characterPosition": {
-                    "left": "0%",
-                    "bottom": "5%"
+                    "left": "25%",
+                    "bottom": "0%"
+                  },
+                  "textDimension": {
+                    "height": "25%",
+                    "width": "35%"
+                  },
+                  "textPosition": {
+                    "left": "40%",
+                    "top": "35%"
                   }
                 },
                 {
                   "character": "Curtis",
-                  "variant": "decide",
+                  "variant": "sleeping",
                   "text": "Mom and Dad came home late from work last night and are still fast asleep.",
+                  "textBoxImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/inner-dialogue-text-box.png",
                   "characterDimension": {
-                    "height": "50%",
-                    "width": "20%"
+                    "height": "40%",
+                    "width": "41%"
                   },
                   "characterPosition": {
-                    "left": "0%",
-                    "bottom": "5%"
+                    "left": "25%",
+                    "bottom": "0%"
+                  },
+                  "textDimension": {
+                    "height": "25%",
+                    "width": "35%"
+                  },
+                  "textPosition": {
+                    "left": "40%",
+                    "top": "35%"
                   }
                 },
                 {
                   "character": "Curtis",
                   "text": "Should I wake Chris and Chloe up for school? Or do I sleep in and hope Mum or Dad wakes up?",
-                  "variant": "decide",
+                  "textBoxImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/inner-dialogue-text-box.png",
+                  "variant": "sleeping",
                   "characterDimension": {
-                    "height": "50%",
-                    "width": "20%"
+                    "height": "40%",
+                    "width": "41%"
                   },
                   "characterPosition": {
-                    "left": "0%",
-                    "bottom": "5%"
+                    "left": "25%",
+                    "bottom": "0%"
+                  },
+                  "textDimension": {
+                    "height": "25%",
+                    "width": "35%"
+                  },
+                  "textPosition": {
+                    "left": "40%",
+                    "top": "35%"
                   }
                 }
               ]
@@ -344,6 +386,30 @@
               "dimension": {
                 "width": "100%",
                 "height": "100%"
+              }
+            },
+            {
+              "name": "siblings",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/siblings-sleeping.png",
+              "dimension": {
+                "width": "15%",
+                "height": "16%"
+              },
+              "position": {
+                "top": "41.5%",
+                "left": "20.5%"
+              }
+            },
+            {
+              "name": "curtis-sleeping",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-variant-sleeping.png",
+              "dimension": {
+                "height": "40%",
+                "width": "41%"
+              },
+              "position": {
+                "left": "25%",
+                "bottom": "0%"
               }
             }
           ],
@@ -426,7 +492,8 @@
             {
               "type": "showNarration",
               "value": "day",
-              "autoHide": false
+              "autoHide": false,
+              "duration": 1000
             },
             {
               "type": "showNarration",
@@ -443,6 +510,18 @@
               "duration": 1
             },
             {
+              "type": "showImage",
+              "value": "siblings",
+              "autoHide": false,
+              "duration": 1
+            },
+            {
+              "type": "showImage",
+              "value": "curtis-sleeping",
+              "autoHide": false,
+              "duration": 1
+            },
+            {
               "type": "showDialogue",
               "value": "inner"
             },
@@ -454,25 +533,59 @@
         },
         {
           "id": 2,
-          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-day-2.jpg",
+          "background": "/images/background-black.jpg",
           "narrations": [
+            {
+              "name": "day",
+              "texts": [
+                "**Day 2 - Tuesday**"
+              ],
+              "dimension": {
+                "width": "22%",
+                "height": "20%"
+              },
+              "position": {
+                "top": "5%",
+                "left": "5%"
+              }
+            },
             {
               "name": "intro",
               "texts": [
                 "It's time for breakfast, but there is not much food at home."
-              ]
+              ],
+              "position": {
+                "bottom": "5%",
+                "right": "5%"
+              }
             },
             {
               "name": "purchase",
               "texts": [
                 "By spending a little bit of money, you received the nutrition you need to start the day strong. At the same time, you caught up with some of your friends before the school day started."
-              ]
+              ],
+              "dimension": {
+                "width": "50%",
+                "height": "30%"
+              },
+              "position": {
+                "bottom": "2%",
+                "right": "2%"
+              }
             },
             {
               "name": "leftovers",
               "texts": [
                 "Your parents greatly appreciate the breakfast you had prepared for them. But, eating the leftovers was not sufficient for you, making you feel hungry and tired for the rest of the day."
-              ]
+              ],
+              "dimension": {
+                "width": "50%",
+                "height": "30%"
+              },
+              "position": {
+                "bottom": "2%",
+                "right": "2%"
+              }
             }
           ],
           "dialogues": [
@@ -481,31 +594,59 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "text": "Time for breakfast! There isn't much food at home though, only some leftovers which isn't enough for me and my parents.",
                   "variant": "decide",
+                  "text": "Time for breakfast! There isn't much food at home though, only some leftovers which isn't enough for me and my parents.",
+                  "textBoxImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/inner-dialogue-text-box.png",
                   "characterDimension": {
-                    "height": "50%",
-                    "width": "20%"
+                    "height": "100%",
+                    "width": "40%"
                   },
                   "characterPosition": {
-                    "left": "0%",
-                    "bottom": "5%"
+                    "right": "0%",
+                    "bottom": "-30%"
+                  },
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "60%"
+                  },
+                  "textPosition": {
+                    "left": "15%",
+                    "top": "10%"
                   }
                 },
                 {
                   "character": "Curtis",
-                  "text": "I could go to school and purchase a subsidised meal just for today... But I really should save the little money that I have. Maybe I should just share the leftovers with Mom and Dad?",
                   "variant": "decide",
+                  "text": "I could go to school and purchase a subsidised meal just for today... But I really should save the little money that I have. Maybe I should just share the leftovers with Mom and Dad?",
+                  "textBoxImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/inner-dialogue-text-box.png",
                   "characterDimension": {
-                    "height": "50%",
-                    "width": "20%"
+                    "height": "100%",
+                    "width": "40%"
                   },
                   "characterPosition": {
-                    "left": "0%",
-                    "bottom": "5%"
+                    "right": "0%",
+                    "bottom": "-30%"
+                  },
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "60%"
+                  },
+                  "textPosition": {
+                    "left": "15%",
+                    "top": "10%"
                   }
                 }
               ]
+            }
+          ],
+          "images": [
+            {
+              "name": "fridge",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-background-fridge.jpg",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
             }
           ],
           "clickables": [
@@ -524,7 +665,10 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": ["{wealth}", 0]
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -587,7 +731,23 @@
             },
             {
               "type": "showNarration",
+              "value": "day",
+              "autoHide": false,
+              "duration": 1000
+            },
+            {
+              "type": "showNarration",
               "value": "intro"
+            },
+            {
+              "type": "hideNarration",
+              "value": "day"
+            },
+            {
+              "type": "showImage",
+              "value": "fridge",
+              "autoHide": false,
+              "duration": 1
             },
             {
               "type": "showDialogue",
@@ -681,7 +841,10 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": ["{wealth}", 0]
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -1081,7 +1244,10 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": ["{wealth}", 0]
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -1208,7 +1374,10 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": ["{wealth}", 0]
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -1367,7 +1536,10 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": ["{wealth}", 0]
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -1505,7 +1677,10 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": ["{wealth}", 0]
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -1662,7 +1837,10 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": ["{wealth}", 0]
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -1789,7 +1967,10 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": ["{wealth}", 0]
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -2049,7 +2230,10 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": ["{wealth}", 0]
+                      "<=": [
+                        "{wealth}",
+                        0
+                      ]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -2301,28 +2485,40 @@
               "type": "showClickable",
               "value": "health badge",
               "if": {
-                ">=": ["{health}", 15]
+                ">=": [
+                  "{health}",
+                  15
+                ]
               }
             },
             {
               "type": "showClickable",
               "value": "social badge",
               "if": {
-                ">=": ["{social}", 15]
+                ">=": [
+                  "{social}",
+                  15
+                ]
               }
             },
             {
               "type": "showClickable",
               "value": "wealth badge",
               "if": {
-                ">=": ["{wealth}", 6]
+                ">=": [
+                  "{wealth}",
+                  6
+                ]
               }
             },
             {
               "type": "showClickable",
               "value": "helping hand badge",
               "if": {
-                "==": ["{approached help}", true]
+                "==": [
+                  "{approached help}",
+                  true
+                ]
               }
             },
             {
@@ -2410,7 +2606,9 @@
           "narrations": [
             {
               "name": "household",
-              "texts": ["You are Belinda. You are from a middle-income family."]
+              "texts": [
+                "You are Belinda. You are from a middle-income family."
+              ]
             }
           ],
           "dialogues": [],
@@ -2632,7 +2830,9 @@
           "narrations": [
             {
               "name": "intro",
-              "texts": ["You have reached the end of this exercise."]
+              "texts": [
+                "You have reached the end of this exercise."
+              ]
             }
           ],
           "dialogues": [],
