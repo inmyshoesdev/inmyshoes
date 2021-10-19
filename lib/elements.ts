@@ -8,11 +8,11 @@ import {
   NarrationSchema,
   SpeechSchema,
 } from '../schema/elements'
-import { Action, makeAction } from './actions'
+import { EventSchema } from '../schema/events'
+import { Action, compileActions } from './actions'
 import { Character } from './character'
 import { evalCondition, makeLogic } from './logic'
 import { State } from './state'
-import { isDefined } from './utils'
 
 // Add a key here and keep the `AllElements` list below in-sync when adding new elements
 export const narrations = 'narrations'
@@ -203,15 +203,18 @@ export interface ClickableGroup {
 
 export function makeClickableGroup(
   schema: ClickableGroupSchema,
-  sceneId: number
+  sceneId: number,
+  eventSchemas: Map<string, EventSchema>
 ): ClickableGroup {
   return {
     shown: false,
     name: schema.name,
     clickables: schema.options.map((option) => {
-      const onClickActions = option.onClick
-        .map((x) => makeAction(x, sceneId))
-        .filter(isDefined)
+      const onClickActions = compileActions(
+        option.onClick,
+        sceneId,
+        eventSchemas
+      )
       return makeClickable(option, onClickActions)
     }),
   }

@@ -1,5 +1,6 @@
+import { EventSchema } from '../schema/events'
 import { SceneSchema } from '../schema/scene'
-import { Action, compileActions, makeAction } from './actions'
+import { Action, compileActions } from './actions'
 import { Character } from './character'
 import {
   allElements,
@@ -20,7 +21,6 @@ import {
   narrations,
 } from './elements'
 import { makeState, State } from './state'
-import { isDefined } from './utils'
 
 export type ElementKeys = typeof allElements[number]
 
@@ -31,6 +31,8 @@ export function isElementKey(s: string): s is ElementKeys {
 export type ElementValues = Scene[ElementKeys][0]
 
 export type ElementValueFor<T extends ElementKeys> = Scene[T][0]
+
+export const NoBackground = 'none'
 
 export interface Scene {
   id: number
@@ -55,7 +57,11 @@ export interface Scene {
   ): ElementValueFor<T> | undefined
 }
 
-export function makeScene(schema: SceneSchema, characters: Character[]): Scene {
+export function makeScene(
+  schema: SceneSchema,
+  characters: Character[],
+  eventSchemas: Map<string, EventSchema>
+): Scene {
   const id = schema.id
 
   return {
@@ -74,13 +80,13 @@ export function makeScene(schema: SceneSchema, characters: Character[]): Scene {
     [images]: schema.images.map((imageSchema) => makeImage(imageSchema)),
 
     [clickables]: schema.clickables.map((clickableGroupSchema) =>
-      makeClickableGroup(clickableGroupSchema, id)
+      makeClickableGroup(clickableGroupSchema, id, eventSchemas)
     ),
 
     [links]: schema.links.map((linkSchema) => makeLink(linkSchema)),
 
-    intro: compileActions(schema.intro, id),
-    outro: compileActions(schema.outro, id),
+    intro: compileActions(schema.intro, id, eventSchemas),
+    outro: compileActions(schema.outro, id, eventSchemas),
 
     state: makeState(schema.state ?? {}),
 

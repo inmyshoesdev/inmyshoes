@@ -2,6 +2,7 @@ import {
   array,
   defaulted,
   Infer,
+  min,
   number,
   object,
   optional,
@@ -18,7 +19,7 @@ import {
 import { StateSchema } from './state'
 
 export const SceneSchema = object({
-  id: number(),
+  id: min(number(), 0),
   background: string(),
   backgroundAltText: optional(string()),
 

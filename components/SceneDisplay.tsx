@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { ActionSequence } from '../lib/action-sequence'
-import { Scene } from '../lib/scene'
+import { NoBackground, Scene } from '../lib/scene'
 import { useStore } from '../stores/store'
 import ClickableGroup from './ClickableGroup'
 import Dialogue from './Dialogue'
@@ -26,11 +26,13 @@ const SceneDisplay: React.FC<SceneProps> = ({ scene }) => {
 
   return (
     <div className="relative w-full h-full select-none overflow-hidden">
-      <img
-        className="m-auto w-full h-full object-cover"
-        src={scene.background}
-        alt={scene.backgroundAltText ?? ''}
-      />
+      {scene.background !== NoBackground && (
+        <img
+          className="m-auto w-full h-full object-cover"
+          src={scene.background}
+          alt={scene.backgroundAltText ?? ''}
+        />
+      )}
       {scene.images.map((image) => (
         <ImageElement {...image} key={image.name}></ImageElement>
       ))}

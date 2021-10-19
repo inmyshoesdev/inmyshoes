@@ -46,10 +46,6 @@ export function tryConvertBool(str: string): [boolean, boolean] {
   return [false, false]
 }
 
-export function capitalizeFirst(str: string): string {
-  return str.charAt(0).toUpperCase() + str.slice(1)
-}
-
 // adapted from: https://stackoverflow.com/a/47112177
 // essentially creates a Promise which can be resolved from outside the
 // Promise's closure.
