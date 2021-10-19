@@ -48,7 +48,11 @@ export default function StateMeter({
             />
           )}
 
-          <div className="border border-gray-800 rounded-full overflow-hidden">
+          <div className="relative border border-gray-600 rounded-sm overflow-hidden md:rounded-md lg:rounded-lg">
+            <div className="absolute left-0 right-0 top-0 h-2/5 bg-gradient-to-b rounded-full from-white opacity-60" />
+            <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t rounded-full from-gray-600 opacity-40" />
+            <div className="w-1/50 absolute bottom-1 left-0 top-1 bg-gradient-to-r rounded-full from-gray-900 mix-blend-overlay" />
+            <div className="w-1/50 absolute bottom-1 right-0 top-1 bg-gradient-to-l rounded-full from-gray-900 mix-blend-overlay" />
             <Line
               percent={progress}
               strokeColor={color || '#00BFFF'}
@@ -64,9 +68,9 @@ export default function StateMeter({
             <style jsx global>{`
               .rc-progress-line-path {
                 --easing-function: cubic-bezier(0.39, 1.49, 0.84, 1);
-                transition: stroke-dashoffset 0.4s var(--easing-function) 0s,
-                  stroke-dasharray 0.4s var(--easing-function) 0s,
-                  stroke 0.4s linear 0s !important;
+                transition: stroke-dashoffset 0.5s var(--easing-function) 0.1s,
+                  stroke-dasharray 0.5s var(--easing-function) 0.1s,
+                  stroke 0.5s linear 0.1s !important;
               }
             `}</style>
           </div>
