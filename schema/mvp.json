@@ -2103,7 +2103,8 @@
                         "family matters": {
                           "chance": 20
                         }
-                      }
+                      },
+                      "maxTriggered": 1
                     },
                     {
                       "type": "gotoScene",
@@ -2343,7 +2344,8 @@
                         "family matters": {
                           "chance": 20
                         }
-                      }
+                      },
+                      "maxTriggered": 1
                     },
                     {
                       "type": "gotoScene",
@@ -2386,7 +2388,8 @@
                         "family matters": {
                           "chance": 20
                         }
-                      }
+                      },
+                      "maxTriggered": 1
                     },
                     {
                       "type": "gotoScene",
@@ -2675,7 +2678,8 @@
                         "family matters": {
                           "chance": 40
                         }
-                      }
+                      },
+                      "maxTriggered": 1
                     },
                     {
                       "type": "gotoScene",
@@ -2720,7 +2724,8 @@
                         "family matters": {
                           "chance": 40
                         }
-                      }
+                      },
+                      "maxTriggered": 1
                     },
                     {
                       "type": "gotoScene",
@@ -2934,7 +2939,8 @@
                         "family matters": {
                           "chance": 40
                         }
-                      }
+                      },
+                      "maxTriggered": 1
                     },
                     {
                       "type": "gotoScene",
@@ -2990,7 +2996,8 @@
                         "family matters": {
                           "chance": 40
                         }
-                      }
+                      },
+                      "maxTriggered": 1
                     },
                     {
                       "type": "gotoScene",
@@ -3233,7 +3240,8 @@
                         "family matters": {
                           "chance": 40
                         }
-                      }
+                      },
+                      "maxTriggered": 1
                     },
                     {
                       "type": "gotoScene",
@@ -3435,7 +3443,8 @@
                         "family matters": {
                           "chance": 40
                         }
-                      }
+                      },
+                      "maxTriggered": 1
                     },
                     {
                       "type": "gotoScene",
@@ -3772,7 +3781,8 @@
                         "family matters": {
                           "chance": 60
                         }
-                      }
+                      },
+                      "maxTriggered": 1
                     },
                     {
                       "type": "gotoScene",
@@ -3813,7 +3823,8 @@
                         "family matters": {
                           "chance": 20
                         }
-                      }
+                      },
+                      "maxTriggered": 1
                     },
                     {
                       "type": "gotoScene",

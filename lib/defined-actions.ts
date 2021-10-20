@@ -8,6 +8,7 @@ import {
   min,
   number,
   object,
+  optional,
   record,
   string,
   union,
@@ -92,6 +93,7 @@ export type DefinedActionsToArgs = {
   [TriggerEvents]: {
     events: TriggerEventsSchema
     eventSchemas: Map<string, EventSchema> // not provided by user
+    maxTriggered?: number
   }
 } & {
   [K in keyof typeof ShowActions]: ShowActionArgs
@@ -251,29 +253,26 @@ export const DefinedActions: {
         object({
           events: TriggerEventsSchema,
           eventSchemas: map(string(), EventSchema),
+          maxTriggered: optional(number()),
         }),
         {
           coerce: true,
         }
       )
     },
-    execute({ args }) {
-      const { events, eventSchemas } = args
 
-      const actions = Object.entries(events)
+    execute({ args }) {
+      const { events, eventSchemas, maxTriggered } = args
+
+      let actions = Object.entries(events)
         .map(([eventName, { chance }]) => {
           const eventSchema = eventSchemas.get(eventName)
           if (!eventSchema) {
             return undefined
           }
 
-          let condition: RulesLogic = {
-            '<=': [{ random: [] } as unknown as RulesLogic, chance],
-          }
-
-          const eventCondition = makeLogic(eventSchema.if)
-          if (eventCondition) {
-            condition = { and: [condition, eventCondition] }
+          if (Math.random() * 100 > chance) {
+            return undefined
           }
 
           const action: Action<{ actions: ActionSchema[] }> = {
@@ -282,12 +281,16 @@ export const DefinedActions: {
             args: { actions: eventSchema.sequence },
             sceneId: EventsSceneId,
             execute: executeActionGroup,
-            condition,
+            condition: makeLogic(eventSchema.if),
           }
 
           return action
         })
         .filter(isDefined)
+
+      if (maxTriggered) {
+        actions = actions.slice(0, maxTriggered)
+      }
 
       return {
         followupActions: actions,
