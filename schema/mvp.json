@@ -119,7 +119,10 @@
             }
           ],
           "if": {
-            "==": ["{friendship wildcard appeared}", false]
+            "==": [
+              "{friendship wildcard appeared}",
+              false
+            ]
           }
         },
         {
@@ -150,7 +153,10 @@
             }
           ],
           "if": {
-            "==": ["{support system wildcard appeared}", false]
+            "==": [
+              "{support system wildcard appeared}",
+              false
+            ]
           }
         },
         {
@@ -181,7 +187,10 @@
             }
           ],
           "if": {
-            "==": ["{anxiety wildcard appeared}", false]
+            "==": [
+              "{anxiety wildcard appeared}",
+              false
+            ]
           }
         },
         {
@@ -212,7 +221,10 @@
             }
           ],
           "if": {
-            "==": ["{loneliness wildcard appeared}", false]
+            "==": [
+              "{loneliness wildcard appeared}",
+              false
+            ]
           }
         },
         {
@@ -243,7 +255,10 @@
             }
           ],
           "if": {
-            "==": ["{family matters wildcard appeared}", false]
+            "==": [
+              "{family matters wildcard appeared}",
+              false
+            ]
           }
         }
       ],
@@ -685,19 +700,19 @@
               "type": "showImage",
               "value": "home",
               "autoHide": false,
-              "duration": 1
+              "waitForInteraction": false
             },
             {
               "type": "showImage",
               "value": "siblings",
               "autoHide": false,
-              "duration": 1
+              "waitForInteraction": false
             },
             {
               "type": "showImage",
               "value": "curtis-sleeping",
               "autoHide": false,
-              "duration": 1
+              "waitForInteraction": false
             },
             {
               "type": "showDialogue",
@@ -866,7 +881,9 @@
                     {
                       "type": "triggerEvents",
                       "events": {
-                        "friendship": { "chance": 40 }
+                        "friendship": {
+                          "chance": 40
+                        }
                       }
                     },
                     {
@@ -931,7 +948,7 @@
               "type": "showImage",
               "value": "fridge",
               "autoHide": false,
-              "duration": 1
+              "waitForInteraction": false
             },
             {
               "type": "showDialogue",
@@ -1088,7 +1105,9 @@
                     {
                       "type": "triggerEvents",
                       "events": {
-                        "loneliness": { "chance": 40 }
+                        "loneliness": {
+                          "chance": 40
+                        }
                       }
                     },
                     {
@@ -1131,7 +1150,9 @@
                     {
                       "type": "triggerEvents",
                       "events": {
-                        "friendship": { "chance": 40 }
+                        "friendship": {
+                          "chance": 40
+                        }
                       }
                     },
                     {
@@ -1168,7 +1189,7 @@
               "type": "showImage",
               "value": "phone",
               "autoHide": false,
-              "duration": 1
+              "waitForInteraction": false
             },
             {
               "type": "showDialogue",
@@ -1178,7 +1199,7 @@
               "type": "showImage",
               "value": "crossroad",
               "autoHide": false,
-              "duration": 1
+              "waitForInteraction": false
             },
             {
               "type": "showClickable",
@@ -1515,7 +1536,7 @@
                       "type": "showImage",
                       "value": "home",
                       "autoHide": false,
-                      "duration": 1
+                      "waitForInteraction": false
                     },
                     {
                       "type": "showNarration",
@@ -1524,7 +1545,9 @@
                     {
                       "type": "triggerEvents",
                       "events": {
-                        "anxiety": { "chance": 40 }
+                        "anxiety": {
+                          "chance": 40
+                        }
                       }
                     },
                     {
@@ -1545,7 +1568,7 @@
               "type": "showImage",
               "value": "classroom",
               "autoHide": false,
-              "duration": 1
+              "waitForInteraction": false
             },
             {
               "type": "showDialogue",
@@ -1834,7 +1857,9 @@
                     {
                       "type": "triggerEvents",
                       "events": {
-                        "loneliness": { "chance": 40 }
+                        "loneliness": {
+                          "chance": 40
+                        }
                       }
                     },
                     {
@@ -1878,7 +1903,7 @@
                       "type": "showImage",
                       "value": "theatre",
                       "autoHide": false,
-                      "duration": 1
+                      "waitForInteraction": false
                     },
                     {
                       "type": "showNarration",
@@ -1887,8 +1912,12 @@
                     {
                       "type": "triggerEvents",
                       "events": {
-                        "friendship": { "chance": 40 },
-                        "family matters": { "chance": 20 }
+                        "friendship": {
+                          "chance": 40
+                        },
+                        "family matters": {
+                          "chance": 20
+                        }
                       }
                     },
                     {
@@ -1925,7 +1954,7 @@
               "type": "showImage",
               "value": "corridor",
               "autoHide": false,
-              "duration": 1
+              "waitForInteraction": false
             },
             {
               "type": "showDialogue",
@@ -2126,8 +2155,12 @@
                     {
                       "type": "triggerEvents",
                       "events": {
-                        "anxiety": { "chance": 40 },
-                        "family matters": { "chance": 20 }
+                        "anxiety": {
+                          "chance": 40
+                        },
+                        "family matters": {
+                          "chance": 20
+                        }
                       }
                     },
                     {
@@ -2162,9 +2195,15 @@
                     {
                       "type": "triggerEvents",
                       "events": {
-                        "support system": { "chance": 40 },
-                        "loneliness": { "chance": 20 },
-                        "family matters": { "chance": 20 }
+                        "support system": {
+                          "chance": 40
+                        },
+                        "loneliness": {
+                          "chance": 20
+                        },
+                        "family matters": {
+                          "chance": 20
+                        }
                       }
                     },
                     {
@@ -2453,8 +2492,12 @@
                     {
                       "type": "triggerEvents",
                       "events": {
-                        "friendship": { "chance": 40 },
-                        "family matters": { "chance": 40 }
+                        "friendship": {
+                          "chance": 40
+                        },
+                        "family matters": {
+                          "chance": 40
+                        }
                       }
                     },
                     {
@@ -2491,9 +2534,15 @@
                     {
                       "type": "triggerEvents",
                       "events": {
-                        "anxiety": { "chance": 40 },
-                        "loneliness": { "chance": 40 },
-                        "family matters": { "chance": 40 }
+                        "anxiety": {
+                          "chance": 40
+                        },
+                        "loneliness": {
+                          "chance": 40
+                        },
+                        "family matters": {
+                          "chance": 40
+                        }
                       }
                     },
                     {
@@ -2530,7 +2579,7 @@
               "type": "showImage",
               "value": "classroom",
               "autoHide": false,
-              "duration": 1
+              "waitForInteraction": false
             },
             {
               "type": "showDialogue",
@@ -2687,13 +2736,13 @@
                       "type": "showImage",
                       "value": "library",
                       "autoHide": false,
-                      "duration": 1
+                      "waitForInteraction": false
                     },
                     {
                       "type": "showImage",
                       "value": "curtis-tired",
                       "autoHide": false,
-                      "duration": 1
+                      "waitForInteraction": false
                     },
                     {
                       "type": "showNarration",
@@ -2702,9 +2751,15 @@
                     {
                       "type": "triggerEvents",
                       "events": {
-                        "anxiety": { "chance": 20 },
-                        "loneliness": { "chance": 20 },
-                        "family matters": { "chance": 40 }
+                        "anxiety": {
+                          "chance": 20
+                        },
+                        "loneliness": {
+                          "chance": 20
+                        },
+                        "family matters": {
+                          "chance": 40
+                        }
                       }
                     },
                     {
@@ -2737,7 +2792,7 @@
                       "type": "showImage",
                       "value": "dennis",
                       "autoHide": false,
-                      "duration": 1
+                      "waitForInteraction": false
                     },
                     {
                       "type": "showNarration",
@@ -2746,8 +2801,12 @@
                     {
                       "type": "triggerEvents",
                       "events": {
-                        "friendship": { "chance": 40 },
-                        "family matters": { "chance": 40 }
+                        "friendship": {
+                          "chance": 40
+                        },
+                        "family matters": {
+                          "chance": 40
+                        }
                       }
                     },
                     {
@@ -2930,7 +2989,9 @@
                     {
                       "type": "triggerEvents",
                       "events": {
-                        "support system": { "chance": 60 }
+                        "support system": {
+                          "chance": 60
+                        }
                       }
                     },
                     {
@@ -2971,7 +3032,7 @@
                       "type": "showImage",
                       "value": "library",
                       "autoHide": false,
-                      "duration": 1
+                      "waitForInteraction": false
                     },
                     {
                       "type": "showNarration",
@@ -2980,9 +3041,15 @@
                     {
                       "type": "triggerEvents",
                       "events": {
-                        "anxiety": { "chance": 20 },
-                        "loneliness": { "chance": 20 },
-                        "family matters": { "chance": 40 }
+                        "anxiety": {
+                          "chance": 20
+                        },
+                        "loneliness": {
+                          "chance": 20
+                        },
+                        "family matters": {
+                          "chance": 40
+                        }
                       }
                     },
                     {
@@ -3019,7 +3086,7 @@
               "type": "showImage",
               "value": "home",
               "autoHide": false,
-              "duration": 1
+              "waitForInteraction": false
             },
             {
               "type": "showDialogue",
@@ -3169,7 +3236,7 @@
                       "type": "showImage",
                       "value": "work",
                       "autoHide": false,
-                      "duration": 1
+                      "waitForInteraction": false
                     },
                     {
                       "type": "showNarration",
@@ -3178,9 +3245,15 @@
                     {
                       "type": "triggerEvents",
                       "events": {
-                        "anxiety": { "chance": 20 },
-                        "loneliness": { "chance": 20 },
-                        "family matters": { "chance": 40 }
+                        "anxiety": {
+                          "chance": 20
+                        },
+                        "loneliness": {
+                          "chance": 20
+                        },
+                        "family matters": {
+                          "chance": 40
+                        }
                       }
                     },
                     {
@@ -3221,7 +3294,7 @@
                       "type": "showImage",
                       "value": "hawker-centre",
                       "autoHide": false,
-                      "duration": 1
+                      "waitForInteraction": false
                     },
                     {
                       "type": "showNarration",
@@ -3230,7 +3303,9 @@
                     {
                       "type": "triggerEvents",
                       "events": {
-                        "family matters": { "chance": 40 }
+                        "family matters": {
+                          "chance": 40
+                        }
                       }
                     },
                     {
@@ -3267,7 +3342,7 @@
               "type": "showImage",
               "value": "home",
               "autoHide": false,
-              "duration": 1
+              "waitForInteraction": false
             },
             {
               "type": "showDialogue",
@@ -3516,8 +3591,12 @@
                     {
                       "type": "triggerEvents",
                       "events": {
-                        "friendship": { "chance": 60 },
-                        "family matters": { "chance": 60 }
+                        "friendship": {
+                          "chance": 60
+                        },
+                        "family matters": {
+                          "chance": 60
+                        }
                       }
                     },
                     {
@@ -3553,8 +3632,12 @@
                     {
                       "type": "triggerEvents",
                       "events": {
-                        "loneliness": { "chance": 60 },
-                        "family matters": { "chance": 20 }
+                        "loneliness": {
+                          "chance": 60
+                        },
+                        "family matters": {
+                          "chance": 20
+                        }
                       }
                     },
                     {
