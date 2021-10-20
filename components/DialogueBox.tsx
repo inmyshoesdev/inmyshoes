@@ -40,13 +40,11 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
 }) => {
   const template = useStateTemplater()
   const [skipTyping, setSkipTyping] = useState<boolean>(false)
-  console.log(skipTyping)
 
   const onClick = useCallback(
     (e) => {
       e.stopPropagation()
       if (!skipTyping) {
-        console.log('skipTyping')
         setSkipTyping(true)
         return
       }

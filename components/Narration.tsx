@@ -47,7 +47,6 @@ const Narration: React.FC<NarrationProps> = ({
       enter="transition-opacity duration-200"
       enterFrom="opacity-0"
       enterTo="opacity-100"
-      // className="absolute top-0 flex items-center justify-evenly w-full h-full"
     >
       <DialogueBox
         image={textBoxImage || './images/narration-background.png'}
