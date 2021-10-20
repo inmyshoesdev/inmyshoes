@@ -17,6 +17,7 @@ type GameProps = {
 
 const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
   const game = useStore((state) => state.game)
+  const header = useStore((state) => state.game.header)
   const loadGame = useStore((state) => state.loadGame)
   const updateCharacter = useStore((state) => state.updateCharacter)
   const [blurBackground, setBlurBackground] = useState(false)
@@ -32,7 +33,7 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
   }, [newGame, loadGame])
   return (
     <div className="flex flex-col items-center my-2 w-full space-y-2">
-      <Header header={game.header} />
+      <Header header={header} />
       <DisplayControl setStoredScreenWidth={setStoredScreenWidth} />
       <div
         className={`relative bg-white border shadow overflow-hidden`}

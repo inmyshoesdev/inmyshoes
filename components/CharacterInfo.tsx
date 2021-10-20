@@ -62,9 +62,9 @@ function CharacterInfo({
             ))}
         </Swiper>
       </div>
-      <div className="z-10 flex flex-col gap-2 items-center justify-center">
+      <div className="z-10 flex flex-col gap-6 items-center justify-center mt-8">
         <button
-          className="px-4 text-center text-lg font-semibold bg-green-400 rounded cursor-pointer"
+          className="px-4 py-1 text-center text-lg font-medium bg-green-400 hover:bg-green-500 rounded cursor-pointer"
           onClick={() => {
             setHidden(true)
             setBlurBackground((state) => !state)
@@ -74,7 +74,7 @@ function CharacterInfo({
         </button>
         <Popover>
           <PopoverTrigger>
-            <button className="justify-content z-20 flex mx-auto px-2 font-semibold bg-yellow-400 rounded cursor-pointer">
+            <button className="justify-content z-20 flex mx-auto px-2 py-1 font-medium bg-yellow-400 hover:bg-yellow-500 rounded cursor-pointer">
               Reselect
             </button>
           </PopoverTrigger>

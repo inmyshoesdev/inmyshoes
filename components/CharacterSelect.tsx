@@ -50,9 +50,9 @@ function CharacterSelect({
           ))}
         </Swiper>
       </div>
-      <div className="z-10 flex items-center justify-center">
+      <div className="z-10 flex items-center justify-center mt-10">
         <button
-          className="px-4 text-center text-lg font-semibold bg-green-400 rounded focus:outline-none cursor-pointer"
+          className="px-6 py-2 text-center text-xl font-medium bg-green-400 hover:bg-green-500 rounded-md focus:outline-none shadow-md cursor-pointer"
           onClick={finishSelection}
         >
           Go

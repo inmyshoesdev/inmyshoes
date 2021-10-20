@@ -7,6 +7,9 @@ module.exports = {
   theme: {
     extend: {
       minHeight: (theme) => theme('height'),
+      width: {
+        '1/50': '2%'
+      },
       keyframes: {
         wiggle: {
           '0%, 100%': { transform: 'rotate(-3deg)' },

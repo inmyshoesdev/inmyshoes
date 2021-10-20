@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Transition } from '@headlessui/react'
+import { Tooltip } from '@chakra-ui/react'
 import { Line } from 'rc-progress'
 import { useStore } from '../stores/store'
 
@@ -34,7 +34,7 @@ export default function StateMeter({
 
     setValue(stateValue)
     setProgress(progressvalue)
-  }, [stateObj.value])
+  }, [max, min, stateObj.value])
 
   return (
     <div className="flex flex-col w-1/4 h-full overflow-hidden">
@@ -42,20 +42,40 @@ export default function StateMeter({
       <div className="flex flex-grow flex-shrink items-center h-2/3">
         <div className="flex items-center h-full">
           {iconImage && (
-            <img src={iconImage} className="px-2 w-1/5 h-full object-contain" />
+            <img
+              src={iconImage}
+              className="px-2 w-1/5 h-full object-contain"
+              alt={`${title} icon`}
+            />
           )}
 
-          <Line
-            percent={progress}
-            strokeColor={color || '#00BFFF'}
-            strokeLinecap="round"
-            strokeWidth={10}
-            trailWidth={10}
-            style={{
-              width: '80%',
-              height: '50%',
-            }}
-          />
+          <Tooltip label={`${value}/${max}`} bg="gray.600">
+            <div className="relative border border-gray-600 rounded-sm overflow-hidden md:rounded-md lg:rounded-lg">
+              <div className="absolute left-0 right-0 top-0 h-2/5 bg-gradient-to-b rounded-full from-white opacity-60" />
+              <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t rounded-full from-gray-600 opacity-40" />
+              <div className="w-1/50 absolute bottom-1 left-0 top-1 bg-gradient-to-r rounded-full from-gray-900 mix-blend-overlay" />
+              <div className="w-1/50 absolute bottom-1 right-0 top-1 bg-gradient-to-l rounded-full from-gray-900 mix-blend-overlay" />
+              <Line
+                percent={progress}
+                strokeColor={color || '#00BFFF'}
+                strokeLinecap="square"
+                strokeWidth={10}
+                trailWidth={10}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                }}
+              />
+              <style jsx global>{`
+                .rc-progress-line-path {
+                  --easing-function: cubic-bezier(0.39, 1.49, 0.84, 1);
+                  transition: stroke-dashoffset 0.5s var(--easing-function) 0.1s,
+                    stroke-dasharray 0.5s var(--easing-function) 0.1s,
+                    stroke 0.5s linear 0.1s !important;
+                }
+              `}</style>
+            </div>
+          </Tooltip>
         </div>
       </div>
     </div>
