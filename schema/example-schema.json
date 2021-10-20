@@ -1,5 +1,14 @@
 {
   "name": "example game",
+  "about": {
+    "logo": {
+      "src": "/images/mainlogo.png",
+      "width": "150",
+      "height": "0"
+    },
+    "backgroundMusic": "/music/bensound-jazzcomedy.mp3",
+    "credits": ""
+  },
   "globalState": {
     "numTries": {
       "value": 0

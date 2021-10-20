@@ -1,168 +1,175 @@
 {
-    "name": "Dialogue Example",
-    "globalState": {
-        "health": {
-            "value": 20,
-            "max": 20
-        },
-        "social": 10,
-        "wealth": {
-            "value": 5,
-            "max": 10
-        },
-        "date": "Monday"
+  "name": "Dialogue Example",
+  "about": {
+    "logo": {
+      "src": "/images/mainlogo.png",
+      "width": "150",
+      "height": "0"
     },
-    "header": [
+    "backgroundMusic": "/music/bensound-jazzcomedy.mp3",
+    "credits": ""
+  },
+  "globalState": {
+    "health": {
+      "value": 20,
+      "max": 20
+    },
+    "social": 10,
+    "wealth": {
+      "value": 5,
+      "max": 10
+    },
+    "date": "Monday"
+  },
+  "header": [
+    {
+      "component": "state_display",
+      "title": "Date",
+      "state": "date",
+      "labelImage": "/images/calendar.png"
+    },
+    {
+      "component": "state_meter",
+      "title": "Health",
+      "state": "health",
+      "iconImage": "/images/Health.png",
+      "color": "#e9242b"
+    },
+    {
+      "component": "state_meter",
+      "title": "Social",
+      "state": "social",
+      "iconImage": "/images/Social.png",
+      "color": "#ffcca1"
+    },
+    {
+      "component": "state_meter",
+      "title": "Wealth",
+      "state": "wealth",
+      "iconImage": "/images/Wealth.png",
+      "color": "#fee214"
+    }
+  ],
+  "mainCharacters": [
+    {
+      "name": "Julie",
+      "images": {
+        "default": "/images/Julie.svg",
+        "happy": "/images/Julie_happy.svg"
+      },
+      "info": [
         {
-            "component": "state_display",
-            "title": "Date",
-            "state": "date",
-            "labelImage": "/images/calendar.png"
-        },
-        {
-            "component": "state_meter",
-            "title": "Health",
-            "state": "health",
-            "iconImage": "/images/Health.png",
-            "color": "#e9242b"
-        },
-        {
-            "component": "state_meter",
-            "title": "Social",
-            "state": "social",
-            "iconImage": "/images/Social.png",
-            "color": "#ffcca1"
-        },
-        {
-            "component": "state_meter",
-            "title": "Wealth",
-            "state": "wealth",
-            "iconImage": "/images/Wealth.png",
-            "color": "#fee214"
+          "text": "You are Julie.",
+          "backgroundImage": "/images/school.jpg"
         }
-    ],
-    "mainCharacters": [
+      ],
+      "scenes": [
         {
-            "name": "Julie",
-            "images": {
-                "default": "/images/Julie.svg",
-                "happy": "/images/Julie_happy.svg"
-            },
-            "info": [
+          "id": 1,
+          "background": "/images/school.jpg",
+          "narrations": [
+            {
+              "name": "intro",
+              "texts": ["this is an example dialogue..."]
+            }
+          ],
+          "dialogues": [
+            {
+              "name": "julie_jason_greet",
+              "speeches": [
                 {
-                    "text": "You are Julie.",
-                    "backgroundImage": "/images/school.jpg"
-                }
-            ],
-            "scenes": [
-                {
-                    "id": 1,
-                    "background": "/images/school.jpg",
-                    "narrations": [
-                        {
-                            "name": "intro",
-                            "texts": [
-                                "this is an example dialogue..."
-                            ]
-                        }
-                    ],
-                    "dialogues": [
-                        {
-                            "name": "julie_jason_greet",
-                            "speeches": [
-                                {
-                                    "character": "Julie",
-                                    "variant": "happy",
-                                    "text": "Hello"
-                                },
-                                {
-                                    "character": "Jason",
-                                    "text": "Hey! **Hi** \n_Hello_",
-                                    "textBoxImage": "/images/dialogue-background.png",
-                                    "textDimension": {
-                                        "height": "40%"
-                                    }
-                                },
-                                {
-                                    "character": "Julie",
-                                    "text": "He looks friendly...",
-                                    "type": "monologue"
-                                }
-                            ]
-                        }
-                    ],
-                    "images": [
-                        {
-                            "name": "Jason",
-                            "src": "/images/Jason.svg",
-                            "position": {
-                                "top": "50%",
-                                "left": "10px"
-                            }
-                        }
-                    ],
-                    "clickables": [],
-                    "intro": [
-                        {
-                            "type": "showNarration",
-                            "value": "intro",
-                            "duration": 2000
-                        },
-                        {
-                            "type": "showDialogue",
-                            "value": "julie_jason_greet"
-                        },
-                        {
-                            "type": "updateGlobalState",
-                            "newState": {
-                                "social": -1
-                            }
-                        },
-                        {
-                            "type": "gotoScene",
-                            "sceneId": 2
-                        }
-                    ]
+                  "character": "Julie",
+                  "variant": "happy",
+                  "text": "Hello"
                 },
                 {
-                    "id": 2,
-                    "background": "/images/school.jpg",
-                    "narrations": [],
-                    "dialogues": [],
-                    "images": [],
-                    "clickables": [
-                        {
-                            "name": "restart",
-                            "options": [
-                                {
-                                    "name": "yes",
-                                    "text": "restart?",
-                                    "onClick": [
-                                        {
-                                            "type": "gotoScene",
-                                            "sceneId": 1
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ],
-                    "intro": [
-                        {
-                            "type": "showClickable",
-                            "value": "restart"
-                        }
-                    ]
+                  "character": "Jason",
+                  "text": "Hey! **Hi** \n_Hello_",
+                  "textBoxImage": "/images/dialogue-background.png",
+                  "textDimension": {
+                    "height": "40%"
+                  }
+                },
+                {
+                  "character": "Julie",
+                  "text": "He looks friendly...",
+                  "type": "monologue"
                 }
-            ]
-        }
-    ],
-    "npcs": [
-        {
-            "name": "Jason",
-            "images": {
-                "default": "/images/Jason.svg"
+              ]
             }
+          ],
+          "images": [
+            {
+              "name": "Jason",
+              "src": "/images/Jason.svg",
+              "position": {
+                "top": "50%",
+                "left": "10px"
+              }
+            }
+          ],
+          "clickables": [],
+          "intro": [
+            {
+              "type": "showNarration",
+              "value": "intro",
+              "duration": 2000
+            },
+            {
+              "type": "showDialogue",
+              "value": "julie_jason_greet"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "social": -1
+              }
+            },
+            {
+              "type": "gotoScene",
+              "sceneId": 2
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "background": "/images/school.jpg",
+          "narrations": [],
+          "dialogues": [],
+          "images": [],
+          "clickables": [
+            {
+              "name": "restart",
+              "options": [
+                {
+                  "name": "yes",
+                  "text": "restart?",
+                  "onClick": [
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "showClickable",
+              "value": "restart"
+            }
+          ]
         }
-    ]
+      ]
+    }
+  ],
+  "npcs": [
+    {
+      "name": "Jason",
+      "images": {
+        "default": "/images/Jason.svg"
+      }
+    }
+  ]
 }

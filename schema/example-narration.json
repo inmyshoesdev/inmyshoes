@@ -1,5 +1,14 @@
 {
   "name": "Narration Example",
+  "about": {
+    "logo": {
+      "src": "/images/mainlogo.png",
+      "width": "150",
+      "height": "0"
+    },
+    "backgroundMusic": "/music/bensound-jazzcomedy.mp3",
+    "credits": ""
+  },
   "mainCharacters": [
     {
       "name": "Julie",
@@ -28,9 +37,7 @@
             },
             {
               "name": "position",
-              "texts": [
-                "this narration is in a funny position!"
-              ],
+              "texts": ["this narration is in a funny position!"],
               "position": {
                 "top": "35%",
                 "left": "10%"
@@ -47,9 +54,7 @@
             },
             {
               "name": "last",
-              "texts": [
-                "you will leave this scene in 2 seconds"
-              ]
+              "texts": ["you will leave this scene in 2 seconds"]
             }
           ],
           "dialogues": [],

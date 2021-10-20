@@ -15,7 +15,11 @@ export const EmptyGame: Game = {
   name: '',
   globalState: makeState({}),
   loading: false,
-
+  about: {
+    logo: { src: '/images/mainlogo.png' },
+    backgroundMusic: '/music/bensound-jazzcomedy.mp3',
+    credits: 'This is supported by markdown for ease of formatting',
+  },
   characterIndex: 0,
   characterSelected: false,
   currentSceneId: 0,
@@ -35,8 +39,21 @@ export const EmptyGame: Game = {
   },
 }
 
+export interface About {
+  description?: string
+  author?: string
+  favicon?: string
+  logo?: {
+    src?: string
+    width?: string
+    height?: string
+  }
+  backgroundMusic?: string
+  credits?: string
+}
 export interface Game {
   name: string
+  about: About
   globalState: State
   loading: boolean
 
@@ -63,7 +80,7 @@ export function makeGame(schema: GameSchema): Game {
 
   return {
     name: schema.name,
-
+    about: schema.about,
     globalState: globalState,
     loading: false,
     characterIndex: 0,
