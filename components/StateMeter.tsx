@@ -38,7 +38,7 @@ export default function StateMeter({
 
   return (
     <div className="flex flex-col w-1/4 h-full overflow-hidden">
-      <p className="h-1/3 text-sm capitalize">{title}</p>
+      <p className="h-1/3 text-xs capitalize md:text-sm">{title}</p>
       <div className="flex flex-grow flex-shrink items-center h-2/3">
         <div className="flex items-center h-full">
           {iconImage && (
