@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Transition } from '@headlessui/react'
-import { useAfterInteractionCallback } from '../hooks/useAfterInteractionCallback'
 import { Narration as NarrationProps } from '../lib/elements'
 
 import DialogueBox from './DialogueBox'
@@ -13,8 +12,6 @@ const Narration: React.FC<NarrationProps> = ({
   textBoxImage,
   afterInteractionCallback,
 }) => {
-  const afterAction = useAfterInteractionCallback(afterInteractionCallback)
-
   const [textIdx, setTextIdx] = useState(0)
   const text = texts[textIdx] || ''
 
@@ -35,9 +32,11 @@ const Narration: React.FC<NarrationProps> = ({
 
     // if speech is the last one, also run the after interaction action
     if (textIdx + 1 >= texts.length) {
-      afterAction()
+      if (afterInteractionCallback) {
+        afterInteractionCallback()
+      }
     }
-  }, [afterAction, textIdx, texts.length])
+  }, [afterInteractionCallback, textIdx, texts.length])
 
   const prevEnabled = textIdx > 0
   const nextEnabled = textIdx < texts.length - 1 || !!afterInteractionCallback

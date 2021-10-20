@@ -10,6 +10,7 @@ import {
 import { useStore } from '../stores/store'
 import ClickableImg from './ClickableImg'
 import ClickableText from './ClickableText'
+import { ActionSequence } from '../lib/action-sequence'
 
 type ClickableGroupProps = {
   sceneId: number
@@ -37,12 +38,13 @@ const ClickableGroup: React.FC<ClickableGroupProps> = ({
           ?.onClickActions ?? ([] as Action[])
 
       hideClickable(sceneId, name)
-      let cleanupFn: (() => void) | undefined = executeActions(...actions)
+      let cleanupFn = executeActions(
+        new ActionSequence(...actions)
+      )
       addCleanupFns(cleanupFn)
 
       if (afterInteractionCallback) {
-        cleanupFn = afterInteractionCallback()
-        addCleanupFns(cleanupFn)
+        afterInteractionCallback()
       }
     },
     [

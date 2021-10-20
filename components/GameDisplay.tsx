@@ -10,6 +10,7 @@ import { DisplayControl } from './DisplayControl'
 import useLocalStorage from '../hooks/useLocalStorage'
 import CharacterInfo from './CharacterInfo'
 import CharacterSelect from './CharacterSelect'
+import { EventsSceneId } from '../lib/events'
 type GameProps = {
   game?: Game
 }
@@ -43,7 +44,11 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
         {game.characterSelected &&
           game?.getScenes().map((scene, idx) => (
             <Transition
-              show={!game.loading && game?.currentSceneId === scene.id}
+              show={
+                !game.loading &&
+                (game?.currentSceneId === scene.id ||
+                  scene.id === EventsSceneId)
+              }
               enter="transition-opacity duration-500"
               enterFrom="opacity-0"
               enterTo="opacity-100"
@@ -51,7 +56,9 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
               key={idx}
-              className={`absolute inset-0 ${blurBackground ? 'blur-sm' : ''}`}
+              className={`absolute inset-0 ${blurBackground ? 'blur-sm' : ''} ${
+                scene.id === EventsSceneId ? 'pointer-events-none' : ''
+              }`}
             >
               <SceneDisplay scene={scene} />
             </Transition>

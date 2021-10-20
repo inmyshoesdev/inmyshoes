@@ -1,5 +1,14 @@
 {
   "name": "example game",
+  "about": {
+    "logo": {
+      "src": "/images/mainlogo.png",
+      "width": "150",
+      "height": "0"
+    },
+    "backgroundMusic": "/music/bensound-jazzcomedy.mp3",
+    "credits": ""
+  },
   "globalState": {
     "numTries": {
       "value": 0
@@ -7,7 +16,7 @@
     "fear": {
       "value": 0
     },
-    "gullibility": 2
+    "jumpscared": false
   },
   "mainCharacters": [
     {
@@ -19,6 +28,37 @@
         {
           "text": "You are pennywise.",
           "backgroundImage": "https://images.unsplash.com/photo-1532689193429-29caa23e5268?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=720&q=80"
+        }
+      ],
+      "events": [
+        {
+          "name": "jumpscare",
+          "images": [
+            {
+              "name": "jumpscare",
+              "src": "https://images.unsplash.com/photo-1572453020814-972b244074d4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1974&q=80",
+              "dimension": {
+                "height": "90%"
+              }
+            }
+          ],
+          "sequence": [
+            {
+              "type": "showImage",
+              "value": "jumpscare",
+              "duration": 500,
+              "waitForInteraction": false
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "jumpscared": true
+              }
+            }
+          ],
+          "if": {
+            "==": ["{jumpscared}", false]
+          }
         }
       ],
       "scenes": [
@@ -34,21 +74,15 @@
             },
             {
               "name": "scared msg",
-              "texts": [
-                "you are very scared..."
-              ]
+              "texts": ["you are very scared..."]
             },
             {
               "name": "clown decision",
-              "texts": [
-                "listen to the clown?"
-              ]
+              "texts": ["listen to the clown?"]
             },
             {
               "name": "win msg",
-              "texts": [
-                "you won!!!"
-              ]
+              "texts": ["you won!!!"]
             }
           ],
           "dialogues": [
@@ -132,10 +166,7 @@
                   ],
                   "disabled": {
                     "if": {
-                      ">=": [
-                        "{fear}",
-                        10
-                      ]
+                      ">=": ["{fear}", 10]
                     },
                     "label": "You are too afraid"
                   }
@@ -159,10 +190,7 @@
                   ],
                   "disabled": {
                     "if": {
-                      ">=": [
-                        "{fear}",
-                        10
-                      ]
+                      ">=": ["{fear}", 10]
                     },
                     "label": "You are too afraid"
                   }
@@ -192,6 +220,40 @@
               "waitForInteraction": false
             },
             {
+              "type": "executeActionGroup",
+              "actions": [
+                {
+                  "type": "updateGlobalState",
+                  "newState": {
+                    "fear": 1
+                  },
+                  "duration": 200
+                },
+                {
+                  "type": "updateGlobalState",
+                  "newState": {
+                    "fear": 1
+                  },
+                  "duration": 300
+                },
+                {
+                  "type": "updateGlobalState",
+                  "newState": {
+                    "fear": -1
+                  },
+                  "duration": 200
+                },
+                {
+                  "type": "updateGlobalState",
+                  "newState": {
+                    "fear": -1
+                  },
+                  "duration": 200
+                }
+              ],
+              "if": { "<=": [{ "random": [] }, 50] }
+            },
+            {
               "type": "showNarration",
               "value": "intro"
             },
@@ -199,10 +261,13 @@
               "type": "showNarration",
               "value": "scared msg",
               "if": {
-                ">=": [
-                  "{fear}",
-                  10
-                ]
+                ">=": ["{fear}", 10]
+              }
+            },
+            {
+              "type": "triggerEvents",
+              "events": {
+                "jumpscare": { "chance": 30 }
               }
             },
             {

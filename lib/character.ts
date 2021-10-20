@@ -1,4 +1,5 @@
 import { MainCharacterSchema, NPCSchema } from '../schema/character'
+import { compileEvents } from './events'
 import { Scene, makeScene } from './scene'
 
 export interface Character {
@@ -34,9 +35,13 @@ export function makeMainCharacter(
   }
 
   const characters: Character[] = [mainCharacter, ...npcs]
-  mainCharacter.scenes = schema.scenes.map((schema) =>
-    makeScene(schema, characters)
+  const [eventScene, eventSchemas] = compileEvents(schema.events, characters)
+
+  mainCharacter.scenes = schema.scenes.map((sceneSchema) =>
+    makeScene(sceneSchema, characters, eventSchemas)
   )
+
+  mainCharacter.scenes.push(eventScene)
 
   return mainCharacter
 }

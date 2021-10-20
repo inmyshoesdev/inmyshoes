@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
-import { Scene } from '../lib/scene'
+import { ActionSequence } from '../lib/action-sequence'
+import { NoBackground, Scene } from '../lib/scene'
 import { useStore } from '../stores/store'
 import ClickableGroup from './ClickableGroup'
 import Dialogue from './Dialogue'
@@ -20,37 +21,45 @@ const SceneDisplay: React.FC<SceneProps> = ({ scene }) => {
   }, [resetScene, scene.id])
 
   useEffect(() => {
-    return executeActions(...scene.intro)
+    return executeActions(new ActionSequence(...scene.intro))
   }, [scene.intro, executeActions])
 
   return (
-    <div className="relative w-full h-full select-none overflow-hidden">
-      <img
-        className="m-auto w-full h-full object-cover"
-        src={scene.background}
-        alt={scene.backgroundAltText ?? ''}
-      />
-      {scene.images.map((image) => (
-        <ImageElement {...image} key={image.name}></ImageElement>
-      ))}
-      {scene.narrations.map((narration) => {
-        console.log('narration')
-        return <Narration {...narration} key={narration.name} />
-      })}
-      {scene.dialogues.map((dialogue) => (
-        <Dialogue {...dialogue} key={dialogue.name} />
-      ))}
-      {scene.clickables.map((clickableGroup) => (
-        <ClickableGroup
-          sceneId={scene.id}
-          {...clickableGroup}
-          key={clickableGroup.name}
-        />
-      ))}
-      {scene.links.map((link) => (
-        <LinkElement {...link} key={link.name} />
-      ))}
-    </div>
+    <>
+      <div className="relative w-full h-full select-none overflow-hidden">
+        {scene.background !== NoBackground && (
+          <img
+            className="m-auto w-full h-full object-cover"
+            src={scene.background}
+            alt={scene.backgroundAltText ?? ''}
+          />
+        )}
+        {scene.images.map((image) => (
+          <ImageElement {...image} key={image.name}></ImageElement>
+        ))}
+        {scene.narrations.map((narration) => (
+          <Narration {...narration} key={narration.name} />
+        ))}
+        {scene.dialogues.map((dialogue) => (
+          <Dialogue {...dialogue} key={dialogue.name} />
+        ))}
+        {scene.clickables.map((clickableGroup) => (
+          <ClickableGroup
+            sceneId={scene.id}
+            {...clickableGroup}
+            key={clickableGroup.name}
+          />
+        ))}
+        {scene.links.map((link) => (
+          <LinkElement {...link} key={link.name} />
+        ))}
+      </div>
+      <style jsx>{`
+        div > :global(*) {
+          pointer-events: auto;
+        }
+      `}</style>
+    </>
   )
 }
 
