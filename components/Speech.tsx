@@ -88,7 +88,7 @@ const Speech: React.FC<SpeechProps> = ({
         )}
       </div>
       <DialogueBox
-        image={textBoxImage || './images/dialogue-background.png'}
+        image={textBoxImage}
         position={textPosition}
         dimension={textDimension}
         header={header}
