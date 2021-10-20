@@ -91,6 +91,7 @@ export function compileEvents(
   const eventScene: Scene = {
     id: EventsSceneId,
     background: NoBackground,
+    blurBackground: false,
 
     [narrations]: eventNarrations,
     [dialogues]: eventDialogues,

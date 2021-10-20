@@ -79,14 +79,14 @@ const Demo: React.FC = () => {
           <Transition
             show={showGame}
             enter="transition duration-500"
-            enterFrom="opacity-50 scale-50"
-            enterTo="opacity-100 scale-100"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
           >
             {game && <GameDisplay game={game} />}
           </Transition>
         </div>
         <div
-          className={`absolute inset-0 pt-8 px-2 grid place-items-center w-full h-screen overflow-y-hidden ${
+          className={`absolute inset-0 pt-8 px-2 grid place-items-center w-full h-screen ${
             showGame ? 'pointer-events-none' : ''
           }`}
         >
