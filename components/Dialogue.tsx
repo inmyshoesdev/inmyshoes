@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { Transition } from '@headlessui/react'
-import { useAfterInteractionCallback } from '../hooks/useAfterInteractionCallback'
 import { Dialogue as DialogueProps } from '../lib/elements'
 import Speech from './Speech'
 
@@ -9,7 +8,6 @@ const Dialogue: React.FC<DialogueProps> = ({
   speeches,
   afterInteractionCallback,
 }) => {
-  const afterAction = useAfterInteractionCallback(afterInteractionCallback)
   const [speechIdx, setSpeechIdx] = useState(-1)
 
   useEffect(() => {
@@ -29,7 +27,9 @@ const Dialogue: React.FC<DialogueProps> = ({
 
     // if speech is the last one, also run the after interaction action
     if (speechIdx + 1 >= speeches.length) {
-      afterAction()
+      if (afterInteractionCallback) {
+        afterInteractionCallback()
+      }
     }
   }
 

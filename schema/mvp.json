@@ -23,7 +23,12 @@
       "value": 0,
       "max": 20
     },
-    "approached help": false
+    "approached help": false,
+    "friendship wildcard appeared": false,
+    "support system wildcard appeared": false,
+    "anxiety wildcard appeared": false,
+    "loneliness wildcard appeared": false,
+    "family matters wildcard appeared": false
   },
   "header": [
     {
@@ -75,6 +80,164 @@
         {
           "text": "You work a part-time job at a fast food restaurant and have a little bit of savings. You find it hard to make friends because you are embarrassed about your situation.",
           "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-work.jpg"
+        }
+      ],
+      "events": [
+        {
+          "name": "friendship",
+          "narrations": [
+            {
+              "name": "msg",
+              "texts": [
+                "You find yourself having a personal conversation with a friend and both realise that you can count on each other.\nYour health and social points increase by 3"
+              ]
+            }
+          ],
+          "sequence": [
+            {
+              "type": "showNarration",
+              "value": "msg"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "health": 3,
+                "social": 3,
+                "friendship wildcard appeared": true
+              }
+            },
+            {
+              "type": "wait",
+              "duration": 1000
+            }
+          ],
+          "if": {
+            "==": ["{friendship wildcard appeared}", false]
+          }
+        },
+        {
+          "name": "support system",
+          "narrations": [
+            {
+              "name": "msg",
+              "texts": [
+                "After doing some research online, you are able to find a support organisation for low-income students.\nYour wealth points increase by 3"
+              ]
+            }
+          ],
+          "sequence": [
+            {
+              "type": "showNarration",
+              "value": "msg"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "wealth": 3,
+                "support system wildcard appeared": true
+              }
+            },
+            {
+              "type": "wait",
+              "duration": 1000
+            }
+          ],
+          "if": {
+            "==": ["{support system wildcard appeared}", false]
+          }
+        },
+        {
+          "name": "anxiety",
+          "narrations": [
+            {
+              "name": "msg",
+              "texts": [
+                "You are now suffering from anxiety due to stress. You are constantly worried even if there is no direct cause and sometimes find it hard to breathe.\nHealth points decrease by 2"
+              ]
+            }
+          ],
+          "sequence": [
+            {
+              "type": "showNarration",
+              "value": "msg"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "health": -2,
+                "anxiety wildcard appeared": true
+              }
+            },
+            {
+              "type": "wait",
+              "duration": 1000
+            }
+          ],
+          "if": {
+            "==": ["{anxiety wildcard appeared}", false]
+          }
+        },
+        {
+          "name": "loneliness",
+          "narrations": [
+            {
+              "name": "msg",
+              "texts": [
+                "You increasingly feel distant from your friends and family.\nSocial points decrease by 2"
+              ]
+            }
+          ],
+          "sequence": [
+            {
+              "type": "showNarration",
+              "value": "msg"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "social": -2,
+                "loneliness wildcard appeared": true
+              }
+            },
+            {
+              "type": "wait",
+              "duration": 1000
+            }
+          ],
+          "if": {
+            "==": ["{loneliness wildcard appeared}", false]
+          }
+        },
+        {
+          "name": "family matters",
+          "narrations": [
+            {
+              "name": "msg",
+              "texts": [
+                "One of your parents has lost their job. Until now, your parents has been living from paycheck to paycheck so there are no savings available. Therefore, you will have to contribute some of your allowance to help them cover the household expenses.\nWealth decreases by 2"
+              ]
+            }
+          ],
+          "sequence": [
+            {
+              "type": "showNarration",
+              "value": "msg"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "wealth": -2,
+                "family matters wildcard appeared": true
+              }
+            },
+            {
+              "type": "wait",
+              "duration": 1000
+            }
+          ],
+          "if": {
+            "==": ["{family matters wildcard appeared}", false]
+          }
         }
       ],
       "scenes": [
@@ -235,7 +398,7 @@
               "type": "showImage",
               "value": "family",
               "autoHide": false,
-              "duration": 1
+              "waitForInteraction": false
             },
             {
               "type": "showNarration",
@@ -245,7 +408,7 @@
               "type": "showImage",
               "value": "work",
               "autoHide": false,
-              "duration": 1
+              "waitForInteraction": false
             },
             {
               "type": "showNarration",
@@ -502,6 +665,12 @@
                       "value": "purchase"
                     },
                     {
+                      "type": "triggerEvents",
+                      "events": {
+                        "friendship": { "chance": 40 }
+                      }
+                    },
+                    {
                       "type": "gotoScene",
                       "sceneId": 3
                     }
@@ -624,6 +793,12 @@
                       "value": "walked"
                     },
                     {
+                      "type": "triggerEvents",
+                      "events": {
+                        "loneliness": { "chance": 40 }
+                      }
+                    },
+                    {
                       "type": "gotoScene",
                       "sceneId": 4
                     }
@@ -656,6 +831,12 @@
                     {
                       "type": "showNarration",
                       "value": "transport"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "friendship": { "chance": 40 }
+                      }
                     },
                     {
                       "type": "gotoScene",
@@ -893,6 +1074,12 @@
                       "value": "2"
                     },
                     {
+                      "type": "triggerEvents",
+                      "events": {
+                        "anxiety": { "chance": 40 }
+                      }
+                    },
+                    {
                       "type": "gotoScene",
                       "sceneId": 5
                     }
@@ -1024,6 +1211,12 @@
                       "value": "rejected"
                     },
                     {
+                      "type": "triggerEvents",
+                      "events": {
+                        "loneliness": { "chance": 40 }
+                      }
+                    },
+                    {
                       "type": "gotoScene",
                       "sceneId": 6
                     }
@@ -1060,6 +1253,13 @@
                     {
                       "type": "showNarration",
                       "value": "agreed"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "friendship": { "chance": 40 },
+                        "family matters": { "chance": 20 }
+                      }
                     },
                     {
                       "type": "gotoScene",
@@ -1189,6 +1389,13 @@
                       "value": "1"
                     },
                     {
+                      "type": "triggerEvents",
+                      "events": {
+                        "anxiety": { "chance": 40 },
+                        "family matters": { "chance": 20 }
+                      }
+                    },
+                    {
                       "type": "gotoScene",
                       "sceneId": 7
                     }
@@ -1216,6 +1423,14 @@
                     {
                       "type": "showNarration",
                       "value": "2"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "support system": { "chance": 40 },
+                        "loneliness": { "chance": 20 },
+                        "family matters": { "chance": 20 }
+                      }
                     },
                     {
                       "type": "gotoScene",
@@ -1349,6 +1564,13 @@
                       "value": "1"
                     },
                     {
+                      "type": "triggerEvents",
+                      "events": {
+                        "friendship": { "chance": 40 },
+                        "family matters": { "chance": 40 }
+                      }
+                    },
+                    {
                       "type": "gotoScene",
                       "sceneId": 8
                     }
@@ -1378,6 +1600,14 @@
                     {
                       "type": "showNarration",
                       "value": "2"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "anxiety": { "chance": 40 },
+                        "loneliness": { "chance": 40 },
+                        "family matters": { "chance": 40 }
+                      }
                     },
                     {
                       "type": "gotoScene",
@@ -1482,6 +1712,14 @@
                       "value": "1"
                     },
                     {
+                      "type": "triggerEvents",
+                      "events": {
+                        "anxiety": { "chance": 20 },
+                        "loneliness": { "chance": 20 },
+                        "family matters": { "chance": 40 }
+                      }
+                    },
+                    {
                       "type": "gotoScene",
                       "sceneId": 9
                     }
@@ -1510,6 +1748,13 @@
                     {
                       "type": "showNarration",
                       "value": "2"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "friendship": { "chance": 40 },
+                        "family matters": { "chance": 40 }
+                      }
                     },
                     {
                       "type": "gotoScene",
@@ -1604,6 +1849,12 @@
                       "value": "1"
                     },
                     {
+                      "type": "triggerEvents",
+                      "events": {
+                        "support system": { "chance": 60 }
+                      }
+                    },
+                    {
                       "type": "gotoScene",
                       "sceneId": 10
                     }
@@ -1637,6 +1888,14 @@
                     {
                       "type": "showNarration",
                       "value": "2"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "anxiety": { "chance": 20 },
+                        "loneliness": { "chance": 20 },
+                        "family matters": { "chance": 40 }
+                      }
                     },
                     {
                       "type": "gotoScene",
@@ -1731,6 +1990,14 @@
                       "value": "1"
                     },
                     {
+                      "type": "triggerEvents",
+                      "events": {
+                        "anxiety": { "chance": 20 },
+                        "loneliness": { "chance": 20 },
+                        "family matters": { "chance": 40 }
+                      }
+                    },
+                    {
                       "type": "gotoScene",
                       "sceneId": 11
                     }
@@ -1764,6 +2031,12 @@
                     {
                       "type": "showNarration",
                       "value": "2"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "family matters": { "chance": 40 }
+                      }
                     },
                     {
                       "type": "gotoScene",
@@ -2027,6 +2300,13 @@
                       "value": "1"
                     },
                     {
+                      "type": "triggerEvents",
+                      "events": {
+                        "friendship": { "chance": 60 },
+                        "family matters": { "chance": 60 }
+                      }
+                    },
+                    {
                       "type": "gotoScene",
                       "sceneId": 13
                     }
@@ -2055,6 +2335,13 @@
                     {
                       "type": "showNarration",
                       "value": "2"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "loneliness": { "chance": 60 },
+                        "family matters": { "chance": 20 }
+                      }
                     },
                     {
                       "type": "gotoScene",

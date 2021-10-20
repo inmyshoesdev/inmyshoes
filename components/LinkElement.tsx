@@ -1,6 +1,5 @@
 import { Transition } from '@headlessui/react'
 import NextLink from 'next/link'
-import { useAfterInteractionCallback } from '../hooks/useAfterInteractionCallback'
 import { useStateTemplater } from '../hooks/useStateTemplater'
 import { Link } from '../lib/elements'
 import { renderMdToHtml } from './utils'
@@ -14,9 +13,6 @@ const LinkElement: React.FC<Link> = ({
   afterInteractionCallback,
 }) => {
   const template = useStateTemplater()
-  const handleInteraction = useAfterInteractionCallback(
-    afterInteractionCallback
-  )
 
   const positionDefined =
     position?.top || position?.left || position?.right || position?.bottom
@@ -30,7 +26,7 @@ const LinkElement: React.FC<Link> = ({
     >
       <div
         className="positioned absolute mx-auto px-4 py-3 max-w-sm bg-gray-100 hover:bg-gray-200 border border-gray-700 rounded shadow"
-        onClick={handleInteraction}
+        onClick={afterInteractionCallback}
       >
         <NextLink href={url}>
           <a className="text-md !text-gray-900 !no-underline font-medium cursor-pointer">

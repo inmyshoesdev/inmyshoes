@@ -2,10 +2,13 @@ import {
   array,
   defaulted,
   Infer,
+  max,
   min,
   number,
   object,
   optional,
+  record,
+  size,
   string,
 } from 'superstruct'
 import { ActionSchema } from './actions'
@@ -16,23 +19,27 @@ import {
   LinkSchema,
   NarrationSchema,
 } from './elements'
-import { StateSchema } from './state'
+import { LogicSchema } from './logic'
 
-export const SceneSchema = object({
-  id: min(number(), 0),
-  background: string(),
-  backgroundAltText: optional(string()),
+export const EventSchema = object({
+  name: string(),
+  sequence: size(array(ActionSchema), 1, Infinity),
+  if: optional(LogicSchema),
 
   narrations: defaulted(array(NarrationSchema), () => []),
   dialogues: defaulted(array(DialogueSchema), () => []),
   images: defaulted(array(ImageSchema), () => []),
   clickables: defaulted(array(ClickableGroupSchema), () => []),
   links: defaulted(array(LinkSchema), () => []),
-
-  intro: defaulted(array(ActionSchema), () => []),
-  outro: defaulted(array(ActionSchema), () => []),
-
-  state: optional(StateSchema),
 })
 
-export type SceneSchema = Infer<typeof SceneSchema>
+export type EventSchema = Infer<typeof EventSchema>
+
+export const TriggerEventsSchema = record(
+  string(),
+  object({
+    chance: defaulted(min(max(number(), 100), 0), 100),
+  })
+)
+
+export type TriggerEventsSchema = Infer<typeof TriggerEventsSchema>

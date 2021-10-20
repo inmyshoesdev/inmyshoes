@@ -1,9 +1,10 @@
 import { GameSchema } from '../schema/game'
 import { StateComponent, makeStateComponent } from './component'
 import { makeMainCharacter, makeNPC, MainCharacter, NPC } from './character'
-import { Scene } from './scene'
+import { NoBackground, Scene } from './scene'
 import { makeState, State } from './state'
 import { isClickableImg } from './elements'
+import { background } from '@chakra-ui/styled-system'
 
 type PreloadImageOptions = {
   timeout?: number
@@ -128,7 +129,9 @@ export function makeGame(schema: GameSchema): Game {
 
       this.mainCharacters.forEach((char) => {
         char.scenes.forEach((scene) => {
-          imageSources.add(scene.background)
+          if (scene.background !== NoBackground) {
+            imageSources.add(scene.background)
+          }
 
           scene.images.forEach((image) => {
             imageSources.add(image.src)
