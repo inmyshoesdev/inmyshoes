@@ -68,6 +68,8 @@ export const useStore = create<GameStore>((set) => ({
       scene.images.forEach((image) => (image.shown = false))
       scene.clickables.forEach((clickable) => (clickable.shown = false))
       scene.links.forEach((link) => (link.shown = false))
+
+      scene.blurBackground = false
       // TODO: may need to add more to reset other states
     })
   },

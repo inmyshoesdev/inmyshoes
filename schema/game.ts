@@ -48,7 +48,9 @@ export const GameSchema = refine(gameSchema, 'GameSchema', (value) => {
 
     const validateActionSchema = (action: ActionSchema) => {
       if (action.type === TriggerEvents) {
-        const [err, events] = validate(action['events'], TriggerEventsSchema)
+        const [err, events] = validate(action['events'], TriggerEventsSchema, {
+          coerce: true,
+        })
 
         if (err || !events) {
           valid = false
