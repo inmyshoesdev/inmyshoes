@@ -11,6 +11,7 @@ const Narration: React.FC<NarrationProps> = ({
   texts,
   textBoxImage,
   afterInteractionCallback,
+  showNavigations,
 }) => {
   const [textIdx, setTextIdx] = useState(0)
   const text = texts[textIdx] || ''
@@ -60,6 +61,7 @@ const Narration: React.FC<NarrationProps> = ({
         gotoPrev={prevText}
         prevEnabled={prevEnabled}
         nextEnabled={nextEnabled}
+        showNavigations={showNavigations}
       />
     </Transition>
   )

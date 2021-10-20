@@ -24,6 +24,7 @@ export interface DialogueBoxProps {
   gotoPrev?: () => void
   prevEnabled?: boolean
   nextEnabled?: boolean
+  showNavigations?: boolean
 }
 
 const DialogueBox: React.FC<DialogueBoxProps> = ({
@@ -37,6 +38,7 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
   gotoPrev,
   prevEnabled = true,
   nextEnabled = true,
+  showNavigations = true,
 }) => {
   const template = useStateTemplater()
   const [skipTyping, setSkipTyping] = useState<boolean>(false)
@@ -103,19 +105,21 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
     </div>
   )
 
-  const buttonSize = useBreakpointValue(['xs', 'sm', 'sm', 'md'])
+  const buttonSize = useBreakpointValue(['2xs', 'xs', 'sm', 'sm'])
   const buttons = (
-    <div className="flex justify-between">
+    <div className="flex flex-wrap-reverse justify-between">
       <IconButton
         aria-label="previous"
         variant="ghost"
         onClick={resetTypewriter(gotoPrev)}
         size={buttonSize}
         icon={
-          <ArrowBackIcon
-            className={`${prevEnabled ? 'cursor-pointer' : ''} `}
-            boxSize={[3, 4, 5, 6]}
-          />
+          prevEnabled ? (
+            <ArrowBackIcon
+              className={`${prevEnabled ? 'cursor-pointer' : ''} `}
+              boxSize={[3, 4, 5, 6]}
+            />
+          ) : undefined
         }
         isDisabled={!prevEnabled}
       />
@@ -125,10 +129,12 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
         onClick={resetTypewriter(gotoNext)}
         size={buttonSize}
         icon={
-          <ArrowForwardIcon
-            className={`${nextEnabled ? 'cursor-pointer' : ''}`}
-            boxSize={[3, 4, 5, 6]}
-          />
+          nextEnabled ? (
+            <ArrowForwardIcon
+              className={`${nextEnabled ? 'cursor-pointer' : ''}`}
+              boxSize={[3, 4, 5, 6]}
+            />
+          ) : undefined
         }
         isDisabled={!nextEnabled}
       />
@@ -139,7 +145,7 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
     <>
       {header}
       {body}
-      {buttons}
+      {showNavigations ? buttons : undefined}
     </>
   )
 
@@ -176,7 +182,7 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
               height: dimension?.height || 'unset',
             }}
           >
-            <div className="px-[1%] md:px-[1.75%] flex flex-col justify-around py-1 w-full h-full md:pb-2 md:pt-3">
+            <div className="px-[1%] py-[1.5%] md:py-[2%] md:px-[1.75%] flex flex-col justify-around w-full h-full">
               {content}
             </div>
           </div>
