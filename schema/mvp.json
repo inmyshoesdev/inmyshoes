@@ -119,10 +119,7 @@
             }
           ],
           "if": {
-            "==": [
-              "{friendship wildcard appeared}",
-              false
-            ]
+            "==": ["{friendship wildcard appeared}", false]
           }
         },
         {
@@ -153,10 +150,7 @@
             }
           ],
           "if": {
-            "==": [
-              "{support system wildcard appeared}",
-              false
-            ]
+            "==": ["{support system wildcard appeared}", false]
           }
         },
         {
@@ -187,10 +181,7 @@
             }
           ],
           "if": {
-            "==": [
-              "{anxiety wildcard appeared}",
-              false
-            ]
+            "==": ["{anxiety wildcard appeared}", false]
           }
         },
         {
@@ -221,10 +212,7 @@
             }
           ],
           "if": {
-            "==": [
-              "{loneliness wildcard appeared}",
-              false
-            ]
+            "==": ["{loneliness wildcard appeared}", false]
           }
         },
         {
@@ -255,10 +243,7 @@
             }
           ],
           "if": {
-            "==": [
-              "{family matters wildcard appeared}",
-              false
-            ]
+            "==": ["{family matters wildcard appeared}", false]
           }
         }
       ],
@@ -448,9 +433,7 @@
           "narrations": [
             {
               "name": "day",
-              "texts": [
-                "**Day 1 - Monday**"
-              ],
+              "texts": ["**Day 1 - Monday**"],
               "dimension": {
                 "width": "22%",
                 "height": "20%"
@@ -730,9 +713,7 @@
           "narrations": [
             {
               "name": "day",
-              "texts": [
-                "**Day 2 - Tuesday**"
-              ],
+              "texts": ["**Day 2 - Tuesday**"],
               "dimension": {
                 "width": "22%",
                 "height": "20%"
@@ -858,10 +839,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -966,9 +944,7 @@
           "narrations": [
             {
               "name": "day",
-              "texts": [
-                "**Day 3 - Wednesday**"
-              ],
+              "texts": ["**Day 3 - Wednesday**"],
               "dimension": {
                 "width": "22%",
                 "height": "20%"
@@ -1128,10 +1104,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -1590,9 +1563,7 @@
           "narrations": [
             {
               "name": "day",
-              "texts": [
-                "**Day 4 - Thursday**"
-              ],
+              "texts": ["**Day 4 - Thursday**"],
               "dimension": {
                 "width": "22%",
                 "height": "20%"
@@ -1880,10 +1851,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -2129,10 +2097,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -2240,9 +2205,7 @@
           "narrations": [
             {
               "name": "day",
-              "texts": [
-                "**Day 5 - Friday**"
-              ],
+              "texts": ["**Day 5 - Friday**"],
               "dimension": {
                 "width": "22%",
                 "height": "20%"
@@ -2465,10 +2428,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -2717,10 +2677,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -2839,9 +2796,7 @@
           "narrations": [
             {
               "name": "day",
-              "texts": [
-                "**Day 5 - Friday**"
-              ],
+              "texts": ["**Day 5 - Friday**"],
               "dimension": {
                 "width": "22%",
                 "height": "20%"
@@ -3013,10 +2968,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -3104,9 +3056,7 @@
           "narrations": [
             {
               "name": "day",
-              "texts": [
-                "**Day 6 - Saturday**"
-              ],
+              "texts": ["**Day 6 - Saturday**"],
               "dimension": {
                 "width": "22%",
                 "height": "20%"
@@ -3275,10 +3225,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -3568,10 +3515,7 @@
                   },
                   "disabled": {
                     "if": {
-                      "<=": [
-                        "{wealth}",
-                        0
-                      ]
+                      "<=": ["{wealth}", 0]
                     },
                     "label": "You don't have enough wealth..."
                   },
@@ -3842,43 +3786,75 @@
               "duration": 1000
             },
             {
-              "type": "showClickable",
-              "value": "health badge",
+              "type": "executeActionGroup",
+              "actions": [
+                {
+                  "type": "playSound",
+                  "src": "/sounds/reward.wav",
+                  "volume": 0.4,
+                  "interrupt": true
+                },
+                {
+                  "type": "showClickable",
+                  "value": "health badge"
+                }
+              ],
               "if": {
-                ">=": [
-                  "{health}",
-                  15
-                ]
+                ">=": ["{health}", 15]
               }
             },
             {
-              "type": "showClickable",
-              "value": "social badge",
+              "type": "executeActionGroup",
+              "actions": [
+                {
+                  "type": "playSound",
+                  "src": "/sounds/reward.wav",
+                  "volume": 0.4,
+                  "interrupt": true
+                },
+                {
+                  "type": "showClickable",
+                  "value": "social badge"
+                }
+              ],
               "if": {
-                ">=": [
-                  "{social}",
-                  15
-                ]
+                ">=": ["{social}", 15]
               }
             },
             {
-              "type": "showClickable",
-              "value": "wealth badge",
+              "type": "executeActionGroup",
+              "actions": [
+                {
+                  "type": "playSound",
+                  "src": "/sounds/reward.wav",
+                  "volume": 0.4,
+                  "interrupt": true
+                },
+                {
+                  "type": "showClickable",
+                  "value": "wealth badge"
+                }
+              ],
               "if": {
-                ">=": [
-                  "{wealth}",
-                  6
-                ]
+                ">=": ["{wealth}", 6]
               }
             },
             {
-              "type": "showClickable",
-              "value": "helping hand badge",
+              "type": "executeActionGroup",
+              "actions": [
+                {
+                  "type": "playSound",
+                  "src": "/sounds/reward.wav",
+                  "volume": 0.4,
+                  "interrupt": true
+                },
+                {
+                  "type": "showClickable",
+                  "value": "helping hand badge"
+                }
+              ],
               "if": {
-                "==": [
-                  "{approached help}",
-                  true
-                ]
+                "==": ["{approached help}", true]
               }
             },
             {
@@ -3966,9 +3942,7 @@
           "narrations": [
             {
               "name": "household",
-              "texts": [
-                "You are Belinda. You are from a middle-income family."
-              ]
+              "texts": ["You are Belinda. You are from a middle-income family."]
             }
           ],
           "dialogues": [],
@@ -4190,9 +4164,7 @@
           "narrations": [
             {
               "name": "intro",
-              "texts": [
-                "You have reached the end of this exercise."
-              ]
+              "texts": ["You have reached the end of this exercise."]
             }
           ],
           "dialogues": [],

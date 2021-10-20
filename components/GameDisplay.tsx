@@ -36,7 +36,7 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
       <Header header={header} />
       <DisplayControl setStoredScreenWidth={setStoredScreenWidth} />
       <div
-        className={`relative bg-white border shadow overflow-hidden`}
+        className={`relative bg-white shadow overflow-hidden`}
         style={{
           aspectRatio: '16/9',
           width: `${storedScreenWidth}vw`,
