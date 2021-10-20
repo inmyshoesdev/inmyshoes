@@ -52,10 +52,29 @@ const Speech: React.FC<SpeechProps> = ({
       <div
         className="absolute"
         style={{
-          top: characterPosition?.top || 'unset',
-          left: characterPosition?.left || '5%',
-          right: characterPosition?.right || 'unset',
-          bottom: characterPosition?.bottom || '5%',
+          top: characterPosition ? characterPosition.top : 'unset',
+          left: characterPosition ? characterPosition.left : '5%',
+          right: characterPosition ? characterPosition.right : 'unset',
+          bottom: characterPosition ? characterPosition.bottom : '5%',
+          height: characterDimension?.height || '70%',
+          width: characterDimension?.width || '15%',
+        }}
+      >
+        {!isMainCharacter && (
+          <img
+            src={characterImage}
+            alt={character}
+            className="m-auto h-full object-contain"
+          />
+        )}
+      </div>
+      <div
+        className="absolute"
+        style={{
+          top: characterPosition ? characterPosition.top : 'unset',
+          left: characterPosition ? characterPosition.left : 'unset',
+          right: characterPosition ? characterPosition.right : '5%',
+          bottom: characterPosition ? characterPosition.bottom : '5%',
           height: characterDimension?.height || '70%',
           width: characterDimension?.width || '15%',
         }}
@@ -82,26 +101,6 @@ const Speech: React.FC<SpeechProps> = ({
         prevEnabled={prevEnabled}
         nextEnabled={nextEnabled}
       />
-
-      <div
-        className="absolute"
-        style={{
-          top: characterPosition?.top || 'unset',
-          left: characterPosition?.left || 'unset',
-          right: characterPosition?.right || '5%',
-          bottom: characterPosition?.bottom || '5%',
-          height: characterDimension?.height || '70%',
-          width: characterDimension?.width || '15%',
-        }}
-      >
-        {!isMainCharacter && (
-          <img
-            src={characterImage}
-            alt={character}
-            className="m-auto h-full object-contain"
-          />
-        )}
-      </div>
     </>
   )
 }

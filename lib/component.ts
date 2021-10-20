@@ -51,7 +51,7 @@ export function makeStateMeter(
 
 export interface StateDisplay extends StateComponent {
   state: string
-  labelImage?: string
+  iconImage?: string
 }
 
 export function makeStateDisplay(
@@ -64,6 +64,6 @@ export function makeStateDisplay(
     component: schema.component,
     title: schema.title,
     state: schema.state,
-    labelImage: schema.labelImage,
+    iconImage: schema.iconImage,
   }
 }

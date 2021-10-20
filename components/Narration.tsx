@@ -9,6 +9,7 @@ const Narration: React.FC<NarrationProps> = ({
   position,
   dimension,
   texts,
+  textBoxImage,
   afterInteractionCallback,
 }) => {
   const [textIdx, setTextIdx] = useState(0)
@@ -46,10 +47,9 @@ const Narration: React.FC<NarrationProps> = ({
       enter="transition-opacity duration-200"
       enterFrom="opacity-0"
       enterTo="opacity-100"
-      className="absolute top-0 flex items-center justify-evenly w-full h-full"
     >
       <DialogueBox
-        image="./images/narration-background.png"
+        image={textBoxImage || './images/narration-background.png'}
         position={position}
         dimension={dimension}
         bodyStyle={{

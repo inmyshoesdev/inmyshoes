@@ -54,15 +54,17 @@ export interface Element {
 
 export interface Narration extends Element {
   texts: string[]
+  textBoxImage?: string
 }
 
 export function makeNarration(schema: NarrationSchema): Narration {
   return {
     shown: false,
     name: schema.name,
-    position: schema.position || { top: '10%' }, // TODO: settle on a proper default position
-    dimension: schema.dimension || { width: '60%', height: '30%' },
+    position: schema.position || { top: '10%', left: '20%' }, // TODO: settle on a proper default position
+    dimension: schema.dimension || { height: '30%' },
     texts: schema.texts,
+    textBoxImage: schema.textBoxImage,
   }
 }
 
@@ -107,7 +109,7 @@ export function makeSpeech(
     characterPosition: schema.characterPosition,
     characterDimension: schema.characterDimension,
     textPosition: schema.textPosition,
-    textDimension: schema.textDimension,
+    textDimension: schema.textDimension || { height: '32%' },
   }
 }
 

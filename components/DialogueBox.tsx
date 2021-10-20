@@ -41,17 +41,21 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
   const template = useStateTemplater()
   const [skipTyping, setSkipTyping] = useState<boolean>(false)
 
-  const onClick = useCallback(() => {
-    if (!skipTyping) {
-      setSkipTyping(true)
-      return
-    }
+  const onClick = useCallback(
+    (e) => {
+      e.stopPropagation()
+      if (!skipTyping) {
+        setSkipTyping(true)
+        return
+      }
 
-    if (gotoNext) {
-      setSkipTyping(false)
-      gotoNext()
-    }
-  }, [skipTyping, gotoNext])
+      if (gotoNext) {
+        gotoNext()
+        setSkipTyping(false)
+      }
+    },
+    [skipTyping, gotoNext]
+  )
 
   function resetTypewriter(
     fn?: () => void
@@ -70,7 +74,7 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
       className="mt-1 h-full text-xs overflow-y-auto sm:text-sm md:text-base lg:text-lg xl:text-xl"
       style={bodyStyle || {}}
     >
-      <div className="scrollbar-thin scrollbar-thumb-gray-500 scrollbar-thumb-rounded scrollbar-track-gray-100 flex flex-col-reverse pl-1 pr-2 max-h-full overflow-y-auto">
+      <div className="scrollbar-thin scrollbar-thumb-gray-500 scrollbar-thumb-rounded scroll scrollbar-track-gray-100 scrollbar-track-rounded flex flex-col-reverse pl-1 pr-2 max-h-full overflow-y-auto">
         {skipTyping ? (
           <span
             className="font-handwritten leading-relaxed"
@@ -142,37 +146,39 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
   return (
     <>
       {image ? (
-        <Box
-          onClick={onClick}
-          bgImage={image}
-          bgSize="100% 100%"
-          className="px-[3%] py-[2%] absolute flex flex-col"
-          style={{
-            top: position?.top || 'unset',
-            left: position?.left || '20%',
-            right: position?.right || 'unset',
-            bottom: position?.bottom || '10%',
-            width: dimension?.width || '60%',
-            height: dimension?.height || '32%',
-          }}
-        >
-          {content}
-        </Box>
-      ) : (
-        <div
-          className="rounded-handdrawn border-3 absolute bg-white border-gray-900 shadow-sm"
-          onClick={onClick}
-          style={{
-            top: position?.top || 'unset',
-            left: position?.left || '20%',
-            right: position?.right || 'unset',
-            bottom: position?.bottom || '10%',
-            width: dimension?.width || '60%',
-            height: dimension?.height || '32%',
-          }}
-        >
-          <div className="px-[1%] md:px-[1.75%] flex flex-col justify-around py-1 w-full h-full md:pb-2 md:pt-3">
+        <div className="absolute left-0 top-0 w-full h-full" onClick={onClick}>
+          <Box
+            bgImage={image}
+            bgSize="100% 100%"
+            className="px-[2%] py-[1.5%] absolute flex flex-col"
+            style={{
+              top: position ? position.top : 'unset',
+              left: position ? position.left : '20%',
+              right: position ? position.right : 'unset',
+              bottom: position ? position.bottom : '10%',
+              width: dimension?.width || '60%',
+              height: dimension?.height || 'unset',
+            }}
+          >
             {content}
+          </Box>
+        </div>
+      ) : (
+        <div className="absolute left-0 top-0 w-full h-full" onClick={onClick}>
+          <div
+            className="absolute bg-white border-3 border-gray-900 rounded-handdrawn shadow-sm"
+            style={{
+              top: position ? position.top : 'unset',
+              left: position ? position.left : '20%',
+              right: position ? position.right : 'unset',
+              bottom: position ? position.bottom : '10%',
+              width: dimension?.width || '60%',
+              height: dimension?.height || 'unset',
+            }}
+          >
+            <div className="px-[1%] md:px-[1.75%] flex flex-col justify-around py-1 w-full h-full md:pb-2 md:pt-3">
+              {content}
+            </div>
           </div>
         </div>
       )}

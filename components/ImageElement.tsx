@@ -27,7 +27,7 @@ const ImageElement: React.FC<Image> = ({
         <img
           src={src}
           alt={altText || ''}
-          className="image w-full h-full object-fill"
+          className="image w-full h-full object-contain"
         />
       </div>
       <style jsx>{`
