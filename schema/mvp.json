@@ -3667,11 +3667,12 @@
                   "name": "health",
                   "src": "/images/health-badge.png",
                   "position": {
-                    "top": "8%",
-                    "left": "35%"
+                    "top": "0",
+                    "left": "0",
+                    "right": "0"
                   },
                   "dimension": {
-                    "width": "30%"
+                    "height": "70%"
                   }
                 },
                 {
@@ -3694,11 +3695,12 @@
                   "name": "social",
                   "src": "/images/social-badge.png",
                   "position": {
-                    "top": "8%",
-                    "left": "35%"
+                    "top": "0",
+                    "left": "0",
+                    "right": "0"
                   },
                   "dimension": {
-                    "width": "30%"
+                    "height": "70%"
                   }
                 },
                 {
@@ -3721,11 +3723,12 @@
                   "name": "wealth",
                   "src": "/images/wealth-badge.png",
                   "position": {
-                    "top": "8%",
-                    "left": "35%"
+                    "top": "0",
+                    "left": "0",
+                    "right": "0"
                   },
                   "dimension": {
-                    "width": "30%"
+                    "height": "70%"
                   }
                 },
                 {
@@ -3748,11 +3751,12 @@
                   "name": "helping hand",
                   "src": "/images/helping-hand-badge.png",
                   "position": {
-                    "top": "8%",
-                    "left": "35%"
+                    "top": "0",
+                    "left": "0",
+                    "right": "0"
                   },
                   "dimension": {
-                    "width": "30%"
+                    "height": "70%"
                   }
                 },
                 {
