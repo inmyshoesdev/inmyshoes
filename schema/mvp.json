@@ -27,7 +27,8 @@
     "support system wildcard appeared": false,
     "anxiety wildcard appeared": false,
     "loneliness wildcard appeared": false,
-    "family matters wildcard appeared": false
+    "family matters wildcard appeared": false,
+    "helping hand badge awarded": false
   },
   "header": [
     {
@@ -455,8 +456,17 @@
             },
             {
               "type": "deblurBackground"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "helping hand badge awarded": true
+              }
             }
-          ]
+          ],
+          "if": {
+            "==": ["{helping hand badge awarded}", false]
+          }
         }
       ],
       "scenes": [
