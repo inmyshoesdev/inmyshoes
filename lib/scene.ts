@@ -38,6 +38,7 @@ export interface Scene {
   id: number
   background: string
   backgroundAltText?: string | undefined
+  blurBackground: boolean
 
   // use the defined element keys to index Scene
   [narrations]: Narration[]
@@ -68,6 +69,7 @@ export function makeScene(
     id: schema.id,
     background: schema.background,
     backgroundAltText: schema.backgroundAltText,
+    blurBackground: false,
 
     [narrations]: schema.narrations.map((narrationSchema) =>
       makeNarration(narrationSchema)

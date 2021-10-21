@@ -23,7 +23,6 @@
       "value": 0,
       "max": 20
     },
-    "approached help": false,
     "friendship wildcard appeared": false,
     "support system wildcard appeared": false,
     "anxiety wildcard appeared": false,
@@ -245,6 +244,219 @@
           "if": {
             "==": ["{family matters wildcard appeared}", false]
           }
+        },
+        {
+          "name": "award health badge",
+          "clickables": [
+            {
+              "name": "health badge",
+              "options": [
+                {
+                  "name": "health",
+                  "src": "/images/health-badge.png",
+                  "position": {
+                    "top": "0",
+                    "left": "0",
+                    "right": "0"
+                  },
+                  "dimension": {
+                    "height": "75%"
+                  }
+                },
+                {
+                  "name": "health message",
+                  "text": "You have been trying to take better care of your physical and mental health the past week and it shows! You feel more energized and rejuvenated compared to before.\n\n*You have earned a Health Badge!*",
+                  "position": {
+                    "bottom": "10%",
+                    "left": "23%"
+                  },
+                  "dimension": {
+                    "width": "54%"
+                  }
+                }
+              ]
+            }
+          ],
+          "sequence": [
+            {
+              "type": "blurBackground"
+            },
+            {
+              "type": "playSound",
+              "src": "/sounds/reward.wav",
+              "volume": 0.4,
+              "interrupt": true
+            },
+            {
+              "type": "showClickable",
+              "value": "health badge"
+            },
+            {
+              "type": "deblurBackground"
+            }
+          ],
+          "if": {
+            ">=": ["{health}", 15]
+          }
+        },
+        {
+          "name": "award social badge",
+          "clickables": [
+            {
+              "name": "social badge",
+              "options": [
+                {
+                  "name": "social",
+                  "src": "/images/social-badge.png",
+                  "position": {
+                    "top": "0",
+                    "left": "0",
+                    "right": "0"
+                  },
+                  "dimension": {
+                    "height": "75%"
+                  }
+                },
+                {
+                  "name": "social message",
+                  "text": "You have put in the effort this week to spend more time and connect with your friends and family. You feel your relationships with them have strengthened.\n\n*You have earned a Social Badge!*",
+                  "position": {
+                    "bottom": "10%",
+                    "left": "23%"
+                  },
+                  "dimension": {
+                    "width": "54%"
+                  }
+                }
+              ]
+            }
+          ],
+          "sequence": [
+            {
+              "type": "blurBackground"
+            },
+            {
+              "type": "playSound",
+              "src": "/sounds/reward.wav",
+              "volume": 0.4,
+              "interrupt": true
+            },
+            {
+              "type": "showClickable",
+              "value": "social badge"
+            },
+            {
+              "type": "deblurBackground"
+            }
+          ],
+          "if": {
+            ">=": ["{social}", 15]
+          }
+        },
+        {
+          "name": "award wealth badge",
+          "clickables": [
+            {
+              "name": "wealth badge",
+              "options": [
+                {
+                  "name": "wealth",
+                  "src": "/images/wealth-badge.png",
+                  "position": {
+                    "top": "0",
+                    "left": "0",
+                    "right": "0"
+                  },
+                  "dimension": {
+                    "height": "75%"
+                  }
+                },
+                {
+                  "name": "wealth message",
+                  "text": "Your efforts at saving and earning money in the past week have been effective. While income issues don't disappear overnight, you feel you can go into the next week with a slightly better sense of financial security.\n\n*You have earned a Wealth Badge!*",
+                  "position": {
+                    "bottom": "10%",
+                    "left": "23%"
+                  },
+                  "dimension": {
+                    "width": "54%"
+                  }
+                }
+              ]
+            }
+          ],
+          "sequence": [
+            {
+              "type": "blurBackground"
+            },
+            {
+              "type": "playSound",
+              "src": "/sounds/reward.wav",
+              "volume": 0.4,
+              "interrupt": true
+            },
+            {
+              "type": "showClickable",
+              "value": "wealth badge"
+            },
+            {
+              "type": "deblurBackground"
+            }
+          ],
+          "if": {
+            ">=": ["{wealth}", 6]
+          }
+        },
+        {
+          "name": "award helping hand badge",
+          "clickables": [
+            {
+              "name": "helping hand badge",
+              "options": [
+                {
+                  "name": "helping hand",
+                  "src": "/images/helping-hand-badge.png",
+                  "position": {
+                    "top": "0",
+                    "left": "0",
+                    "right": "0"
+                  },
+                  "dimension": {
+                    "height": "75%"
+                  }
+                },
+                {
+                  "name": "helping hand message",
+                  "text": "You have made attempts to be more open to approaching other for help. Remember, you are not alone in your journey!\n\n*You have earned a Helping Hand Badge!*",
+                  "position": {
+                    "bottom": "10%",
+                    "left": "23%"
+                  },
+                  "dimension": {
+                    "width": "54%"
+                  }
+                }
+              ]
+            }
+          ],
+          "sequence": [
+            {
+              "type": "blurBackground"
+            },
+            {
+              "type": "playSound",
+              "src": "/sounds/reward.wav",
+              "volume": 0.4,
+              "interrupt": true
+            },
+            {
+              "type": "showClickable",
+              "value": "helping hand badge"
+            },
+            {
+              "type": "deblurBackground"
+            }
+          ]
         }
       ],
       "scenes": [
@@ -1470,8 +1682,7 @@
                       "newState": {
                         "wealth": 1,
                         "health": 1,
-                        "social": 1,
-                        "approached help": true
+                        "social": 1
                       }
                     },
                     {
@@ -1481,6 +1692,12 @@
                     {
                       "type": "showNarration",
                       "value": "1"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "award helping hand badge": {}
+                      }
                     },
                     {
                       "type": "gotoScene",
@@ -2741,8 +2958,7 @@
                       "type": "updateGlobalState",
                       "newState": {
                         "health": 1,
-                        "social": 1,
-                        "approached help": true
+                        "social": 1
                       }
                     },
                     {
@@ -2754,6 +2970,16 @@
                     {
                       "type": "showNarration",
                       "value": "2"
+                    },
+                    {
+                      "type": "hideImage",
+                      "value": "dennis"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "award helping hand badge": {}
+                      }
                     },
                     {
                       "type": "triggerEvents",
@@ -2933,13 +3159,18 @@
                       "newState": {
                         "wealth": 1,
                         "health": 1,
-                        "social": 1,
-                        "approached help": true
+                        "social": 1
                       }
                     },
                     {
                       "type": "showNarration",
                       "value": "1"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "award helping hand badge": {}
+                      }
                     },
                     {
                       "type": "triggerEvents",
@@ -3659,114 +3890,6 @@
                   ]
                 }
               ]
-            },
-            {
-              "name": "health badge",
-              "options": [
-                {
-                  "name": "health",
-                  "src": "/images/health-badge.png",
-                  "position": {
-                    "top": "8%",
-                    "left": "35%"
-                  },
-                  "dimension": {
-                    "width": "30%"
-                  }
-                },
-                {
-                  "name": "health message",
-                  "text": "You have been trying to take better care of your physical and mental health the past week and it shows! You feel more energized and rejuvenated compared to before.\n\n*You have earned a Health Badge!*",
-                  "position": {
-                    "bottom": "10%",
-                    "left": "23%"
-                  },
-                  "dimension": {
-                    "width": "54%"
-                  }
-                }
-              ]
-            },
-            {
-              "name": "social badge",
-              "options": [
-                {
-                  "name": "social",
-                  "src": "/images/social-badge.png",
-                  "position": {
-                    "top": "8%",
-                    "left": "35%"
-                  },
-                  "dimension": {
-                    "width": "30%"
-                  }
-                },
-                {
-                  "name": "social message",
-                  "text": "You have put in the effort this week to spend more time and connect with your friends and family. You feel your relationships with them have strengthened.\n\n*You have earned a Social Badge!*",
-                  "position": {
-                    "bottom": "10%",
-                    "left": "23%"
-                  },
-                  "dimension": {
-                    "width": "54%"
-                  }
-                }
-              ]
-            },
-            {
-              "name": "wealth badge",
-              "options": [
-                {
-                  "name": "wealth",
-                  "src": "/images/wealth-badge.png",
-                  "position": {
-                    "top": "8%",
-                    "left": "35%"
-                  },
-                  "dimension": {
-                    "width": "30%"
-                  }
-                },
-                {
-                  "name": "wealth message",
-                  "text": "Your efforts at saving and earning money in the past week have been effective. While income issues don't disappear overnight, you feel you can go into the next week with a slightly better sense of financial security.\n\n*You have earned a Wealth Badge!*",
-                  "position": {
-                    "bottom": "10%",
-                    "left": "23%"
-                  },
-                  "dimension": {
-                    "width": "54%"
-                  }
-                }
-              ]
-            },
-            {
-              "name": "helping hand badge",
-              "options": [
-                {
-                  "name": "helping hand",
-                  "src": "/images/helping-hand-badge.png",
-                  "position": {
-                    "top": "8%",
-                    "left": "35%"
-                  },
-                  "dimension": {
-                    "width": "30%"
-                  }
-                },
-                {
-                  "name": "helping hand message",
-                  "text": "You have been open to approaching other for help this week. Remember, you are not alone in your journey!\n\n*You have earned a Helping Hand Badge!*",
-                  "position": {
-                    "bottom": "10%",
-                    "left": "23%"
-                  },
-                  "dimension": {
-                    "width": "54%"
-                  }
-                }
-              ]
             }
           ],
           "links": [
@@ -3786,75 +3909,11 @@
               "duration": 1000
             },
             {
-              "type": "executeActionGroup",
-              "actions": [
-                {
-                  "type": "playSound",
-                  "src": "/sounds/reward.wav",
-                  "volume": 0.4,
-                  "interrupt": true
-                },
-                {
-                  "type": "showClickable",
-                  "value": "health badge"
-                }
-              ],
-              "if": {
-                ">=": ["{health}", 15]
-              }
-            },
-            {
-              "type": "executeActionGroup",
-              "actions": [
-                {
-                  "type": "playSound",
-                  "src": "/sounds/reward.wav",
-                  "volume": 0.4,
-                  "interrupt": true
-                },
-                {
-                  "type": "showClickable",
-                  "value": "social badge"
-                }
-              ],
-              "if": {
-                ">=": ["{social}", 15]
-              }
-            },
-            {
-              "type": "executeActionGroup",
-              "actions": [
-                {
-                  "type": "playSound",
-                  "src": "/sounds/reward.wav",
-                  "volume": 0.4,
-                  "interrupt": true
-                },
-                {
-                  "type": "showClickable",
-                  "value": "wealth badge"
-                }
-              ],
-              "if": {
-                ">=": ["{wealth}", 6]
-              }
-            },
-            {
-              "type": "executeActionGroup",
-              "actions": [
-                {
-                  "type": "playSound",
-                  "src": "/sounds/reward.wav",
-                  "volume": 0.4,
-                  "interrupt": true
-                },
-                {
-                  "type": "showClickable",
-                  "value": "helping hand badge"
-                }
-              ],
-              "if": {
-                "==": ["{approached help}", true]
+              "type": "triggerEvents",
+              "events": {
+                "award health badge": {},
+                "award social badge": {},
+                "award wealth badge": {}
               }
             },
             {

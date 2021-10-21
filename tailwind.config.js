@@ -62,7 +62,10 @@ module.exports = {
       },
       lineHeight: {
         'relaxed': '1.67'
-      }
+      },
+      transitionProperty: {
+        'filter': 'filter',
+       }
     },
   },
   variants: {

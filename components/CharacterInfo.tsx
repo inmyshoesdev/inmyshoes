@@ -11,6 +11,7 @@ import {
   PopoverArrow,
   PopoverCloseButton,
 } from '@chakra-ui/react'
+
 function CharacterInfo({
   characterSelected,
   hidden,
@@ -25,6 +26,7 @@ function CharacterInfo({
   const setCharacterSelected = useStore((state) => state.setCharacterSelected)
   const characterIndex = useStore((state) => state.game.characterIndex)
   const game = useStore((state) => state.game)
+
   return (
     <div
       className={`${

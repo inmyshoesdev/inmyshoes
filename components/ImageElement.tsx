@@ -1,7 +1,11 @@
 import { Transition } from '@headlessui/react'
 import type { Image } from '../lib/elements'
 
-const ImageElement: React.FC<Image> = ({
+type ImageElementProps = {
+  blurSceneBackground?: boolean
+} & Image
+
+const ImageElement: React.FC<ImageElementProps> = ({
   shown,
   src,
   altText,
@@ -9,9 +13,14 @@ const ImageElement: React.FC<Image> = ({
   dimension,
   blendMode,
   afterInteractionCallback,
+  blurSceneBackground = false,
 }) => {
   const positionDefined =
     position?.top || position?.left || position?.right || position?.bottom
+
+  // hacky, but should work for now
+  const isBackground =
+    dimension && dimension.height === '100%' && dimension.width === '100%'
 
   return (
     <Transition
@@ -27,7 +36,9 @@ const ImageElement: React.FC<Image> = ({
         <img
           src={src}
           alt={altText || ''}
-          className="image w-full h-full object-contain"
+          className={`image w-full h-full object-contain transition-filter duration-500 ${
+            isBackground && blurSceneBackground ? 'blur-sm' : ''
+          }`}
         />
       </div>
       <style jsx>{`
