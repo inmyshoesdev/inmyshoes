@@ -18,8 +18,10 @@ export default function StateDisplay({
   const [value, setValue] = useState<any>(undefined)
 
   useEffect(() => {
-    setValue(stateObj.value)
-  }, [stateObj.value])
+    if (stateObj) {
+      setValue(stateObj.value)
+    }
+  }, [stateObj])
 
   return (
     <div className="flex flex-col items-center w-1/6 h-full overflow-hidden">

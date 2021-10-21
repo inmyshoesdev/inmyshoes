@@ -26,12 +26,12 @@ const LinkElement: React.FC<Link> = ({
       enterTo="opacity-100"
     >
       <div
-        className={`positioned absolute mx-auto px-2 py-1 md:px-4 md:py-3 max-w-sm bg-gray-100 hover:bg-gray-200
+        className={`positioned absolute mx-auto bg-gray-100 hover:bg-gray-200
           border border-gray-700 rounded shadow ${getAnimationClass(effect)}`}
         onClick={afterInteractionCallback}
       >
         <NextLink href={url}>
-          <a className="!text-gray-900 !no-underline xl:text-md text-2xs font-medium cursor-pointer sm:text-xs md:text-sm lg:text-base">
+          <a className="!text-gray-900 !no-underline xl:text-md block px-2 py-1 text-2xs font-medium cursor-pointer sm:text-xs md:px-4 md:py-3 md:text-sm lg:text-base">
             {template(renderMdToHtml(text))}
           </a>
         </NextLink>
