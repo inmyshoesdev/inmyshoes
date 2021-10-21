@@ -148,6 +148,7 @@ export const ImageSchema = intersection([
     src: string(),
     altText: optional(string()),
     blendMode: optional(BlendModes),
+    effect: optional(string()),
   }),
 ])
 
@@ -158,6 +159,7 @@ export const LinkSchema = intersection([
   type({
     url: string(),
     text: string(),
+    effect: optional(string()),
   }),
 ])
 

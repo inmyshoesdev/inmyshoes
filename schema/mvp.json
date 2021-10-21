@@ -3867,10 +3867,24 @@
         },
         {
           "id": 14,
-          "background": "/images/end.jpg",
+          "background": "/images/water.png",
           "narrations": [],
           "dialogues": [],
-          "images": [],
+          "images": [
+            {
+              "name": "soristic logo",
+              "src": "/images/mainlogo.png",
+              "altText": "soristic logo",
+              "position": {
+                "top": "15%",
+                "right": "0",
+                "left": "0"
+              },
+              "dimension": {
+                "width": "40%"
+              }
+            }
+          ],
           "clickables": [
             {
               "name": "restart",
@@ -3880,7 +3894,8 @@
                   "text": "Restart?",
                   "position": {
                     "bottom": "20%",
-                    "left": "60%"
+                    "right": "0",
+                    "left": "0"
                   },
                   "onClick": [
                     {
@@ -3896,10 +3911,12 @@
             {
               "name": "feedback",
               "url": "/demo/feedback",
-              "text": "Feedback Form",
+              "text": "Help us improve the game!",
+              "effect": "bounce",
               "position": {
-                "bottom": "20%",
-                "left": "30%"
+                "bottom": "40%",
+                "right": "0",
+                "left": "0"
               }
             }
           ],
@@ -3921,14 +3938,19 @@
               "duration": 500
             },
             {
-              "type": "showLink",
-              "value": "feedback",
+              "type": "showImage",
+              "value": "soristic logo",
               "waitForInteraction": false,
               "autoHide": false
             },
             {
               "type": "showClickable",
-              "value": "restart"
+              "value": "restart",
+              "waitForInteraction": false
+            },
+            {
+              "type": "showLink",
+              "value": "feedback"
             }
           ]
         }
@@ -4245,7 +4267,21 @@
           "background": "/images/end.jpg",
           "narrations": [],
           "dialogues": [],
-          "images": [],
+          "images": [
+            {
+              "name": "soristic logo",
+              "src": "/images/mainlogo.png",
+              "altText": "soristic logo",
+              "position": {
+                "top": "15%",
+                "right": "0",
+                "left": "0"
+              },
+              "dimension": {
+                "width": "40%"
+              }
+            }
+          ],
           "clickables": [
             {
               "name": "restart",
@@ -4255,7 +4291,8 @@
                   "text": "Restart?",
                   "position": {
                     "bottom": "20%",
-                    "left": "45%"
+                    "right": "0",
+                    "left": "0"
                   },
                   "onClick": [
                     {
@@ -4284,10 +4321,12 @@
             {
               "name": "feedback",
               "url": "/demo/feedback",
-              "text": "Feedback Form",
+              "text": "Help us improve the game!",
+              "effect": "bounce",
               "position": {
-                "bottom": "20%",
-                "left": "20%"
+                "bottom": "40%",
+                "right": "0",
+                "left": "0"
               }
             }
           ],
@@ -4297,14 +4336,19 @@
               "duration": 1000
             },
             {
-              "type": "showLink",
-              "value": "feedback",
+              "type": "showImage",
+              "value": "soristic logo",
               "waitForInteraction": false,
               "autoHide": false
             },
             {
               "type": "showClickable",
-              "value": "restart"
+              "value": "restart",
+              "waitForInteraction": false
+            },
+            {
+              "type": "showLink",
+              "value": "feedback"
             }
           ]
         }
