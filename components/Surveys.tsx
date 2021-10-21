@@ -65,7 +65,7 @@ const SurveyFormWrapper: React.FC<SurveyWrapperProps> = ({
   }
 
   return (
-    <div className="max-w-3xl">
+    <div className="py-1 max-w-3xl">
       <FormComponent submitHandler={handleSubmit} />
     </div>
   )
@@ -90,7 +90,10 @@ const PreGameForm: React.FC<FormProps> = ({ submitHandler }) => {
           <h2>
             Before we start...
             <br />
-            <small>Could you tell us a little more about yourself? 🙂</small>
+            <small>
+              Could you tell us a little more about yourself? We are in the
+              process of improving this game and we would love your feedback! 🙂{' '}
+            </small>
           </h2>
         </fieldset>
         {/* Field type: "choices" id: "1932512150" */}
@@ -219,8 +222,184 @@ const PreGameForm: React.FC<FormProps> = ({ submitHandler }) => {
             </div>
           </div>
         </fieldset>
+        {/* Field type: "linear" id: "450684089" */}
+        <fieldset>
+          <legend>
+            I sometimes try to understand my friends and family members better
+            by putting myself in their shoes.
+          </legend>
+          <div className="form-group">
+            <div>
+              <label className="radio-inline">
+                <input
+                  type="radio"
+                  name="entry.1523921989"
+                  defaultValue={1}
+                  required
+                />
+                1
+              </label>
+              <label className="radio-inline">
+                <input
+                  type="radio"
+                  name="entry.1523921989"
+                  defaultValue={2}
+                  required
+                />
+                2
+              </label>
+              <label className="radio-inline">
+                <input
+                  type="radio"
+                  name="entry.1523921989"
+                  defaultValue={3}
+                  required
+                />
+                3
+              </label>
+              <label className="radio-inline">
+                <input
+                  type="radio"
+                  name="entry.1523921989"
+                  defaultValue={4}
+                  required
+                />
+                4
+              </label>
+              <label className="radio-inline">
+                <input
+                  type="radio"
+                  name="entry.1523921989"
+                  defaultValue={5}
+                  required
+                />
+                5
+              </label>
+            </div>
+            <div>
+              <div>1: Does not describe me well</div>
+              <div>5: Describes me very well</div>
+            </div>
+          </div>
+        </fieldset>
+        {/* Field type: "linear" id: "765613690" */}
+        <fieldset>
+          <legend>I care for people less fortunate than me.</legend>
+          <div className="form-group">
+            <div>
+              <label className="radio-inline">
+                <input
+                  type="radio"
+                  name="entry.756064307"
+                  defaultValue={1}
+                  required
+                />
+                1
+              </label>
+              <label className="radio-inline">
+                <input
+                  type="radio"
+                  name="entry.756064307"
+                  defaultValue={2}
+                  required
+                />
+                2
+              </label>
+              <label className="radio-inline">
+                <input
+                  type="radio"
+                  name="entry.756064307"
+                  defaultValue={3}
+                  required
+                />
+                3
+              </label>
+              <label className="radio-inline">
+                <input
+                  type="radio"
+                  name="entry.756064307"
+                  defaultValue={4}
+                  required
+                />
+                4
+              </label>
+              <label className="radio-inline">
+                <input
+                  type="radio"
+                  name="entry.756064307"
+                  defaultValue={5}
+                  required
+                />
+                5
+              </label>
+            </div>
+            <div>
+              <div>1: Does not describe me well</div>
+              <div>5: Describes me very well</div>
+            </div>
+          </div>
+        </fieldset>
+        {/* Field type: "linear" id: "1574526092" */}
+        <fieldset>
+          <legend>
+            I consider others’ circumstances when I&apos;m talking with them.
+          </legend>
+          <div className="form-group">
+            <div>
+              <label className="radio-inline">
+                <input
+                  type="radio"
+                  name="entry.840879589"
+                  defaultValue={1}
+                  required
+                />
+                1
+              </label>
+              <label className="radio-inline">
+                <input
+                  type="radio"
+                  name="entry.840879589"
+                  defaultValue={2}
+                  required
+                />
+                2
+              </label>
+              <label className="radio-inline">
+                <input
+                  type="radio"
+                  name="entry.840879589"
+                  defaultValue={3}
+                  required
+                />
+                3
+              </label>
+              <label className="radio-inline">
+                <input
+                  type="radio"
+                  name="entry.840879589"
+                  defaultValue={4}
+                  required
+                />
+                4
+              </label>
+              <label className="radio-inline">
+                <input
+                  type="radio"
+                  name="entry.840879589"
+                  defaultValue={5}
+                  required
+                />
+                5
+              </label>
+            </div>
+            <div>
+              <div>1: Does not describe me well</div>
+              <div>5: Describes me very well</div>
+            </div>
+          </div>
+        </fieldset>
         <input type="hidden" name="fvv" defaultValue={1} />
-        <input type="hidden" name="fbzx" defaultValue={-1953624271179587798} />
+        <input type="hidden" name="fbzx" defaultValue={-3082884631835332940} />
         {/*
         CAVEAT: In multipages (multisection) forms, *pageHistory* field tells to google what sections we've currently completed.
         This usually starts as "0" for the first page, then "0,1" in the second page... up to "0,1,2..N" in n-th page.
@@ -495,7 +674,7 @@ const styles = css`
   }
 
   h2 > small {
-    @apply text-base font-normal text-gray-600;
+    @apply text-sm sm:text-base font-normal text-gray-600;
   }
 
   legend {
@@ -526,16 +705,20 @@ const styles = css`
     @apply flex flex-col items-center;
   }
 
+  label.radio-inline > input {
+    @apply mb-1;
+  }
+
   label > input[type='radio'] {
     @apply mx-2 text-teal-600 focus:border-teal-600 focus:ring-1 focus:ring-teal-600;
   }
 
   div.form-group > div:not(.radio) {
-    @apply flex py-2 px-3 items-center justify-around;
+    @apply flex text-sm sm:text-base py-2 px-3 items-center justify-around;
   }
 
   div.form-group > div:not(.radio) + div {
-    @apply mx-2 text-sm text-gray-600 font-semibold justify-between;
+    @apply mx-2 text-xs sm:text-sm text-gray-500 font-semibold justify-between;
   }
 `
 

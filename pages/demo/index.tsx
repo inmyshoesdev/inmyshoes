@@ -92,7 +92,7 @@ const Demo: React.FC = () => {
           </Transition>
         </div>
         <div
-          className={`absolute inset-0 pt-8 px-2 grid place-items-center w-full h-screen overflow-y-hidden ${
+          className={`absolute inset-0 pt-8 px-2 grid place-items-center w-full h-screen ${
             showGame ? 'pointer-events-none' : ''
           }`}
         >
