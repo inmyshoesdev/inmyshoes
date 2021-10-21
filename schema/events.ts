@@ -38,7 +38,7 @@ export type EventSchema = Infer<typeof EventSchema>
 export const TriggerEventsSchema = record(
   string(),
   object({
-    chance: defaulted(min(max(number(), 100), 0), 100),
+    chance: defaulted(max(min(number(), 0), 100), 100),
   })
 )
 

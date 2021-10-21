@@ -51,10 +51,6 @@ export default function StateMeter({
 
           <Tooltip label={`${value}/${max}`} bg="gray.600">
             <div className="relative border border-gray-600 rounded-sm overflow-hidden md:rounded-md lg:rounded-lg">
-              <div className="absolute left-0 right-0 top-0 h-2/5 bg-gradient-to-b rounded-full from-white opacity-60" />
-              <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t rounded-full from-gray-600 opacity-40" />
-              <div className="w-1/50 absolute bottom-1 left-0 top-1 bg-gradient-to-r rounded-full from-gray-900 mix-blend-overlay" />
-              <div className="w-1/50 absolute bottom-1 right-0 top-1 bg-gradient-to-l rounded-full from-gray-900 mix-blend-overlay" />
               <Line
                 percent={progress}
                 strokeColor={color || '#00BFFF'}
@@ -62,10 +58,15 @@ export default function StateMeter({
                 strokeWidth={10}
                 trailWidth={10}
                 style={{
-                  width: '100%',
+                  width: '106%',
                   height: '100%',
+                  transform: 'translateX(-4%)',
                 }}
               />
+              <div className="absolute left-0 right-0 top-0 h-2/5 bg-gradient-to-b rounded-full from-white opacity-60" />
+              <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t rounded-full from-gray-600 opacity-40" />
+              <div className="absolute bottom-1 left-0 top-1 w-1/50 bg-gradient-to-r rounded-full from-gray-900 mix-blend-overlay" />
+              <div className="absolute bottom-1 right-0 top-1 w-1/50 bg-gradient-to-l rounded-full from-gray-900 mix-blend-overlay" />
               <style jsx global>{`
                 .rc-progress-line-path {
                   --easing-function: cubic-bezier(0.39, 1.49, 0.84, 1);

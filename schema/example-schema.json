@@ -46,7 +46,7 @@
             {
               "type": "showImage",
               "value": "jumpscare",
-              "duration": 500,
+              "duration": 750,
               "waitForInteraction": false
             },
             {
@@ -158,6 +158,11 @@
                     {
                       "type": "showDialogue",
                       "value": "clown sad"
+                    },
+                    {
+                      "type": "playSound",
+                      "src": "/sounds/reward.wav",
+                      "volume": 0.4
                     },
                     {
                       "type": "showNarration",

@@ -29,13 +29,19 @@ const SceneDisplay: React.FC<SceneProps> = ({ scene }) => {
       <div className="relative w-full h-full select-none overflow-hidden">
         {scene.background !== NoBackground && (
           <img
-            className="m-auto w-full h-full object-cover"
+            className={`m-auto w-full h-full object-cover transition-filter duration-500 ${
+              scene.blurBackground ? 'blur-sm' : ''
+            }`}
             src={scene.background}
             alt={scene.backgroundAltText ?? ''}
           />
         )}
         {scene.images.map((image) => (
-          <ImageElement {...image} key={image.name}></ImageElement>
+          <ImageElement
+            {...image}
+            blurSceneBackground={scene.blurBackground}
+            key={image.name}
+          ></ImageElement>
         ))}
         {scene.narrations.map((narration) => (
           <Narration {...narration} key={narration.name} />

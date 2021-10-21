@@ -39,7 +39,7 @@ const ClickableText = ({
     >
       <button
         className={
-          `positioned text-xs sm:text-sm lg:text-base text-center absolute px-4 py-3  
+          `positioned text-3xs sm:text-2xs md:text-xs lg:text-sm xl:text-base text-center absolute px-4 py-3  
         font-medium text-white border border-gray-300 
         rounded shadow bg-opacity-80 ` +
           (disabled

@@ -15,6 +15,7 @@ export const EmptyGame: Game = {
   name: '',
   globalState: makeState({}),
   loading: false,
+
   about: {
     logo: { src: '/images/mainlogo.png' },
     backgroundMusic: '/music/bensound-jazzcomedy.mp3',
@@ -83,6 +84,7 @@ export function makeGame(schema: GameSchema): Game {
     about: schema.about,
     globalState: globalState,
     loading: false,
+
     characterIndex: 0,
     characterSelected: false,
     currentSceneId: mainCharacters[0].scenes[0].id,
