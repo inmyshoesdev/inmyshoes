@@ -14,6 +14,7 @@ import {
 } from '@chakra-ui/react'
 import { useDisclosure } from '@chakra-ui/react'
 import { Button } from '@chakra-ui/button'
+
 function Footer({
   characterSelected,
   characterIndex,
@@ -27,6 +28,7 @@ function Footer({
 }) {
   const [musicOn, setMusicOn] = useState(false)
   const game = useStore((state) => state.game)
+
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [play, { stop }] = useSound(
     game.about.backgroundMusic ?? '/music/bensound-jazzcomedy.mp3',
@@ -34,6 +36,7 @@ function Footer({
       volume: 0.5,
     }
   )
+
   return (
     <>
       <div

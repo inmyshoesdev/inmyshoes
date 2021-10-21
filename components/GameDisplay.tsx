@@ -11,6 +11,7 @@ import useLocalStorage from '../hooks/useLocalStorage'
 import CharacterInfo from './CharacterInfo'
 import CharacterSelect from './CharacterSelect'
 import { EventsSceneId } from '../lib/events'
+
 type GameProps = {
   game?: Game
 }
@@ -20,23 +21,26 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
   const header = useStore((state) => state.game.header)
   const loadGame = useStore((state) => state.loadGame)
   const updateCharacter = useStore((state) => state.updateCharacter)
+
   const [blurBackground, setBlurBackground] = useState(false)
   const [hideCharacterInfo, setHideCharacterInfo] = useState(true)
   const [storedScreenWidth, setStoredScreenWidth] = useLocalStorage(
     'ims-screenWidth',
     72
   )
+
   useEffect(() => {
     if (newGame) {
       loadGame(newGame)
     }
   }, [newGame, loadGame])
+
   return (
     <div className="flex flex-col items-center my-2 w-full space-y-2">
       <Header header={header} />
       <DisplayControl setStoredScreenWidth={setStoredScreenWidth} />
       <div
-        className={`relative bg-white border shadow overflow-hidden`}
+        className="relative bg-white shadow overflow-hidden"
         style={{
           aspectRatio: '16/9',
           width: `${storedScreenWidth}vw`,
@@ -57,9 +61,9 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
               key={idx}
-              className={`absolute inset-0 ${blurBackground ? 'blur-sm' : ''} ${
-                scene.id === EventsSceneId ? 'pointer-events-none' : ''
-              }`}
+              className={`absolute inset-0 transition-filter duration-200 ${
+                blurBackground ? 'blur-sm' : ''
+              } ${scene.id === EventsSceneId ? 'pointer-events-none' : ''}`}
             >
               <SceneDisplay scene={scene} />
             </Transition>

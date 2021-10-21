@@ -4,6 +4,8 @@ import {
   boolean,
   defaulted,
   map,
+  max,
+  min,
   number,
   object,
   record,
@@ -11,6 +13,7 @@ import {
   union,
   validate,
 } from 'superstruct'
+import { Howl } from 'howler'
 import { ActionSchema } from '../schema/actions'
 import { EventSchema, TriggerEventsSchema } from '../schema/events'
 import { Action, ActionArgs, ActionReturnType, compileActions } from './actions'
@@ -81,6 +84,10 @@ export type DefinedActionsToArgs = {
   updateGlobalState: { newState: UpdateStateValues }
   resetGlobalState: any
   reselectCharacter: any
+  playSound: { src: string; volume: number; interrupt: boolean }
+  blurBackground: any
+  deblurBackground: any
+  toggleBackgroundBlur: any
   [ExecuteActionGroup]: { actions: ActionSchema[] }
   [TriggerEvents]: {
     events: TriggerEventsSchema
@@ -161,6 +168,70 @@ export const DefinedActions: {
     validateArgs: UnitValidator,
     execute({ game }) {
       game.characterSelected = false
+    },
+  },
+
+  playSound: {
+    validateArgs(args: unknown) {
+      return validate(
+        args,
+        object({
+          src: string(),
+          volume: defaulted(max(min(number(), 0), 1), 1),
+          interrupt: defaulted(boolean(), false),
+        }),
+        { coerce: true }
+      )
+    },
+
+    execute: ((): ((
+      args: ActionArgs<DefinedActionsToArgs['playSound']>
+    ) => ActionReturnType | void) => {
+      let sound: Howl | undefined
+
+      return ({ args }) => {
+        const { src, volume, interrupt } = args
+
+        if (interrupt && sound) {
+          sound.stop()
+        }
+
+        sound = new Howl({ src, volume })
+        sound.play()
+      }
+    })(),
+  },
+
+  blurBackground: {
+    validateArgs: UnitValidator,
+    execute({ game }) {
+      const scene = game.getScene(game.currentSceneId)
+
+      if (scene) {
+        scene.blurBackground = true
+      }
+    },
+  },
+
+  deblurBackground: {
+    validateArgs: UnitValidator,
+    execute({ game }) {
+      const scene = game.getScene(game.currentSceneId)
+
+      if (scene) {
+        scene.blurBackground = false
+      }
+    },
+  },
+
+  toggleBackgroundBlur: {
+    validateArgs: UnitValidator,
+    execute({ game }) {
+      const scene = game.getScene(game.currentSceneId)
+
+      if (scene) {
+        scene.blurBackground = !scene.blurBackground
+      }
     },
   },
 
