@@ -49,7 +49,7 @@ const Narration: React.FC<NarrationProps> = ({
       enterTo="opacity-100"
     >
       <DialogueBox
-        image={textBoxImage || './images/narration-background.png'}
+        image={textBoxImage}
         position={position}
         dimension={dimension}
         bodyStyle={{

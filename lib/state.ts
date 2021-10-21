@@ -58,9 +58,9 @@ export function makeState(state: any): State {
             let newValue = (this.innerState[key].value as number) + val
             let min = this.innerState[key].min
             let max = this.innerState[key].max
-            if (min && newValue < min) {
+            if (min !== undefined && newValue < min) {
               newValue = min
-            } else if (max && newValue > max) {
+            } else if (max !== undefined && newValue > max) {
               newValue = max
             }
             ;(this.innerState[key].value as number) = newValue
