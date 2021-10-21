@@ -4162,13 +4162,25 @@
                   "text": "Restart?",
                   "position": {
                     "bottom": "20%",
-                    "right": "0",
-                    "left": "0"
+                    "left": "27%"
                   },
                   "onClick": [
                     {
                       "type": "gotoScene",
                       "sceneId": 1
+                    }
+                  ]
+                },
+                {
+                  "name": "another",
+                  "text": "Change Character?",
+                  "position": {
+                    "bottom": "20%",
+                    "right": "23%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "reselectCharacter"
                     }
                   ]
                 }
@@ -4559,8 +4571,7 @@
                   "text": "Restart?",
                   "position": {
                     "bottom": "20%",
-                    "right": "0",
-                    "left": "0"
+                    "left": "27%"
                   },
                   "onClick": [
                     {
@@ -4571,10 +4582,10 @@
                 },
                 {
                   "name": "another",
-                  "text": "Play another character?",
+                  "text": "Change Character?",
                   "position": {
                     "bottom": "20%",
-                    "left": "64%"
+                    "right": "23%"
                   },
                   "onClick": [
                     {
