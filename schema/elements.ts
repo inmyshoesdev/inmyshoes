@@ -10,6 +10,7 @@ import {
   object,
   enums,
   defaulted,
+  boolean,
 } from 'superstruct'
 import { ActionSchema } from './actions'
 import { LogicSchema } from './logic'
@@ -54,6 +55,7 @@ export const NarrationSchema = intersection([
   type({
     texts: array(string()),
     textBoxImage: optional(string()),
+    showNavigations: optional(boolean()),
   }),
 ])
 
@@ -107,6 +109,7 @@ export const SpeechSchema = object({
       height: optional(string()),
     })
   ),
+  showNavigations: optional(boolean()),
 })
 
 export type SpeechSchema = Infer<typeof SpeechSchema>

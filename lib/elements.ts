@@ -55,6 +55,7 @@ export interface Element {
 export interface Narration extends Element {
   texts: string[]
   textBoxImage?: string
+  showNavigations?: boolean
 }
 
 export function makeNarration(schema: NarrationSchema): Narration {
@@ -65,6 +66,7 @@ export function makeNarration(schema: NarrationSchema): Narration {
     dimension: schema.dimension || { height: '30%' },
     texts: schema.texts,
     textBoxImage: schema.textBoxImage,
+    showNavigations: schema.showNavigations,
   }
 }
 
@@ -79,6 +81,7 @@ export interface Speech {
   characterDimension?: Dimension
   textPosition?: Position
   textDimension?: Dimension
+  showNavigations?: boolean
 }
 
 export function makeSpeech(
@@ -110,6 +113,7 @@ export function makeSpeech(
     characterDimension: schema.characterDimension,
     textPosition: schema.textPosition,
     textDimension: schema.textDimension || { height: '32%' },
+    showNavigations: schema.showNavigations,
   }
 }
 
