@@ -41,7 +41,7 @@ const ClickableImg = ({
       >
         <img
           className={
-            'positioned image absolute object-cover ' +
+            'positioned image mx-auto absolute object-cover ' +
             getAnimationClass(effect) +
             (disabled ? '' : 'cursor-pointer')
           }

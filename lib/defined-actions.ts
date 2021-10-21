@@ -85,6 +85,9 @@ export type DefinedActionsToArgs = {
   resetGlobalState: any
   reselectCharacter: any
   playSound: { src: string; volume: number; interrupt: boolean }
+  blurBackground: any
+  deblurBackground: any
+  toggleBackgroundBlur: any
   [ExecuteActionGroup]: { actions: ActionSchema[] }
   [TriggerEvents]: {
     events: TriggerEventsSchema
@@ -197,6 +200,39 @@ export const DefinedActions: {
         sound.play()
       }
     })(),
+  },
+
+  blurBackground: {
+    validateArgs: UnitValidator,
+    execute({ game }) {
+      const scene = game.getScene(game.currentSceneId)
+
+      if (scene) {
+        scene.blurBackground = true
+      }
+    },
+  },
+
+  deblurBackground: {
+    validateArgs: UnitValidator,
+    execute({ game }) {
+      const scene = game.getScene(game.currentSceneId)
+
+      if (scene) {
+        scene.blurBackground = false
+      }
+    },
+  },
+
+  toggleBackgroundBlur: {
+    validateArgs: UnitValidator,
+    execute({ game }) {
+      const scene = game.getScene(game.currentSceneId)
+
+      if (scene) {
+        scene.blurBackground = !scene.blurBackground
+      }
+    },
   },
 
   [ExecuteActionGroup]: {
