@@ -1,5 +1,7 @@
+import { effect } from '@chakra-ui/styled-system'
 import { Transition } from '@headlessui/react'
 import type { Image } from '../lib/elements'
+import { getAnimationClass } from './utils'
 
 type ImageElementProps = {
   blurSceneBackground?: boolean
@@ -12,6 +14,7 @@ const ImageElement: React.FC<ImageElementProps> = ({
   position,
   dimension,
   blendMode,
+  effect = 'none',
   afterInteractionCallback,
   blurSceneBackground = false,
 }) => {
@@ -38,7 +41,7 @@ const ImageElement: React.FC<ImageElementProps> = ({
           alt={altText || ''}
           className={`image w-full h-full object-contain transition-filter duration-500 ${
             isBackground && blurSceneBackground ? 'blur-sm' : ''
-          }`}
+          } ${getAnimationClass(effect)}`}
         />
       </div>
       <style jsx>{`

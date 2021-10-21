@@ -8,11 +8,17 @@ import mvpJson from '../../schema/mvp.json'
 import GameDisplay from '../../components/GameDisplay'
 import { PreGameForm, SurveyFormWrapper } from '../../components/Surveys'
 import { Transition } from '@headlessui/react'
+import { useLocalStorage } from 'react-use'
 
 const Demo: React.FC = () => {
-  const [pregameSurveyDone, setPregameSurveyDone] = useState<boolean>(false)
+  const [pregameSurveyDone, setPregameSurveyDone] = useLocalStorage(
+    'ims-pregameSurveyDone',
+    false
+  )
+
   const [game, setGame] = useState<Game | undefined>()
   const [showGame, setShowGame] = useState<boolean>(false)
+
   const toast = useToast()
 
   const handleSubmitPregameSurvey = () => {
@@ -86,7 +92,7 @@ const Demo: React.FC = () => {
           </Transition>
         </div>
         <div
-          className={`absolute inset-0 pt-8 px-2 grid place-items-center w-full h-screen overflow-y-hidden ${
+          className={`absolute inset-0 pt-8 px-2 grid place-items-center w-full h-screen ${
             showGame ? 'pointer-events-none' : ''
           }`}
         >
