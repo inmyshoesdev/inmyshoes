@@ -16,6 +16,7 @@ export interface SpeechProps {
   nextEnabled?: boolean
   onNext?: () => void
   onPrev?: () => void
+  showNavigations?: boolean
 }
 
 const Speech: React.FC<SpeechProps> = ({
@@ -33,11 +34,12 @@ const Speech: React.FC<SpeechProps> = ({
   nextEnabled,
   onNext,
   onPrev,
+  showNavigations,
 }) => {
   const header = (
     <div className="h-1/5">
       <p
-        className="sm:text-[14px] md:text-[18px] lg:text-[22px] h-full text-xs font-bold leading-none"
+        className="sm:text-[12px] md:text-[16px] lg:text-[20px] h-full text-xs font-bold leading-none"
         style={{
           fontStyle: type === 'monologue' ? 'italic' : 'normal',
         }}
@@ -88,7 +90,7 @@ const Speech: React.FC<SpeechProps> = ({
         )}
       </div>
       <DialogueBox
-        image={textBoxImage || './images/dialogue-background.png'}
+        image={textBoxImage}
         position={textPosition}
         dimension={textDimension}
         header={header}
@@ -100,6 +102,7 @@ const Speech: React.FC<SpeechProps> = ({
         gotoPrev={onPrev}
         prevEnabled={prevEnabled}
         nextEnabled={nextEnabled}
+        showNavigations={showNavigations}
       />
     </>
   )

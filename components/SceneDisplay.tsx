@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useLayoutEffect } from 'react'
 import { ActionSequence } from '../lib/action-sequence'
 import { NoBackground, Scene } from '../lib/scene'
 import { useStore } from '../stores/store'
@@ -16,7 +16,7 @@ const SceneDisplay: React.FC<SceneProps> = ({ scene }) => {
   const executeActions = useStore((state) => state.executeActions)
   const resetScene = useStore((state) => state.resetScene)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     resetScene(scene.id)
   }, [resetScene, scene.id])
 

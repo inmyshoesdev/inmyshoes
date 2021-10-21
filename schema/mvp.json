@@ -27,7 +27,8 @@
     "support system wildcard appeared": false,
     "anxiety wildcard appeared": false,
     "loneliness wildcard appeared": false,
-    "family matters wildcard appeared": false
+    "family matters wildcard appeared": false,
+    "helping hand badge awarded": false
   },
   "header": [
     {
@@ -455,8 +456,17 @@
             },
             {
               "type": "deblurBackground"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "helping hand badge awarded": true
+              }
             }
-          ]
+          ],
+          "if": {
+            "==": ["{helping hand badge awarded}", false]
+          }
         }
       ],
       "scenes": [
@@ -648,12 +658,13 @@
               "texts": ["**Day 1 - Monday**"],
               "dimension": {
                 "width": "22%",
-                "height": "20%"
+                "height": "12%"
               },
               "position": {
                 "top": "5%",
                 "left": "5%"
-              }
+              },
+              "showNavigations": false
             },
             {
               "name": "intro",
@@ -702,7 +713,6 @@
                   "character": "Curtis",
                   "variant": "sleeping",
                   "text": "It's 5:30 already..? I'm still so tired from working last night.",
-                  "textBoxImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/inner-dialogue-text-box.png",
                   "characterDimension": {
                     "height": "40%",
                     "width": "41%"
@@ -724,7 +734,6 @@
                   "character": "Curtis",
                   "variant": "sleeping",
                   "text": "Mom and Dad came home late from work last night and are still fast asleep.",
-                  "textBoxImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/inner-dialogue-text-box.png",
                   "characterDimension": {
                     "height": "40%",
                     "width": "41%"
@@ -745,7 +754,6 @@
                 {
                   "character": "Curtis",
                   "text": "Should I wake Chris and Chloe up for school? Or do I sleep in and hope Mum or Dad wakes up?",
-                  "textBoxImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/inner-dialogue-text-box.png",
                   "variant": "sleeping",
                   "characterDimension": {
                     "height": "40%",
@@ -928,12 +936,13 @@
               "texts": ["**Day 2 - Tuesday**"],
               "dimension": {
                 "width": "22%",
-                "height": "20%"
+                "height": "12%"
               },
               "position": {
                 "top": "5%",
                 "left": "5%"
-              }
+              },
+              "showNavigations": false
             },
             {
               "name": "intro",
@@ -982,7 +991,6 @@
                   "character": "Curtis",
                   "variant": "breakfast",
                   "text": "Time for breakfast! There isn't much food at home though, only some leftovers which isn't enough for me and my parents.",
-                  "textBoxImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/inner-dialogue-text-box.png",
                   "characterDimension": {
                     "height": "100%",
                     "width": "40%"
@@ -1004,7 +1012,6 @@
                   "character": "Curtis",
                   "variant": "breakfast",
                   "text": "I could go to school and purchase a subsidised meal just for today... But I really should save the little money that I have. Maybe I should just share the leftovers with Mom and Dad?",
-                  "textBoxImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/inner-dialogue-text-box.png",
                   "characterDimension": {
                     "height": "100%",
                     "width": "40%"
@@ -1159,12 +1166,13 @@
               "texts": ["**Day 3 - Wednesday**"],
               "dimension": {
                 "width": "22%",
-                "height": "20%"
+                "height": "12%"
               },
               "position": {
                 "top": "5%",
                 "left": "5%"
-              }
+              },
+              "showNavigations": false
             },
             {
               "name": "intro",
@@ -1212,7 +1220,6 @@
                 {
                   "character": "Curtis",
                   "text": "Time to head to school! Should I take public transport or go for a 40min walk today?",
-                  "textBoxImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/inner-dialogue-text-box.png",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -1229,7 +1236,6 @@
                 {
                   "character": "Curtis",
                   "text": "I would need to spend some money if I were to take public transport, but I will definitely be able to reach school earlier...",
-                  "textBoxImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/inner-dialogue-text-box.png",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -1783,12 +1789,13 @@
               "texts": ["**Day 4 - Thursday**"],
               "dimension": {
                 "width": "22%",
-                "height": "20%"
+                "height": "12%"
               },
               "position": {
                 "top": "5%",
                 "left": "5%"
-              }
+              },
+              "showNavigations": false
             },
             {
               "name": "intro",
@@ -2428,12 +2435,13 @@
               "texts": ["**Day 5 - Friday**"],
               "dimension": {
                 "width": "22%",
-                "height": "20%"
+                "height": "12%"
               },
               "position": {
                 "top": "5%",
                 "left": "5%"
-              }
+              },
+              "showNavigations": false
             },
             {
               "name": "intro",
@@ -3029,15 +3037,16 @@
           "narrations": [
             {
               "name": "day",
-              "texts": ["**Day 5 - Friday**"],
+              "texts": ["**Day 6 - Saturday**"],
               "dimension": {
                 "width": "22%",
-                "height": "20%"
+                "height": "12%"
               },
               "position": {
                 "top": "5%",
                 "left": "5%"
-              }
+              },
+              "showNavigations": false
             },
             {
               "name": "intro",
@@ -3295,15 +3304,16 @@
           "narrations": [
             {
               "name": "day",
-              "texts": ["**Day 6 - Saturday**"],
+              "texts": ["**Day 7 - Sunday**"],
               "dimension": {
                 "width": "22%",
-                "height": "20%"
+                "height": "12%"
               },
               "position": {
                 "top": "5%",
                 "left": "5%"
-              }
+              },
+              "showNavigations": false
             },
             {
               "name": "intro",
@@ -3543,31 +3553,72 @@
         },
         {
           "id": 11,
-          "background": "/images/school.jpg",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-background-corridor-empty.jpg",
           "narrations": [
+            {
+              "name": "day",
+              "texts": ["**Day 8 - Monday**"],
+              "dimension": {
+                "width": "22%",
+                "height": "12%"
+              },
+              "position": {
+                "top": "5%",
+                "left": "5%"
+              },
+              "showNavigations": false
+            },
             {
               "name": "intro",
               "texts": [
                 "Your teacher notices that your grades are slipping and tries to offer you help by signing you up for free remedial classes after school hours."
-              ]
+              ],
+              "position": {
+                "bottom": "5%",
+                "right": "5%"
+              }
             },
             {
               "name": "1",
               "texts": [
                 "Taking some time off work to go to the classes gives you some room to breathe, and you have a little more time to rest. However, your parents seem a little upset as you are no longer earning money to help support the family."
-              ]
+              ],
+              "dimension": {
+                "width": "50%",
+                "height": "30%"
+              },
+              "position": {
+                "bottom": "2%",
+                "right": "2%"
+              }
             },
             {
               "name": "2",
               "texts": [
                 "By skipping the classes, you commit more to your work, earning more money for the family for which your parents are grateful for."
-              ]
+              ],
+              "dimension": {
+                "width": "50%",
+                "height": "30%"
+              },
+              "position": {
+                "bottom": "2%",
+                "right": "2%"
+              }
             },
             {
               "name": "3",
               "texts": [
                 "Having to juggle between remedial classes, work, and taking care of your family can be increasingly stressful for you. At the same time, you lose out on a lot of sleep and rest. However, you manage to earn some cash for the family and your parents are very grateful for the help."
-              ]
+              ],
+              "dimension": {
+                "width": "50%",
+                "height": "30%"
+              },
+              "position": {
+                "bottom": "2%",
+                "right": "2%"
+              }
             }
           ],
           "dialogues": [
@@ -3576,16 +3627,70 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "text": "My grades haven't been improving for quite some time.. "
+                  "variant": "decide",
+                  "text": "My grades haven't been improving for quite some time.. ",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "20%",
+                    "top": "35%"
+                  },
+                  "characterDimension": {
+                    "height": "70%",
+                    "width": "unset"
+                  },
+                  "characterPosition": {
+                    "right": "5%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Curtis",
-                  "text": "The remedial classes could help, but I don't have a lot of time, and it might clash with my work. What should I do?"
+                  "variant": "decide",
+                  "text": "The remedial classes could help, but I don't have a lot of time, and it might clash with my work. What should I do?",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "20%",
+                    "top": "35%"
+                  },
+                  "characterDimension": {
+                    "height": "70%",
+                    "width": "unset"
+                  },
+                  "characterPosition": {
+                    "right": "5%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             }
           ],
-          "images": [],
+          "images": [
+            {
+              "name": "mrs-lee",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/mrs-lee-variant-advise.png",
+              "dimension": {
+                "height": "55%"
+              },
+              "position": {
+                "bottom": "0%",
+                "left": "5%"
+              }
+            },
+            {
+              "name": "work",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-intro-work.jpg",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "clickables": [
             {
               "name": "choice",
@@ -3637,6 +3742,12 @@
                       }
                     },
                     {
+                      "type": "showImage",
+                      "value": "work",
+                      "autoHide": false,
+                      "waitForInteraction": false
+                    },
+                    {
                       "type": "showNarration",
                       "value": "2"
                     },
@@ -3686,8 +3797,28 @@
               }
             },
             {
+              "type": "showImage",
+              "value": "mrs-lee",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showNarration",
+              "value": "day",
+              "autoHide": false,
+              "duration": 1000
+            },
+            {
               "type": "showNarration",
               "value": "intro"
+            },
+            {
+              "type": "hideNarration",
+              "value": "day"
+            },
+            {
+              "type": "hideImage",
+              "value": "mrs-lee"
             },
             {
               "type": "showDialogue",
@@ -3701,25 +3832,58 @@
         },
         {
           "id": 12,
-          "background": "/images/school2.jpg",
+          "background": "/images/background-black.jpg",
           "narrations": [
+            {
+              "name": "day",
+              "texts": ["**Day 9 - Tuesday**"],
+              "dimension": {
+                "width": "22%",
+                "height": "12%"
+              },
+              "position": {
+                "top": "5%",
+                "left": "5%"
+              },
+              "showNavigations": false
+            },
             {
               "name": "intro",
               "texts": [
                 "You’re finding it difficult to cope with school, work and having to help out at home. You consider quitting either school or work to manage better."
-              ]
+              ],
+              "position": {
+                "bottom": "5%",
+                "right": "5%"
+              }
             },
             {
               "name": "1",
               "texts": [
                 "Focusing all your time in school helped you to improve your grades, and you start to feel more confident in your own abilities. You have more time for your family and for yourself, and you get to spend more time with your friends as well. However, as you quit your work, you find yourself spending more money than the amount you are saving."
-              ]
+              ],
+              "dimension": {
+                "width": "50%",
+                "height": "30%"
+              },
+              "position": {
+                "bottom": "2%",
+                "right": "2%"
+              }
             },
             {
               "name": "2",
               "texts": [
                 "By focusing all your time for working, you help bring some more money back home and you realise that you are eating better and saving more. However, you do not see your friends anymore and you start to lose contact with them."
-              ]
+              ],
+              "dimension": {
+                "width": "50%",
+                "height": "30%"
+              },
+              "position": {
+                "bottom": "2%",
+                "right": "2%"
+              }
             }
           ],
           "dialogues": [
@@ -3728,30 +3892,89 @@
               "speeches": [
                 {
                   "character": "Curtis",
-                  "text": "Juggling between family, work and school has become increasingly difficult for me... I've been losing a lot of sleep, and I feel much more stressed. I can't keep up!"
+                  "variant": "casual",
+                  "text": "Juggling between family, work and school has become increasingly difficult for me... I've been losing a lot of sleep, and I feel much more stressed. I can't keep up!",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "30%",
+                    "top": "30%"
+                  },
+                  "characterDimension": {
+                    "height": "75%",
+                    "width": "unset"
+                  },
+                  "characterPosition": {
+                    "right": "0%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Curtis",
-                  "text": "Maybe I should just focus on work? Or quit working and focus on school?"
+                  "variant": "casual",
+                  "text": "Maybe I should just focus on work? Or quit working and focus on school?",
+                  "textDimension": {
+                    "height": "30%",
+                    "width": "40%"
+                  },
+                  "textPosition": {
+                    "left": "30%",
+                    "top": "30%"
+                  },
+                  "characterDimension": {
+                    "height": "75%",
+                    "width": "unset"
+                  },
+                  "characterPosition": {
+                    "right": "0%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             }
           ],
-          "images": [],
+          "images": [
+            {
+              "name": "home",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-intro-household.jpg",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            },
+            {
+              "name": "classroom",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-background-classroom.jpg",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            },
+            {
+              "name": "work",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-intro-work.jpg",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "clickables": [
             {
               "name": "choice",
               "options": [
                 {
                   "name": "1",
-                  "src": "/images/graduation.jpg",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/options-graduation.png",
                   "altText": "Continue school",
                   "position": {
-                    "top": "20%",
+                    "top": "40%",
                     "left": "20%"
                   },
                   "dimension": {
-                    "width": "20%"
+                    "width": "25%"
                   },
                   "disabled": {
                     "if": {
@@ -3767,6 +3990,12 @@
                         "health": 1,
                         "social": 1
                       }
+                    },
+                    {
+                      "type": "showImage",
+                      "value": "classroom",
+                      "autoHide": false,
+                      "waitForInteraction": false
                     },
                     {
                       "type": "showNarration",
@@ -3792,14 +4021,14 @@
                 },
                 {
                   "name": "2",
-                  "src": "/images/work.jpg",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/options-fries.png",
                   "altText": "Keep working",
                   "position": {
-                    "top": "20%",
-                    "left": "60%"
+                    "top": "35%",
+                    "right": "20%"
                   },
                   "dimension": {
-                    "width": "20%"
+                    "width": "15%"
                   },
                   "onClick": [
                     {
@@ -3809,6 +4038,12 @@
                         "health": 1,
                         "social": -1
                       }
+                    },
+                    {
+                      "type": "showImage",
+                      "value": "work",
+                      "autoHide": false,
+                      "waitForInteraction": false
                     },
                     {
                       "type": "showNarration",
@@ -3837,8 +4072,30 @@
           ],
           "intro": [
             {
+              "type": "updateGlobalState",
+              "newState": {
+                "day": "Tuesday"
+              }
+            },
+            {
+              "type": "showNarration",
+              "value": "day",
+              "autoHide": false,
+              "duration": 1000
+            },
+            {
               "type": "showNarration",
               "value": "intro"
+            },
+            {
+              "type": "hideNarration",
+              "value": "day"
+            },
+            {
+              "type": "showImage",
+              "value": "home",
+              "autoHide": false,
+              "waitForInteraction": false
             },
             {
               "type": "showDialogue",
@@ -3852,7 +4109,7 @@
         },
         {
           "id": 13,
-          "background": "/images/end.jpg",
+          "background": "/images/background-black.jpg",
           "narrations": [
             {
               "name": "intro",
@@ -3878,10 +4135,24 @@
         },
         {
           "id": 14,
-          "background": "/images/end.jpg",
+          "background": "/images/water.png",
           "narrations": [],
           "dialogues": [],
-          "images": [],
+          "images": [
+            {
+              "name": "soristic logo",
+              "src": "/images/mainlogo.png",
+              "altText": "soristic logo",
+              "position": {
+                "top": "15%",
+                "right": "0",
+                "left": "0"
+              },
+              "dimension": {
+                "width": "40%"
+              }
+            }
+          ],
           "clickables": [
             {
               "name": "restart",
@@ -3891,7 +4162,8 @@
                   "text": "Restart?",
                   "position": {
                     "bottom": "20%",
-                    "left": "60%"
+                    "right": "0",
+                    "left": "0"
                   },
                   "onClick": [
                     {
@@ -3907,10 +4179,12 @@
             {
               "name": "feedback",
               "url": "/demo/feedback",
-              "text": "Feedback Form",
+              "text": "Help us improve the game!",
+              "effect": "bounce",
               "position": {
-                "bottom": "20%",
-                "left": "30%"
+                "bottom": "40%",
+                "right": "0",
+                "left": "0"
               }
             }
           ],
@@ -3932,14 +4206,19 @@
               "duration": 500
             },
             {
-              "type": "showLink",
-              "value": "feedback",
+              "type": "showImage",
+              "value": "soristic logo",
               "waitForInteraction": false,
               "autoHide": false
             },
             {
               "type": "showClickable",
-              "value": "restart"
+              "value": "restart",
+              "waitForInteraction": false
+            },
+            {
+              "type": "showLink",
+              "value": "feedback"
             }
           ]
         }
@@ -4256,7 +4535,21 @@
           "background": "/images/end.jpg",
           "narrations": [],
           "dialogues": [],
-          "images": [],
+          "images": [
+            {
+              "name": "soristic logo",
+              "src": "/images/mainlogo.png",
+              "altText": "soristic logo",
+              "position": {
+                "top": "15%",
+                "right": "0",
+                "left": "0"
+              },
+              "dimension": {
+                "width": "40%"
+              }
+            }
+          ],
           "clickables": [
             {
               "name": "restart",
@@ -4266,7 +4559,8 @@
                   "text": "Restart?",
                   "position": {
                     "bottom": "20%",
-                    "left": "45%"
+                    "right": "0",
+                    "left": "0"
                   },
                   "onClick": [
                     {
@@ -4295,10 +4589,12 @@
             {
               "name": "feedback",
               "url": "/demo/feedback",
-              "text": "Feedback Form",
+              "text": "Help us improve the game!",
+              "effect": "bounce",
               "position": {
-                "bottom": "20%",
-                "left": "20%"
+                "bottom": "40%",
+                "right": "0",
+                "left": "0"
               }
             }
           ],
@@ -4308,14 +4604,19 @@
               "duration": 1000
             },
             {
-              "type": "showLink",
-              "value": "feedback",
+              "type": "showImage",
+              "value": "soristic logo",
               "waitForInteraction": false,
               "autoHide": false
             },
             {
               "type": "showClickable",
-              "value": "restart"
+              "value": "restart",
+              "waitForInteraction": false
+            },
+            {
+              "type": "showLink",
+              "value": "feedback"
             }
           ]
         }

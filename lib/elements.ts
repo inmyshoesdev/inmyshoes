@@ -55,6 +55,7 @@ export interface Element {
 export interface Narration extends Element {
   texts: string[]
   textBoxImage?: string
+  showNavigations?: boolean
 }
 
 export function makeNarration(schema: NarrationSchema): Narration {
@@ -65,6 +66,7 @@ export function makeNarration(schema: NarrationSchema): Narration {
     dimension: schema.dimension || { height: '30%' },
     texts: schema.texts,
     textBoxImage: schema.textBoxImage,
+    showNavigations: schema.showNavigations,
   }
 }
 
@@ -79,6 +81,7 @@ export interface Speech {
   characterDimension?: Dimension
   textPosition?: Position
   textDimension?: Dimension
+  showNavigations?: boolean
 }
 
 export function makeSpeech(
@@ -110,6 +113,7 @@ export function makeSpeech(
     characterDimension: schema.characterDimension,
     textPosition: schema.textPosition,
     textDimension: schema.textDimension || { height: '32%' },
+    showNavigations: schema.showNavigations,
   }
 }
 
@@ -134,6 +138,7 @@ export interface Image extends Element {
   src: string
   altText?: string
   blendMode?: string
+  effect?: string
 }
 
 export function makeImage(schema: ImageSchema): Image {
@@ -145,12 +150,14 @@ export function makeImage(schema: ImageSchema): Image {
     src: schema.src,
     altText: schema.altText,
     blendMode: schema.blendMode,
+    effect: schema.effect,
   }
 }
 
 export interface Link extends Element {
   url: string
   text: string
+  effect?: string
 }
 
 export function makeLink(schema: LinkSchema): Link {
@@ -161,6 +168,7 @@ export function makeLink(schema: LinkSchema): Link {
     dimension: schema.dimension || {},
     url: schema.url,
     text: schema.text,
+    effect: schema.effect,
   }
 }
 
