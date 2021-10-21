@@ -22,7 +22,7 @@ import { EventsSceneId } from './events'
 import { makeLogic } from './logic'
 import { ElementKeys } from './scene'
 import { UpdateStateValues } from './state'
-import { isDefined } from './utils'
+import { isDefined, shuffleArray } from './utils'
 
 type ActionDefinition<TArgs> = {
   validateArgs: (args: unknown) => [Error, undefined] | [undefined, TArgs]
@@ -288,8 +288,17 @@ export const DefinedActions: {
         })
         .filter(isDefined)
 
-      if (maxTriggered) {
-        actions = actions.slice(0, maxTriggered)
+      if (maxTriggered !== undefined) {
+        // take the first n elements from a randomly shuffled array of indices
+        // for the actions, where n === maxTriggered
+        let indices = [...Array.from(Array(actions.length).keys())]
+        shuffleArray(indices)
+        indices = indices.slice(0, maxTriggered)
+
+        // take the actions corresponding to those indices, sorted. this ensures a
+        // fair chance for each event to be triggered, while at the same time
+        // respecting the ordering of events.
+        actions = indices.sort().map((idx) => actions[idx])
       }
 
       return {
