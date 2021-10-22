@@ -27,7 +27,8 @@
     "support system wildcard appeared": false,
     "anxiety wildcard appeared": false,
     "loneliness wildcard appeared": false,
-    "family matters wildcard appeared": false
+    "family matters wildcard appeared": false,
+    "helping hand badge awarded": false
   },
   "header": [
     {
@@ -455,14 +456,23 @@
             },
             {
               "type": "deblurBackground"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "helping hand badge awarded": true
+              }
             }
-          ]
+          ],
+          "if": {
+            "==": ["{helping hand badge awarded}", false]
+          }
         }
       ],
       "scenes": [
         {
           "id": 0,
-          "background": "/images/water.png",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/StandardBackground.png",
           "narrations": [
             {
               "name": "intro",
@@ -2100,7 +2110,8 @@
                         "family matters": {
                           "chance": 20
                         }
-                      }
+                      },
+                      "maxTriggered": 1
                     },
                     {
                       "type": "gotoScene",
@@ -2340,7 +2351,8 @@
                         "family matters": {
                           "chance": 20
                         }
-                      }
+                      },
+                      "maxTriggered": 1
                     },
                     {
                       "type": "gotoScene",
@@ -2383,7 +2395,8 @@
                         "family matters": {
                           "chance": 20
                         }
-                      }
+                      },
+                      "maxTriggered": 1
                     },
                     {
                       "type": "gotoScene",
@@ -2673,7 +2686,8 @@
                         "family matters": {
                           "chance": 40
                         }
-                      }
+                      },
+                      "maxTriggered": 1
                     },
                     {
                       "type": "gotoScene",
@@ -2718,7 +2732,8 @@
                         "family matters": {
                           "chance": 40
                         }
-                      }
+                      },
+                      "maxTriggered": 1
                     },
                     {
                       "type": "gotoScene",
@@ -2932,7 +2947,8 @@
                         "family matters": {
                           "chance": 40
                         }
-                      }
+                      },
+                      "maxTriggered": 1
                     },
                     {
                       "type": "gotoScene",
@@ -2988,7 +3004,8 @@
                         "family matters": {
                           "chance": 40
                         }
-                      }
+                      },
+                      "maxTriggered": 1
                     },
                     {
                       "type": "gotoScene",
@@ -3232,7 +3249,8 @@
                         "family matters": {
                           "chance": 40
                         }
-                      }
+                      },
+                      "maxTriggered": 1
                     },
                     {
                       "type": "gotoScene",
@@ -3435,7 +3453,8 @@
                         "family matters": {
                           "chance": 40
                         }
-                      }
+                      },
+                      "maxTriggered": 1
                     },
                     {
                       "type": "gotoScene",
@@ -3991,7 +4010,8 @@
                         "family matters": {
                           "chance": 60
                         }
-                      }
+                      },
+                      "maxTriggered": 1
                     },
                     {
                       "type": "gotoScene",
@@ -4038,7 +4058,8 @@
                         "family matters": {
                           "chance": 20
                         }
-                      }
+                      },
+                      "maxTriggered": 1
                     },
                     {
                       "type": "gotoScene",
@@ -4088,7 +4109,7 @@
         },
         {
           "id": 13,
-          "background": "/images/background-black.jpg",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/StandardBackground.png",
           "narrations": [
             {
               "name": "intro",
@@ -4114,10 +4135,24 @@
         },
         {
           "id": 14,
-          "background": "/images/background-black.jpg",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/StandardBackground.png",
           "narrations": [],
           "dialogues": [],
-          "images": [],
+          "images": [
+            {
+              "name": "soristic logo",
+              "src": "/images/mainlogo.png",
+              "altText": "soristic logo",
+              "position": {
+                "top": "15%",
+                "right": "0",
+                "left": "0"
+              },
+              "dimension": {
+                "width": "40%"
+              }
+            }
+          ],
           "clickables": [
             {
               "name": "restart",
@@ -4127,12 +4162,25 @@
                   "text": "Restart?",
                   "position": {
                     "bottom": "20%",
-                    "left": "60%"
+                    "left": "27%"
                   },
                   "onClick": [
                     {
                       "type": "gotoScene",
                       "sceneId": 1
+                    }
+                  ]
+                },
+                {
+                  "name": "another",
+                  "text": "Change Character?",
+                  "position": {
+                    "bottom": "20%",
+                    "right": "23%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "reselectCharacter"
                     }
                   ]
                 }
@@ -4143,10 +4191,12 @@
             {
               "name": "feedback",
               "url": "/demo/feedback",
-              "text": "Feedback Form",
+              "text": "Help us improve the game!",
+              "effect": "bounce",
               "position": {
-                "bottom": "20%",
-                "left": "30%"
+                "bottom": "40%",
+                "right": "0",
+                "left": "0"
               }
             }
           ],
@@ -4168,14 +4218,19 @@
               "duration": 500
             },
             {
-              "type": "showLink",
-              "value": "feedback",
+              "type": "showImage",
+              "value": "soristic logo",
               "waitForInteraction": false,
               "autoHide": false
             },
             {
               "type": "showClickable",
-              "value": "restart"
+              "value": "restart",
+              "waitForInteraction": false
+            },
+            {
+              "type": "showLink",
+              "value": "feedback"
             }
           ]
         }
@@ -4208,7 +4263,7 @@
       "scenes": [
         {
           "id": 0,
-          "background": "/images/water.png",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/StandardBackground.png",
           "narrations": [
             {
               "name": "intro",
@@ -5141,7 +5196,21 @@
             }
           ],
           "dialogues": [],
-          "images": [],
+          "images": [
+            {
+              "name": "soristic logo",
+              "src": "/images/mainlogo.png",
+              "altText": "soristic logo",
+              "position": {
+                "top": "15%",
+                "right": "0",
+                "left": "0"
+              },
+              "dimension": {
+                "width": "40%"
+              }
+            }
+          ],
           "clickables": [
             {
               "name": "restart",
@@ -5151,7 +5220,7 @@
                   "text": "Restart?",
                   "position": {
                     "bottom": "20%",
-                    "left": "45%"
+                    "left": "27%"
                   },
                   "onClick": [
                     {
@@ -5165,7 +5234,7 @@
                   "text": "Change Character?",
                   "position": {
                     "bottom": "20%",
-                    "left": "64%"
+                    "right": "23%"
                   },
                   "onClick": [
                     {
@@ -5180,10 +5249,12 @@
             {
               "name": "feedback",
               "url": "/demo/feedback",
-              "text": "Feedback Form",
+              "text": "Help us improve the game!",
+              "effect": "bounce",
               "position": {
-                "bottom": "20%",
-                "left": "20%"
+                "bottom": "40%",
+                "right": "0",
+                "left": "0"
               }
             }
           ],
@@ -5193,14 +5264,19 @@
               "value": "intro"
             },
             {
-              "type": "showLink",
-              "value": "feedback",
+              "type": "showImage",
+              "value": "soristic logo",
               "waitForInteraction": false,
               "autoHide": false
             },
             {
               "type": "showClickable",
-              "value": "restart"
+              "value": "restart",
+              "waitForInteraction": false
+            },
+            {
+              "type": "showLink",
+              "value": "feedback"
             }
           ]
         }

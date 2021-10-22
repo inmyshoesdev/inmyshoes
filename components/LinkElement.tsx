@@ -2,12 +2,13 @@ import { Transition } from '@headlessui/react'
 import NextLink from 'next/link'
 import { useStateTemplater } from '../hooks/useStateTemplater'
 import { Link } from '../lib/elements'
-import { renderMdToHtml } from './utils'
+import { getAnimationClass, renderMdToHtml } from './utils'
 
 const LinkElement: React.FC<Link> = ({
   shown,
   url,
   text,
+  effect = 'none',
   position,
   dimension,
   afterInteractionCallback,
@@ -25,11 +26,12 @@ const LinkElement: React.FC<Link> = ({
       enterTo="opacity-100"
     >
       <div
-        className="positioned absolute mx-auto px-4 py-3 max-w-sm bg-gray-100 hover:bg-gray-200 border border-gray-700 rounded shadow"
+        className={`positioned absolute mx-auto bg-gray-100 hover:bg-gray-200
+          border border-gray-700 rounded shadow ${getAnimationClass(effect)}`}
         onClick={afterInteractionCallback}
       >
         <NextLink href={url}>
-          <a className="text-md !text-gray-900 !no-underline font-medium cursor-pointer">
+          <a className="!text-gray-900 !no-underline xl:text-md block px-2 py-1 text-2xs font-medium cursor-pointer sm:text-xs md:px-4 md:py-3 md:text-sm lg:text-base">
             {template(renderMdToHtml(text))}
           </a>
         </NextLink>

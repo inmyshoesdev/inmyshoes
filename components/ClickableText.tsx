@@ -29,6 +29,7 @@ const ClickableText = ({
   const positionDefined =
     position?.top || position?.left || position?.right || position?.bottom
   const [play] = useSound('/sounds/pop-down.mp3', { volume: 0.2 })
+
   return (
     <Tooltip
       label={disabled ? disabledLabel : ''}
@@ -39,7 +40,8 @@ const ClickableText = ({
     >
       <button
         className={
-          `positioned text-3xs sm:text-2xs md:text-xs lg:text-sm xl:text-base text-center absolute px-4 py-3  
+          `positioned mx-auto text-3xs sm:text-2xs md:text-xs lg:text-sm xl:text-base text-center absolute
+        px-2 py-1 md:px-4 md:py-3  
         font-medium text-white border border-gray-300 
         rounded shadow bg-opacity-80 ` +
           (disabled
@@ -60,8 +62,8 @@ const ClickableText = ({
           left: positionDefined ? position?.left || 'unset' : '50%',
           right: positionDefined ? position?.right || 'unset' : 'unset',
           bottom: positionDefined ? position?.bottom || 'unset' : 'unset',
-          width: dimension?.width || 'auto',
-          height: dimension?.height || 'auto',
+          width: dimension?.width || 'max-content',
+          height: dimension?.height || 'unset',
           transform: positionDefined ? 'unset' : 'translate(-50%, -50%)',
         }}
         dangerouslySetInnerHTML={{ __html: template(renderMdToHtml(text)) }}

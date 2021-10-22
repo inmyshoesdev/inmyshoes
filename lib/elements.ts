@@ -138,6 +138,7 @@ export interface Image extends Element {
   src: string
   altText?: string
   blendMode?: string
+  effect?: string
 }
 
 export function makeImage(schema: ImageSchema): Image {
@@ -149,12 +150,14 @@ export function makeImage(schema: ImageSchema): Image {
     src: schema.src,
     altText: schema.altText,
     blendMode: schema.blendMode,
+    effect: schema.effect,
   }
 }
 
 export interface Link extends Element {
   url: string
   text: string
+  effect?: string
 }
 
 export function makeLink(schema: LinkSchema): Link {
@@ -165,6 +168,7 @@ export function makeLink(schema: LinkSchema): Link {
     dimension: schema.dimension || {},
     url: schema.url,
     text: schema.text,
+    effect: schema.effect,
   }
 }
 
