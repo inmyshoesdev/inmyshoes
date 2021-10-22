@@ -472,7 +472,7 @@
       "scenes": [
         {
           "id": 0,
-          "background": "/images/water.png",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/StandardBackground.png",
           "narrations": [
             {
               "name": "intro",
@@ -4109,7 +4109,7 @@
         },
         {
           "id": 13,
-          "background": "/images/background-black.jpg",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/StandardBackground.png",
           "narrations": [
             {
               "name": "intro",
@@ -4135,7 +4135,7 @@
         },
         {
           "id": 14,
-          "background": "/images/water.png",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/StandardBackground.png",
           "narrations": [],
           "dialogues": [],
           "images": [
@@ -4262,7 +4262,7 @@
       "scenes": [
         {
           "id": 0,
-          "background": "/images/water.png",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/StandardBackground.png",
           "narrations": [
             {
               "name": "intro",
