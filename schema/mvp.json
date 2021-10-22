@@ -4184,7 +4184,8 @@
     {
       "name": "Belinda",
       "images": {
-        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda.png"
+        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda.png",
+        "left": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-variant-left.png"
       },
       "info": [
         {
@@ -4599,15 +4600,39 @@
               "speeches": [
                 {
                   "character": "Belinda",
-                  "text": "(to her siblings): Hey stop running around and get ready for school!"
+                  "variant": "left",
+                  "text": "(to her siblings): Hey stop running around and get ready for school!",
+                  "characterPosition": {
+                    "left": "6%",
+                    "bottom": "0%"
+                  },
+                  "characterDimension": {
+                    "height": "55%"
+                  }
                 },
                 {
                   "character": "Belinda",
-                  "text": "*Looks to the spot where she thought she left her phone* Oh no where did i put my phone? i left it here just a minute ago, "
+                  "variant": "left",
+                  "text": "*Looks to the spot where she thought she left her phone*...  Oh no where did i put my phone? i left it here just a minute ago, ",
+                  "characterPosition": {
+                    "left": "6%",
+                    "bottom": "0%"
+                  },
+                  "characterDimension": {
+                    "height": "55%"
+                  }
                 },
                 {
                   "character": "Belinda",
-                  "text": "Ugh... I'm running late! Should I just head to school? But I need the GPS as I might get lost on the way back home..."
+                  "variant": "left",
+                  "text": "Ugh... I'm running late! Should I just head to school? But I need the GPS as I might get lost on the way back home...",
+                  "characterPosition": {
+                    "left": "6%",
+                    "bottom": "0%"
+                  },
+                  "characterDimension": {
+                    "height": "55%"
+                  }
                 }
               ]
             },
@@ -4616,13 +4641,14 @@
               "speeches": [
                 {
                   "character": "Belinda",
+                  "variant": "left",
                   "text": "There's not time and Im running late, I'll just try to manage without it later",
-                  "characterDimension": {
-                    "height": "50%",
-                    "width": "20%"
-                  },
                   "characterPosition": {
-                    "left": "0%"
+                    "left": "6%",
+                    "bottom": "0%"
+                  },
+                  "characterDimension": {
+                    "height": "55%"
                   }
                 }
               ]
@@ -4632,13 +4658,14 @@
               "speeches": [
                 {
                   "character": "Belinda",
+                  "variant": "left",
                   "text": "I definitely have to look for it, I have no choice..Ms.X is going to be so mad..",
-                  "characterDimension": {
-                    "height": "50%",
-                    "width": "20%"
-                  },
                   "characterPosition": {
-                    "left": "0%"
+                    "left": "6%",
+                    "bottom": "0%"
+                  },
+                  "characterDimension": {
+                    "height": "55%"
                   }
                 }
               ]
@@ -4746,6 +4773,366 @@
         },
         {
           "id": 3,
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-background-classroom.png",
+          "narrations": [
+            {
+              "name": "intro",
+              "texts": [
+                "At school, your teacher tells you to redo yet another one of your assignments because of several spelling errors."
+              ],
+              "position": {
+                "top": "2%",
+                "left": "2%"
+              }
+            },
+            {
+              "name": "1",
+              "texts": [
+                "Your health points decrease because even though you have more time, your work is starting to snowball.",
+                "Your social points increase.",
+                "Your teacher has a better understanding of your circumstances which improves your relationship."
+              ]
+            },
+            {
+              "name": "2",
+              "texts": [
+                "Your health points decrease.",
+                "You are sleep-deprived and stressed the following day.",
+                "Your social points decrease. ",
+                "You are not able to spend time with your friends after school."
+              ]
+            },
+            {
+              "name": "3",
+              "texts": [
+                "With the help of your friend you managed to finish the task much faster. Though you had to put in extra time to get it done.",
+                "Health points increase. You develop a closer relationship with your friend"
+              ]
+            }
+          ],
+          "dialogues": [
+            {
+              "name": "start",
+              "speeches": [
+                {
+                  "character": "Teacher",
+                  "text": "Belinda, can you redo this assignment? There are too many spelling errors. It is difficult for me to understand your writing",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "3%",
+                    "left": "20%"
+                  }
+                },
+                {
+                  "character": "Belinda",
+                  "text": "Oh..alright Teacher",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "3%",
+                    "left": "20%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "checkScore",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "text": "(to herself) I am very sure I checked all my answers and didn't see any errors! Ughh! How am I going to tackle this?",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "0%",
+                    "left": "24%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "friend",
+              "speeches": [
+                {
+                  "character": "Friend",
+                  "text": "Hey Belinda whats wrong? Do you need any help?",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "1",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "text": "Teacher, can I please get an extension for this assignment. I have other assignments due and I am feeling swarmed at the moment",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  }
+                },
+                {
+                  "character": "Teacher",
+                  "text": "Hmm..Okay you get I'll give you 2 additional days to get things done.",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  }
+                },
+                {
+                  "character": "Belinda",
+                  "text": "Thank you so much Teacher!",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "3",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "text": "Yeah..I have this assignment I need to redo on top of all the things we already have assigned..",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  }
+                },
+                {
+                  "character": "Friend",
+                  "text": "Oh no, here let me help you with the assignment you need to redo. I think I got most of the questions right for that paper",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  }
+                }
+              ]
+            }
+          ],
+          "images": [
+            {
+              "name": "ClassroomTeacher",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/ClassroomTeacher.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            },
+            {
+              "name": "SpellingTest",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/SpellingTest.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            },
+            {
+              "name": "BelindaFriend",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/BelindaFriend.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
+          "clickables": [
+            {
+              "name": "choice",
+              "options": [
+                {
+                  "name": "1",
+                  "text": "Ask your teacher for an extension on the grounds of learning difficulties",
+                  "position": {
+                    "top": "10%",
+                    "left": "20%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": -1,
+                        "social": 1
+                      }
+                    },
+                    {
+                      "type": "showDialogue",
+                      "value": "1"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "1"
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 4
+                    }
+                  ]
+                },
+                {
+                  "name": "2",
+                  "text": "Stay up late to finish all the assignments",
+                  "position": {
+                    "top": "10%",
+                    "left": "43%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "social": -1,
+                        "health": -1
+                      }
+                    },
+                    {
+                      "type": "showDialogue",
+                      "value": "2"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "2"
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 4
+                    }
+                  ]
+                },
+                {
+                  "name": "3",
+                  "text": "Ask for help from a friend",
+                  "position": {
+                    "top": "10%",
+                    "left": "66%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "social": 1,
+                        "health": 1
+                      }
+                    },
+                    {
+                      "type": "showDialogue",
+                      "value": "2"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "2"
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 4
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "showImage",
+              "value": "ClassroomTeacher",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showNarration",
+              "value": "intro"
+            },
+            {
+              "type": "showDialogue",
+              "value": "start"
+            },
+            {
+              "type": "hideImage",
+              "value": "ClassroomTeacher"
+            },
+            {
+              "type": "wait",
+              "duration": 1000
+            },
+            {
+              "type": "showImage",
+              "value": "SpellingTest",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showDialogue",
+              "value": "checkScore"
+            },
+            {
+              "type": "hideImage",
+              "value": "SpellingTest"
+            },
+            {
+              "type": "wait",
+              "duration": 1000
+            },
+            {
+              "type": "showImage",
+              "value": "BelindaFriend",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showDialogue",
+              "value": "friend"
+            },
+            {
+              "type": "showClickable",
+              "value": "choice"
+            }
+          ]
+        },
+        {
+          "id": 4,
           "background": "/images/end.jpg",
           "narrations": [
             {
@@ -4839,6 +5226,18 @@
       "name": "Grandma",
       "images": {
         "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/grandma.png"
+      }
+    },
+    {
+      "name": "Teacher",
+      "images": {
+        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/ClassroomTeacher.png"
+      }
+    },
+    {
+      "name": "Friend",
+      "images": {
+        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/BelindaFriend.png"
       }
     }
   ]
