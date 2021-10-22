@@ -4216,20 +4216,24 @@
     {
       "name": "Belinda",
       "images": {
-        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Belinda.png"
+        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda.png"
       },
       "info": [
         {
-          "text": "You are from a middle-income family.",
-          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-household.jpg"
+          "text": "You are from a middle-income family. In addition to your parents, you also live with your two younger siblings.",
+          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-intro-household.png"
         },
         {
-          "text": "In addition to your parents, you also live with your two younger siblings.",
-          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-family-image.jpg"
+          "text": "You are dyslexic. You are in the process of being assessed for attention-deficit hyperactivity disorder (ADHD), but your official diagnosis has not come through yet.",
+          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-intro-health.png"
         },
         {
-          "text": "You are dyslexic.",
-          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-work.jpg"
+          "text": "You are relatively popular with a large circle of friends. However, you are not well-liked by some teachers at school because they do not understand your learning needs.",
+          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-intro-relationships.png"
+        },
+        {
+          "text": "You have an allowance that is just enough for your expenses.",
+          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-intro-finance.png"
         }
       ],
       "scenes": [
@@ -4276,18 +4280,69 @@
         },
         {
           "id": 0.5,
-          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-household.jpg",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-intro-household.png",
           "narrations": [
             {
               "name": "household",
-              "texts": ["You are Belinda. You are from a middle-income family."]
+              "texts": [
+                "You are from a middle-income family.",
+                "In addition to your parents, you also live with your two younger siblings."
+              ]
+            },
+            {
+              "name": "health",
+              "texts": [
+                "You are dyslexic.",
+                "You are in the process of being assessed for attention-deficit hyperactivity disorder (ADHD), but your official diagnosis has not come through yet."
+              ],
+              "position": {
+                "bottom": "5%",
+                "left": "20%"
+              }
+            },
+            {
+              "name": "relationships",
+              "texts": [
+                "You are relatively popular with a large circle of friends.",
+                "However, you are not well-liked by some teachers at school because they do not understand your learning needs."
+              ],
+              "position": {
+                "bottom": "5%",
+                "left": "10%"
+              }
+            },
+            {
+              "name": "finance",
+              "texts": [
+                "You have an allowance that is just enough for your expenses."
+              ],
+              "position": {
+                "bottom": "5%",
+                "left": "20%"
+              }
             }
           ],
           "dialogues": [],
           "images": [
             {
-              "name": "family",
-              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-family-image.jpg",
+              "name": "health",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-intro-health.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            },
+            {
+              "name": "relationships",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-intro-relationships.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            },
+            {
+              "name": "finance",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-intro-finance.png",
               "dimension": {
                 "width": "100%",
                 "height": "100%"
@@ -4319,7 +4374,7 @@
               "type": "updateGlobalState",
               "newState": {
                 "day": "Monday",
-                "wealth": 5,
+                "wealth": 10,
                 "health": 10,
                 "social": 10
               }
@@ -4329,6 +4384,36 @@
               "value": "household"
             },
             {
+              "type": "showImage",
+              "value": "health",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showNarration",
+              "value": "health"
+            },
+            {
+              "type": "showImage",
+              "value": "relationships",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showNarration",
+              "value": "relationships"
+            },
+            {
+              "type": "showImage",
+              "value": "finance",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showNarration",
+              "value": "finance"
+            },
+            {
               "type": "gotoScene",
               "sceneId": 1
             }
@@ -4336,12 +4421,30 @@
         },
         {
           "id": 1,
-          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-household.jpg",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-background-bedroom.png",
           "narrations": [
             {
               "name": "intro",
               "texts": [
-                "It’s 6:00am. Despite having stayed up till 3:00am the previous night and asked your friends to help you over the weekend, you were not able to complete your homework that is due this morning. What do you do?"
+                "It's 6:00am and you stayed up late last night in an attempt to complete an assignment that is due this morning."
+              ]
+            },
+            {
+              "name": "1",
+              "texts": [
+                "Your health stays the same.",
+                "You would have woken up at 7:00am anyway.",
+                "Your social points decrease.",
+                "You know that your teacher will be disappointed at you for turning in your homework late."
+              ]
+            },
+            {
+              "name": "2",
+              "texts": [
+                "Your health slightly decreases.",
+                "You are less well-rested and sense that you will struggle more in the classroom today.",
+                "Your social points slightly increase.",
+                "Your teacher appreciates the fact that you did as much of the work that you could and tried to hand it on time."
               ]
             }
           ],
@@ -4351,24 +4454,18 @@
               "speeches": [
                 {
                   "character": "Belinda",
-                  "text": "I'm so tired from staying up last night to finish my work",
+                  "text": "I'm so tired from staying up till 3am last night to do my work... And I still haven't finished it!",
                   "characterDimension": {
-                    "height": "50%",
-                    "width": "20%"
-                  },
-                  "characterPosition": {
-                    "left": "0%"
+                    "height": "0%",
+                    "width": "0%"
                   }
                 },
                 {
                   "character": "Belinda",
-                  "text": "*checks time* oh no its already 6am? should i get up and try to finiish it again?",
+                  "text": "*checks time* oh no its already 6am? should i get up and try to finish it again?",
                   "characterDimension": {
-                    "height": "50%",
-                    "width": "20%"
-                  },
-                  "characterPosition": {
-                    "left": "0%"
+                    "height": "0%",
+                    "width": "0%"
                   }
                 }
               ]
@@ -4380,11 +4477,8 @@
                   "character": "Belinda",
                   "text": "Ok I guess I will try to finish it again. I dont want to disappoint my teachers again",
                   "characterDimension": {
-                    "height": "50%",
-                    "width": "20%"
-                  },
-                  "characterPosition": {
-                    "left": "0%"
+                    "height": "0%",
+                    "width": "0%"
                   }
                 }
               ]
@@ -4396,17 +4490,23 @@
                   "character": "Belinda",
                   "text": "It's no use, I won't be able to finish it anyway, might as well get some rest",
                   "characterDimension": {
-                    "height": "50%",
-                    "width": "20%"
-                  },
-                  "characterPosition": {
-                    "left": "0%"
+                    "height": "0%",
+                    "width": "0%"
                   }
                 }
               ]
             }
           ],
-          "images": [],
+          "images": [
+            {
+              "name": "6am",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/6am.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "clickables": [
             {
               "name": "choice",
@@ -4431,6 +4531,10 @@
                     },
                     {
                       "type": "showDialogue",
+                      "value": "1"
+                    },
+                    {
+                      "type": "showNarration",
                       "value": "1"
                     },
                     {
@@ -4461,6 +4565,10 @@
                       "value": "2"
                     },
                     {
+                      "type": "showNarration",
+                      "value": "2"
+                    },
+                    {
                       "type": "gotoScene",
                       "sceneId": 2
                     }
@@ -4471,16 +4579,10 @@
           ],
           "intro": [
             {
-              "type": "resetGlobalState"
-            },
-            {
-              "type": "updateGlobalState",
-              "newState": {
-                "day": "Monday",
-                "wealth": 10,
-                "health": 10,
-                "social": 10
-              }
+              "type": "showImage",
+              "value": "6am",
+              "autoHide": false,
+              "waitForInteraction": false
             },
             {
               "type": "showNarration",
@@ -4498,31 +4600,191 @@
         },
         {
           "id": 2,
-          "background": "/images/end.jpg",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-background-kitchen.png",
           "narrations": [
             {
               "name": "intro",
-              "texts": ["You have reached the end of this exercise."]
+              "texts": [
+                "You accidentally misplaced you phone whilst preparing breakfast for your siblings."
+              ]
+            },
+            {
+              "name": "1",
+              "texts": [
+                "Your health decreases as you get anxious about going home later. You also end up having to grab home since you dont know your way",
+                "Your social points remain the same",
+                "Your money remains the same"
+              ]
+            },
+            {
+              "name": "2",
+              "texts": [
+                "You arrive late for school which upsets your teacher. Your social points decrease",
+                "Your health remains the same",
+                "Your money remains the same"
+              ]
             }
           ],
-          "dialogues": [],
-          "images": [],
-          "clickables": [],
+          "dialogues": [
+            {
+              "name": "inner",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "text": "(to her siblings): Hey stop running around and get ready for school!"
+                },
+                {
+                  "character": "Belinda",
+                  "text": "*Looks to the spot where she thought she left her phone* Oh no where did i put my phone? i left it here just a minute ago, "
+                },
+                {
+                  "character": "Belinda",
+                  "text": "Ugh... I'm running late! Should I just head to school? But I need the GPS as I might get lost on the way back home..."
+                }
+              ]
+            },
+            {
+              "name": "1",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "text": "There's not time and Im running late, I'll just try to manage without it later",
+                  "characterDimension": {
+                    "height": "50%",
+                    "width": "20%"
+                  },
+                  "characterPosition": {
+                    "left": "0%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "2",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "text": "I definitely have to look for it, I have no choice..Ms.X is going to be so mad..",
+                  "characterDimension": {
+                    "height": "50%",
+                    "width": "20%"
+                  },
+                  "characterPosition": {
+                    "left": "0%"
+                  }
+                }
+              ]
+            }
+          ],
+          "images": [
+            {
+              "name": "siblings",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/KitchenSiblings.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
+          "clickables": [
+            {
+              "name": "choice",
+              "options": [
+                {
+                  "name": "1",
+                  "text": "Forget the phone and make your way to school",
+                  "position": {
+                    "top": "20%",
+                    "left": "20%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": -1
+                      }
+                    },
+                    {
+                      "type": "showDialogue",
+                      "value": "1"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "1"
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 3
+                    }
+                  ]
+                },
+                {
+                  "name": "2",
+                  "text": "Try to look for your phone",
+                  "position": {
+                    "top": "20%",
+                    "left": "60%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "social": -1
+                      }
+                    },
+                    {
+                      "type": "showDialogue",
+                      "value": "2"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "2"
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 3
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
           "intro": [
+            {
+              "type": "showImage",
+              "value": "siblings",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "intro"
             },
             {
-              "type": "gotoScene",
-              "sceneId": 3
+              "type": "showDialogue",
+              "value": "inner"
+            },
+            {
+              "type": "showClickable",
+              "value": "choice"
             }
           ]
         },
         {
           "id": 3,
           "background": "/images/end.jpg",
-          "narrations": [],
+          "narrations": [
+            {
+              "name": "intro",
+              "texts": ["This character is still work-in-progress. Thank you!"]
+            }
+          ],
           "dialogues": [],
           "images": [
             {
@@ -4560,7 +4822,7 @@
                 },
                 {
                   "name": "another",
-                  "text": "Play another character?",
+                  "text": "Change Character?",
                   "position": {
                     "bottom": "20%",
                     "left": "64%"
@@ -4589,8 +4851,8 @@
           ],
           "intro": [
             {
-              "type": "wait",
-              "duration": 1000
+              "type": "showNarration",
+              "value": "intro"
             },
             {
               "type": "showImage",
