@@ -271,6 +271,8 @@ export const DefinedActions: {
             return undefined
           }
 
+          console.log(eventSchema.name)
+
           if (Math.random() * 100 > chance) {
             return undefined
           }
@@ -283,7 +285,6 @@ export const DefinedActions: {
             execute: executeActionGroup,
             condition: makeLogic(eventSchema.if),
           }
-
           return action
         })
         .filter(isDefined)
@@ -291,7 +292,7 @@ export const DefinedActions: {
       if (maxTriggered !== undefined) {
         // take the first n elements from a randomly shuffled array of indices
         // for the actions, where n === maxTriggered
-        let indices = [...Array.from(Array(actions.length).keys())]
+        let indices = Array.from(Array(actions.length).keys())
         shuffleArray(indices)
         indices = indices.slice(0, maxTriggered)
 
