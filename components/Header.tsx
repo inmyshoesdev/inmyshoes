@@ -10,20 +10,17 @@ import useLocalStorage from '../hooks/useLocalStorage'
 
 export interface HeaderProps {
   header?: StateComponent[]
+  screenWidth: number
 }
 
-export default function Header({ header = [] }: HeaderProps) {
-  const [storedScreenWidth, setStoredScreenWidth] = useLocalStorage(
-    'ims-screenWidth',
-    72
-  )
-
+export default function Header({ header = [], screenWidth }: HeaderProps) {
   return (
     <div
       id="header"
-      className="flex flex-wrap items-stretch justify-around w-2/3 max-h-16 text-center"
+      className="flex flex-wrap items-stretch justify-between max-h-16 text-center md:justify-around md:px-2"
       style={{
-        height: `${((9 / 16) * storedScreenWidth) / 2}vh`,
+        width: `${screenWidth}vw`,
+        height: `${((9 / 16) * screenWidth) / 2}vh`,
       }}
     >
       {header.map((component) => {
