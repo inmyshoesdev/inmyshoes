@@ -1,4 +1,5 @@
 import { Box } from '@chakra-ui/layout'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { useEffect, useState } from 'react'
 import { useStore } from '../stores/store'
 
@@ -17,8 +18,14 @@ export default function StateDisplay({
     (gameState) => gameState.game.globalState.innerState[state]
   )
   const [value, setValue] = useState<any>(undefined)
+  const [change, setChange] = useState(false)
 
   useEffect(() => {
+    setChange(false)
+  }, [value])
+
+  useEffect(() => {
+    setChange(true)
     setValue(stateObj.value)
   }, [stateObj.value])
 
@@ -27,9 +34,36 @@ export default function StateDisplay({
       <p className="h-1/3 text-sm capitalize">{title}</p>
       <div className="flex flex-grow flex-shrink items-center h-2/3">
         {iconImage && (
-          <img className="mx-2 w-1/3 h-full object-contain" src={iconImage} />
+          <img
+            className="mx-2 w-1/5 h-full object-contain sm:w-1/4 lg:w-1/3"
+            src={iconImage}
+          />
         )}
-        <p className="w-2/3 font-bold">{value}</p>
+        <div className="w-2/3 overflow-hidden">
+          <TransitionGroup>
+            <CSSTransition key={value} timeout={300} classNames="state-value">
+              <p className="text-xs font-bold sm:text-xs md:text-sm lg:text-base xl:text-lg">
+                {value}
+              </p>
+            </CSSTransition>
+          </TransitionGroup>
+        </div>
+        <style jsx global>{`
+          .state-value-enter {
+            transform: translateY(-100%);
+          }
+          .state-value-enter-active {
+            transform: translateY(0%);
+            transition: all 500ms ease;
+          }
+          .state-value-exit {
+            transform: translateY(0%);
+          }
+          .state-value-exit-active {
+            transform: translateY(100%);
+            transition: all 500ms ease;
+          }
+        `}</style>
       </div>
     </div>
   )
