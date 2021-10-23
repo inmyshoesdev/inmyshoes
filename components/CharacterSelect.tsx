@@ -22,20 +22,22 @@ function CharacterSelect({
     <div
       className={`${
         characterSelected ? 'hidden' : ''
-      } w-auto mx-auto flex flex-col items-center gap-4`}
+      } absolute inset-[10%] top-0 flex flex-col items-center `}
       style={{
         aspectRatio: '16/9',
       }}
     >
-      <h1 className="px-2 text-white text-xl bg-gray-700 opacity-90">
-        Character Selection
-      </h1>
-      <div className="w-1/2 h-auto text-xs sm:w-full sm:text-base">
+      <div className="h-[10%] flex items-center">
+        <h1 className="px-2 text-white text-2xs bg-gray-700 opacity-90 sm:text-base md:text-lg lg:text-xl">
+          Character Selection
+        </h1>
+      </div>
+      <div className="h-[80%] flex items-center w-1/2 text-xs sm:w-full sm:text-base">
         <Swiper
           modules={[A11y, Mousewheel, EffectCube]}
           effect="cube"
           mousewheel={true}
-          className="h-[20vh] w-[30vw] md:h-[25vh] lg:h-[30vh] xl:h-[50vh]"
+          className="h-[80%] w-[30vw]"
           onSlideChange={(swiper) => {
             setCharacterIndex(swiper.activeIndex)
           }}
@@ -50,9 +52,9 @@ function CharacterSelect({
           ))}
         </Swiper>
       </div>
-      <div className="z-10 flex items-center justify-center mt-10">
+      <div className="h-[10%] z-10 flex items-center justify-center">
         <button
-          className="px-6 py-2 text-center text-xl font-medium bg-green-400 hover:bg-green-500 rounded-md focus:outline-none shadow-md cursor-pointer"
+          className="px-2 py-1 text-center text-2xs font-medium bg-green-400 hover:bg-green-500 rounded-md focus:outline-none shadow-md cursor-pointer sm:px-4 sm:text-base md:px-5 md:py-2 md:text-lg lg:px-6 lg:text-xl"
           onClick={finishSelection}
         >
           Go
