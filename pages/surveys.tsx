@@ -26,3 +26,10 @@ const Surveys: React.FC = () => {
 }
 
 export default Surveys
+
+export async function getStaticProps() {
+  return {
+    notFound: false, // set to true when live for testing
+    props: {},
+  }
+}

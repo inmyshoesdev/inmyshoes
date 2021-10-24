@@ -44,3 +44,10 @@ const HoverableExample = () => {
 }
 
 export default HoverableExample
+
+export async function getStaticProps() {
+  return {
+    notFound: false, // set to true when live for testing
+    props: {},
+  }
+}
