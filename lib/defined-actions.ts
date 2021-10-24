@@ -8,6 +8,7 @@ import {
   min,
   number,
   object,
+  optional,
   record,
   string,
   union,
@@ -21,7 +22,7 @@ import { EventsSceneId } from './events'
 import { makeLogic } from './logic'
 import { ElementKeys } from './scene'
 import { UpdateStateValues } from './state'
-import { isDefined } from './utils'
+import { isDefined, shuffleArray } from './utils'
 
 type ActionDefinition<TArgs> = {
   validateArgs: (args: unknown) => [Error, undefined] | [undefined, TArgs]
@@ -92,6 +93,7 @@ export type DefinedActionsToArgs = {
   [TriggerEvents]: {
     events: TriggerEventsSchema
     eventSchemas: Map<string, EventSchema> // not provided by user
+    maxTriggered?: number
   }
 } & {
   [K in keyof typeof ShowActions]: ShowActionArgs
@@ -251,29 +253,28 @@ export const DefinedActions: {
         object({
           events: TriggerEventsSchema,
           eventSchemas: map(string(), EventSchema),
+          maxTriggered: optional(number()),
         }),
         {
           coerce: true,
         }
       )
     },
-    execute({ args }) {
-      const { events, eventSchemas } = args
 
-      const actions = Object.entries(events)
+    execute({ args }) {
+      const { events, eventSchemas, maxTriggered } = args
+
+      let actions = Object.entries(events)
         .map(([eventName, { chance }]) => {
           const eventSchema = eventSchemas.get(eventName)
           if (!eventSchema) {
             return undefined
           }
 
-          let condition: RulesLogic = {
-            '<=': [{ random: [] } as unknown as RulesLogic, chance],
-          }
+          console.log(eventSchema.name)
 
-          const eventCondition = makeLogic(eventSchema.if)
-          if (eventCondition) {
-            condition = { and: [condition, eventCondition] }
+          if (Math.random() * 100 > chance) {
+            return undefined
           }
 
           const action: Action<{ actions: ActionSchema[] }> = {
@@ -282,12 +283,24 @@ export const DefinedActions: {
             args: { actions: eventSchema.sequence },
             sceneId: EventsSceneId,
             execute: executeActionGroup,
-            condition,
+            condition: makeLogic(eventSchema.if),
           }
-
           return action
         })
         .filter(isDefined)
+
+      if (maxTriggered !== undefined) {
+        // take the first n elements from a randomly shuffled array of indices
+        // for the actions, where n === maxTriggered
+        let indices = Array.from(Array(actions.length).keys())
+        shuffleArray(indices)
+        indices = indices.slice(0, maxTriggered)
+
+        // take the actions corresponding to those indices, sorted. this ensures a
+        // fair chance for each event to be triggered, while at the same time
+        // respecting the ordering of events.
+        actions = indices.sort().map((idx) => actions[idx])
+      }
 
       return {
         followupActions: actions,

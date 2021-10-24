@@ -1,4 +1,3 @@
-import { Box } from '@chakra-ui/layout'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { useEffect, useState } from 'react'
 import { useStore } from '../stores/store'
@@ -18,20 +17,16 @@ export default function StateDisplay({
     (gameState) => gameState.game.globalState.innerState[state]
   )
   const [value, setValue] = useState<any>(undefined)
-  const [change, setChange] = useState(false)
 
   useEffect(() => {
-    setChange(false)
-  }, [value])
-
-  useEffect(() => {
-    setChange(true)
-    setValue(stateObj.value)
-  }, [stateObj.value])
+    if (stateObj) {
+      setValue(stateObj.value)
+    }
+  }, [stateObj])
 
   return (
     <div className="flex flex-col items-center w-1/6 h-full overflow-hidden">
-      <p className="h-1/3 text-sm capitalize">{title}</p>
+      <p className="h-1/3 text-xs capitalize md:text-sm">{title}</p>
       <div className="flex flex-grow flex-shrink items-center h-2/3">
         {iconImage && (
           <img
