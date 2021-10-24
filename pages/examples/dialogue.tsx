@@ -20,7 +20,7 @@ export default function DialogueExample() {
 
 export async function getStaticProps() {
   return {
-    notFound: false, // set to true when live for testing
+    notFound: true, // set to true when live for testing
     props: {},
   }
 }
