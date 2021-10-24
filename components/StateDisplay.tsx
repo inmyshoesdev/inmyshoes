@@ -27,17 +27,17 @@ export default function StateDisplay({
   return (
     <div className="flex flex-col items-center w-1/6 h-full overflow-hidden">
       <p className="h-1/3 text-xs capitalize md:text-sm">{title}</p>
-      <div className="flex flex-grow flex-shrink items-center h-2/3">
+      <div className="flex flex-grow flex-shrink items-center w-full h-2/3">
         {iconImage && (
           <img
             className="mx-2 w-1/5 h-full object-contain sm:w-1/4 lg:w-1/3"
             src={iconImage}
           />
         )}
-        <div className="w-2/3 overflow-hidden">
+        <div className="overflow-hidden">
           <TransitionGroup>
             <CSSTransition key={value} timeout={300} classNames="state-value">
-              <p className="text-xs font-bold sm:text-xs md:text-sm lg:text-base xl:text-lg">
+              <p className="whitespace-nowrap text-xs font-bold overflow-hidden sm:text-xs md:text-sm lg:text-base xl:text-lg">
                 {value}
               </p>
             </CSSTransition>
