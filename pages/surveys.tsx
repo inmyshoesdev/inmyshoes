@@ -26,10 +26,3 @@ const Surveys: React.FC = () => {
 }
 
 export default Surveys
-
-export async function getStaticProps() {
-  return {
-    notFound: process.env.NODE_ENV === 'production',
-    props: {},
-  }
-}

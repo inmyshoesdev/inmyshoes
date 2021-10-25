@@ -13,10 +13,3 @@ export default function DialogueExample() {
     />
   )
 }
-
-export async function getStaticProps() {
-  return {
-    notFound: process.env.NODE_ENV === 'production',
-    props: {},
-  }
-}
