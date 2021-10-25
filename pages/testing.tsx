@@ -23,7 +23,7 @@ export default TestingPage
 
 export async function getStaticProps() {
   return {
-    // notFound: true, // set to true when live for testing
+    notFound: process.env.NODE_ENV === 'production',
     props: {},
   }
 }
