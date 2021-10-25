@@ -10,6 +10,9 @@ module.exports = {
       width: {
         '1/50': '2%'
       },
+      minWidth: {
+        '5': '1.25rem' 
+      },
       keyframes: {
         wiggle: {
           '0%, 100%': { transform: 'rotate(-3deg)' },
@@ -65,7 +68,10 @@ module.exports = {
       },
       transitionProperty: {
         'filter': 'filter',
-       }
+      },
+      scale: {
+        '30': '.30'
+      }
     },
   },
   variants: {

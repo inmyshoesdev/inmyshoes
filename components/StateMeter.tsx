@@ -2,12 +2,19 @@ import { useEffect, useState } from 'react'
 import { Tooltip } from '@chakra-ui/react'
 import { Line } from 'rc-progress'
 import { useStore } from '../stores/store'
+import { usePreviousDebounced } from '../hooks/useDebounce'
+import { Transition } from '@headlessui/react'
 
 export interface StateMeterProps {
   title: string
   state: string
   iconImage?: string
   color?: string
+}
+
+function getStateChangeText(curr: number, prev: number): string {
+  const diff = curr - prev
+  return diff === 0 ? '' : diff > 0 ? `+${diff}` : diff.toString()
 }
 
 export default function StateMeter({
@@ -19,10 +26,16 @@ export default function StateMeter({
   const stateObj = useStore(
     (gameState) => gameState.game.globalState.innerState[state]
   )
+
   const [min] = useState(stateObj.min || 0)
   const [max] = useState(stateObj.max || (stateObj.value as number))
   const [value, setValue] = useState(stateObj.value)
   const [progress, setProgress] = useState(0)
+
+  const debounced = usePreviousDebounced<number>(
+    typeof value === 'number' ? value : 0,
+    100
+  )
 
   useEffect(() => {
     let stateValue = (stateObj.value as number) || 0
@@ -37,17 +50,45 @@ export default function StateMeter({
   }, [max, min, stateObj.value])
 
   return (
-    <div className="flex flex-col w-1/4 h-full overflow-hidden">
-      <p className="h-1/3 text-xs capitalize md:text-sm">{title}</p>
+    <div className="relative flex flex-col w-1/4 h-full">
+      <p className="ml-2 h-1/3 text-xs capitalize sm:ml-0 md:text-sm">
+        {title}
+      </p>
       <div className="flex flex-grow flex-shrink items-center h-2/3">
         <div className="flex items-center h-full">
-          {iconImage && (
-            <img
-              src={iconImage}
-              className="px-2 w-1/5 h-full object-contain"
-              alt={`${title} icon`}
-            />
-          )}
+          <div className="min-w-5 relative px-1 w-1/5 h-full xl:px-2">
+            {iconImage && (
+              <img
+                src={iconImage}
+                className="w-full h-full object-contain"
+                alt={`${title} icon`}
+              />
+            )}
+            <Transition
+              show={debounced.updated && debounced.prev !== undefined}
+              leave="transition duration-1000 delay-500"
+              leaveFrom="scale-100 translate-y-0 opacity-100"
+              leaveTo="scale-30 translate-y-8 opacity-10"
+              className="absolute -top-6 left-0 right-0 mx-auto w-full whitespace-nowrap overflow-y-visible"
+            >
+              <span className="w-full text-center text-xs font-bold sm:text-sm md:text-base lg:text-lg xl:text-xl">
+                {debounced.prev !== undefined &&
+                  getStateChangeText(debounced.curr, debounced.prev)}
+              </span>
+              <style jsx>{`
+                span {
+                  -webkit-text-stroke: 1px black;
+                  -webkit-text-fill-color: ${color};
+                }
+
+                @media (max-width: 640px) {
+                  span {
+                    -webkit-text-stroke: 0.75px black;
+                  }
+                }
+              `}</style>
+            </Transition>
+          </div>
 
           <Tooltip label={`${value}/${max}`} bg="gray.600">
             <div className="relative border border-gray-600 rounded-sm overflow-hidden md:rounded-md lg:rounded-lg">
@@ -70,9 +111,14 @@ export default function StateMeter({
               <style jsx global>{`
                 .rc-progress-line-path {
                   --easing-function: cubic-bezier(0.39, 1.49, 0.84, 1);
-                  transition: stroke-dashoffset 0.5s var(--easing-function) 0.1s,
-                    stroke-dasharray 0.5s var(--easing-function) 0.1s,
-                    stroke 0.5s linear 0.1s !important;
+                  --transition-duration: 0.6s;
+                  --transition-delay: 0.4s;
+                  transition: stroke-dashoffset var(--transition-duration)
+                      var(--easing-function) var(--transition-delay),
+                    stroke-dasharray var(--transition-duration)
+                      var(--easing-function) var(--transition-delay),
+                    stroke var(--transition-duration) linear
+                      var(--transition-delay) !important;
                 }
               `}</style>
             </div>
