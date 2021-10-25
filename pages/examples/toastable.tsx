@@ -20,10 +20,3 @@ const ToastableExample = () => {
 }
 
 export default ToastableExample
-
-export async function getStaticProps() {
-  return {
-    notFound: process.env.NODE_ENV === 'production',
-    props: {},
-  }
-}
