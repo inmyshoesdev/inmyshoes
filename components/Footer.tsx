@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Tooltip } from '@chakra-ui/react'
 import { useSound } from 'use-sound'
 import { useStore } from '../stores/store'
@@ -14,6 +14,7 @@ import {
 } from '@chakra-ui/react'
 import { useDisclosure } from '@chakra-ui/react'
 import { Button } from '@chakra-ui/button'
+import { Howl, Howler } from 'howler'
 
 function Footer({
   characterSelected,
@@ -26,16 +27,30 @@ function Footer({
   setBlurBackground: React.Dispatch<React.SetStateAction<boolean>>
   setHideCharacterInfo: React.Dispatch<React.SetStateAction<boolean>>
 }) {
-  const [musicOn, setMusicOn] = useState(false)
+  const [musicOn, setMusicOn] = useState(true)
   const game = useStore((state) => state.game)
 
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const [play, { stop }] = useSound(
-    game.about.backgroundMusic ?? '/music/bensound-jazzcomedy.mp3',
-    {
+  const [sound] = useState(
+    new Howl({
+      src: [game.about.backgroundMusic ?? '/music/bensound-jazzcomedy.mp3'],
       volume: 0.5,
-    }
+      loop: true,
+    })
   )
+
+  useEffect(() => {
+    if (musicOn) {
+      console.log('play')
+      sound.play()
+    } else {
+      console.log('stop')
+      sound.stop()
+    }
+    return () => {
+      sound.stop()
+    }
+  }, [musicOn])
 
   return (
     <>
@@ -138,11 +153,6 @@ function Footer({
             className="z-10 focus:outline-none"
             id="soundOnBtn"
             onClick={() => {
-              if (musicOn) {
-                stop()
-              } else {
-                play()
-              }
               setMusicOn(!musicOn)
             }}
             aria-label="sound on off button"

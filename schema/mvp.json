@@ -10,7 +10,7 @@
     "credits": "![Soristic](/images/soristic.jpg)\nThis simulation activity development was supported by multiple stakeholders, including [a group of students](https://github.com/inmyshoesdev/inmyshoes/people) from the National University of Singapore. These characters were developed through rounds of interviews with people from various backgrounds and situations, allowing us to craft out a simulation that portrays similar events faced. Subsequently, Soristic has been improving the simulation by introducing more new characters as well as conducting workshops.\n\nRoyalty Free Music from Bensound."
   },
   "globalState": {
-    "day": "Monday",
+    "day": "Mon",
     "wealth": {
       "value": 0,
       "max": 20
@@ -472,7 +472,7 @@
       "scenes": [
         {
           "id": 0,
-          "background": "/images/water.png",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/StandardBackground.png",
           "narrations": [
             {
               "name": "intro",
@@ -613,7 +613,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "day": "Monday",
+                "day": "Mon",
                 "wealth": 5,
                 "health": 10,
                 "social": 10
@@ -879,7 +879,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "day": "Monday",
+                "day": "Mon",
                 "wealth": 5,
                 "health": 10,
                 "social": 10
@@ -1124,7 +1124,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "day": "Tuesday"
+                "day": "Tue"
               }
             },
             {
@@ -1359,7 +1359,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "day": "Wednesday"
+                "day": "Wed"
               }
             },
             {
@@ -2126,7 +2126,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "day": "Thursday"
+                "day": "Thu"
               }
             },
             {
@@ -2748,7 +2748,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "day": "Friday"
+                "day": "Fri"
               }
             },
             {
@@ -3265,7 +3265,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "day": "Saturday"
+                "day": "Sat"
               }
             },
             {
@@ -3518,7 +3518,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "day": "Sunday"
+                "day": "Sun"
               }
             },
             {
@@ -3793,7 +3793,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "day": "Monday"
+                "day": "Mon"
               }
             },
             {
@@ -4074,7 +4074,7 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "day": "Tuesday"
+                "day": "Tue"
               }
             },
             {
@@ -4109,7 +4109,7 @@
         },
         {
           "id": 13,
-          "background": "/images/background-black.jpg",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/StandardBackground.png",
           "narrations": [
             {
               "name": "intro",
@@ -4135,7 +4135,7 @@
         },
         {
           "id": 14,
-          "background": "/images/water.png",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/StandardBackground.png",
           "narrations": [],
           "dialogues": [],
           "images": [
@@ -4239,26 +4239,412 @@
     {
       "name": "Belinda",
       "images": {
-        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Belinda.png"
+        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda.png",
+        "left": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-variant-left.png"
       },
       "info": [
         {
-          "text": "You are from a middle-income family.",
-          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-household.jpg"
+          "text": "You are from a middle-income family. In addition to your parents, you also live with your two younger siblings.",
+          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-intro-household.png"
         },
         {
-          "text": "In addition to your parents, you also live with your two younger siblings.",
-          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-family-image.jpg"
+          "text": "You are dyslexic. You are in the process of being assessed for attention-deficit hyperactivity disorder (ADHD), but your official diagnosis has not come through yet.",
+          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-intro-health.png"
         },
         {
-          "text": "You are dyslexic.",
-          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-work.jpg"
+          "text": "You are relatively popular with a large circle of friends. However, you are not well-liked by some teachers at school because they do not understand your learning needs.",
+          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-intro-relationships.png"
+        },
+        {
+          "text": "You have an allowance that is just enough for your expenses.",
+          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-intro-finance.png"
+        }
+      ],
+      "events": [
+        {
+          "name": "friendship",
+          "narrations": [
+            {
+              "name": "msg",
+              "texts": [
+                "You find yourself having a personal conversation with a friend and both realise that you can count on each other.\nYour health and social points increase by 3"
+              ]
+            }
+          ],
+          "sequence": [
+            {
+              "type": "showNarration",
+              "value": "msg"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "health": 3,
+                "social": 3,
+                "friendship wildcard appeared": true
+              }
+            },
+            {
+              "type": "wait",
+              "duration": 1000
+            }
+          ],
+          "if": {
+            "==": ["{friendship wildcard appeared}", false]
+          }
+        },
+        {
+          "name": "support system",
+          "narrations": [
+            {
+              "name": "msg",
+              "texts": [
+                "You find out that someone else in your class has been experiencing the same learning difficulties as you, and that dyslexia can affect as much as 10% of students.\nYour health and social points increase by 3."
+              ]
+            }
+          ],
+          "sequence": [
+            {
+              "type": "showNarration",
+              "value": "msg"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "health": 3,
+                "social": 3,
+                "support system wildcard appeared": true
+              }
+            },
+            {
+              "type": "wait",
+              "duration": 1000
+            }
+          ],
+          "if": {
+            "==": ["{support system wildcard appeared}", false]
+          }
+        },
+        {
+          "name": "anxiety",
+          "narrations": [
+            {
+              "name": "msg",
+              "texts": [
+                "You are now suffering from anxiety because of your academic stresses. You are constantly worried even if there is no direct cause and sometimes find it hard to breathe.\nHealth decreases by 2."
+              ]
+            }
+          ],
+          "sequence": [
+            {
+              "type": "showNarration",
+              "value": "msg"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "health": -2,
+                "anxiety wildcard appeared": true
+              }
+            },
+            {
+              "type": "wait",
+              "duration": 1000
+            }
+          ],
+          "if": {
+            "==": ["{anxiety wildcard appeared}", false]
+          }
+        },
+        {
+          "name": "loneliness",
+          "narrations": [
+            {
+              "name": "msg",
+              "texts": [
+                "You increasingly feel distant from your friends and family.\nSocial points decrease by 2"
+              ]
+            }
+          ],
+          "sequence": [
+            {
+              "type": "showNarration",
+              "value": "msg"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "social": -2,
+                "loneliness wildcard appeared": true
+              }
+            },
+            {
+              "type": "wait",
+              "duration": 1000
+            }
+          ],
+          "if": {
+            "==": ["{loneliness wildcard appeared}", false]
+          }
+        },
+        {
+          "name": "hyperfocus",
+          "narrations": [
+            {
+              "name": "msg",
+              "texts": [
+                "You are suddenly engrossed in your current task that you totally forgot about your other responsibilities.\nSocial points decrease by 2."
+              ]
+            }
+          ],
+          "sequence": [
+            {
+              "type": "showNarration",
+              "value": "msg"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "social": -2,
+                "hyperfocus wildcard appeared": true
+              }
+            },
+            {
+              "type": "wait",
+              "duration": 1000
+            }
+          ],
+          "if": {
+            "==": ["{hyperfocus wildcard appeared}", false]
+          }
+        },
+        {
+          "name": "award health badge",
+          "clickables": [
+            {
+              "name": "health badge",
+              "options": [
+                {
+                  "name": "health",
+                  "src": "/images/health-badge.png",
+                  "position": {
+                    "top": "0",
+                    "left": "0",
+                    "right": "0"
+                  },
+                  "dimension": {
+                    "height": "75%"
+                  }
+                },
+                {
+                  "name": "health message",
+                  "text": "You have been trying to take better care of your physical and mental health the past week and it shows! You feel more energized and rejuvenated compared to before.\n\n*You have earned a Health Badge!*",
+                  "position": {
+                    "bottom": "10%",
+                    "left": "23%"
+                  },
+                  "dimension": {
+                    "width": "54%"
+                  }
+                }
+              ]
+            }
+          ],
+          "sequence": [
+            {
+              "type": "blurBackground"
+            },
+            {
+              "type": "playSound",
+              "src": "/sounds/reward.wav",
+              "volume": 0.4,
+              "interrupt": true
+            },
+            {
+              "type": "showClickable",
+              "value": "health badge"
+            },
+            {
+              "type": "deblurBackground"
+            }
+          ],
+          "if": {
+            ">=": ["{health}", 13]
+          }
+        },
+        {
+          "name": "award social badge",
+          "clickables": [
+            {
+              "name": "social badge",
+              "options": [
+                {
+                  "name": "social",
+                  "src": "/images/social-badge.png",
+                  "position": {
+                    "top": "0",
+                    "left": "0",
+                    "right": "0"
+                  },
+                  "dimension": {
+                    "height": "75%"
+                  }
+                },
+                {
+                  "name": "social message",
+                  "text": "You have put in the effort this week to spend more time and connect with your friends and family. You feel your relationships with them have strengthened.\n\n*You have earned a Social Badge!*",
+                  "position": {
+                    "bottom": "10%",
+                    "left": "23%"
+                  },
+                  "dimension": {
+                    "width": "54%"
+                  }
+                }
+              ]
+            }
+          ],
+          "sequence": [
+            {
+              "type": "blurBackground"
+            },
+            {
+              "type": "playSound",
+              "src": "/sounds/reward.wav",
+              "volume": 0.4,
+              "interrupt": true
+            },
+            {
+              "type": "showClickable",
+              "value": "social badge"
+            },
+            {
+              "type": "deblurBackground"
+            }
+          ],
+          "if": {
+            ">=": ["{social}", 13]
+          }
+        },
+        {
+          "name": "award wealth badge",
+          "clickables": [
+            {
+              "name": "wealth badge",
+              "options": [
+                {
+                  "name": "wealth",
+                  "src": "/images/wealth-badge.png",
+                  "position": {
+                    "top": "0",
+                    "left": "0",
+                    "right": "0"
+                  },
+                  "dimension": {
+                    "height": "75%"
+                  }
+                },
+                {
+                  "name": "wealth message",
+                  "text": "Your efforts at saving and earning money in the past week have been effective. While income issues don't disappear overnight, you feel you can go into the next week with a slightly better sense of financial security.\n\n*You have earned a Wealth Badge!*",
+                  "position": {
+                    "bottom": "10%",
+                    "left": "23%"
+                  },
+                  "dimension": {
+                    "width": "54%"
+                  }
+                }
+              ]
+            }
+          ],
+          "sequence": [
+            {
+              "type": "blurBackground"
+            },
+            {
+              "type": "playSound",
+              "src": "/sounds/reward.wav",
+              "volume": 0.4,
+              "interrupt": true
+            },
+            {
+              "type": "showClickable",
+              "value": "wealth badge"
+            },
+            {
+              "type": "deblurBackground"
+            }
+          ],
+          "if": {
+            ">=": ["{wealth}", 10]
+          }
+        },
+        {
+          "name": "award helping hand badge",
+          "clickables": [
+            {
+              "name": "helping hand badge",
+              "options": [
+                {
+                  "name": "helping hand",
+                  "src": "/images/helping-hand-badge.png",
+                  "position": {
+                    "top": "0",
+                    "left": "0",
+                    "right": "0"
+                  },
+                  "dimension": {
+                    "height": "75%"
+                  }
+                },
+                {
+                  "name": "helping hand message",
+                  "text": "You have made attempts to be more open to approaching other for help. Remember, you are not alone in your journey!\n\n*You have earned a Helping Hand Badge!*",
+                  "position": {
+                    "bottom": "10%",
+                    "left": "23%"
+                  },
+                  "dimension": {
+                    "width": "54%"
+                  }
+                }
+              ]
+            }
+          ],
+          "sequence": [
+            {
+              "type": "blurBackground"
+            },
+            {
+              "type": "playSound",
+              "src": "/sounds/reward.wav",
+              "volume": 0.4,
+              "interrupt": true
+            },
+            {
+              "type": "showClickable",
+              "value": "helping hand badge"
+            },
+            {
+              "type": "deblurBackground"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "helping hand badge awarded": true
+              }
+            }
+          ],
+          "if": {
+            "==": ["{helping hand badge awarded}", false]
+          }
         }
       ],
       "scenes": [
         {
           "id": 0,
-          "background": "/images/water.png",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/StandardBackground.png",
           "narrations": [
             {
               "name": "intro",
@@ -4299,18 +4685,69 @@
         },
         {
           "id": 0.5,
-          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-household.jpg",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-intro-household.png",
           "narrations": [
             {
               "name": "household",
-              "texts": ["You are Belinda. You are from a middle-income family."]
+              "texts": [
+                "You are from a middle-income family.",
+                "In addition to your parents, you also live with your two younger siblings."
+              ]
+            },
+            {
+              "name": "health",
+              "texts": [
+                "You are dyslexic.",
+                "You are in the process of being assessed for attention-deficit hyperactivity disorder (ADHD), but your official diagnosis has not come through yet."
+              ],
+              "position": {
+                "bottom": "5%",
+                "left": "20%"
+              }
+            },
+            {
+              "name": "relationships",
+              "texts": [
+                "You are relatively popular with a large circle of friends.",
+                "However, you are not well-liked by some teachers at school because they do not understand your learning needs."
+              ],
+              "position": {
+                "bottom": "5%",
+                "left": "10%"
+              }
+            },
+            {
+              "name": "finance",
+              "texts": [
+                "You have an allowance that is just enough for your expenses."
+              ],
+              "position": {
+                "bottom": "5%",
+                "left": "20%"
+              }
             }
           ],
           "dialogues": [],
           "images": [
             {
-              "name": "family",
-              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-family-image.jpg",
+              "name": "health",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-intro-health.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            },
+            {
+              "name": "relationships",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-intro-relationships.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            },
+            {
+              "name": "finance",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-intro-finance.png",
               "dimension": {
                 "width": "100%",
                 "height": "100%"
@@ -4341,8 +4778,8 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "day": "Monday",
-                "wealth": 5,
+                "day": "Mon",
+                "wealth": 10,
                 "health": 10,
                 "social": 10
               }
@@ -4352,6 +4789,36 @@
               "value": "household"
             },
             {
+              "type": "showImage",
+              "value": "health",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showNarration",
+              "value": "health"
+            },
+            {
+              "type": "showImage",
+              "value": "relationships",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showNarration",
+              "value": "relationships"
+            },
+            {
+              "type": "showImage",
+              "value": "finance",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showNarration",
+              "value": "finance"
+            },
+            {
               "type": "gotoScene",
               "sceneId": 1
             }
@@ -4359,12 +4826,30 @@
         },
         {
           "id": 1,
-          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-household.jpg",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-background-bedroom.png",
           "narrations": [
             {
               "name": "intro",
               "texts": [
-                "It’s 6:00am. Despite having stayed up till 3:00am the previous night and asked your friends to help you over the weekend, you were not able to complete your homework that is due this morning. What do you do?"
+                "It's 6:00am and you stayed up late last night in an attempt to complete an assignment that is due this morning."
+              ]
+            },
+            {
+              "name": "1",
+              "texts": [
+                "Your health slightly decreases.",
+                "You are less well-rested and sense that you will struggle more in the classroom today.",
+                "Your social points slightly increase.",
+                "Your teacher appreciates the fact that you did as much of the work that you could and tried to hand it on time."
+              ]
+            },
+            {
+              "name": "2",
+              "texts": [
+                "Your health stays the same.",
+                "You would have woken up at 7:00am anyway.",
+                "Your social points decrease.",
+                "You know that your teacher will be disappointed at you for turning in your homework late."
               ]
             }
           ],
@@ -4374,24 +4859,18 @@
               "speeches": [
                 {
                   "character": "Belinda",
-                  "text": "I'm so tired from staying up last night to finish my work",
+                  "text": "I'm so tired from staying up till 3am last night to do my work... And I still haven't finished it!",
                   "characterDimension": {
-                    "height": "50%",
-                    "width": "20%"
-                  },
-                  "characterPosition": {
-                    "left": "0%"
+                    "height": "0%",
+                    "width": "0%"
                   }
                 },
                 {
                   "character": "Belinda",
-                  "text": "*checks time* oh no its already 6am? should i get up and try to finiish it again?",
+                  "text": "*checks time*... oh no its already 6am? should i get up and try to finish it again?",
                   "characterDimension": {
-                    "height": "50%",
-                    "width": "20%"
-                  },
-                  "characterPosition": {
-                    "left": "0%"
+                    "height": "0%",
+                    "width": "0%"
                   }
                 }
               ]
@@ -4403,11 +4882,8 @@
                   "character": "Belinda",
                   "text": "Ok I guess I will try to finish it again. I dont want to disappoint my teachers again",
                   "characterDimension": {
-                    "height": "50%",
-                    "width": "20%"
-                  },
-                  "characterPosition": {
-                    "left": "0%"
+                    "height": "0%",
+                    "width": "0%"
                   }
                 }
               ]
@@ -4419,17 +4895,23 @@
                   "character": "Belinda",
                   "text": "It's no use, I won't be able to finish it anyway, might as well get some rest",
                   "characterDimension": {
-                    "height": "50%",
-                    "width": "20%"
-                  },
-                  "characterPosition": {
-                    "left": "0%"
+                    "height": "0%",
+                    "width": "0%"
                   }
                 }
               ]
             }
           ],
-          "images": [],
+          "images": [
+            {
+              "name": "6am",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/6am.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "clickables": [
             {
               "name": "choice",
@@ -4455,6 +4937,19 @@
                     {
                       "type": "showDialogue",
                       "value": "1"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "1"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "anxiety": {
+                          "chance": 20
+                        }
+                      },
+                      "maxTriggered": 1
                     },
                     {
                       "type": "gotoScene",
@@ -4484,6 +4979,10 @@
                       "value": "2"
                     },
                     {
+                      "type": "showNarration",
+                      "value": "2"
+                    },
+                    {
                       "type": "gotoScene",
                       "sceneId": 2
                     }
@@ -4494,16 +4993,10 @@
           ],
           "intro": [
             {
-              "type": "resetGlobalState"
-            },
-            {
-              "type": "updateGlobalState",
-              "newState": {
-                "day": "Monday",
-                "wealth": 10,
-                "health": 10,
-                "social": 10
-              }
+              "type": "showImage",
+              "value": "6am",
+              "autoHide": false,
+              "waitForInteraction": false
             },
             {
               "type": "showNarration",
@@ -4521,31 +5014,2281 @@
         },
         {
           "id": 2,
-          "background": "/images/end.jpg",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-background-kitchen.png",
           "narrations": [
             {
               "name": "intro",
-              "texts": ["You have reached the end of this exercise."]
+              "texts": [
+                "You accidentally misplaced you phone whilst preparing breakfast for your siblings."
+              ]
+            },
+            {
+              "name": "1",
+              "texts": [
+                "Your health decreases as you get anxious about going home later. You also end up having to grab home since you dont know your way",
+                "Your social points remain the same",
+                "Your money remains the same"
+              ]
+            },
+            {
+              "name": "2",
+              "texts": [
+                "You arrive late for school which upsets your teacher. Your social points decrease",
+                "Your health remains the same",
+                "Your money remains the same"
+              ]
             }
           ],
-          "dialogues": [],
-          "images": [],
-          "clickables": [],
+          "dialogues": [
+            {
+              "name": "inner",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "variant": "left",
+                  "text": "(to her siblings): Hey stop running around and get ready for school!",
+                  "characterPosition": {
+                    "left": "6%",
+                    "bottom": "0%"
+                  },
+                  "characterDimension": {
+                    "height": "55%"
+                  }
+                },
+                {
+                  "character": "Belinda",
+                  "variant": "left",
+                  "text": "*Looks to the spot where she thought she left her phone*...  Oh no where did i put my phone? i left it here just a minute ago, ",
+                  "characterPosition": {
+                    "left": "6%",
+                    "bottom": "0%"
+                  },
+                  "characterDimension": {
+                    "height": "55%"
+                  }
+                },
+                {
+                  "character": "Belinda",
+                  "variant": "left",
+                  "text": "Ugh... I'm running late! Should I just head to school? But I need the GPS as I might get lost on the way back home...",
+                  "characterPosition": {
+                    "left": "6%",
+                    "bottom": "0%"
+                  },
+                  "characterDimension": {
+                    "height": "55%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "1",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "variant": "left",
+                  "text": "There's not time and Im running late, I'll just try to manage without it later",
+                  "characterPosition": {
+                    "left": "6%",
+                    "bottom": "0%"
+                  },
+                  "characterDimension": {
+                    "height": "55%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "2",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "variant": "left",
+                  "text": "I definitely have to look for it, I have no choice..Ms Ong is going to be so mad..",
+                  "characterPosition": {
+                    "left": "6%",
+                    "bottom": "0%"
+                  },
+                  "characterDimension": {
+                    "height": "55%"
+                  }
+                }
+              ]
+            }
+          ],
+          "images": [
+            {
+              "name": "siblings",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/KitchenSiblings.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
+          "clickables": [
+            {
+              "name": "choice",
+              "options": [
+                {
+                  "name": "1",
+                  "text": "Forget the phone and make your way to school",
+                  "position": {
+                    "top": "20%",
+                    "left": "20%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": -1
+                      }
+                    },
+                    {
+                      "type": "showDialogue",
+                      "value": "1"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "1"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "anxiety": {
+                          "chance": 20
+                        }
+                      },
+                      "maxTriggered": 1
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 3
+                    }
+                  ]
+                },
+                {
+                  "name": "2",
+                  "text": "Try to look for your phone",
+                  "position": {
+                    "top": "20%",
+                    "left": "60%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "social": -1
+                      }
+                    },
+                    {
+                      "type": "showDialogue",
+                      "value": "2"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "2"
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 3
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
           "intro": [
+            {
+              "type": "showImage",
+              "value": "siblings",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "intro"
             },
             {
-              "type": "gotoScene",
-              "sceneId": 3
+              "type": "showDialogue",
+              "value": "inner"
+            },
+            {
+              "type": "showClickable",
+              "value": "choice"
             }
           ]
         },
         {
           "id": 3,
-          "background": "/images/end.jpg",
-          "narrations": [],
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-background-classroom.png",
+          "narrations": [
+            {
+              "name": "intro",
+              "texts": [
+                "At school, your teacher tells you to redo yet another one of your assignments because of several spelling errors."
+              ],
+              "position": {
+                "top": "2%",
+                "left": "2%"
+              }
+            },
+            {
+              "name": "1",
+              "texts": [
+                "Your health points decrease because even though you have more time, your work is starting to snowball.",
+                "Your social points increase.",
+                "Your teacher has a better understanding of your circumstances which improves your relationship."
+              ],
+              "position": {
+                "top": "3%",
+                "left": "5%"
+              }
+            },
+            {
+              "name": "2",
+              "texts": [
+                "Your health points decrease.",
+                "You are sleep-deprived and stressed the following day.",
+                "Your social points decrease. ",
+                "You are not able to spend time with your friends after school."
+              ]
+            },
+            {
+              "name": "3",
+              "texts": [
+                "With the help of your friend you managed to finish the task much faster. Though you had to put in extra time to get it done.",
+                "Health points increase. You develop a closer relationship with your friend"
+              ]
+            }
+          ],
+          "dialogues": [
+            {
+              "name": "start",
+              "speeches": [
+                {
+                  "character": "Teacher",
+                  "text": "Belinda, can you redo this assignment? There are too many spelling errors. It is difficult for me to understand your writing",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "3%",
+                    "left": "20%"
+                  }
+                },
+                {
+                  "character": "Belinda",
+                  "text": "Oh..alright Teacher",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "3%",
+                    "left": "20%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "checkScore",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "text": "(to herself) I am very sure I checked all my answers and didn't see any errors! Ughh! How am I going to tackle this?",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "0%",
+                    "left": "24%"
+                  },
+                  "textDimension": {
+                    "height": "32%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "friend",
+              "speeches": [
+                {
+                  "character": "Friend",
+                  "text": "Hey Belinda whats wrong? Do you need any help?",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "1",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "text": "Teacher, can I please get an extension for this assignment. I have other assignments due and I am feeling swarmed at the moment",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  }
+                },
+                {
+                  "character": "Teacher",
+                  "text": "Hmm..Okay you get I'll give you 2 additional days to get things done.",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  }
+                },
+                {
+                  "character": "Belinda",
+                  "text": "Thank you so much Teacher!",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "3",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "text": "Yeah..I have this assignment I need to redo on top of all the things we already have assigned..",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  }
+                },
+                {
+                  "character": "Friend",
+                  "text": "Oh no, here let me help you with the assignment you need to redo. I think I got most of the questions right for that paper",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  }
+                }
+              ]
+            }
+          ],
+          "images": [
+            {
+              "name": "ClassroomTeacher",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/ClassroomTeacher.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            },
+            {
+              "name": "SpellingTest",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/SpellingTest.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            },
+            {
+              "name": "BelindaFriend",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/BelindaFriend.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
+          "clickables": [
+            {
+              "name": "choice",
+              "options": [
+                {
+                  "name": "1",
+                  "text": "Ask your teacher for an extension on the grounds of learning difficulties",
+                  "position": {
+                    "top": "10%",
+                    "left": "20%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": -1,
+                        "social": 1
+                      }
+                    },
+                    {
+                      "type": "hideImage",
+                      "value": "BelindaFriend"
+                    },
+                    {
+                      "type": "showImage",
+                      "value": "ClassroomTeacher",
+                      "autoHide": false,
+                      "waitForInteraction": false
+                    },
+                    {
+                      "type": "showDialogue",
+                      "value": "1"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "1"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "award helping hand badge": {}
+                      }
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 4
+                    }
+                  ]
+                },
+                {
+                  "name": "2",
+                  "text": "Stay up late to finish all the assignments",
+                  "position": {
+                    "top": "10%",
+                    "left": "43%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "social": -1,
+                        "health": -1
+                      }
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "2"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "hyperfocus": {
+                          "chance": 40
+                        }
+                      },
+                      "maxTriggered": 1
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 4
+                    }
+                  ]
+                },
+                {
+                  "name": "3",
+                  "text": "Ask for help from a friend",
+                  "position": {
+                    "top": "10%",
+                    "left": "66%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "social": 1,
+                        "health": 1
+                      }
+                    },
+                    {
+                      "type": "showDialogue",
+                      "value": "3"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "3"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "award helping hand badge": {}
+                      }
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 4
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "day": "Tue"
+              }
+            },
+            {
+              "type": "showImage",
+              "value": "ClassroomTeacher",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showNarration",
+              "value": "intro"
+            },
+            {
+              "type": "showDialogue",
+              "value": "start"
+            },
+            {
+              "type": "hideImage",
+              "value": "ClassroomTeacher"
+            },
+            {
+              "type": "wait",
+              "duration": 1000
+            },
+            {
+              "type": "showImage",
+              "value": "SpellingTest",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showDialogue",
+              "value": "checkScore"
+            },
+            {
+              "type": "hideImage",
+              "value": "SpellingTest"
+            },
+            {
+              "type": "wait",
+              "duration": 1000
+            },
+            {
+              "type": "showImage",
+              "value": "BelindaFriend",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showDialogue",
+              "value": "friend"
+            },
+            {
+              "type": "showClickable",
+              "value": "choice"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-background-classroom.png",
+          "narrations": [
+            {
+              "name": "intro",
+              "texts": [
+                "In another class, your teacher asks you to read a passage aloud. She has good intentions and wants to build your confidence in reading."
+              ],
+              "position": {
+                "top": "2%",
+                "left": "2%"
+              }
+            },
+            {
+              "name": "1",
+              "texts": [
+                "You see some people try to contain their giggles as you make many reading mistakes. You lose health points.",
+                "Your feel less confident about yourself though your teacher tries to help you along. You lose social points."
+              ],
+              "position": {
+                "top": "3%",
+                "left": "21%"
+              }
+            },
+            {
+              "name": "2",
+              "texts": [
+                "You feel a little disappointed in yourself. You lose health points.",
+                "You feel less confident. You lose social points."
+              ]
+            }
+          ],
+          "dialogues": [
+            {
+              "name": "start",
+              "speeches": [
+                {
+                  "character": "Ms Ong",
+                  "text": "Who can help me read the next passage?",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "3%",
+                    "left": "20%"
+                  }
+                },
+                {
+                  "character": "Ms Ong",
+                  "text": "Oh, how about you Belinda, can you try and read this passage?",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "3%",
+                    "left": "20%"
+                  }
+                },
+                {
+                  "character": "Belinda",
+                  "text": "(to herself) oh no, my dyslexia is really bad today, I can barely make out what the first sentence is!",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "3%",
+                    "left": "20%"
+                  }
+                },
+                {
+                  "character": "Belinda",
+                  "text": "(to herself) I don't think I'll be able to read it out loud in class... It will be really embarrassing if I mess it up. What should I do?",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "3%",
+                    "left": "20%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "1",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "text": "Okay Teacher...*gulp*...",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "0%",
+                    "left": "24%"
+                  },
+                  "textDimension": {
+                    "height": "32%"
+                  }
+                },
+                {
+                  "character": "Belinda",
+                  "text": "Uh..(speaks gibberish)",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "0%",
+                    "left": "24%"
+                  },
+                  "textDimension": {
+                    "height": "32%"
+                  }
+                },
+                {
+                  "character": "Class",
+                  "text": "Hahahahah..",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "0%",
+                    "left": "24%"
+                  },
+                  "textDimension": {
+                    "height": "32%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "2",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "text": "Uhm Ms Ong? Can I skip this page? I am not very confident right now..",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  }
+                },
+                {
+                  "character": "Ms Ong",
+                  "text": "Hmm alright, but you're going to have to practice if you want to get better.",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  }
+                }
+              ]
+            }
+          ],
+          "images": [
+            {
+              "name": "ReadingScene",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/ReadingScene.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            },
+            {
+              "name": "WordsJumbledUp",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/WordsJumbledUp.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
+          "clickables": [
+            {
+              "name": "choice",
+              "options": [
+                {
+                  "name": "1",
+                  "text": "Attempt the reading",
+                  "position": {
+                    "top": "10%",
+                    "left": "31%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": -1,
+                        "social": -1
+                      }
+                    },
+                    {
+                      "type": "showDialogue",
+                      "value": "1"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "1"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "anxiety": {
+                          "chance": 20
+                        },
+                        "support system": {
+                          "chance": 40
+                        }
+                      },
+                      "maxTriggered": 1
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 5
+                    }
+                  ]
+                },
+                {
+                  "name": "2",
+                  "text": "Ask to be excused",
+                  "position": {
+                    "top": "10%",
+                    "left": "55%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "social": -1,
+                        "health": -1
+                      }
+                    },
+                    {
+                      "type": "hideImage",
+                      "value": "WordsJumbledUp"
+                    },
+                    {
+                      "type": "showImage",
+                      "value": "ReadingScene",
+                      "autoHide": false,
+                      "waitForInteraction": false
+                    },
+                    {
+                      "type": "showDialogue",
+                      "value": "2"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "2"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "support system": {
+                          "chance": 40
+                        }
+                      },
+                      "maxTriggered": 1
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 5
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "showImage",
+              "value": "ReadingScene",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showNarration",
+              "value": "intro"
+            },
+            {
+              "type": "showDialogue",
+              "value": "start"
+            },
+            {
+              "type": "hideImage",
+              "value": "ReadingScene"
+            },
+            {
+              "type": "wait",
+              "duration": 500
+            },
+            {
+              "type": "showImage",
+              "value": "WordsJumbledUp",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showClickable",
+              "value": "choice"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-background-canteen.png",
+          "narrations": [
+            {
+              "name": "intro",
+              "texts": [
+                "During break, you bump into your classmates at the canteen."
+              ],
+              "position": {
+                "top": "2%",
+                "left": "2%"
+              }
+            },
+            {
+              "name": "1",
+              "texts": [
+                "Your health points decrease.",
+                "Their comments were hurtful and you can’t stop thinking about them.",
+                "Your social points slightly decrease.",
+                "Your friends think that everything’s fine and don’t check in with you about the incident."
+              ],
+              "position": {
+                "top": "3%",
+                "left": "21%"
+              }
+            },
+            {
+              "name": "2",
+              "texts": [
+                "Your health points increase.",
+                "You feel relieved because you are able to have an open discussion.",
+                "Your social points increase.",
+                "Your friends now understand that the comment was offensive and hurtful, and promise to stand up for you if it happens again."
+              ],
+              "position": {
+                "top": "3%",
+                "left": "21%"
+              }
+            }
+          ],
+          "dialogues": [
+            {
+              "name": "start",
+              "speeches": [
+                {
+                  "character": "Bully",
+                  "text": "Hey Belinda what was that gibberish you were spewing earlier? it was hilarious! Wasn't it guys?",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "3%",
+                    "left": "20%"
+                  }
+                },
+                {
+                  "character": "Others",
+                  "text": "Yeah hahah",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "3%",
+                    "left": "20%"
+                  }
+                },
+                {
+                  "character": "Belinda",
+                  "text": "uhm..(awkward laughter)",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "3%",
+                    "left": "20%"
+                  }
+                },
+                {
+                  "character": "Emily",
+                  "text": "(From a distance) Hey thats not funny. Try putting yourself in her shoes! Let's go Belinda!",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "3%",
+                    "left": "20%"
+                  }
+                },
+                {
+                  "character": "Belinda",
+                  "text": "Sigh... That was really hurtful. Being a student sure is tough...",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "3%",
+                    "left": "20%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "2",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "text": "Thanks for sticking up for me..seeing those guys laugh at my dyslexia makes me feel terrible.",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  }
+                },
+                {
+                  "character": "Emily",
+                  "text": "It's okay just ignore them, its great that you tried anyway. That's what counts!",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  }
+                },
+                {
+                  "character": "Belinda",
+                  "text": "Thanks, Emily.",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  }
+                }
+              ]
+            }
+          ],
+          "images": [
+            {
+              "name": "CanteenEmily",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/CanteenEmily.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            },
+            {
+              "name": "CanteenBullies",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/CanteenBullies.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
+          "clickables": [
+            {
+              "name": "choice",
+              "options": [
+                {
+                  "name": "1",
+                  "text": "Laugh it off and pretend you didn’t hear them",
+                  "position": {
+                    "top": "10%",
+                    "left": "31%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": -1,
+                        "social": -1
+                      }
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "1"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "loneliness": {
+                          "chance": 40
+                        }
+                      },
+                      "maxTriggered": 1
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 6
+                    }
+                  ]
+                },
+                {
+                  "name": "2",
+                  "text": "Talk to your friends about why those remarks were hurtful",
+                  "position": {
+                    "top": "10%",
+                    "left": "55%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "social": 1,
+                        "health": 1
+                      }
+                    },
+                    {
+                      "type": "hideImage",
+                      "value": "CanteenBullies"
+                    },
+                    {
+                      "type": "showImage",
+                      "value": "CanteenEmily",
+                      "autoHide": false,
+                      "waitForInteraction": false
+                    },
+                    {
+                      "type": "showDialogue",
+                      "value": "2"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "2"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "support system": {
+                          "chance": 40
+                        },
+                        "friendship": {
+                          "chance": 60
+                        }
+                      },
+                      "maxTriggered": 1
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "award helping hand badge": {}
+                      }
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 6
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "showImage",
+              "value": "CanteenBullies",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showNarration",
+              "value": "intro"
+            },
+            {
+              "type": "showDialogue",
+              "value": "start"
+            },
+            {
+              "type": "showClickable",
+              "value": "choice"
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-background-classroom.png",
+          "narrations": [
+            {
+              "name": "intro",
+              "texts": [
+                "You try your best to focus in class, but just can't seem to digest anything."
+              ],
+              "position": {
+                "top": "15%",
+                "left": "21%"
+              }
+            },
+            {
+              "name": "later",
+              "texts": ["*later*"],
+              "position": {
+                "top": "3%",
+                "left": "21%"
+              },
+              "dimension": {
+                "width": "30%",
+                "height": "25%"
+              }
+            },
+            {
+              "name": "1",
+              "texts": [
+                "You understand the material better and your confidence increases. Yourth health improves as a result.",
+                "Your money decreases as the tuition is expensive and you have to bear some of the cost through having your allowance reduced."
+              ],
+              "position": {
+                "top": "3%",
+                "left": "21%"
+              }
+            },
+            {
+              "name": "2",
+              "texts": [
+                "You manage to catch up but not as much as you would've liked since your condition is still getting in the way. Your health points decrease as you feel stressed.",
+                "Your social points increase. Emily appreciates it that you asked them for help and you are closer than ever."
+              ],
+              "position": {
+                "top": "3%",
+                "left": "21%"
+              }
+            }
+          ],
+          "dialogues": [
+            {
+              "name": "start",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "text": "This new topic is so confusing, I can barely understand the content!",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "3%",
+                    "left": "20%"
+                  }
+                },
+                {
+                  "character": "Belinda",
+                  "text": "(looks over to her friend) Wow. Emily seems to be having no problems at all... She is going through the questions so fast..",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "3%",
+                    "left": "20%"
+                  }
+                },
+                {
+                  "character": "Belinda",
+                  "text": "I really should put in more effort for my studies. I remember seeing a notice about a new tuition centre for students with learning difficulties... What should I do?",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "3%",
+                    "left": "20%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "1",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "text": "Wow the teachers seem to be doing a good job.",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "3%",
+                    "left": "20%"
+                  }
+                },
+                {
+                  "character": "Belinda",
+                  "text": "That's it, im going to ask my parents to sign me up for this.",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "3%",
+                    "left": "20%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "2",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "text": "Thanks for helping me out Emily.",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  }
+                },
+                {
+                  "character": "Emily",
+                  "text": "Its okay, do you get it now?",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  }
+                },
+                {
+                  "character": "Belinda",
+                  "text": "Yeah..sort of i guess haha (even with her help im still finding this difficult due to my dyslexia)",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  }
+                }
+              ]
+            }
+          ],
+          "images": [
+            {
+              "name": "NewTopic",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/NewTopic.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
+          "clickables": [
+            {
+              "name": "choice",
+              "options": [
+                {
+                  "name": "1",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Noticeboard.png",
+                  "altText": "Go to check out the new tuition center",
+                  "position": {
+                    "top": "13%",
+                    "left": "59%"
+                  },
+                  "dimension": {
+                    "width": "32%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": 1,
+                        "wealth": -1
+                      }
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "later"
+                    },
+                    {
+                      "type": "showDialogue",
+                      "value": "1"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "1"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "support system": {
+                          "chance": 60
+                        }
+                      },
+                      "maxTriggered": 1
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 7
+                    }
+                  ]
+                },
+                {
+                  "name": "2",
+                  "text": "Ask a friend for help because tuition is expensive.",
+                  "position": {
+                    "top": "19%",
+                    "left": "15%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "social": 1,
+                        "health": -1
+                      }
+                    },
+                    {
+                      "type": "showDialogue",
+                      "value": "2"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "2"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "friendship": {
+                          "chance": 70
+                        }
+                      },
+                      "maxTriggered": 1
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 7
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "day": "Wed"
+              }
+            },
+            {
+              "type": "showImage",
+              "value": "NewTopic",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showNarration",
+              "value": "intro"
+            },
+            {
+              "type": "showDialogue",
+              "value": "start"
+            },
+            {
+              "type": "showClickable",
+              "value": "choice"
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-background-livingroom.png",
+          "narrations": [
+            {
+              "name": "intro",
+              "texts": [
+                "You get home and you have work to do but you notice something on your television."
+              ],
+              "position": {
+                "top": "15%",
+                "left": "24%"
+              }
+            },
+            {
+              "name": "1",
+              "texts": [
+                "Your work is left undone social points decrease.",
+                "Your money health decrease because you are stressed."
+              ],
+              "position": {
+                "top": "3%",
+                "left": "23%"
+              }
+            },
+            {
+              "name": "2",
+              "texts": [
+                "Your health increases.",
+                "You are able to relax after having completed your work, although you feel quite tired."
+              ],
+              "position": {
+                "top": "3%",
+                "left": "23%"
+              }
+            }
+          ],
+          "dialogues": [
+            {
+              "name": "start",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "text": "Finally, I'm home. I can get started on the homework that has been piling up."
+                },
+                {
+                  "character": "Belinda",
+                  "text": "(in the living room) Oh what's that? The new edition of my favourite game is out?"
+                },
+                {
+                  "character": "Belinda",
+                  "text": "I've been waiting for ages! Maybe I can squeeze in time for one game.. Just one game..."
+                }
+              ]
+            },
+            {
+              "name": "1",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "text": "Wow the game is really intense.."
+                },
+                {
+                  "character": "Belinda",
+                  "text": "Oh no what's that!? It's already so late?? I completely lost track of time..."
+                },
+                {
+                  "character": "Belinda",
+                  "text": "I haven't even started on what I need to do!"
+                }
+              ]
+            },
+            {
+              "name": "2",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "text": "Hmm I'm finally done with work."
+                },
+                {
+                  "character": "Belinda",
+                  "text": "I guess it was a good thing I decided not to play the game. After all, I can always play it another time."
+                }
+              ]
+            }
+          ],
+          "images": [
+            {
+              "name": "GameScene",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/GameScene.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
+          "clickables": [
+            {
+              "name": "choice",
+              "options": [
+                {
+                  "name": "1",
+                  "text": "Purchase the game and play it for a bit before continuing with work",
+                  "position": {
+                    "top": "22%",
+                    "left": "5%"
+                  },
+                  "dimension": {
+                    "width": "18%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "social": -1,
+                        "health": -1,
+                        "wealth": -1
+                      }
+                    },
+                    {
+                      "type": "showDialogue",
+                      "value": "1"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "1"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "hyperfocus": {
+                          "chance": 50
+                        }
+                      },
+                      "maxTriggered": 1
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 8
+                    }
+                  ]
+                },
+                {
+                  "name": "2",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Homework.png",
+                  "altText": "Focus on your homework.",
+                  "position": {
+                    "top": "22%",
+                    "left": "59%"
+                  },
+                  "dimension": {
+                    "width": "18%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": 1,
+                        "social": 1
+                      }
+                    },
+                    {
+                      "type": "showDialogue",
+                      "value": "2"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "2"
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 8
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "day": "Thu"
+              }
+            },
+            {
+              "type": "showImage",
+              "value": "GameScene",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showNarration",
+              "value": "intro"
+            },
+            {
+              "type": "showDialogue",
+              "value": "start"
+            },
+            {
+              "type": "showClickable",
+              "value": "choice"
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-background-classroom.png",
+          "narrations": [
+            {
+              "name": "intro",
+              "texts": [
+                "You arrive in class and your teacher hands back your test results."
+              ],
+              "position": {
+                "top": "67%",
+                "left": "23%"
+              }
+            },
+            {
+              "name": "1",
+              "texts": [
+                "Your health points decrease. You keep having to lie to your parents about how you are doing in school which stresses you out further.",
+                "Your social points decrease. You feel embarrassed in front of your friends which makes it difficult to have a normal conversation with them."
+              ],
+              "position": {
+                "top": "3%",
+                "left": "23%"
+              }
+            },
+            {
+              "name": "2",
+              "texts": [
+                "Your health points sharply increase because your parents understand that you have some difficulty with learning.",
+                "Your social points increase."
+              ],
+              "position": {
+                "top": "3%",
+                "left": "23%"
+              }
+            }
+          ],
+          "dialogues": [
+            {
+              "name": "start",
+              "speeches": [
+                {
+                  "character": "Ms Ong",
+                  "text": "Here is your paper Belinda. I'm disappointed that you scored so low since this was an easy test. You need to focus more!",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "59%",
+                    "left": "6%"
+                  }
+                },
+                {
+                  "character": "Belinda",
+                  "text": "Thank you Ms Ong...",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  }
+                },
+                {
+                  "character": "Belinda",
+                  "text": "(To herself) Ahhh! I'm so embarrassed!! Ms Ong even said that in front of the whole class... And how am I going to tell my parents about my results?",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "1",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "text": "Hiding things from my parents is always so tiring..",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  }
+                },
+                {
+                  "character": "Belinda",
+                  "text": "But I can't share this with my them. They will be so unhappy.",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "2",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "text": "Mum..Dad..here are my results..",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  }
+                },
+                {
+                  "character": "Parent",
+                  "text": "Hmm I know you're disappointed but its okay. We know you're having a tough time coping. Just keep working hard and trying your best.",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "64%",
+                    "left": "24%"
+                  }
+                }
+              ]
+            }
+          ],
+          "images": [
+            {
+              "name": "ClassroomBullies",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/ClassroomBullies.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
+          "clickables": [
+            {
+              "name": "choice",
+              "options": [
+                {
+                  "name": "1",
+                  "text": "Hide the issue for as long as you can.",
+                  "position": {
+                    "top": "22%",
+                    "left": "12%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "social": -1,
+                        "health": -1
+                      }
+                    },
+                    {
+                      "type": "showDialogue",
+                      "value": "1"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "1"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "loneliness": {
+                          "chance": 40
+                        }
+                      },
+                      "maxTriggered": 1
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 9
+                    }
+                  ]
+                },
+                {
+                  "name": "2",
+                  "text": "Tell your parents.",
+                  "position": {
+                    "top": "22%",
+                    "left": "72%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": 1,
+                        "social": 1
+                      }
+                    },
+                    {
+                      "type": "showDialogue",
+                      "value": "2"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "2"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "award helping hand badge": {}
+                      }
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 9
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "day": "Fri"
+              }
+            },
+            {
+              "type": "showImage",
+              "value": "ClassroomBullies",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showNarration",
+              "value": "intro"
+            },
+            {
+              "type": "showDialogue",
+              "value": "start"
+            },
+            {
+              "type": "showClickable",
+              "value": "choice"
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-background-classroom2.png",
+          "narrations": [
+            {
+              "name": "intro",
+              "texts": [
+                "Later, your teacher prepared a special activity for your class."
+              ],
+              "position": {
+                "top": "69%",
+                "left": "23%"
+              }
+            },
+            {
+              "name": "1",
+              "texts": [
+                "Your idea actually helps the class to uncover the solution. Everybody is pleasantly surprised at your ability and you get a boost of confidence. Health points increase.",
+                "Friends appreciate your ability more and give you more recognition. Social points increase."
+              ],
+              "position": {
+                "top": "3%",
+                "left": "23%"
+              }
+            },
+            {
+              "name": "2",
+              "texts": [
+                "Eventually the class discovers the clue that you noticed on their own and solve the puzzle.",
+                "You’re happy that you were right but you regret staying silent. Health points decrease.",
+                "Your social points remain the same."
+              ],
+              "position": {
+                "top": "3%",
+                "left": "23%"
+              }
+            }
+          ],
+          "dialogues": [
+            {
+              "name": "start",
+              "speeches": [
+                {
+                  "character": "Ms Ong",
+                  "text": "Okay class for today's activity I will split you into groups. You are expected to work together to solve this puzzle.",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "top": "68%",
+                    "left": "23%"
+                  }
+                },
+                {
+                  "character": "Classmates",
+                  "text": "Wow this is really difficult, we've been on this for quite awhile but still can't figure it out!",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "top": "68%",
+                    "left": "23%"
+                  }
+                },
+                {
+                  "character": "Belinda",
+                  "text": "(To herself) Wait a minute, I think I have this figured out.",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "top": "68%",
+                    "left": "23%"
+                  }
+                },
+                {
+                  "character": "Belinda",
+                  "text": "(To herself) Should I say something? I'm not sure if they will be willing to listen to me..",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "top": "68%",
+                    "left": "23%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "1",
+              "speeches": [
+                {
+                  "character": "Belinda",
+                  "text": "Hey guys I think you've missed something here... *shows the class*",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "top": "68%",
+                    "left": "23%"
+                  }
+                },
+                {
+                  "character": "Classmates",
+                  "text": "Wow Belinda, you're right. We didn't look at things that way. The solution is so much more obvious now..",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "top": "68%",
+                    "left": "23%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "2",
+              "speeches": [
+                {
+                  "character": "Classmates",
+                  "text": "*After a long time passes*...Wait a minute what if we change this and this..I think we are starting to see something here",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "top": "68%",
+                    "left": "23%"
+                  }
+                },
+                {
+                  "character": "Belinda",
+                  "text": "(to herself): Looks like I was right all along, hmm maybe I should have said something instead of just keeping quiet..",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "top": "68%",
+                    "left": "23%"
+                  }
+                }
+              ]
+            }
+          ],
+          "images": [
+            {
+              "name": "ClassmatesPuzzle",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/ClassmatesPuzzle.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
+          "clickables": [
+            {
+              "name": "choice",
+              "options": [
+                {
+                  "name": "1",
+                  "text": "Step forward with your idea",
+                  "position": {
+                    "top": "42%",
+                    "left": "12%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "social": 1,
+                        "health": 1
+                      }
+                    },
+                    {
+                      "type": "showDialogue",
+                      "value": "1"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "1"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "friendship": {
+                          "chance": 60
+                        }
+                      },
+                      "maxTriggered": 1
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 10
+                    }
+                  ]
+                },
+                {
+                  "name": "2",
+                  "text": "Sit back",
+                  "position": {
+                    "top": "42%",
+                    "left": "72%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": -1
+                      }
+                    },
+                    {
+                      "type": "showDialogue",
+                      "value": "2"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "2"
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "loneliness": {
+                          "chance": 40
+                        }
+                      },
+                      "maxTriggered": 1
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 10
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "showImage",
+              "value": "ClassmatesPuzzle",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showNarration",
+              "value": "intro"
+            },
+            {
+              "type": "showDialogue",
+              "value": "start"
+            },
+            {
+              "type": "showClickable",
+              "value": "choice"
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/StandardBackground.png",
+          "narrations": [
+            {
+              "name": "intro",
+              "texts": [
+                "You have reached the end of this exercise.",
+                "We rarely have the full picture of what persons with disabilities may be going through.",
+                "Our actions can have significant positive or negative consequences, so it is up to us to show respect and care.",
+                "By stepping into Belinda's shoes, you may have realised that:",
+                "Learning difficulties do not reflect a person's intelligence.",
+                "Your mental image of someone with a learning disability may not be accurate.",
+                "These issues affect close to 10% of students across ages and genders.",
+                "Learning difficulties affect life outside of the classroom.",
+                "They can be linked to feelings of social isolation, low self-esteem and poor mental health.",
+                "It is possible to accommodate</b> learning difficulties. Just because someone is struggling in a mainstream setting does not mean they cannot 'cope'.",
+                "To find out more, visit: [Dyslexia Association of Singapore YouTube channel](https://www.youtube.com/c/DyslexiaAssociationofSingapore/featured), [Martel, P. (2021).Comics about the daily struggle with ADHD](http://adhd-alien.com/), [Yeo, S. (2020).The invisible struggle of girls with ADHD](https://www.straitstimes.com/singapore/parenting-education/the-invisible-struggle-of-girls-with-adhd)"
+              ]
+            }
+          ],
           "dialogues": [],
           "images": [
             {
@@ -4610,9 +7353,22 @@
             }
           ],
           "intro": [
+            { "type": "showNarration", "value": "intro" },
             {
               "type": "wait",
               "duration": 1000
+            },
+            {
+              "type": "triggerEvents",
+              "events": {
+                "award health badge": {},
+                "award social badge": {},
+                "award wealth badge": {}
+              }
+            },
+            {
+              "type": "wait",
+              "duration": 500
             },
             {
               "type": "showImage",
@@ -4653,6 +7409,60 @@
       "name": "Grandma",
       "images": {
         "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/grandma.png"
+      }
+    },
+    {
+      "name": "Teacher",
+      "images": {
+        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/ClassroomTeacher.png"
+      }
+    },
+    {
+      "name": "Friend",
+      "images": {
+        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/BelindaFriend.png"
+      }
+    },
+    {
+      "name": "Class",
+      "images": {
+        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/BelindaFriend.png"
+      }
+    },
+    {
+      "name": "Ms Ong",
+      "images": {
+        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/BelindaFriend.png"
+      }
+    },
+    {
+      "name": "Others",
+      "images": {
+        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/BelindaFriend.png"
+      }
+    },
+    {
+      "name": "Bully",
+      "images": {
+        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/BelindaFriend.png"
+      }
+    },
+    {
+      "name": "Emily",
+      "images": {
+        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/BelindaFriend.png"
+      }
+    },
+    {
+      "name": "Parent",
+      "images": {
+        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/BelindaFriend.png"
+      }
+    },
+    {
+      "name": "Classmates",
+      "images": {
+        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/BelindaFriend.png"
       }
     }
   ]

@@ -13,3 +13,10 @@ export default function DialogueExample() {
     />
   )
 }
+
+export async function getStaticProps() {
+  return {
+    notFound: true, // set to true when live for testing
+    props: {},
+  }
+}
