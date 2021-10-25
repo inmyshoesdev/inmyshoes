@@ -1,6 +1,6 @@
 import { MainCharacter } from '../lib/character'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { A11y, EffectCube, Mousewheel } from 'swiper'
+import { A11y, EffectCube, Mousewheel, Pagination } from 'swiper'
 import { useState } from 'react'
 import { useStore } from '../stores/store'
 function CharacterSelect({
@@ -28,14 +28,15 @@ function CharacterSelect({
           aspectRatio: '16/9',
         }}
       >
-        <h1 className="px-2 py-1 text-white text-xs bg-gray-700 rounded opacity-95 sm:text-sm md:px-3 md:py-2 md:text-base lg:text-lg xl:text-xl">
+        <h1 className="px-2 py-1 text-white text-xs bg-gray-700 rounded opacity-95 select-none sm:text-sm md:px-3 md:py-2 md:text-base lg:text-lg xl:text-xl">
           Character Selection
         </h1>
         <div className="w-1/2 h-1/2 text-xs sm:w-full sm:text-base md:h-2/3">
           <Swiper
-            modules={[A11y, Mousewheel, EffectCube]}
+            modules={[A11y, Mousewheel, EffectCube, Pagination]}
             effect="cube"
             mousewheel={true}
+            pagination={true}
             className="w-[25vw] h-full"
             onSlideChange={(swiper) => {
               setCharacterIndex(swiper.activeIndex)
@@ -44,7 +45,7 @@ function CharacterSelect({
             {mainCharacters.map((character) => (
               <SwiperSlide
                 key={character.name}
-                className="flex items-center justify-evenly bg-gray-100 md:block"
+                className="flex items-center justify-evenly bg-gray-100 select-none md:block"
               >
                 <div className="my-2 h-full md:mb-0 md:h-4/5">
                   <img
@@ -53,7 +54,7 @@ function CharacterSelect({
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <div className="text-md grid place-items-center h-1/5 md:text-xl lg:text-2xl xl:text-3xl">
+                <div className="text-md grid place-items-center -mt-4 h-1/5 md:text-xl lg:text-2xl xl:text-3xl">
                   <span className="text-center text-gray-800 italic font-medium">
                     {character.name}
                   </span>

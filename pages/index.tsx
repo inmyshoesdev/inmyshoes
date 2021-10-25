@@ -48,10 +48,3 @@ const Home: NextPage = () => {
 }
 
 export default Home
-
-export async function getStaticProps() {
-  return {
-    // notFound: true, // set to true when live for testing
-    props: {},
-  }
-}
