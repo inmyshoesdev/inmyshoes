@@ -20,3 +20,10 @@ export const TestingPage: React.FC = () => {
 }
 
 export default TestingPage
+
+export async function getStaticProps() {
+  return {
+    // notFound: true, // set to true when live for testing
+    props: {},
+  }
+}
