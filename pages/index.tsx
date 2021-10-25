@@ -48,10 +48,3 @@ const Home: NextPage = () => {
 }
 
 export default Home
-
-export async function getStaticProps() {
-  return {
-    notFound: process.env.NODE_ENV === 'production',
-    props: {},
-  }
-}
