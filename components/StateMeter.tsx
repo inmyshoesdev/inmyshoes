@@ -66,12 +66,12 @@ export default function StateMeter({
             )}
             <Transition
               show={debounced.updated && debounced.prev !== undefined}
-              leave="transition duration-1000 delay-500"
-              leaveFrom="scale-100 translate-y-0 opacity-100"
-              leaveTo="scale-30 translate-y-8 opacity-10"
-              className="absolute -top-6 left-0 right-0 mx-auto w-full whitespace-nowrap overflow-y-visible"
+              leave="transition duration-1000 delay-1000"
+              leaveFrom="scale-100 -translate-y-8 opacity-100"
+              leaveTo="scale-30 translate-y-0 opacity-10"
+              className="absolute inset-0 grid place-items-center m-auto whitespace-nowrap overflow-y-visible"
             >
-              <span className="w-full text-center text-xs font-bold sm:text-sm md:text-base lg:text-lg xl:text-xl">
+              <span className="w-full text-center text-xs font-bold sm:text-sm md:text-base lg:text-xl xl:text-2xl">
                 {debounced.prev !== undefined &&
                   getStateChangeText(debounced.curr, debounced.prev)}
               </span>
@@ -112,7 +112,7 @@ export default function StateMeter({
                 .rc-progress-line-path {
                   --easing-function: cubic-bezier(0.39, 1.49, 0.84, 1);
                   --transition-duration: 0.6s;
-                  --transition-delay: 0.4s;
+                  --transition-delay: 1s;
                   transition: stroke-dashoffset var(--transition-duration)
                       var(--easing-function) var(--transition-delay),
                     stroke-dasharray var(--transition-duration)

@@ -32,6 +32,7 @@ export default function StateDisplay({
           <img
             className="mx-2 w-1/5 h-full object-contain sm:w-1/4 lg:w-1/3"
             src={iconImage}
+            alt={`${title} display`}
           />
         )}
         <div className="overflow-hidden">
