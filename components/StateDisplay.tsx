@@ -26,7 +26,7 @@ export default function StateDisplay({
 
   return (
     <div className="flex flex-col items-center w-1/6 h-full overflow-hidden">
-      <p className="h-1/3 text-xs capitalize md:text-sm">{title}</p>
+      <p className="h-1/3 text-2xs capitalize sm:text-xs md:text-sm">{title}</p>
       <div className="flex flex-grow flex-shrink items-center w-full h-2/3">
         {iconImage && (
           <img

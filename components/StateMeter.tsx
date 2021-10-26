@@ -51,7 +51,7 @@ export default function StateMeter({
 
   return (
     <div className="relative flex flex-col w-1/4 h-full">
-      <p className="ml-2 h-1/3 text-xs capitalize sm:ml-0 md:text-sm">
+      <p className="ml-2 h-1/3 text-2xs capitalize sm:text-xs md:text-sm">
         {title}
       </p>
       <div className="flex flex-grow flex-shrink items-center h-2/3">
@@ -71,7 +71,7 @@ export default function StateMeter({
               leaveTo="scale-30 translate-y-0 opacity-10"
               className="absolute inset-0 grid place-items-center m-auto whitespace-nowrap overflow-y-visible"
             >
-              <span className="w-full text-center 2xl:text-2xl text-xs font-bold sm:text-sm md:text-base lg:text-xl xl:text-xl">
+              <span className="w-full text-center 2xl:text-2xl text-xs font-bold sm:text-sm md:text-base lg:text-lg xl:text-xl">
                 {debounced.prev !== undefined &&
                   getStateChangeText(debounced.curr, debounced.prev)}
               </span>
