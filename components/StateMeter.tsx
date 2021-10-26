@@ -71,7 +71,7 @@ export default function StateMeter({
               leaveTo="scale-30 translate-y-0 opacity-10"
               className="absolute inset-0 grid place-items-center m-auto whitespace-nowrap overflow-y-visible"
             >
-              <span className="w-full text-center text-xs font-bold sm:text-sm md:text-base lg:text-xl xl:text-2xl">
+              <span className="w-full text-center 2xl:text-2xl text-xs font-bold sm:text-sm md:text-base lg:text-xl xl:text-xl">
                 {debounced.prev !== undefined &&
                   getStateChangeText(debounced.curr, debounced.prev)}
               </span>
