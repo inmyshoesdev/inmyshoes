@@ -26,12 +26,13 @@ export default function StateDisplay({
 
   return (
     <div className="flex flex-col items-center w-1/6 h-full overflow-hidden">
-      <p className="h-1/3 text-xs capitalize md:text-sm">{title}</p>
+      <p className="h-1/3 text-2xs capitalize sm:text-xs md:text-sm">{title}</p>
       <div className="flex flex-grow flex-shrink items-center w-full h-2/3">
         {iconImage && (
           <img
             className="mx-2 w-1/5 h-full object-contain sm:w-1/4 lg:w-1/3"
             src={iconImage}
+            alt={`${title} display`}
           />
         )}
         <div className="overflow-hidden">

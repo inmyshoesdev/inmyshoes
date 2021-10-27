@@ -271,8 +271,6 @@ export const DefinedActions: {
             return undefined
           }
 
-          console.log(eventSchema.name)
-
           if (Math.random() * 100 > chance) {
             return undefined
           }
