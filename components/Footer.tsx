@@ -14,7 +14,6 @@ import {
 } from '@chakra-ui/react'
 import { useDisclosure } from '@chakra-ui/react'
 import { Button } from '@chakra-ui/button'
-import { Howl, Howler } from 'howler'
 
 function Footer({
   characterSelected,
@@ -31,26 +30,26 @@ function Footer({
   const game = useStore((state) => state.game)
 
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const [sound] = useState(
-    new Howl({
-      src: [game.about.backgroundMusic ?? '/music/bensound-jazzcomedy.mp3'],
+  const [play, { stop }] = useSound(
+    game.about.backgroundMusic ?? '/music/bensound-jazzcomedy.mp3',
+    {
       volume: 0.5,
       loop: true,
-    })
+    }
   )
 
   useEffect(() => {
     if (musicOn) {
       console.log('play')
-      sound.play()
+      play()
     } else {
       console.log('stop')
-      sound.stop()
+      stop()
     }
     return () => {
-      sound.stop()
+      stop()
     }
-  }, [musicOn])
+  }, [musicOn, play, stop])
 
   return (
     <>

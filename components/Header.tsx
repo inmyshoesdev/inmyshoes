@@ -17,7 +17,7 @@ export default function Header({ header = [], screenWidth }: HeaderProps) {
   return (
     <div
       id="header"
-      className="flex flex-wrap items-stretch justify-between max-h-16 text-center md:justify-around md:px-2"
+      className="relative z-50 flex flex-wrap items-stretch justify-between max-h-16 text-center md:justify-around md:px-2"
       style={{
         width: `${screenWidth}vw`,
         height: `${((9 / 16) * screenWidth) / 2}vh`,
