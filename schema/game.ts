@@ -19,7 +19,10 @@ import { TriggerEventsSchema } from './events'
 import { StateSchema } from './state'
 
 const LogoSchema = type({
-  src: defaulted(string(), '/images/mainlogo.png'),
+  src: defaulted(
+    string(),
+    'https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/mainlogo.png'
+  ),
   width: defaulted(string(), '150'),
   height: defaulted(string(), '50'),
 })

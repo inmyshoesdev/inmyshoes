@@ -162,7 +162,7 @@
                     {
                       "type": "playSound",
                       "src": "/sounds/reward.wav",
-                      "volume": 0.4
+                      "volume": 0.2
                     },
                     {
                       "type": "showNarration",

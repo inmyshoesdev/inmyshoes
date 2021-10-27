@@ -2,7 +2,7 @@
   "name": "In My Shoes - Youth",
   "about": {
     "logo": {
-      "src": "/images/mainlogo.png",
+      "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/mainlogo.png",
       "width": "150",
       "height": "0"
     },
@@ -41,21 +41,21 @@
       "component": "state_meter",
       "title": "Health",
       "state": "health",
-      "iconImage": "/images/Health.png",
+      "iconImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/health-icon.png",
       "color": "#e9242b"
     },
     {
       "component": "state_meter",
       "title": "Social",
       "state": "social",
-      "iconImage": "/images/Social.png",
+      "iconImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/social-icon.png",
       "color": "#ffcca1"
     },
     {
       "component": "state_meter",
       "title": "Wealth",
       "state": "wealth",
-      "iconImage": "/images/Wealth.png",
+      "iconImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/wealth-icon.png",
       "color": "#fee214"
     }
   ],
@@ -254,7 +254,7 @@
               "options": [
                 {
                   "name": "health",
-                  "src": "/images/health-badge.png",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/health-badge.png",
                   "position": {
                     "top": "0",
                     "left": "0",
@@ -285,7 +285,7 @@
             {
               "type": "playSound",
               "src": "/sounds/reward.wav",
-              "volume": 0.4,
+              "volume": 0.2,
               "interrupt": true
             },
             {
@@ -308,7 +308,7 @@
               "options": [
                 {
                   "name": "social",
-                  "src": "/images/social-badge.png",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/social-badge.png",
                   "position": {
                     "top": "0",
                     "left": "0",
@@ -339,7 +339,7 @@
             {
               "type": "playSound",
               "src": "/sounds/reward.wav",
-              "volume": 0.4,
+              "volume": 0.2,
               "interrupt": true
             },
             {
@@ -362,7 +362,7 @@
               "options": [
                 {
                   "name": "wealth",
-                  "src": "/images/wealth-badge.png",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/wealth-badge.png",
                   "position": {
                     "top": "0",
                     "left": "0",
@@ -393,7 +393,7 @@
             {
               "type": "playSound",
               "src": "/sounds/reward.wav",
-              "volume": 0.4,
+              "volume": 0.2,
               "interrupt": true
             },
             {
@@ -416,7 +416,7 @@
               "options": [
                 {
                   "name": "helping hand",
-                  "src": "/images/helping-hand-badge.png",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/helping-hand-badge.png",
                   "position": {
                     "top": "0",
                     "left": "0",
@@ -447,7 +447,7 @@
             {
               "type": "playSound",
               "src": "/sounds/reward.wav",
-              "volume": 0.4,
+              "volume": 0.2,
               "interrupt": true
             },
             {
@@ -4141,7 +4141,7 @@
           "images": [
             {
               "name": "soristic logo",
-              "src": "/images/mainlogo.png",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/mainlogo.png",
               "altText": "soristic logo",
               "position": {
                 "top": "15%",
@@ -4426,7 +4426,7 @@
               "options": [
                 {
                   "name": "health",
-                  "src": "/images/health-badge.png",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/health-badge.png",
                   "position": {
                     "top": "0",
                     "left": "0",
@@ -4457,7 +4457,7 @@
             {
               "type": "playSound",
               "src": "/sounds/reward.wav",
-              "volume": 0.4,
+              "volume": 0.2,
               "interrupt": true
             },
             {
@@ -4480,7 +4480,7 @@
               "options": [
                 {
                   "name": "social",
-                  "src": "/images/social-badge.png",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/social-badge.png",
                   "position": {
                     "top": "0",
                     "left": "0",
@@ -4511,7 +4511,7 @@
             {
               "type": "playSound",
               "src": "/sounds/reward.wav",
-              "volume": 0.4,
+              "volume": 0.2,
               "interrupt": true
             },
             {
@@ -4534,7 +4534,7 @@
               "options": [
                 {
                   "name": "wealth",
-                  "src": "/images/wealth-badge.png",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/wealth-badge.png",
                   "position": {
                     "top": "0",
                     "left": "0",
@@ -4565,7 +4565,7 @@
             {
               "type": "playSound",
               "src": "/sounds/reward.wav",
-              "volume": 0.4,
+              "volume": 0.2,
               "interrupt": true
             },
             {
@@ -4588,7 +4588,7 @@
               "options": [
                 {
                   "name": "helping hand",
-                  "src": "/images/helping-hand-badge.png",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/helping-hand-badge.png",
                   "position": {
                     "top": "0",
                     "left": "0",
@@ -4619,7 +4619,7 @@
             {
               "type": "playSound",
               "src": "/sounds/reward.wav",
-              "volume": 0.4,
+              "volume": 0.2,
               "interrupt": true
             },
             {
@@ -5019,7 +5019,7 @@
             {
               "name": "intro",
               "texts": [
-                "You accidentally misplaced you phone whilst preparing breakfast for your siblings."
+                "You accidentally misplaced your phone whilst preparing breakfast for your siblings."
               ]
             },
             {
@@ -7293,7 +7293,7 @@
           "images": [
             {
               "name": "soristic logo",
-              "src": "/images/mainlogo.png",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/mainlogo.png",
               "altText": "soristic logo",
               "position": {
                 "top": "15%",

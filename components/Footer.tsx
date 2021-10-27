@@ -136,7 +136,10 @@ function Footer({
           className="text-center"
         >
           <img
-            src={game.about.logo?.src ?? '/images/mainlogo.png'}
+            src={
+              game.about.logo?.src ??
+              'https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/mainlogo.png'
+            }
             alt="Logo"
             width={game.about.logo?.width ?? 150}
             height={game.about.logo?.height ?? 50}
