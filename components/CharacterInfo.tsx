@@ -33,10 +33,7 @@ function CharacterInfo({
     <div
       className={`${
         hidden ? 'hidden' : ''
-      } w-[45vw] mx-auto flex pt-1 flex-col items-center gap-2 md:gap-3 lg:gap-4 xl:gap-6 md:pt-2`}
-      style={{
-        aspectRatio: '16/9',
-      }}
+      }  h-full w-full flex pt-1 flex-col items-center gap-2 md:gap-3 lg:gap-4 xl:gap-6 md:pt-2`}
     >
       <h1 className="px-2 bg-gray-700 border border-gray-900 rounded-handdrawn opacity-90 select-none md:px-3 md:py-1 md:border-2">
         <span className="text-white text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl">
@@ -75,7 +72,7 @@ function CharacterInfo({
           left: -25%;
         }
       `}</style>
-      <div className="swiper-parent w-full h-full">
+      <div className="swiper-parent w-1/2 h-full">
         <Swiper
           modules={[A11y, Mousewheel, EffectCards, Navigation]}
           effect="cards"
@@ -86,13 +83,20 @@ function CharacterInfo({
         >
           {characterSelected &&
             game.mainCharacters[characterIndex].info.map((info) => (
-              <SwiperSlide key={info.text} className="relative">
-                <img
+              <SwiperSlide
+                key={info.text}
+                className="relative h-2"
+                style={{
+                  backgroundImage: `url(${info.backgroundImage})`,
+                  backgroundSize: 'cover',
+                }}
+              >
+                {/* <img
                   src={info.backgroundImage}
                   alt={`image showing character information for ${game.mainCharacters[characterIndex].name}`}
-                />
+                /> */}
                 <div className="bg-gray-900/80 absolute bottom-0 inset-x-0 mx-auto p-1 w-max max-w-full text-center">
-                  <span className="text-gray-100 text-2xs sm:text-xs md:text-sm lg:text-base">
+                  <span className="text-gray-100 text-2xs leading-3 sm:text-xs md:text-sm lg:text-base">
                     {info.text}
                   </span>
                 </div>
@@ -100,7 +104,7 @@ function CharacterInfo({
             ))}
         </Swiper>
       </div>
-      <div className="z-10 flex flex-col gap-2 items-center justify-center mt-1 md:gap-3 lg:gap-4 lg:mt-3 xl:gap-8 xl:mt-6">
+      <div className="z-10 flex flex-col gap-2 items-center justify-center my-1 md:gap-3 lg:gap-4 lg:my-3 xl:gap-8 xl:my-6">
         <button
           className="px-3 text-center font-medium bg-green-400 hover:bg-green-500 rounded cursor-pointer md:px-4 md:py-1"
           onClick={() => {

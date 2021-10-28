@@ -17,7 +17,9 @@ export const EmptyGame: Game = {
   loading: false,
 
   about: {
-    logo: { src: '/images/mainlogo.png' },
+    logo: {
+      src: 'https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/mainlogo.png',
+    },
     backgroundMusic: '/music/bensound-jazzcomedy.mp3',
     credits: 'This is supported by markdown for ease of formatting',
   },

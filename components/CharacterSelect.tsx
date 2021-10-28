@@ -8,6 +8,7 @@ import Tape from './Tape'
 import paperBg from '../public/images/paper-bg.jpg'
 import 'swiper/css'
 import 'swiper/css/navigation'
+import { Tooltip } from '@chakra-ui/tooltip'
 
 function CharacterSelect({
   characterSelected,
@@ -20,18 +21,17 @@ function CharacterSelect({
 }) {
   const setCharacterSelected = useStore((state) => state.setCharacterSelected)
   const [characterIndex, setCharacterIndex] = useState(0)
+
   function finishSelection() {
     updateCharacter(characterIndex)
     setCharacterSelected(true)
   }
+
   return (
     <div
       className={`${
         characterSelected ? 'hidden' : ''
-      } bg relative w-auto mx-auto flex flex-col items-center justify-evenly`}
-      style={{
-        aspectRatio: '16/9',
-      }}
+      } relative mx-auto flex flex-col items-center justify-evenly h-full`}
     >
       <Image
         className="absolute z-0 inset-0"
@@ -106,9 +106,11 @@ function CharacterSelect({
                 />
               </div>
               <div className="grid place-items-center ml-2 h-1/5 text-sm md:-mt-1 md:text-base lg:text-xl xl:text-2xl">
-                <span className="text-center text-gray-800 italic font-medium">
-                  {character.name}
-                </span>
+                <Tooltip label="Swipe" placement="bottom">
+                  <span className="text-center text-gray-800 italic font-medium">
+                    {character.name}
+                  </span>
+                </Tooltip>
               </div>
             </SwiperSlide>
           ))}
