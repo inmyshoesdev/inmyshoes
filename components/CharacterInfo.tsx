@@ -66,13 +66,17 @@ function CharacterInfo({
 
         .swiper-parent :global(.swiper-button-next) {
           right: -25%;
+          cursor: url(https://soristic.sgp1.digitaloceanspaces.com/general/curhand.cur),
+            auto !important;
         }
 
         .swiper-parent :global(.swiper-button-prev) {
           left: -25%;
+          cursor: url(https://soristic.sgp1.digitaloceanspaces.com/general/curhand.cur),
+            auto !important;
         }
       `}</style>
-      <div className="swiper-parent w-1/2 h-full">
+      <div className="swiper-parent w-3/5">
         <Swiper
           modules={[A11y, Mousewheel, EffectCards, Navigation]}
           effect="cards"
@@ -82,16 +86,17 @@ function CharacterInfo({
           key={characterIndex}
         >
           {characterSelected &&
-            game.mainCharacters[characterIndex].info.map((info) => (
+            game.mainCharacters[characterIndex].info.map((info, idx) => (
               <SwiperSlide
                 key={info.text}
-                className="relative h-2"
-                style={{
-                  backgroundImage: `url(${info.backgroundImage})`,
-                  backgroundSize: 'cover',
-                }}
+                className="aspect-w-16 aspect-h-9 relative"
               >
-                <div className="bg-gray-900/80 absolute bottom-0 inset-x-0 mx-auto p-1 w-max max-w-full text-center">
+                <img
+                  className="object-cover"
+                  src={info.backgroundImage}
+                  alt={`background ${idx} for ${game.mainCharacters[characterIndex].name}`}
+                />
+                <div className="bg-gray-900/80 top-unset h-max absolute mx-auto p-1 w-max max-w-full text-center">
                   <span className="text-gray-100 text-2xs leading-3 sm:text-xs md:text-sm lg:text-base">
                     {info.text}
                   </span>
@@ -100,7 +105,7 @@ function CharacterInfo({
             ))}
         </Swiper>
       </div>
-      <div className="z-10 flex flex-col gap-2 items-center justify-center my-1 md:gap-3 lg:gap-4 lg:my-3 xl:gap-8 xl:my-6">
+      <div className="z-10 flex gap-3 items-center justify-center my-2 lg:flex-col lg:my-1 xl:gap-6 xl:my-3">
         <button
           className="px-3 text-center font-medium bg-green-400 hover:bg-green-500 rounded cursor-pointer md:px-4 md:py-1"
           onClick={() => {
@@ -108,14 +113,14 @@ function CharacterInfo({
             setBlurBackground((state) => !state)
           }}
         >
-          <span className="text-xs sm:text-sm md:text-base lg:text-lg">
+          <span className="text-xs cursor-pointer sm:text-sm md:text-base lg:text-lg">
             Resume
           </span>
         </button>
         <Popover>
           <PopoverTrigger>
             <button className="mx-auto px-1 font-medium bg-yellow-400 hover:bg-yellow-500 rounded cursor-pointer md:px-2 md:py-1">
-              <span className="text-2xs sm:text-xs md:text-sm lg:text-base">
+              <span className="text-2xs cursor-pointer sm:text-xs md:text-sm lg:text-base">
                 Reselect
               </span>
             </button>

@@ -5,7 +5,6 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { useStore } from '../stores/store'
 import Tape from './Tape'
-import paperBg from '../public/images/paper-bg.jpg'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import { Tooltip } from '@chakra-ui/tooltip'
@@ -35,8 +34,10 @@ function CharacterSelect({
     >
       <Image
         className="absolute z-0 inset-0"
-        src={paperBg}
+        src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/paper-bg.jpg"
         alt="background of corkboard"
+        height={3247}
+        width={4559}
         layout="fill"
       />
       <h1 className="px-2 bg-gray-700 border border-gray-900 rounded-handdrawn opacity-90 select-none md:px-3 md:py-1 md:border-2">
@@ -87,17 +88,17 @@ function CharacterSelect({
             setCharacterIndex(swiper.activeIndex)
           }}
         >
-          {mainCharacters.map((character) => (
+          {mainCharacters.map((character, idx) => (
             <SwiperSlide
               key={character.name}
               className="flex items-center justify-evenly p-2 bg-white shadow-md select-none md:block md:p-4 md:pb-0"
             >
               <div className="relative flex-grow h-full bg-gray-100 shadow-sm md:mb-0 md:h-4/5">
                 <div className="absolute -left-1 top-0 md:-left-2 xl:top-1">
-                  <Tape rotation={-45}></Tape>
+                  <Tape rotation={-45 + ((idx * 20) % 7)}></Tape>
                 </div>
                 <div className="absolute -right-1 top-0 md:-right-2 xl:top-1">
-                  <Tape rotation={39}></Tape>
+                  <Tape rotation={36 + ((idx * 30) % 11)}></Tape>
                 </div>
                 <img
                   src={character.images.default}
