@@ -59,7 +59,7 @@ const Demo: React.FC = () => {
     <>
       <Head>
         <title>{game?.name}</title>
-        <meta name="description" content="In Their Shoes | Soristic" />
+        <meta name="description" content="In My Shoes | Soristic" />
         <link rel="icon" href="/favicon.ico" />
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -70,13 +70,13 @@ const Demo: React.FC = () => {
         <meta
           name="Description"
           property="og:description"
-          content="Simulation game, developed by Soristic"
+          content="Simulation, developed by Soristic"
         />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="In My Shoes | Soristic" />
         <meta
           property="og:description"
-          content="Simulation game, developed by Soristic"
+          content="Simulation, developed by Soristic"
         />
         <meta name="author" content="Soristic" />
       </Head>

@@ -4190,7 +4190,7 @@
           "links": [
             {
               "name": "feedback",
-              "url": "/demo/feedback",
+              "url": "/youth/feedback",
               "text": "Help us improve the game!",
               "effect": "bounce",
               "position": {
@@ -7342,7 +7342,7 @@
           "links": [
             {
               "name": "feedback",
-              "url": "/demo/feedback",
+              "url": "/youth/feedback",
               "text": "Help us improve the game!",
               "effect": "bounce",
               "position": {
