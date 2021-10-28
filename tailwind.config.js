@@ -11,7 +11,7 @@ module.exports = {
         '1/50': '2%'
       },
       minWidth: {
-        '5': '1.25rem' 
+        '5': '1.25rem'
       },
       keyframes: {
         wiggle: {
@@ -43,6 +43,11 @@ module.exports = {
       fontFamily: {
         sans: ['Rubik', ...defaultTheme.fontFamily.sans],
         handwritten: ['Dekko', 'Rubik', ...defaultTheme.fontFamily.sans],
+        // below is used in the landing page
+        joe: ['Josefin Sans', 'sans-serif'],
+        nun: ['Nunito Sans', 'sans-serif'],
+        openSans: ['Open Sans', 'sans-serif'],
+        staat: ['Staatliches', 'cursive']
       },
       colors: {
         'teal': '#009688',
@@ -55,13 +60,24 @@ module.exports = {
         'teal-600': '#00897b',
         'teal-700': '#00796b',
         'teal-800': '#00695c',
-        'teal-900': '#004d40'
+        'teal-900': '#004d40',
+        // below is used in the landing page
+        'HTP-bg': '#CADFDF',
+        'HTP-text': '#6C857C',
+        'r-button': '#69C6C2',
+        'r-bg': '#FFF7F3',
+        'r-play-inner-bg': '#FEF3E6',
+        'r-play-border': '#F1CEA5',
+        'r-edu-inner-bg': '#E9EBEA',
+        'footer-blue': '#1B3A5D'
       },
       borderRadius: {
-        'handdrawn': '300px 15px 175px 15px/15px 175px 15px 300px'
+        'handdrawn': '300px 15px 175px 15px/15px 175px 15px 300px',
+        'xl': '2rem'
       },
       borderWidth: {
-        '3': '3px'
+        '3': '3px',
+        '10': '12px'
       },
       lineHeight: {
         'relaxed': '1.67'
@@ -71,7 +87,10 @@ module.exports = {
       },
       scale: {
         '30': '.30'
-      }
+      },
+      boxShadow: {
+        button: '3px 3px #888888'
+      },
     },
   },
   variants: {
