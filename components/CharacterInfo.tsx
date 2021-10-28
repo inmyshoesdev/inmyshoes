@@ -91,10 +91,6 @@ function CharacterInfo({
                   backgroundSize: 'cover',
                 }}
               >
-                {/* <img
-                  src={info.backgroundImage}
-                  alt={`image showing character information for ${game.mainCharacters[characterIndex].name}`}
-                /> */}
                 <div className="bg-gray-900/80 absolute bottom-0 inset-x-0 mx-auto p-1 w-max max-w-full text-center">
                   <span className="text-gray-100 text-2xs leading-3 sm:text-xs md:text-sm lg:text-base">
                     {info.text}
