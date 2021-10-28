@@ -1,6 +1,7 @@
 import { useToast } from '@chakra-ui/toast'
 import { Transition } from '@headlessui/react'
 import Head from 'next/head'
+import NextLink from 'next/link'
 import { useState } from 'react'
 import { PostGameForm, SurveyFormWrapper } from '../../components/Surveys'
 
@@ -23,22 +24,22 @@ const Feedback: React.FC = () => {
   return (
     <>
       <Head>
-        <title>{Feedback}</title>
-        <meta name="description" content="In Their Shoes | Soristic" />
+        <title>In My Shoes | Feedback</title>
+        <meta name="description" content="In My Shoes | Feedback" />
         <link rel="icon" href="/favicon.ico" />
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#01948e" />
-        <meta name="title" content="In My Shoes | Soristic" />
+        <meta name="title" content="In My Shoes | Feedback" />
         <meta
           name="Description"
           property="og:description"
           content="Simulation game, developed by Soristic"
         />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="In My Shoes | Soristic" />
+        <meta property="og:title" content="In My Shoes | Feedback" />
         <meta
           property="og:description"
           content="Simulation game, developed by Soristic"
@@ -51,6 +52,9 @@ const Feedback: React.FC = () => {
             <h1 className="p-5 text-transparent bg-gradient-to-r bg-clip-text from-teal-500 to-blue-500 animate-bounce">
               Thanks For Playing!
             </h1>
+            <h2 className="text-blue-500 underline text-xl cursor-pointer">
+              <NextLink href="/youth">Back to Simulation</NextLink>
+            </h2>
           </div>
         )}
         <Transition

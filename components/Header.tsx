@@ -6,21 +6,19 @@ import {
 import { COMPONENT_TYPE } from '../schema/component'
 import StateMeter from './StateMeter'
 import StateDisplay from './StateDisplay'
-import useLocalStorage from '../hooks/useLocalStorage'
 
 export interface HeaderProps {
   header?: StateComponent[]
-  screenWidth: number
 }
 
-export default function Header({ header = [], screenWidth }: HeaderProps) {
+export default function Header({ header = [] }: HeaderProps) {
   return (
     <div
       id="header"
       className="relative z-50 flex flex-wrap items-stretch justify-between max-h-16 text-center md:justify-around md:px-2"
       style={{
-        width: `${screenWidth}vw`,
-        height: `${((9 / 16) * screenWidth) / 2}vh`,
+        width: '72vw',
+        height: '40.5vh',
       }}
     >
       {header.map((component) => {

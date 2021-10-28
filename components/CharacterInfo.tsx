@@ -31,10 +31,7 @@ function CharacterInfo({
     <div
       className={`${
         hidden ? 'hidden' : ''
-      } w-[45vw] mx-auto flex flex-col items-center gap-4`}
-      style={{
-        aspectRatio: '16/9',
-      }}
+      } w-[50vw] h-5/6 mx-auto flex flex-col items-center gap-4`}
     >
       <h1 className="px-2 text-white text-xl bg-gray-700 opacity-90">
         Character Information

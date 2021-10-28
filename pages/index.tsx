@@ -38,8 +38,8 @@ const Home: NextPage = () => {
         </h2>
         <h2 className="text-lg">
           To play the Demo game, go to{' '}
-          <Link href="/demo">
-            <a className="text-blue-600 cursor-pointer">/demo</a>
+          <Link href="/youth">
+            <a className="text-blue-600 cursor-pointer">/youth</a>
           </Link>
         </h2>
       </main>

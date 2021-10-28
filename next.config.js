@@ -1,5 +1,13 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   reactStrictMode: true,
-  target: 'serverless',
+  async redirects() {
+    return [
+      {
+        source: '/demo',
+        destination: '/youth',
+        permanent: false,
+      },
+    ]
+  },
 }

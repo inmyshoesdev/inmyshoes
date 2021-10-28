@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { A11y, EffectCube, Mousewheel, Pagination } from 'swiper'
 import { useState } from 'react'
 import { useStore } from '../stores/store'
+import { Tooltip } from '@chakra-ui/tooltip'
 function CharacterSelect({
   characterSelected,
   mainCharacters,
@@ -23,10 +24,7 @@ function CharacterSelect({
       <div
         className={`${
           characterSelected ? 'hidden' : ''
-        } bg relative w-auto mx-auto flex flex-col items-center justify-evenly`}
-        style={{
-          aspectRatio: '16/9',
-        }}
+        } bg relative mx-auto flex flex-col items-center justify-evenly w-[72vw] h-[40.5vw]`}
       >
         <h1 className="px-2 py-1 text-white text-xs bg-gray-700 rounded opacity-95 select-none sm:text-sm md:px-3 md:py-2 md:text-base lg:text-lg xl:text-xl">
           Character Selection
@@ -55,9 +53,11 @@ function CharacterSelect({
                   />
                 </div>
                 <div className="text-md grid place-items-center -mt-4 h-1/5 md:text-xl lg:text-2xl xl:text-3xl">
-                  <span className="text-center text-gray-800 italic font-medium">
-                    {character.name}
-                  </span>
+                  <Tooltip label="Swipe" placement="bottom">
+                    <span className="text-center text-gray-800 italic font-medium">
+                      {character.name}
+                    </span>
+                  </Tooltip>
                 </div>
               </SwiperSlide>
             ))}
