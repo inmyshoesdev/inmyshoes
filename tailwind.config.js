@@ -8,10 +8,10 @@ module.exports = {
     extend: {
       minHeight: (theme) => theme('height'),
       width: {
-        '1/50': '2%'
+        '1/50': '2%',
       },
       minWidth: {
-        '5': '1.25rem' 
+        5: '1.25rem',
       },
       keyframes: {
         wiggle: {
@@ -45,7 +45,7 @@ module.exports = {
         handwritten: ['Dekko', 'Rubik', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        'teal': '#009688',
+        teal: '#009688',
         'teal-50': '#e0f2f1',
         'teal-100': '#b2dfdb',
         'teal-200': '#80cbc4',
@@ -55,31 +55,32 @@ module.exports = {
         'teal-600': '#00897b',
         'teal-700': '#00796b',
         'teal-800': '#00695c',
-        'teal-900': '#004d40'
+        'teal-900': '#004d40',
       },
       borderRadius: {
-        'handdrawn': '300px 15px 175px 15px/15px 175px 15px 300px'
+        handdrawn: '300px 15px 175px 15px/15px 175px 15px 300px',
+        narration: '300px 15px 175px 15px/15px 175px 15px 300px',
+        dialog: '20px 25px 35px 30px/25px 35px 25px 25px',
       },
       borderWidth: {
-        '3': '3px'
+        3: '3px',
+        narration: '2px 7px 7px 2px',
+        speech: '2px 4px 6px 4px',
       },
       lineHeight: {
-        'relaxed': '1.67'
+        relaxed: '1.67',
       },
       transitionProperty: {
-        'filter': 'filter',
+        filter: 'filter',
       },
       scale: {
-        '30': '.30'
-      }
+        30: '.30',
+      },
     },
   },
   variants: {
     scrollbar: ['rounded'],
     extend: {},
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-    require('tailwind-scrollbar'),
-  ],
+  plugins: [require('@tailwindcss/forms'), require('tailwind-scrollbar')],
 }

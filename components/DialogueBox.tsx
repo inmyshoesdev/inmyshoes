@@ -12,6 +12,12 @@ import { useStateTemplater } from '../hooks/useStateTemplater'
 import { Position, Dimension } from '../lib/elements'
 import { renderMdToHtml } from './utils'
 
+export enum DialogBoxType {
+  NARRATION,
+  SPEECH,
+  THOUGHT,
+}
+
 export interface DialogueBoxProps {
   image?: string
   position?: Position
@@ -25,6 +31,7 @@ export interface DialogueBoxProps {
   prevEnabled?: boolean
   nextEnabled?: boolean
   showNavigations?: boolean
+  type?: DialogBoxType
 }
 
 const DialogueBox: React.FC<DialogueBoxProps> = ({
@@ -39,6 +46,7 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
   prevEnabled = true,
   nextEnabled = true,
   showNavigations = true,
+  type,
 }) => {
   const template = useStateTemplater()
   const [skipTyping, setSkipTyping] = useState<boolean>(false)
@@ -149,6 +157,19 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
     </>
   )
 
+  const typeStyling = () => {
+    switch (type) {
+      case DialogBoxType.NARRATION:
+        return 'border-narration rounded-narration'
+      case DialogBoxType.SPEECH:
+        return 'border-speech rounded-dialog'
+      case DialogBoxType.THOUGHT:
+        return 'border-3 rounded-dialog'
+      default:
+        return 'border-3 rounded-handdrawn'
+    }
+  }
+
   return (
     <>
       {image ? (
@@ -172,7 +193,10 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
       ) : (
         <div className="absolute left-0 top-0 w-full h-full" onClick={onClick}>
           <div
-            className="absolute bg-white border-3 border-gray-900 rounded-handdrawn shadow-sm"
+            className={
+              'opacity-90 absolute bg-white border-gray-900 shadow-sm ' +
+              typeStyling()
+            }
             style={{
               top: position ? position.top : 'unset',
               left: position ? position.left : '20%',
