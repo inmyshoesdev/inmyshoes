@@ -39,7 +39,7 @@ function CharacterSelect({
         alt="background of corkboard"
         layout="fill"
       />
-      <h1 className="px-2 py-1 bg-gray-700 border border-gray-900 rounded-handdrawn opacity-90 select-none md:px-3 md:py-2 md:border-2">
+      <h1 className="px-2 bg-gray-700 border border-gray-900 rounded-handdrawn opacity-90 select-none md:px-3 md:py-1 md:border-2">
         <span className="text-white text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl">
           Character Selection
         </span>
@@ -82,7 +82,6 @@ function CharacterSelect({
           effect="cards"
           navigation={true}
           mousewheel={true}
-          grabCursor={true}
           className="w-[25vw] h-full"
           onSlideChange={(swiper) => {
             setCharacterIndex(swiper.activeIndex)
