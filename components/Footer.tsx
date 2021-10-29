@@ -40,10 +40,10 @@ function Footer({
 
   useEffect(() => {
     if (musicOn) {
-      console.log('play')
+      // console.log('play')
       play()
     } else {
-      console.log('stop')
+      // console.log('stop')
       stop()
     }
     return () => {

@@ -34,8 +34,6 @@ function CharacterSelect({
         className="absolute z-0 inset-0"
         src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/paper-bg.jpg"
         alt="background of corkboard"
-        height={3247}
-        width={4559}
         layout="fill"
       />
       <h1 className="px-2 bg-gray-700 border border-gray-900 rounded-handdrawn opacity-90 select-none md:px-3 md:py-1 md:border-2">
@@ -69,10 +67,14 @@ function CharacterSelect({
 
         .swiper-parent :global(.swiper-button-next) {
           right: -25%;
+          cursor: url(https://soristic.sgp1.digitaloceanspaces.com/general/curhand.cur),
+            auto !important;
         }
 
         .swiper-parent :global(.swiper-button-prev) {
           left: -25%;
+          cursor: url(https://soristic.sgp1.digitaloceanspaces.com/general/curhand.cur),
+            auto !important;
         }
       `}</style>
       <div className="swiper-parent w-1/2 h-1/2 text-xs sm:w-full sm:text-base md:h-2/3">
