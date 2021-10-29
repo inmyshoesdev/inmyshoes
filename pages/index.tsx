@@ -61,12 +61,6 @@ export default function Landing(): JSX.Element {
               </a>
               <a
                 className="mr-5 px-4 py-2 hover:text-white hover:bg-blue-900 rounded-full cursor-pointer"
-                href="#goals"
-              >
-                Goals
-              </a>
-              <a
-                className="mr-5 px-4 py-2 hover:text-white hover:bg-blue-900 rounded-full cursor-pointer"
                 href="#walkthrough"
               >
                 Walkthrough
@@ -76,6 +70,12 @@ export default function Landing(): JSX.Element {
                 href="#features"
               >
                 Features
+              </a>
+              <a
+                className="mr-5 px-4 py-2 hover:text-white hover:bg-blue-900 rounded-full cursor-pointer"
+                href="#goals"
+              >
+                Goals
               </a>
               <a
                 className="mr-5 px-4 py-2 hover:text-white hover:bg-blue-900 rounded-full cursor-pointer"
@@ -212,100 +212,9 @@ export default function Landing(): JSX.Element {
           </div>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path
-              fill="#EDE9FE"
-              fillOpacity="1"
-              d="M0,96L120,128C240,160,480,224,720,234.7C960,245,1200,203,1320,181.3L1440,160L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
-            ></path>
-          </svg>
-        </section>
-        <section
-          id="goals"
-          className="body-font relative bg-purple-100 overflow-hidden"
-        >
-          <div className="container mx-auto px-5 py-10">
-            <div className="flex flex-wrap mx-auto">
-              <div className="mb-6 w-full lg:mb-0 lg:pr-10 lg:py-6 lg:w-1/2">
-                <img
-                  className="-ml-12"
-                  alt="sustainable"
-                  src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/landing/sustainable.png"
-                />
-                <div className="flex mb-4">
-                  <img
-                    alt="E_SDG-goals_icons-individual-rgb-10"
-                    className="px-1 py-2 w-24 h-28 md:w-40 md:h-48"
-                    src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/landing/E_SDG-goals_icons-individual-rgb-10.png"
-                  />
-                  <img
-                    alt="E_SDG-goals_icons-individual-rgb-11"
-                    className="px-1 py-2 w-24 h-28 md:w-40 md:h-48"
-                    src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/landing/E_SDG%20goals_icons-individual-rgb-11.png"
-                  />
-                  <img
-                    alt="E_SDG-goals_icons-individual-rgb-16"
-                    className="px-1 py-2 w-24 h-28 md:w-40 md:h-48"
-                    src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/landing/E_SDG%20goals_icons-individual-rgb-16.png"
-                  />
-                </div>
-                <h1 className="mb-4 text-gray-900 font-serif text-2xl font-bold">
-                  Supporting United Nation Sustainable Development Goals{' '}
-                  <span className="text-pink-500">10</span>,{' '}
-                  <span className="text-yellow-500">11</span> &{' '}
-                  <span className="text-blue-500">16</span>
-                </h1>
-                <p className="mb-4 text-lg leading-relaxed">
-                  The character simulation enables participants to empathise
-                  with others&apos; life experiences and develop an inclusive
-                  mindset.
-                </p>
-              </div>
-              <img
-                alt="goals"
-                className="w-full object-cover object-center md:w-1/2"
-                id="goals"
-                src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/landing/goals.png"
-              />
-            </div>
-          </div>
-        </section>
-        <section className="body-font bg-purple-100 overflow-hidden">
-          <h1 className="sectionTitle container mx-auto text-center text-gray-900 text-3xl">
-            Benefits Of Instilling An Inclusive Mindset
-          </h1>
-          <div className="ferris-wrapper">
-            <img
-              className="absolute left-80 top-96 mt-28 w-72 h-72"
-              alt="spinner-center"
-              src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/landing/benefits%20of%20inclusive%20mindset.png"
-            />
-            <div className="wheel-wrapper">
-              <div className="wheel">
-                <div className="cabin flex items-center justify-center w-40 h-40 text-white text-lg bg-purple-900 rounded-full">
-                  Higher <br /> Emotional <br /> Quotient
-                </div>
-                <div className="cabin flex items-center justify-center w-40 h-40 text-white text-lg bg-purple-900 rounded-full">
-                  Increase <br /> Resilience
-                </div>
-                <div className="cabin flex items-center justify-center w-40 h-40 text-white text-lg bg-purple-900 rounded-full">
-                  Effective <br /> Leadership
-                </div>
-                <div className="cabin flex items-center justify-center w-40 h-40 text-white text-lg bg-purple-900 rounded-full">
-                  Wellbeing
-                </div>
-                <div className="cabin flex items-center justify-center w-40 h-40 text-white text-lg bg-purple-900 rounded-full">
-                  Broaden Perspective
-                </div>
-                <div className="cabin flex items-center justify-center w-40 h-40 text-white text-lg bg-purple-900 rounded-full">
-                  Creativity and innovation
-                </div>
-              </div>
-            </div>
-          </div>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-            <path
               fill="#FFF7F3"
               fillOpacity="1"
-              d="M0,160L120,176C240,192,480,224,720,202.7C960,181,1200,107,1320,69.3L1440,32L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
+              d="M0,96L120,128C240,160,480,224,720,234.7C960,245,1200,203,1320,181.3L1440,160L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
             ></path>
           </svg>
         </section>
@@ -540,12 +449,104 @@ export default function Landing(): JSX.Element {
           </div>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path
-              fill="#E5E7EB"
+              fill="#EDE9FE"
               fillOpacity="1"
               d="M0,224L120,224C240,224,480,224,720,213.3C960,203,1200,181,1320,170.7L1440,160L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
             ></path>
           </svg>
         </section>
+        <section
+          id="goals"
+          className="body-font relative bg-purple-100 overflow-hidden"
+        >
+          <div className="container mx-auto px-5 py-10">
+            <div className="flex flex-wrap mx-auto">
+              <div className="mb-6 w-full lg:mb-0 lg:pr-10 lg:py-6 lg:w-1/2">
+                <img
+                  className="-ml-12"
+                  alt="sustainable"
+                  src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/landing/sustainable.png"
+                />
+                <div className="flex mb-4">
+                  <img
+                    alt="E_SDG-goals_icons-individual-rgb-10"
+                    className="px-1 py-2 w-24 h-28 md:w-40 md:h-48"
+                    src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/landing/E_SDG-goals_icons-individual-rgb-10.png"
+                  />
+                  <img
+                    alt="E_SDG-goals_icons-individual-rgb-11"
+                    className="px-1 py-2 w-24 h-28 md:w-40 md:h-48"
+                    src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/landing/E_SDG%20goals_icons-individual-rgb-11.png"
+                  />
+                  <img
+                    alt="E_SDG-goals_icons-individual-rgb-16"
+                    className="px-1 py-2 w-24 h-28 md:w-40 md:h-48"
+                    src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/landing/E_SDG%20goals_icons-individual-rgb-16.png"
+                  />
+                </div>
+                <h1 className="mb-4 text-gray-900 font-serif text-2xl font-bold">
+                  Supporting United Nation Sustainable Development Goals{' '}
+                  <span className="text-pink-500">10</span>,{' '}
+                  <span className="text-yellow-500">11</span> &{' '}
+                  <span className="text-blue-500">16</span>
+                </h1>
+                <p className="mb-4 text-lg leading-relaxed">
+                  The character simulation enables participants to empathise
+                  with others&apos; life experiences and develop an inclusive
+                  mindset.
+                </p>
+              </div>
+              <img
+                alt="goals"
+                className="w-full object-cover object-center md:w-1/2"
+                id="goals"
+                src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/landing/goals.png"
+              />
+            </div>
+          </div>
+        </section>
+        <section className="body-font bg-purple-100 overflow-hidden">
+          <h1 className="sectionTitle container mx-auto text-center text-gray-900 text-3xl">
+            Benefits Of Instilling An Inclusive Mindset
+          </h1>
+          <div className="ferris-wrapper">
+            <img
+              className="absolute left-80 top-96 mt-28 w-72 h-72"
+              alt="spinner-center"
+              src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/landing/benefits%20of%20inclusive%20mindset.png"
+            />
+            <div className="wheel-wrapper">
+              <div className="wheel">
+                <div className="cabin flex items-center justify-center w-40 h-40 text-white text-lg bg-purple-900 rounded-full">
+                  Higher <br /> Emotional <br /> Quotient
+                </div>
+                <div className="cabin flex items-center justify-center w-40 h-40 text-white text-lg bg-purple-900 rounded-full">
+                  Increase <br /> Resilience
+                </div>
+                <div className="cabin flex items-center justify-center w-40 h-40 text-white text-lg bg-purple-900 rounded-full">
+                  Effective <br /> Leadership
+                </div>
+                <div className="cabin flex items-center justify-center w-40 h-40 text-white text-lg bg-purple-900 rounded-full">
+                  Wellbeing
+                </div>
+                <div className="cabin flex items-center justify-center w-40 h-40 text-white text-lg bg-purple-900 rounded-full">
+                  Broaden Perspective
+                </div>
+                <div className="cabin flex items-center justify-center w-40 h-40 text-white text-lg bg-purple-900 rounded-full">
+                  Creativity and innovation
+                </div>
+              </div>
+            </div>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path
+              fill="#E5E7EB"
+              fillOpacity="1"
+              d="M0,160L120,176C240,192,480,224,720,202.7C960,181,1200,107,1320,69.3L1440,32L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
+            ></path>
+          </svg>
+        </section>
+
         <section
           className="body-font text-gray-600 bg-gray-200"
           id="testimonials"
