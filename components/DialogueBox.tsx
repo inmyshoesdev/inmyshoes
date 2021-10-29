@@ -158,13 +158,14 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
   )
 
   const typeStyling = () => {
+    console.log(type)
     switch (type) {
       case DialogBoxType.NARRATION:
         return 'border-narration rounded-narration'
       case DialogBoxType.SPEECH:
         return 'border-speech rounded-dialog'
       case DialogBoxType.THOUGHT:
-        return 'border-3 rounded-dialog'
+        return 'border-3 rounded-dialog border-dashed'
       default:
         return 'border-3 rounded-handdrawn'
     }
@@ -194,7 +195,7 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
         <div className="absolute left-0 top-0 w-full h-full" onClick={onClick}>
           <div
             className={
-              'opacity-90 absolute bg-white border-gray-900 shadow-sm ' +
+              'opacity-[0.95] absolute bg-white border-gray-900 shadow-sm ' +
               typeStyling()
             }
             style={{
