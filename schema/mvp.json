@@ -3795,9 +3795,18 @@
             {
               "name": "intro",
               "texts": [
-                "You have reached the end of this exercise. We rarely have the full picture of what our fellow students, friends or family members may be going through. Our actions can have significant positive or negative consequences, so it is up to us to show respect and care.",
-                "By stepping into Curtis’ shoes, you may have realised that: Many young people have caring responsibilities at home which they have to juggle alongside their academic and social life. Most social activities cost money, which may hinder low-income individuals from participating unless there is a more inclusive alternative. Socioeconomic status is a sensitive topic that many may not want to discuss. Are there ways to be accommodating without being intrusive?"
-              ]
+                "You have reached the end of this exercise. \n\nWe rarely have the full picture of what our fellow students, friends or family members may be going through. Our actions can have significant positive or negative consequences, so it is up to us to show respect and care.",
+                "By stepping into Curtis’ shoes, you may have realised that: \n\nMany young people have caring responsibilities at home which they have to juggle alongside their academic and social life. \n\nMost social activities cost money, which may hinder low-income individuals from participating unless there is a more inclusive alternative.",
+                "Socioeconomic status is a sensitive topic that many may not want to discuss. Are there ways to be accommodating without being intrusive?"
+              ],
+              "dimension": {
+                "width": "60%",
+                "height": "60%"
+              },
+              "position": {
+                "top": "20%",
+                "left": "20%"
+              }
             }
           ],
           "dialogues": [],
@@ -4547,7 +4556,8 @@
                   "textPosition": {
                     "left": "20%",
                     "top": "10%"
-                  }
+                  },
+                  "type": "thought"
                 },
                 {
                   "character": "Belinda",
@@ -4559,7 +4569,8 @@
                   "textPosition": {
                     "left": "20%",
                     "top": "10%"
-                  }
+                  },
+                  "type": "thought"
                 }
               ]
             },
@@ -4576,7 +4587,8 @@
                   "textPosition": {
                     "left": "20%",
                     "top": "10%"
-                  }
+                  },
+                  "type": "thought"
                 }
               ]
             },
@@ -4593,7 +4605,8 @@
                   "textPosition": {
                     "left": "20%",
                     "top": "10%"
-                  }
+                  },
+                  "type": "thought"
                 }
               ]
             }
@@ -4767,7 +4780,8 @@
                   "textPosition": {
                     "left": "20%",
                     "bottom": "10%"
-                  }
+                  },
+                  "type": "thought"
                 },
                 {
                   "character": "Belinda",
@@ -4787,7 +4801,8 @@
                   "textPosition": {
                     "left": "20%",
                     "bottom": "10%"
-                  }
+                  },
+                  "type": "thought"
                 }
               ]
             },
@@ -4812,7 +4827,8 @@
                   "textPosition": {
                     "left": "20%",
                     "bottom": "10%"
-                  }
+                  },
+                  "type": "thought"
                 }
               ]
             },
@@ -4837,7 +4853,8 @@
                   "textPosition": {
                     "left": "20%",
                     "bottom": "10%"
-                  }
+                  },
+                  "type": "thought"
                 }
               ]
             }
@@ -5042,7 +5059,8 @@
                   },
                   "textDimension": {
                     "height": "32%"
-                  }
+                  },
+                  "type": "thought"
                 }
               ]
             },
@@ -5299,7 +5317,8 @@
             },
             {
               "type": "showNarration",
-              "value": "intro"
+              "value": "intro",
+              "duration": 1000
             },
             {
               "type": "showDialogue",
@@ -5310,14 +5329,14 @@
               "value": "ClassroomTeacher"
             },
             {
-              "type": "wait",
-              "duration": 1000
-            },
-            {
               "type": "showImage",
               "value": "SpellingTest",
               "autoHide": false,
               "waitForInteraction": false
+            },
+            {
+              "type": "wait",
+              "duration": 1000
             },
             {
               "type": "showDialogue",
@@ -5400,7 +5419,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "(to herself) Oh no, my dyslexia is really bad today, I can barely make out what the first sentence is!",
+                  "text": "Oh no, my dyslexia is really bad today, I can barely make out what the first sentence is!",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -5408,11 +5427,12 @@
                   "textPosition": {
                     "bottom": "3%",
                     "left": "20%"
-                  }
+                  },
+                  "type": "thought"
                 },
                 {
                   "character": "Belinda",
-                  "text": "(to herself) I don't think I'll be able to read it out loud in class... It will be really embarrassing if I mess it up. What should I do?",
+                  "text": "I don't think I'll be able to read it out loud in class... It will be really embarrassing if I mess it up. What should I do?",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -5420,7 +5440,8 @@
                   "textPosition": {
                     "bottom": "3%",
                     "left": "20%"
-                  }
+                  },
+                  "type": "thought"
                 }
               ]
             },
@@ -5429,7 +5450,7 @@
               "speeches": [
                 {
                   "character": "Belinda",
-                  "text": "Okay Ms Ong ...*gulp*...",
+                  "text": "Okay Ms Ong ...*(gulp)*...",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -5444,7 +5465,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "Uh..(speaks gibberish)",
+                  "text": "Uh..*(speaks gibberish)*",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -5726,7 +5747,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "Uhm..(awkward laughter)",
+                  "text": "Uhm..*(awkward laughter)*",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -5738,7 +5759,7 @@
                 },
                 {
                   "character": "Emily",
-                  "text": "(From a distance) Hey! Thats not funny. Try putting yourself in her shoes! Let's go Belinda!",
+                  "text": "*(From a distance)* Hey! Thats not funny. Try putting yourself in her shoes! Let's go Belinda!",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -5758,7 +5779,8 @@
                   "textPosition": {
                     "bottom": "3%",
                     "left": "20%"
-                  }
+                  },
+                  "type": "thought"
                 }
               ]
             },
@@ -5963,15 +5985,16 @@
             },
             {
               "name": "later",
-              "texts": ["*later*"],
+              "texts": ["*Later*"],
               "position": {
-                "top": "3%",
-                "left": "21%"
+                "top": "5%",
+                "left": "5%"
               },
               "dimension": {
                 "width": "20%",
                 "height": "15%"
-              }
+              },
+              "showNavigations": false
             },
             {
               "name": "1",
@@ -6010,11 +6033,12 @@
                   "textPosition": {
                     "bottom": "3%",
                     "left": "20%"
-                  }
+                  },
+                  "type": "thought"
                 },
                 {
                   "character": "Belinda",
-                  "text": "(looks over to her friend) Wow. Emily seems to be having no problems at all...She is going through the questions so fast...",
+                  "text": "*(looks over to her friend)* Wow. Emily seems to be having no problems at all...She is going through the questions so fast...",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -6022,7 +6046,8 @@
                   "textPosition": {
                     "bottom": "3%",
                     "left": "20%"
-                  }
+                  },
+                  "type": "thought"
                 },
                 {
                   "character": "Belinda",
@@ -6034,7 +6059,8 @@
                   "textPosition": {
                     "bottom": "3%",
                     "left": "20%"
-                  }
+                  },
+                  "type": "thought"
                 }
               ]
             },
@@ -6051,7 +6077,8 @@
                   "textPosition": {
                     "bottom": "3%",
                     "left": "20%"
-                  }
+                  },
+                  "type": "thought"
                 },
                 {
                   "character": "Belinda",
@@ -6063,7 +6090,8 @@
                   "textPosition": {
                     "bottom": "3%",
                     "left": "20%"
-                  }
+                  },
+                  "type": "thought"
                 }
               ]
             },
@@ -6096,7 +6124,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "Yeah...sort of I guess haha (I'm still finding this difficult due to my dyslexia)",
+                  "text": "Yeah...sort of I guess haha",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -6105,6 +6133,19 @@
                     "bottom": "2%",
                     "left": "24%"
                   }
+                },
+                {
+                  "character": "Belinda",
+                  "text": "I'm still finding this difficult due to my dyslexia",
+                  "characterDimension": {
+                    "height": "0%",
+                    "width": "0%"
+                  },
+                  "textPosition": {
+                    "bottom": "2%",
+                    "left": "24%"
+                  },
+                  "type": "thought"
                 }
               ]
             }
@@ -6144,7 +6185,8 @@
                     },
                     {
                       "type": "showNarration",
-                      "value": "later"
+                      "value": "later",
+                      "duration": 1000
                     },
                     {
                       "type": "showDialogue",
@@ -6218,7 +6260,7 @@
               "type": "showImage",
               "value": "NewTopic",
               "autoHide": false,
-              "waitForInteraction": false
+              "duration": 1000
             },
             {
               "type": "showNarration",
@@ -6273,15 +6315,18 @@
               "speeches": [
                 {
                   "character": "Belinda",
-                  "text": "Finally, I'm home. I can get started on the homework that has been piling up."
+                  "text": "Finally, I'm home. I can get started on the homework that has been piling up.",
+                  "type": "thought"
                 },
                 {
                   "character": "Belinda",
-                  "text": "Oh what's that? The new edition of my favourite game is out?"
+                  "text": "Oh what's that? The new edition of my favourite game is out?",
+                  "type": "thought"
                 },
                 {
                   "character": "Belinda",
-                  "text": "I've been waiting for ages! Maybe I can squeeze in time for one game.. Just one game..."
+                  "text": "I've been waiting for ages! Maybe I can squeeze in time for one game.. Just one game...",
+                  "type": "thought"
                 }
               ]
             },
@@ -6290,15 +6335,18 @@
               "speeches": [
                 {
                   "character": "Belinda",
-                  "text": "Wow the game is really intense..."
+                  "text": "Wow the game is really intense...",
+                  "type": "thought"
                 },
                 {
                   "character": "Belinda",
-                  "text": "Oh no it's already so late?? I completely lost track of time..."
+                  "text": "Oh no it's already so late?? I completely lost track of time...",
+                  "type": "thought"
                 },
                 {
                   "character": "Belinda",
-                  "text": "I haven't even started on what I need to do!"
+                  "text": "I haven't even started on what I need to do!",
+                  "type": "thought"
                 }
               ]
             },
@@ -6307,11 +6355,13 @@
               "speeches": [
                 {
                   "character": "Belinda",
-                  "text": "Hmm I'm finally done with work."
+                  "text": "Hmm I'm finally done with work.",
+                  "type": "thought"
                 },
                 {
                   "character": "Belinda",
-                  "text": "I guess it was a good thing I decided not to play the game. After all, I can always play it another time."
+                  "text": "I guess it was a good thing I decided not to play the game. After all, I can always play it another time.",
+                  "type": "thought"
                 }
               ]
             }
@@ -6496,7 +6546,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "(To herself) Ahhh! I'm so embarrassed!! Ms Ong even said that in front of the whole class... And how am I going to tell my parents about my results?",
+                  "text": "Ahhh! I'm so embarrassed!! Ms Ong even said that in front of the whole class... And how am I going to tell my parents about my results?",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -6504,7 +6554,8 @@
                   "textPosition": {
                     "bottom": "2%",
                     "left": "24%"
-                  }
+                  },
+                  "type": "thought"
                 }
               ]
             },
@@ -6521,7 +6572,8 @@
                   "textPosition": {
                     "bottom": "2%",
                     "left": "24%"
-                  }
+                  },
+                  "type": "thought"
                 },
                 {
                   "character": "Belinda",
@@ -6533,7 +6585,8 @@
                   "textPosition": {
                     "bottom": "2%",
                     "left": "24%"
-                  }
+                  },
+                  "type": "thought"
                 }
               ]
             },
@@ -6751,7 +6804,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "(To herself) Wait a minute, I think I have this figured out.",
+                  "text": "Wait a minute, I think I have this figured out.",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -6759,7 +6812,8 @@
                   "textPosition": {
                     "top": "68%",
                     "left": "23%"
-                  }
+                  },
+                  "type": "thought"
                 },
                 {
                   "character": "Belinda",
@@ -6771,7 +6825,8 @@
                   "textPosition": {
                     "top": "68%",
                     "left": "23%"
-                  }
+                  },
+                  "type": "thought"
                 }
               ]
             },
@@ -6821,7 +6876,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "(to herself) Looks like I was right all along. Maybe I should have said something instead of just keeping quiet...",
+                  "text": "Looks like I was right all along. Maybe I should have said something instead of just keeping quiet...",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -6829,7 +6884,8 @@
                   "textPosition": {
                     "top": "68%",
                     "left": "23%"
-                  }
+                  },
+                  "type": "thought"
                 }
               ]
             }
@@ -6962,18 +7018,19 @@
             {
               "name": "intro",
               "texts": [
-                "You have reached the end of this exercise.",
-                "We rarely have the full picture of what persons with disabilities may be going through.",
-                "Our actions can have significant positive or negative consequences, so it is up to us to show respect and care.",
-                "By stepping into Belinda's shoes, you may have realised that:",
-                "Learning difficulties do not reflect a person's intelligence.",
-                "Your mental image of someone with a learning disability may not be accurate.",
-                "These issues affect close to 10% of students across ages and genders.",
-                "Learning difficulties affect life outside of the classroom.",
-                "They can be linked to feelings of social isolation, low self-esteem and poor mental health.",
-                "It is possible to accommodate learning difficulties. Just because someone is struggling in a mainstream setting does not mean they cannot 'cope'.",
-                "To find out more, visit: [Dyslexia Association of Singapore YouTube channel](https://www.youtube.com/c/DyslexiaAssociationofSingapore/featured), [Martel, P. (2021).Comics about the daily struggle with ADHD](http://adhd-alien.com/), [Yeo, S. (2020).The invisible struggle of girls with ADHD](https://www.straitstimes.com/singapore/parenting-education/the-invisible-struggle-of-girls-with-adhd)"
-              ]
+                "You have reached the end of this exercise.\n\nWe rarely have the full picture of what persons with disabilities may be going through. Our actions can have significant positive or negative consequences, so it is up to us to show respect and care.",
+                "By stepping into Belinda's shoes, you may have realised that:\n\nLearning difficulties do not reflect a person's intelligence. Your mental image of someone with a learning disability may not be accurate.\n\nThese issues affect close to 10% of students across ages and genders.",
+                "Learning difficulties affect life outside of the classroom.\n\nThey can be linked to feelings of social isolation, low self-esteem and poor mental health.\n\nIt is possible to accommodate learning difficulties. Just because someone is struggling in a mainstream setting does not mean they cannot 'cope'.",
+                "To find out more, visit: \n[Dyslexia Association of Singapore YouTube channel](https://www.youtube.com/c/DyslexiaAssociationofSingapore/featured)\n [Martel, P. (2021).Comics about the daily struggle with ADHD](http://adhd-alien.com/)\n [Yeo, S. (2020).The invisible struggle of girls with ADHD](https://www.straitstimes.com/singapore/parenting-education/the-invisible-struggle-of-girls-with-adhd)"
+              ],
+              "dimension": {
+                "width": "60%",
+                "height": "60%"
+              },
+              "position": {
+                "top": "20%",
+                "left": "20%"
+              }
             }
           ],
           "dialogues": [],
