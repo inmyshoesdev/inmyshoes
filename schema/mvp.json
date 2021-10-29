@@ -10,7 +10,6 @@
     "credits": "![Soristic](/images/soristic.jpg)\nThis simulation activity development was supported by multiple stakeholders, including [a group of students](https://github.com/inmyshoesdev/inmyshoes/people) from the National University of Singapore. These characters were developed through rounds of interviews with people from various backgrounds and situations, allowing us to craft out a simulation that portrays similar events faced. Subsequently, Soristic has been improving the simulation by introducing more new characters as well as conducting workshops.\n\nRoyalty Free Music from Bensound."
   },
   "globalState": {
-    "day": "Mon",
     "wealth": {
       "value": 0,
       "max": 20
@@ -31,12 +30,6 @@
     "helping hand badge awarded": false
   },
   "header": [
-    {
-      "component": "state_display",
-      "title": "Day",
-      "state": "day",
-      "iconImage": "/images/calendar.png"
-    },
     {
       "component": "state_meter",
       "title": "Health",
@@ -613,7 +606,6 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "day": "Mon",
                 "wealth": 5,
                 "health": 10,
                 "social": 10
@@ -879,7 +871,6 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "day": "Mon",
                 "wealth": 5,
                 "health": 10,
                 "social": 10
@@ -1122,12 +1113,6 @@
           ],
           "intro": [
             {
-              "type": "updateGlobalState",
-              "newState": {
-                "day": "Tue"
-              }
-            },
-            {
               "type": "showNarration",
               "value": "day",
               "autoHide": false,
@@ -1356,12 +1341,6 @@
             }
           ],
           "intro": [
-            {
-              "type": "updateGlobalState",
-              "newState": {
-                "day": "Wed"
-              }
-            },
             {
               "type": "showNarration",
               "value": "day",
@@ -2124,12 +2103,6 @@
           ],
           "intro": [
             {
-              "type": "updateGlobalState",
-              "newState": {
-                "day": "Thu"
-              }
-            },
-            {
               "type": "showNarration",
               "value": "day",
               "autoHide": false,
@@ -2746,12 +2719,6 @@
           ],
           "intro": [
             {
-              "type": "updateGlobalState",
-              "newState": {
-                "day": "Fri"
-              }
-            },
-            {
               "type": "showNarration",
               "value": "day",
               "autoHide": false,
@@ -3263,12 +3230,6 @@
           ],
           "intro": [
             {
-              "type": "updateGlobalState",
-              "newState": {
-                "day": "Sat"
-              }
-            },
-            {
               "type": "showNarration",
               "value": "day",
               "autoHide": false,
@@ -3515,12 +3476,6 @@
             }
           ],
           "intro": [
-            {
-              "type": "updateGlobalState",
-              "newState": {
-                "day": "Sun"
-              }
-            },
             {
               "type": "showNarration",
               "value": "day",
@@ -3790,12 +3745,6 @@
             }
           ],
           "intro": [
-            {
-              "type": "updateGlobalState",
-              "newState": {
-                "day": "Mon"
-              }
-            },
             {
               "type": "showImage",
               "value": "mrs-lee",
@@ -4071,12 +4020,6 @@
             }
           ],
           "intro": [
-            {
-              "type": "updateGlobalState",
-              "newState": {
-                "day": "Tue"
-              }
-            },
             {
               "type": "showNarration",
               "value": "day",
@@ -4692,7 +4635,14 @@
               "texts": [
                 "You are from a middle-income family.",
                 "In addition to your parents, you also live with your two younger siblings."
-              ]
+              ],
+              "dimension": {
+                "height": "18%"
+              },
+              "position": {
+                "top": "80%",
+                "left": "20%"
+              }
             },
             {
               "name": "health",
@@ -4714,6 +4664,9 @@
               "position": {
                 "bottom": "5%",
                 "left": "10%"
+              },
+              "dimension": {
+                "height": "27%"
               }
             },
             {
@@ -4778,7 +4731,6 @@
             {
               "type": "updateGlobalState",
               "newState": {
-                "day": "Mon",
                 "wealth": 10,
                 "health": 10,
                 "social": 10
@@ -4829,26 +4781,16 @@
           "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-background-bedroom.png",
           "narrations": [
             {
-              "name": "intro",
-              "texts": [
-                "It's 6:00am and you stayed up late last night in an attempt to complete an assignment that is due this morning."
-              ]
-            },
-            {
               "name": "1",
               "texts": [
-                "Your health slightly decreases.",
                 "You are less well-rested and sense that you will struggle more in the classroom today.",
-                "Your social points slightly increase.",
                 "Your teacher appreciates the fact that you did as much of the work that you could and tried to hand it on time."
               ]
             },
             {
               "name": "2",
               "texts": [
-                "Your health stays the same.",
                 "You would have woken up at 7:00am anyway.",
-                "Your social points decrease.",
                 "You know that your teacher will be disappointed at you for turning in your homework late."
               ]
             }
@@ -4859,18 +4801,26 @@
               "speeches": [
                 {
                   "character": "Belinda",
-                  "text": "I'm so tired from staying up till 3am last night to do my work... And I still haven't finished it!",
+                  "text": "I'm so tired from staying up till 3am to do my assignment that is due today... And I still haven't finished it!",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
+                  },
+                  "textPosition": {
+                    "left": "20%",
+                    "top": "10%"
                   }
                 },
                 {
                   "character": "Belinda",
-                  "text": "*checks time*... oh no its already 6am? should i get up and try to finish it again?",
+                  "text": "(*checks time*)... oh no its already 6am? Should I get up and try to finish it again?",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
+                  },
+                  "textPosition": {
+                    "left": "20%",
+                    "top": "10%"
                   }
                 }
               ]
@@ -4880,10 +4830,14 @@
               "speeches": [
                 {
                   "character": "Belinda",
-                  "text": "Ok I guess I will try to finish it again. I dont want to disappoint my teachers again",
+                  "text": "Ok I guess I will try to finish it again. I dont want to disappoint my teachers again!",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
+                  },
+                  "textPosition": {
+                    "left": "20%",
+                    "top": "10%"
                   }
                 }
               ]
@@ -4893,10 +4847,14 @@
               "speeches": [
                 {
                   "character": "Belinda",
-                  "text": "It's no use, I won't be able to finish it anyway, might as well get some rest",
+                  "text": "It's no use, I won't be able to finish it anyway, might as well get some rest!",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
+                  },
+                  "textPosition": {
+                    "left": "20%",
+                    "top": "10%"
                   }
                 }
               ]
@@ -4918,10 +4876,11 @@
               "options": [
                 {
                   "name": "1",
-                  "text": "Wake up at 6:00am to complete your homework.",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Homework.png",
+                  "altText": "Wake up at 6:00am to complete your homework",
                   "position": {
                     "top": "20%",
-                    "left": "20%"
+                    "left": "60%"
                   },
                   "dimension": {
                     "width": "20%"
@@ -4959,10 +4918,11 @@
                 },
                 {
                   "name": "2",
-                  "text": "Sleep till 7:00am to get enough rest for school.",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/BackToBed.png",
+                  "altText": "Sleep till 7:00am to get enough rest for school",
                   "position": {
-                    "top": "20%",
-                    "left": "60%"
+                    "top": "24%",
+                    "left": "12%"
                   },
                   "dimension": {
                     "width": "20%"
@@ -4999,10 +4959,6 @@
               "waitForInteraction": false
             },
             {
-              "type": "showNarration",
-              "value": "intro"
-            },
-            {
               "type": "showDialogue",
               "value": "inner"
             },
@@ -5018,25 +4974,17 @@
           "narrations": [
             {
               "name": "intro",
-              "texts": [
-                "You accidentally misplaced your phone whilst preparing breakfast for your siblings."
-              ]
+              "texts": ["You are preparing breakfast for your siblings."]
             },
             {
               "name": "1",
               "texts": [
-                "Your health decreases as you get anxious about going home later. You also end up having to grab home since you dont know your way",
-                "Your social points remain the same",
-                "Your money remains the same"
+                "You get anxious about going home later. You also end up having to grab home since you dont know your way."
               ]
             },
             {
               "name": "2",
-              "texts": [
-                "You arrive late for school which upsets your teacher. Your social points decrease",
-                "Your health remains the same",
-                "Your money remains the same"
-              ]
+              "texts": ["You arrive late for school which upsets your teacher."]
             }
           ],
           "dialogues": [
@@ -5046,25 +4994,41 @@
                 {
                   "character": "Belinda",
                   "variant": "left",
-                  "text": "(to her siblings): Hey stop running around and get ready for school!",
+                  "text": "Hey! Stop running around and get ready for school!",
                   "characterPosition": {
                     "left": "6%",
                     "bottom": "0%"
                   },
                   "characterDimension": {
                     "height": "55%"
+                  },
+                  "textDimension": {
+                    "height": "32%",
+                    "width": "30%"
+                  },
+                  "textPosition": {
+                    "left": "20%",
+                    "bottom": "10%"
                   }
                 },
                 {
                   "character": "Belinda",
                   "variant": "left",
-                  "text": "*Looks to the spot where she thought she left her phone*...  Oh no where did i put my phone? i left it here just a minute ago, ",
+                  "text": "(*Looks around for her phone*) Oh no where did I put my phone? I left it here just a minute ago...",
                   "characterPosition": {
                     "left": "6%",
                     "bottom": "0%"
                   },
                   "characterDimension": {
                     "height": "55%"
+                  },
+                  "textDimension": {
+                    "height": "32%",
+                    "width": "30%"
+                  },
+                  "textPosition": {
+                    "left": "20%",
+                    "bottom": "10%"
                   }
                 },
                 {
@@ -5077,6 +5041,14 @@
                   },
                   "characterDimension": {
                     "height": "55%"
+                  },
+                  "textDimension": {
+                    "height": "32%",
+                    "width": "30%"
+                  },
+                  "textPosition": {
+                    "left": "20%",
+                    "bottom": "10%"
                   }
                 }
               ]
@@ -5087,13 +5059,21 @@
                 {
                   "character": "Belinda",
                   "variant": "left",
-                  "text": "There's not time and Im running late, I'll just try to manage without it later",
+                  "text": "There's no time and I'm running late, I'll just try to manage without it later.",
                   "characterPosition": {
                     "left": "6%",
                     "bottom": "0%"
                   },
                   "characterDimension": {
                     "height": "55%"
+                  },
+                  "textDimension": {
+                    "height": "32%",
+                    "width": "30%"
+                  },
+                  "textPosition": {
+                    "left": "20%",
+                    "bottom": "10%"
                   }
                 }
               ]
@@ -5111,6 +5091,14 @@
                   },
                   "characterDimension": {
                     "height": "55%"
+                  },
+                  "textDimension": {
+                    "height": "32%",
+                    "width": "30%"
+                  },
+                  "textPosition": {
+                    "left": "20%",
+                    "bottom": "10%"
                   }
                 }
               ]
@@ -5132,7 +5120,8 @@
               "options": [
                 {
                   "name": "1",
-                  "text": "Forget the phone and make your way to school",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/HeadToSchool.png",
+                  "altText": "Forget the phone and make your way to school",
                   "position": {
                     "top": "20%",
                     "left": "20%"
@@ -5172,13 +5161,14 @@
                 },
                 {
                   "name": "2",
-                  "text": "Try to look for your phone",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/FindPhone.png",
+                  "altText": "Try to look for your phone",
                   "position": {
                     "top": "20%",
                     "left": "60%"
                   },
                   "dimension": {
-                    "width": "20%"
+                    "width": "9%"
                   },
                   "onClick": [
                     {
@@ -5231,20 +5221,22 @@
           "narrations": [
             {
               "name": "intro",
-              "texts": [
-                "At school, your teacher tells you to redo yet another one of your assignments because of several spelling errors."
-              ],
+              "texts": ["Your class is starting."],
               "position": {
                 "top": "2%",
                 "left": "2%"
-              }
+              },
+              "dimension": {
+                "height": "23%",
+                "width": "33%"
+              },
+              "showNavigations": false
             },
             {
               "name": "1",
               "texts": [
-                "Your health points decrease because even though you have more time, your work is starting to snowball.",
-                "Your social points increase.",
-                "Your teacher has a better understanding of your circumstances which improves your relationship."
+                "Even though you have more time, your work is starting to snowball.",
+                "However, your teacher has a better understanding of your circumstances which improves your relationship."
               ],
               "position": {
                 "top": "3%",
@@ -5254,17 +5246,15 @@
             {
               "name": "2",
               "texts": [
-                "Your health points decrease.",
-                "You are sleep-deprived and stressed the following day.",
-                "Your social points decrease. ",
-                "You are not able to spend time with your friends after school."
+                "You will be sleep-deprived and stressed the following day.",
+                "You will not be able to spend time with your friends after school."
               ]
             },
             {
               "name": "3",
               "texts": [
                 "With the help of your friend you managed to finish the task much faster. Though you had to put in extra time to get it done.",
-                "Health points increase. You develop a closer relationship with your friend"
+                "You develop a closer relationship with your friend."
               ]
             }
           ],
@@ -5273,8 +5263,8 @@
               "name": "start",
               "speeches": [
                 {
-                  "character": "Teacher",
-                  "text": "Belinda, can you redo this assignment? There are too many spelling errors. It is difficult for me to understand your writing",
+                  "character": "Ms Ong",
+                  "text": "Belinda, can you redo this assignment? There are too many spelling errors. It is difficult for me to understand your writing.",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -5286,7 +5276,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "Oh..alright Teacher",
+                  "text": "Oh ok...",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -5303,7 +5293,7 @@
               "speeches": [
                 {
                   "character": "Belinda",
-                  "text": "(to herself) I am very sure I checked all my answers and didn't see any errors! Ughh! How am I going to tackle this?",
+                  "text": "I am very sure I checked all my answers and didn't see any errors! Ughh! How am I going to tackle this?",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -5323,7 +5313,7 @@
               "speeches": [
                 {
                   "character": "Friend",
-                  "text": "Hey Belinda whats wrong? Do you need any help?",
+                  "text": "Hey Belinda! What's wrong? Do you need any help?",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -5340,7 +5330,7 @@
               "speeches": [
                 {
                   "character": "Belinda",
-                  "text": "Teacher, can I please get an extension for this assignment. I have other assignments due and I am feeling swarmed at the moment",
+                  "text": "Ms Ong, can I please get an extension for this assignment. I have other assignments due and I am feeling swarmed at the moment.",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -5351,8 +5341,8 @@
                   }
                 },
                 {
-                  "character": "Teacher",
-                  "text": "Hmm..Okay you get I'll give you 2 additional days to get things done.",
+                  "character": "Ms Ong",
+                  "text": "Hmm..Okay I'll give you 2 additional days to get things done.",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -5364,7 +5354,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "Thank you so much Teacher!",
+                  "text": "Thank you so much!",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -5381,7 +5371,7 @@
               "speeches": [
                 {
                   "character": "Belinda",
-                  "text": "Yeah..I have this assignment I need to redo on top of all the things we already have assigned..",
+                  "text": "Yeah..I have this assignment I need to redo on top of all other things we already have assigned..",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -5393,7 +5383,7 @@
                 },
                 {
                   "character": "Friend",
-                  "text": "Oh no, here let me help you with the assignment you need to redo. I think I got most of the questions right for that paper",
+                  "text": "Oh no, let me help you with the assignment that you need to redo. I think I got most of the questions right for that paper.",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -5441,7 +5431,7 @@
                   "text": "Ask your teacher for an extension on the grounds of learning difficulties",
                   "position": {
                     "top": "10%",
-                    "left": "20%"
+                    "left": "66%"
                   },
                   "dimension": {
                     "width": "20%"
@@ -5486,7 +5476,7 @@
                 },
                 {
                   "name": "2",
-                  "text": "Stay up late to finish all the assignments",
+                  "text": "Try to finish it on your own",
                   "position": {
                     "top": "10%",
                     "left": "43%"
@@ -5526,7 +5516,7 @@
                   "text": "Ask for help from a friend",
                   "position": {
                     "top": "10%",
-                    "left": "66%"
+                    "left": "20%"
                   },
                   "dimension": {
                     "width": "20%"
@@ -5563,12 +5553,6 @@
             }
           ],
           "intro": [
-            {
-              "type": "updateGlobalState",
-              "newState": {
-                "day": "Tue"
-              }
-            },
             {
               "type": "showImage",
               "value": "ClassroomTeacher",
@@ -5630,20 +5614,10 @@
           "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-background-classroom.png",
           "narrations": [
             {
-              "name": "intro",
-              "texts": [
-                "In another class, your teacher asks you to read a passage aloud. She has good intentions and wants to build your confidence in reading."
-              ],
-              "position": {
-                "top": "2%",
-                "left": "2%"
-              }
-            },
-            {
               "name": "1",
               "texts": [
-                "You see some people try to contain their giggles as you make many reading mistakes. You lose health points.",
-                "Your feel less confident about yourself though your teacher tries to help you along. You lose social points."
+                "You see some people try to contain their giggles as you make many reading mistakes.",
+                "Your feel less confident about yourself though your teacher tries to help you along."
               ],
               "position": {
                 "top": "3%",
@@ -5653,8 +5627,8 @@
             {
               "name": "2",
               "texts": [
-                "You feel a little disappointed in yourself. You lose health points.",
-                "You feel less confident. You lose social points."
+                "You feel a little disappointed in yourself.",
+                "You feel less confident."
               ]
             }
           ],
@@ -5676,7 +5650,7 @@
                 },
                 {
                   "character": "Ms Ong",
-                  "text": "Oh, how about you Belinda, can you try and read this passage?",
+                  "text": "How about you Belinda, can you try and read this passage?",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -5688,7 +5662,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "(to herself) oh no, my dyslexia is really bad today, I can barely make out what the first sentence is!",
+                  "text": "(to herself) Oh no, my dyslexia is really bad today, I can barely make out what the first sentence is!",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -5717,7 +5691,7 @@
               "speeches": [
                 {
                   "character": "Belinda",
-                  "text": "Okay Teacher...*gulp*...",
+                  "text": "Okay Ms Ong ...*gulp*...",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -5905,7 +5879,7 @@
                     },
                     {
                       "type": "gotoScene",
-                      "sceneId": 5
+                      "sceneId": 6
                     }
                   ]
                 }
@@ -5918,10 +5892,6 @@
               "value": "ReadingScene",
               "autoHide": false,
               "waitForInteraction": false
-            },
-            {
-              "type": "showNarration",
-              "value": "intro"
             },
             {
               "type": "showDialogue",
@@ -5959,14 +5929,16 @@
               "position": {
                 "top": "2%",
                 "left": "2%"
+              },
+              "dimension": {
+                "height": "23%",
+                "width": "33%"
               }
             },
             {
               "name": "1",
               "texts": [
-                "Your health points decrease.",
                 "Their comments were hurtful and you can’t stop thinking about them.",
-                "Your social points slightly decrease.",
                 "Your friends think that everything’s fine and don’t check in with you about the incident."
               ],
               "position": {
@@ -5977,9 +5949,7 @@
             {
               "name": "2",
               "texts": [
-                "Your health points increase.",
                 "You feel relieved because you are able to have an open discussion.",
-                "Your social points increase.",
                 "Your friends now understand that the comment was offensive and hurtful, and promise to stand up for you if it happens again."
               ],
               "position": {
@@ -6018,7 +5988,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "uhm..(awkward laughter)",
+                  "text": "Uhm..(awkward laughter)",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -6030,7 +6000,7 @@
                 },
                 {
                   "character": "Emily",
-                  "text": "(From a distance) Hey thats not funny. Try putting yourself in her shoes! Let's go Belinda!",
+                  "text": "(From a distance) Hey! Thats not funny. Try putting yourself in her shoes! Let's go Belinda!",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -6042,7 +6012,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "Sigh... That was really hurtful. Being a student sure is tough...",
+                  "text": "Sigh...That was really hurtful. Being a student sure is tough...",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -6071,7 +6041,7 @@
                 },
                 {
                   "character": "Emily",
-                  "text": "It's okay just ignore them, its great that you tried anyway. That's what counts!",
+                  "text": "Just ignore them! It's great that you tried anyway. That's what counts!",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -6261,15 +6231,15 @@
                 "left": "21%"
               },
               "dimension": {
-                "width": "30%",
-                "height": "25%"
+                "width": "20%",
+                "height": "15%"
               }
             },
             {
               "name": "1",
               "texts": [
-                "You understand the material better and your confidence increases. Your health improves as a result.",
-                "Your money decreases as the tuition is expensive and you have to bear some of the cost through having your allowance reduced."
+                "You understand the material better and your confidence increases.",
+                "The tuition is expensive and you have to bear some of the cost through having your allowance reduced."
               ],
               "position": {
                 "top": "3%",
@@ -6279,8 +6249,8 @@
             {
               "name": "2",
               "texts": [
-                "You manage to catch up but not as much as you would've liked since your condition is still getting in the way. Your health points decrease as you feel stressed.",
-                "Your social points increase. Emily appreciates it that you asked them for help and you are closer than ever."
+                "You manage to catch up but not as much as you would've liked since your condition is still getting in the way. You feel stressed.",
+                "Emily appreciates it that you asked them for help and you are closer than ever."
               ],
               "position": {
                 "top": "3%",
@@ -6306,7 +6276,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "(looks over to her friend) Wow. Emily seems to be having no problems at all... She is going through the questions so fast..",
+                  "text": "(looks over to her friend) Wow. Emily seems to be having no problems at all...She is going through the questions so fast...",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -6318,7 +6288,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "I really should put in more effort for my studies. I remember seeing a notice about a new tuition centre for students with learning difficulties... What should I do?",
+                  "text": "I really should put in more effort for my studies. I remember seeing a notice about a new tuition centre for students with learning difficulties...What should I do?",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -6347,7 +6317,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "That's it, im going to ask my parents to sign me up for this.",
+                  "text": "That's it, I'm going to ask my parents to sign me up for this.",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -6364,7 +6334,7 @@
               "speeches": [
                 {
                   "character": "Belinda",
-                  "text": "Thanks for helping me out Emily.",
+                  "text": "Thanks for helping me out, Emily.",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -6388,7 +6358,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "Yeah..sort of i guess haha (even with her help im still finding this difficult due to my dyslexia)",
+                  "text": "Yeah...sort of I guess haha (I'm still finding this difficult due to my dyslexia)",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -6424,7 +6394,7 @@
                     "left": "59%"
                   },
                   "dimension": {
-                    "width": "32%"
+                    "width": "25%"
                   },
                   "onClick": [
                     {
@@ -6507,12 +6477,6 @@
           ],
           "intro": [
             {
-              "type": "updateGlobalState",
-              "newState": {
-                "day": "Wed"
-              }
-            },
-            {
               "type": "showImage",
               "value": "NewTopic",
               "autoHide": false,
@@ -6548,10 +6512,7 @@
             },
             {
               "name": "1",
-              "texts": [
-                "Your work is left undone social points decrease.",
-                "Your money health decrease because you are stressed."
-              ],
+              "texts": ["Your work is left undone.", "You are stressed."],
               "position": {
                 "top": "3%",
                 "left": "23%"
@@ -6560,7 +6521,6 @@
             {
               "name": "2",
               "texts": [
-                "Your health increases.",
                 "You are able to relax after having completed your work, although you feel quite tired."
               ],
               "position": {
@@ -6579,7 +6539,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "(in the living room) Oh what's that? The new edition of my favourite game is out?"
+                  "text": "Oh what's that? The new edition of my favourite game is out?"
                 },
                 {
                   "character": "Belinda",
@@ -6592,11 +6552,11 @@
               "speeches": [
                 {
                   "character": "Belinda",
-                  "text": "Wow the game is really intense.."
+                  "text": "Wow the game is really intense..."
                 },
                 {
                   "character": "Belinda",
-                  "text": "Oh no what's that!? It's already so late?? I completely lost track of time..."
+                  "text": "Oh no it's already so late?? I completely lost track of time..."
                 },
                 {
                   "character": "Belinda",
@@ -6634,10 +6594,11 @@
               "options": [
                 {
                   "name": "1",
-                  "text": "Purchase the game and play it for a bit before continuing with work",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/PlayTheGame.png",
+                  "altText": "Purchase the game and play it for a bit before doing homework",
                   "position": {
                     "top": "22%",
-                    "left": "5%"
+                    "left": "23%"
                   },
                   "dimension": {
                     "width": "18%"
@@ -6677,7 +6638,7 @@
                 {
                   "name": "2",
                   "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Homework.png",
-                  "altText": "Focus on your homework.",
+                  "altText": "Focus on your homework",
                   "position": {
                     "top": "22%",
                     "left": "59%"
@@ -6711,12 +6672,6 @@
             }
           ],
           "intro": [
-            {
-              "type": "updateGlobalState",
-              "newState": {
-                "day": "Thu"
-              }
-            },
             {
               "type": "showImage",
               "value": "GameScene",
@@ -6754,8 +6709,8 @@
             {
               "name": "1",
               "texts": [
-                "Your health points decrease. You keep having to lie to your parents about how you are doing in school which stresses you out further.",
-                "Your social points decrease. You feel embarrassed in front of your friends which makes it difficult to have a normal conversation with them."
+                "You keep having to lie to your parents about how you are doing in school which stresses you out further.",
+                "You feel embarrassed in front of your friends which makes it difficult to have a normal conversation with them."
               ],
               "position": {
                 "top": "3%",
@@ -6765,8 +6720,7 @@
             {
               "name": "2",
               "texts": [
-                "Your health points sharply increase because your parents understand that you have some difficulty with learning.",
-                "Your social points increase."
+                "Your parents understand that you have some difficulty with learning."
               ],
               "position": {
                 "top": "3%",
@@ -6821,7 +6775,7 @@
               "speeches": [
                 {
                   "character": "Belinda",
-                  "text": "Hiding things from my parents is always so tiring..",
+                  "text": "Hiding things from my parents is always so tiring...",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -6833,7 +6787,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "But I can't share this with my them. They will be so unhappy.",
+                  "text": "But I can't share this with them. They will be so unhappy.",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -6862,7 +6816,7 @@
                 },
                 {
                   "character": "Parent",
-                  "text": "Hmm I know you're disappointed but its okay. We know you're having a tough time coping. Just keep working hard and trying your best.",
+                  "text": "Hmm I know you're disappointed but it's okay. We know you're having a tough time coping. Just keep working hard and trying your best!",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -6891,7 +6845,7 @@
               "options": [
                 {
                   "name": "1",
-                  "text": "Hide the issue for as long as you can.",
+                  "text": "Hide the issue for as long as you can",
                   "position": {
                     "top": "22%",
                     "left": "12%"
@@ -6932,7 +6886,7 @@
                 },
                 {
                   "name": "2",
-                  "text": "Tell your parents.",
+                  "text": "Tell your parents",
                   "position": {
                     "top": "22%",
                     "left": "72%"
@@ -6973,12 +6927,6 @@
           ],
           "intro": [
             {
-              "type": "updateGlobalState",
-              "newState": {
-                "day": "Fri"
-              }
-            },
-            {
               "type": "showImage",
               "value": "ClassroomBullies",
               "autoHide": false,
@@ -7015,8 +6963,8 @@
             {
               "name": "1",
               "texts": [
-                "Your idea actually helps the class to uncover the solution. Everybody is pleasantly surprised at your ability and you get a boost of confidence. Health points increase.",
-                "Friends appreciate your ability more and give you more recognition. Social points increase."
+                "Your idea actually helps the class to uncover the solution. Everybody is pleasantly surprised at your ability and you get a boost of confidence.",
+                "Friends appreciate your ability more and give you more recognition."
               ],
               "position": {
                 "top": "3%",
@@ -7027,8 +6975,7 @@
               "name": "2",
               "texts": [
                 "Eventually the class discovers the clue that you noticed on their own and solve the puzzle.",
-                "You’re happy that you were right but you regret staying silent. Health points decrease.",
-                "Your social points remain the same."
+                "You’re happy that you were right but you regret staying silent."
               ],
               "position": {
                 "top": "3%",
@@ -7078,7 +7025,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "(To herself) Should I say something? I'm not sure if they will be willing to listen to me..",
+                  "text": "Should I say something? I'm not sure if they will be willing to listen to me...",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -7095,7 +7042,7 @@
               "speeches": [
                 {
                   "character": "Belinda",
-                  "text": "Hey guys I think you've missed something here... *shows the class*",
+                  "text": "Hey guys I think you've missed something here...",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -7107,7 +7054,7 @@
                 },
                 {
                   "character": "Classmates",
-                  "text": "Wow Belinda, you're right. We didn't look at things that way. The solution is so much more obvious now..",
+                  "text": "Wow Belinda, you're right. We didn't look at things that way. The solution is so much more obvious now...",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -7124,7 +7071,7 @@
               "speeches": [
                 {
                   "character": "Classmates",
-                  "text": "*After a long time passes*...Wait a minute what if we change this and this..I think we are starting to see something here",
+                  "text": "(*After a long time*)...Wait a minute what if we change this and this..I think we are starting to see something here.",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -7136,7 +7083,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "(to herself): Looks like I was right all along, hmm maybe I should have said something instead of just keeping quiet..",
+                  "text": "(to herself) Looks like I was right all along. Maybe I should have said something instead of just keeping quiet...",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -7165,7 +7112,8 @@
               "options": [
                 {
                   "name": "1",
-                  "text": "Step forward with your idea",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/ShareIdea.png",
+                  "altText": "Step forward with your idea",
                   "position": {
                     "top": "42%",
                     "left": "12%"
@@ -7206,10 +7154,11 @@
                 },
                 {
                   "name": "2",
-                  "text": "Sit back",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/StayQuiet.png",
+                  "altText": "Stay quiet",
                   "position": {
-                    "top": "42%",
-                    "left": "72%"
+                    "top": "48%",
+                    "left": "64%"
                   },
                   "dimension": {
                     "width": "20%"
