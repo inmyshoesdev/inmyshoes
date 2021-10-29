@@ -84,7 +84,7 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
       className="mt-1 h-full text-xs overflow-y-auto sm:text-sm md:text-base lg:text-lg xl:text-xl"
       style={bodyStyle || {}}
     >
-      <div className="scrollbar-thin scrollbar-thumb-gray-500 scrollbar-thumb-rounded scroll scrollbar-track-gray-100 scrollbar-track-rounded flex flex-col-reverse pl-1 pr-2 max-h-full overflow-y-auto">
+      <div className="scrollbar-thin scrollbar-thumb-gray-500 scrollbar-thumb-rounded scroll scrollbar-track-gray-100 scrollbar-track-rounded text-shadow flex flex-col-reverse pl-1 pr-2 max-h-full overflow-y-auto">
         {skipTyping ? (
           <span
             className="font-handwritten leading-relaxed"
