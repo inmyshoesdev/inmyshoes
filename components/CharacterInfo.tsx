@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { A11y, EffectCards, Mousewheel } from 'swiper'
+import { A11y, EffectCards, Navigation, Mousewheel } from 'swiper'
 import { Button } from '@chakra-ui/button'
 import { useStore } from '../stores/store'
 import {
@@ -31,50 +31,96 @@ function CharacterInfo({
     <div
       className={`${
         hidden ? 'hidden' : ''
-      } w-[50vw] h-5/6 mx-auto flex flex-col items-center gap-4`}
+      }  h-full w-full flex pt-1 flex-col items-center gap-2 md:gap-3 lg:gap-4 xl:gap-6 md:pt-2`}
     >
-      <h1 className="px-2 text-white text-xl bg-gray-700 opacity-90">
-        Character Information
+      <h1 className="px-2 bg-gray-700 border border-gray-900 rounded-handdrawn opacity-90 select-none md:px-3 md:py-1 md:border-2">
+        <span className="text-white text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl">
+          Character Information
+        </span>
       </h1>
-      <div className="w-1/2 h-full text-xs sm:w-full sm:text-base">
+      <style jsx>{`
+        .swiper-parent {
+          --swiper-navigation-color: #1f2937;
+          --swiper-navigation-size: 22px;
+        }
+
+        @media (min-width: 640px) {
+          .swiper-parent {
+            --swiper-navigation-size: 33px;
+          }
+        }
+
+        @media (min-width: 768px) {
+          .swiper-parent {
+            --swiper-navigation-size: 44px;
+          }
+        }
+
+        @media (min-width: 1280px) {
+          .swiper-parent {
+            --swiper-navigation-size: 55px;
+          }
+        }
+
+        .swiper-parent :global(.swiper-button-next) {
+          right: -25%;
+          cursor: url(https://soristic.sgp1.digitaloceanspaces.com/general/curhand.cur),
+            auto !important;
+        }
+
+        .swiper-parent :global(.swiper-button-prev) {
+          left: -25%;
+          cursor: url(https://soristic.sgp1.digitaloceanspaces.com/general/curhand.cur),
+            auto !important;
+        }
+      `}</style>
+      <div className="swiper-parent w-3/5">
         <Swiper
-          modules={[A11y, Mousewheel, EffectCards]}
+          modules={[A11y, Mousewheel, EffectCards, Navigation]}
           effect="cards"
+          navigation={true}
           mousewheel={true}
           className="h-full"
           key={characterIndex}
         >
           {characterSelected &&
-            game.mainCharacters[characterIndex].info.map((info) => (
+            game.mainCharacters[characterIndex].info.map((info, idx) => (
               <SwiperSlide
                 key={info.text}
-                className="flex"
-                style={{
-                  backgroundImage: `url(${info.backgroundImage})`,
-                  backgroundSize: 'cover',
-                }}
+                className="aspect-w-16 aspect-h-9 relative"
               >
-                <p className="self-end mx-auto p-1 text-center text-white bg-gray-800 opacity-90">
-                  {info.text}
-                </p>
+                <img
+                  className="object-cover"
+                  src={info.backgroundImage}
+                  alt={`background ${idx} for ${game.mainCharacters[characterIndex].name}`}
+                />
+                <div className="bg-gray-900/80 absolute top-unset mx-auto p-1 w-max max-w-full h-max text-center">
+                  <span className="text-gray-100 text-2xs leading-3 sm:text-xs md:text-sm lg:text-base">
+                    {info.text}
+                  </span>
+                </div>
               </SwiperSlide>
             ))}
         </Swiper>
       </div>
-      <div className="z-10 flex flex-col gap-6 items-center justify-center mt-8">
+      <div className="z-10 flex gap-3 items-center justify-center my-2 lg:flex-col lg:my-1 xl:gap-6 xl:my-3">
         <button
-          className="px-4 py-1 text-center text-lg font-medium bg-green-400 hover:bg-green-500 rounded cursor-pointer"
+          className="px-3 text-center font-medium bg-green-400 hover:bg-green-500 rounded cursor-pointer md:px-4 md:py-1"
           onClick={() => {
             setHidden(true)
             setBlurBackground((state) => !state)
           }}
         >
-          Resume
+          <span className="text-xs cursor-pointer sm:text-sm md:text-base lg:text-lg">
+            Resume
+          </span>
         </button>
         <Popover>
           <PopoverTrigger>
-            <button className="justify-content z-20 flex mx-auto px-2 py-1 font-medium bg-yellow-400 hover:bg-yellow-500 rounded cursor-pointer">
-              Reselect
+            <button className="mx-auto px-1 font-medium bg-yellow-400 hover:bg-yellow-500 rounded cursor-pointer md:px-2 md:py-1">
+              <span className="text-2xs cursor-pointer sm:text-xs md:text-sm lg:text-base">
+                Reselect
+              </span>
             </button>
           </PopoverTrigger>
           <PopoverContent>
