@@ -1,9 +1,34 @@
-import { useRouter } from 'next/router'
+import Link from 'next/link'
 import Head from 'next/head'
+import { useEffect } from 'react'
 
 export default function Landing(): JSX.Element {
-  const router = useRouter()
+  useEffect(() => {
+    var scrollToTopBtn = document.querySelector(
+      '.scrollToTopBtn'
+    ) as HTMLElement
+    var rootElement = document.documentElement
+    const scrollFunction = () => {
+      if (rootElement.scrollTop > 300) {
+        // Show button
+        scrollToTopBtn.classList.add('showBtn')
+      } else {
+        // Hide button
+        scrollToTopBtn.classList.remove('showBtn')
+      }
+    }
 
+    function scrollToTop() {
+      rootElement.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      })
+    }
+    scrollToTopBtn.addEventListener('click', scrollToTop)
+    window.onscroll = function () {
+      scrollFunction()
+    }
+  })
   return (
     <>
       <Head>
@@ -11,40 +36,82 @@ export default function Landing(): JSX.Element {
         <meta name="description" content="In My Shoes" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <body>
-        <header className="bg-r-bg body-font">
+      <main>
+        <header
+          className="bg-r-bg body-font"
+          style={{
+            textDecoration: 'none !important',
+          }}
+        >
           <div className="container flex flex-col flex-wrap items-center mx-auto p-5 md:flex-row">
             <a
-              className="title-font flex items-center mb-4 text-gray-900 font-medium md:mb-0"
+              className="text-gray-9xl flex items-center mb-4 md:mb-0"
               href="https://soristic.asia/"
               target="_blank"
               rel="noreferrer"
             >
-              <img className="w-60 h-auto" id="logo1" />
+              <img alt="logo" src="/favicon.ico" />
             </a>
             <nav className="font-joe flex flex-wrap items-center justify-center text-base md:ml-auto">
-              <a className="mr-5 px-4 py-2 hover:text-white hover:bg-blue-900 rounded-full cursor-pointer">
+              <a
+                className="mr-5 px-4 py-2 hover:text-white hover:bg-blue-900 rounded-full cursor-pointer"
+                href="#home"
+              >
                 Home
               </a>
-              <a className="mr-5 px-4 py-2 hover:text-white hover:bg-blue-900 rounded-full cursor-pointer">
-                Simulation
+              <a
+                className="mr-5 px-4 py-2 hover:text-white hover:bg-blue-900 rounded-full cursor-pointer"
+                href="#goals"
+              >
+                Goals
               </a>
-              <a className="mr-5 px-4 py-2 hover:text-white hover:bg-blue-900 rounded-full cursor-pointer">
-                Workshops
+              <a
+                className="mr-5 px-4 py-2 hover:text-white hover:bg-blue-900 rounded-full cursor-pointer"
+                href="#walkthrough"
+              >
+                Walkthrough
               </a>
-              <a className="mr-5 px-4 py-2 hover:text-white hover:bg-blue-900 rounded-full cursor-pointer">
-                FAQ
+              <a
+                className="mr-5 px-4 py-2 hover:text-white hover:bg-blue-900 rounded-full cursor-pointer"
+                href="#features"
+              >
+                Features
+              </a>
+              <a
+                className="mr-5 px-4 py-2 hover:text-white hover:bg-blue-900 rounded-full cursor-pointer"
+                href="#testimonials"
+              >
+                Testimonials
               </a>
             </nav>
+            <button className="bg-r-button shadow-button inline-flex items-center mt-4 px-3 py-1 text-white hover:bg-purple-400 border-0 rounded cursor-pointer md:mt-0">
+              Simulation
+              <svg
+                fill="none"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                className="ml-1 w-4 h-4"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7"></path>
+              </svg>
+            </button>
           </div>
         </header>
-        <section id="topSection" className="body-font bg-auto">
+        <section
+          id="home"
+          className="body-font bg-auto"
+          style={{
+            backgroundImage: `url('https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/landing/topbg.png')`,
+            objectFit: 'cover',
+            backgroundSize: 'cover',
+          }}
+        >
           <div className="container flex flex-col items-center mx-auto pt-16 px-5 md:flex-row">
             <div className="flex flex-col items-center mb-16 text-center font-bold sm:w-1/2 md:items-start md:mb-0 md:pr-16 md:text-left lg:pr-24 lg:w-1/2">
-              <h1
-                id="brand"
-                className="title-font mb-4 text-3xl font-medium sm:text-4xl"
-              >
+              <h1 id="brand" className="mb-4 text-3xl sm:text-4xl">
                 In <span id="brand-middle">My</span> Shoes
               </h1>
               <p className="mb-8 text-xl leading-relaxed">
@@ -52,78 +119,38 @@ export default function Landing(): JSX.Element {
                 the challenges they face by placing yourself in their shoes.
               </p>
               <div className="flex md:flex-col lg:flex-row">
-                <button
-                  onClick={() => router.push('/youth')}
-                  className="bg-r-button shadow-button title-font flex flex-col items-center ml-4 mt-0 px-5 py-3 text-white leading-none hover:bg-purple-400 rounded-full focus:outline-none cursor-pointer md:ml-0 md:mt-4 lg:ml-4 lg:mt-0"
-                >
-                  Go Simluation
-                </button>
+                <Link href="/youth">
+                  <a className="bg-r-button shadow-button flex flex-col items-center ml-4 mt-0 px-5 py-3 text-white font-normal leading-none hover:bg-purple-400 rounded cursor-pointer md:ml-0 md:mt-4 lg:ml-4 lg:mt-0">
+                    <span className="flex cursor-pointer">
+                      Simluation
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        className="ml-1 w-4 h-4"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                      </svg>
+                    </span>
+                  </a>
+                </Link>
               </div>
             </div>
-            <div className="ml-auto w-5/6 h-96 md:w-1/2 lg:w-full lg:max-w-lg">
-              {/* <img
-                id="topChar"
-                className="w-1/6 object-cover object-bottom"
-                alt="hero"
-                src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis.png"
-              /> */}
-            </div>
           </div>
-        </section>
-        <section className="body-font relative bg-purple-100 overflow-hidden">
-          <div className="container mx-auto px-5 py-24">
-            <div className="flex flex-wrap mx-auto">
-              <div className="mb-6 w-full lg:mb-0 lg:pr-10 lg:py-6 lg:w-1/2">
-                <img
-                  className="-ml-12"
-                  alt="sustainable"
-                  src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/landing/sustainable.png"
-                />
-                <div className="flex mb-4">
-                  <img
-                    alt="E_SDG-goals_icons-individual-rgb-10"
-                    className="px-1 py-2 w-24 h-28 md:w-40 md:h-48"
-                    src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/landing/E_SDG-goals_icons-individual-rgb-10.png"
-                  />
-                  <img
-                    alt="E_SDG-goals_icons-individual-rgb-11"
-                    className="px-1 py-2 w-24 h-28 md:w-40 md:h-48"
-                    src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/landing/E_SDG%20goals_icons-individual-rgb-11.png"
-                  />
-                  <img
-                    alt="E_SDG-goals_icons-individual-rgb-16"
-                    className="px-1 py-2 w-24 h-28 md:w-40 md:h-48"
-                    src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/landing/E_SDG%20goals_icons-individual-rgb-16.png"
-                  />
-                </div>
-                <h1 className="mb-4 text-gray-900 font-serif text-2xl font-bold">
-                  Supporting United Nation Sustainable Development Goals{' '}
-                  <span className="text-pink-500">10</span>,{' '}
-                  <span className="text-yellow-500">11</span> &{' '}
-                  <span className="text-blue-500">16</span>
-                </h1>
-                <p className="mb-4 text-lg leading-relaxed">
-                  The character simulation enables participants to empathise
-                  with others&apos; life experiences and develop an inclusive
-                  mindset.
-                </p>
-              </div>
-              <img
-                alt="goals"
-                className="w-full object-cover object-center md:w-1/2"
-                id="goals"
-                src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/landing/goals.png"
-              />
-            </div>
-          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path
+              fill="#CADFDF"
+              fillOpacity="1"
+              d="M0,96L120,106.7C240,117,480,139,720,149.3C960,160,1200,160,1320,160L1440,160L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
+            ></path>
+          </svg>
         </section>
         <section className="bg-HTP-bg body-font text-gray-600">
-          <div className="container mx-auto px-5 py-24">
-            <div className="mb-20 text-center">
-              <h1 className="font-staat text-HTP-text mb-4 text-2xl font-bold sm:text-4xl">
-                How to play
-              </h1>
-            </div>
+          <div className="container mx-auto px-5 py-10">
+            <div className="mb-20 text-center"></div>
             <div className="flex flex-wrap justify-center -mb-10 -mt-4 -mx-4 space-y-6 sm:-m-4 md:space-y-0">
               <div className="flex flex-col items-center p-4 text-center md:w-1/4">
                 <div className="inline-flex flex-shrink-0 items-center justify-center mb-5">
@@ -181,8 +208,68 @@ export default function Landing(): JSX.Element {
               </div>
             </div>
           </div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path
+              fill="#EDE9FE"
+              fillOpacity="1"
+              d="M0,96L120,128C240,160,480,224,720,234.7C960,245,1200,203,1320,181.3L1440,160L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
+            ></path>
+          </svg>
+        </section>
+        <section
+          id="goals"
+          className="body-font relative bg-purple-100 overflow-hidden"
+        >
+          <div className="container mx-auto px-5 py-10">
+            <div className="flex flex-wrap mx-auto">
+              <div className="mb-6 w-full lg:mb-0 lg:pr-10 lg:py-6 lg:w-1/2">
+                <img
+                  className="-ml-12"
+                  alt="sustainable"
+                  src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/landing/sustainable.png"
+                />
+                <div className="flex mb-4">
+                  <img
+                    alt="E_SDG-goals_icons-individual-rgb-10"
+                    className="px-1 py-2 w-24 h-28 md:w-40 md:h-48"
+                    src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/landing/E_SDG-goals_icons-individual-rgb-10.png"
+                  />
+                  <img
+                    alt="E_SDG-goals_icons-individual-rgb-11"
+                    className="px-1 py-2 w-24 h-28 md:w-40 md:h-48"
+                    src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/landing/E_SDG%20goals_icons-individual-rgb-11.png"
+                  />
+                  <img
+                    alt="E_SDG-goals_icons-individual-rgb-16"
+                    className="px-1 py-2 w-24 h-28 md:w-40 md:h-48"
+                    src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/landing/E_SDG%20goals_icons-individual-rgb-16.png"
+                  />
+                </div>
+                <h1 className="mb-4 text-gray-900 font-serif text-2xl font-bold">
+                  Supporting United Nation Sustainable Development Goals{' '}
+                  <span className="text-pink-500">10</span>,{' '}
+                  <span className="text-yellow-500">11</span> &{' '}
+                  <span className="text-blue-500">16</span>
+                </h1>
+                <p className="mb-4 text-lg leading-relaxed">
+                  The character simulation enables participants to empathise
+                  with others&apos; life experiences and develop an inclusive
+                  mindset.
+                </p>
+              </div>
+              <img
+                alt="goals"
+                className="w-full object-cover object-center md:w-1/2"
+                id="goals"
+                src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/landing/goals.png"
+              />
+            </div>
+          </div>
         </section>
         <section className="body-font bg-purple-100 overflow-hidden">
+          <h1 className="sectionTitle container mx-auto text-center text-gray-900 text-3xl">
+            Benefits Of Instilling An Inclusive Mindset
+          </h1>
           <div className="ferris-wrapper">
             <img
               className="absolute left-80 top-96 mt-28 w-72 h-72"
@@ -212,13 +299,19 @@ export default function Landing(): JSX.Element {
               </div>
             </div>
           </div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path
+              fill="#FFF7F3"
+              fillOpacity="1"
+              d="M0,160L120,176C240,192,480,224,720,202.7C960,181,1200,107,1320,69.3L1440,32L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
+            ></path>
+          </svg>
         </section>
-
-        <section className="bg-r-bg body-font text-gray-600">
+        <section className="bg-r-bg body-font text-gray-600" id="walkthrough">
           <div className="p-4">
             <div className="mb-20 text-center">
-              <h1 className="font-staat mb-4 text-red-800 text-2xl font-bold sm:text-4xl">
-                Features
+              <h1 className="sectionTitle mb-4 text-red-800 text-2xl sm:text-4xl">
+                Simulation Walkthrough
               </h1>
             </div>
             <div className="">
@@ -228,23 +321,18 @@ export default function Landing(): JSX.Element {
                     <div className="flex items-center justify-center w-6 h-full">
                       <div className="w-1 h-full bg-green-500 pointer-events-none"></div>
                     </div>
-                    <div className="absolute top-1/2 -mt-3 w-6 h-6 text-center bg-green-500 rounded-full shadow">
-                      <i className="fas fa-check-circle text-white"></i>
-                    </div>
+                    <div className="absolute top-1/2 -mt-3 w-6 h-6 text-center bg-green-500 rounded-full shadow"></div>
                   </div>
                   <div className="col-end-12 col-start-4 mr-auto my-4 p-4 w-5/6 bg-green-500 rounded-xl shadow-md">
                     <h3 className="mb-1 text-lg font-semibold">
-                      ✔️Illustrations
+                      Tell us about yourself
                     </h3>
                     <h2>
-                      Since July 2020, Soristic has been actively participating
-                      in the content building and development of the simulation.
-                      Several rounds of beta testing has also been conducted
-                      together with students and professionals.
+                      Before you start the game, you will be asked to fill in
+                      some details about your age and gender. This is anonymous
+                      and will only be used to make sure we are creating
+                      age-appropriate content.
                     </h2>
-                    <p className="w-full text-justify leading-tight">
-                      July 2020 - March 2021
-                    </p>
                   </div>
                 </div>
 
@@ -253,22 +341,18 @@ export default function Landing(): JSX.Element {
                     <div className="flex items-center justify-center w-6 h-full">
                       <div className="w-1 h-full bg-green-500 pointer-events-none"></div>
                     </div>
-                    <div className="absolute top-1/2 -mt-3 w-6 h-6 text-center bg-green-500 rounded-full shadow">
-                      <i className="fas fa-check-circle text-white"></i>
-                    </div>
+                    <div className="absolute top-1/2 -mt-3 w-6 h-6 text-center bg-green-500 rounded-full shadow"></div>
                   </div>
                   <div className="col-end-12 col-start-4 mr-auto my-4 p-4 w-5/6 bg-green-500 rounded-xl shadow-md">
                     <h3 className="mb-1 text-lg font-semibold">
-                      ✔️Simulation Release cum Workshop
+                      Understand the objective
                     </h3>
                     <h2>
-                      In March 2021, Soristic has officially released the
-                      simulation which aims to instill the mindset of
-                      inclusivity to the community by providing a platform where
-                      people get to experience the various life scenario of
-                      others.
+                      There is no single objective for the simulation, as
+                      success means different things to different people There
+                      is a bigger point, though - the simulation is designed to
+                      help you understand different lives.
                     </h2>
-                    <p className="text-justify leading-tight">18 March 2021</p>
                   </div>
                 </div>
                 <div className="flex md:contents">
@@ -282,14 +366,13 @@ export default function Landing(): JSX.Element {
                   </div>
                   <div className="col-end-12 col-start-4 mr-auto my-4 p-4 w-5/6 bg-green-500 rounded-xl shadow-md">
                     <h3 className="mb-1 text-lg font-semibold">
-                      ✔️Educators Workshop
+                      Choose a character
                     </h3>
                     <h2>
-                      After the release of the simulation, Soristic organised a
-                      review session to guide the educators who would wish to
-                      run In My Shoes workshops of their own.
+                      Now we&apos;re getting started! You&apos;ll try all three
+                      but you can choose between Arthur (mental health), Belinda
+                      (learning disabilities) or Curtis (low-income) first.
                     </h2>
-                    <p className="text-justify leading-tight">25 March 2021</p>
                   </div>
                 </div>
                 <div className="flex md:contents">
@@ -303,49 +386,172 @@ export default function Landing(): JSX.Element {
                   </div>
                   <div className="col-end-12 col-start-4 mr-auto my-4 p-4 w-5/6 bg-green-500 rounded-xl shadow-md">
                     <h3 className="mb-1 text-lg font-semibold">
-                      ✔️Public Workshop
+                      Read your character profile
                     </h3>
                     <h2>
-                      On May 2021, Soristic conducted its first Empathy Workshop
-                      with an overwhelming response of 81 signups in total.
-                      During the workshop, participants were able to try out the
-                      simulations and share their thoughts with others.
+                      Each character has a very specific backstory. (Don&apos;t
+                      worry: you can click on the profile icon in the bottom
+                      left to remind yourself.) Have a think about what life as
+                      this character would be like - and how it is similar or
+                      different to yours.
                     </h2>
-                    <p className="text-justify leading-tight">20 May 2021</p>
                   </div>
                 </div>
                 <div className="flex md:contents">
                   <div className="relative col-end-4 col-start-2 mr-10 md:mx-auto">
                     <div className="flex items-center justify-center w-6 h-full">
-                      <div className="w-1 h-full bg-yellow-400 pointer-events-none"></div>
+                      <div className="w-1 h-full bg-green-500 pointer-events-none"></div>
                     </div>
-                    <div className="absolute top-1/2 -mt-3 w-6 h-6 text-center bg-yellow-400 rounded-full shadow">
+                    <div className="absolute top-1/2 -mt-3 w-6 h-6 text-center bg-green-500 rounded-full shadow">
                       <i className="fas fa-times-circle text-white"></i>
                     </div>
                   </div>
-                  <div className="col-end-12 col-start-4 mr-auto my-4 p-4 w-5/6 bg-yellow-500 rounded-xl shadow-md">
+                  <div className="col-end-12 col-start-4 mr-auto my-4 p-4 w-5/6 bg-green-500 rounded-xl shadow-md">
                     <h3 className="mb-1 text-gray-50 text-lg font-semibold">
-                      🧑‍🔧Simulation Development
+                      Ready... set... go!
                     </h3>
                     <h2>
-                      Soristic is upgrading the simulation with new characters
-                      such as persons with disabilities and improving our
-                      workshop content with the educators and public.
+                      You&apos;re now ready to start the game. You will be
+                      presented with a series of situations and have to choose
+                      your (character&apos;s) response to each.
                     </h2>
-                    <p className="text-justify leading-tight">
-                      September 2021 - November 2021
-                    </p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path
+              fill="#F0F8FF"
+              fillOpacity="1"
+              d="M0,224L120,224C240,224,480,224,720,213.3C960,203,1200,181,1320,170.7L1440,160L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
+            ></path>
+          </svg>
         </section>
-        <section className="body-font text-gray-600 bg-gray-200">
-          <div className="container mx-auto px-5 py-24">
+        <section
+          className="body-font text-gray-600"
+          id="features"
+          style={{
+            backgroundColor: '#F0F8FF',
+          }}
+        >
+          <h1 className="sectionTitle text-center text-2xl sm:text-4xl">
+            Features
+          </h1>
+          <div className="container mx-auto px-5 py-10">
+            <div className="flex flex-col items-center mb-10 mx-auto pb-10 border-b border-gray-200 sm:flex-row lg:w-3/5">
+              <div className="inline-flex flex-shrink-0 items-center justify-center w-48 h-20 sm:mr-10 sm:w-80 sm:h-48">
+                <img
+                  src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-background-home.jpg"
+                  alt="background"
+                />
+              </div>
+              <div className="flex-grow mt-6 text-center sm:mt-0 sm:text-left">
+                <h2 className="mb-2 text-gray-900 text-xl font-semibold">
+                  Illustrations
+                </h2>
+                <p className="leading-relaxed">
+                  Background scenes and choices are illustrated to provide a
+                  more visual experience.
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col items-center mb-10 mx-auto pb-10 border-b border-gray-200 sm:flex-row lg:w-3/5">
+              <div className="flex-grow mt-6 text-center sm:mt-0 sm:text-left">
+                <h2 className="mb-2 text-gray-900 text-xl font-semibold">
+                  Carefully Crafted Storylines
+                </h2>
+                <p className="leading-relaxed">
+                  Each character has a unique backstory and a curated set of
+                  scenarios. Different choices are available and can lead to
+                  different outcomes.
+                </p>
+              </div>
+              <div className="inline-flex flex-shrink-0 items-center justify-center order-first w-48 h-20 sm:order-none sm:ml-10 sm:w-80 sm:h-48">
+                <img
+                  src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-intro-family-image.jpg"
+                  alt="intro"
+                />
+              </div>
+            </div>
+            <div className="flex flex-col items-center mb-10 mx-auto pb-10 border-b border-gray-200 sm:flex-row lg:w-3/5">
+              <div className="inline-flex flex-shrink-0 items-center justify-center w-20 h-40 sm:mr-10 sm:w-24 sm:h-48">
+                <img
+                  src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/wealth-badge.png"
+                  alt="badges"
+                  className="object-contain"
+                />
+              </div>
+              <div className="flex-grow mt-6 text-center sm:mt-0 sm:text-left">
+                <h2 className="mb-2 text-gray-900 text-xl font-semibold">
+                  Badges & Indicators
+                </h2>
+                <p className="leading-relaxed">
+                  The choices in each scenario present compromises/sacrifices.
+                  They have an impact on the character that you are playing and
+                  it&apos; worth looking out for the changes that are brought
+                  forth by the actions taken.
+                </p>
+              </div>
+            </div>
+            <div className="flex flex-col items-center mx-auto sm:flex-row lg:w-3/5">
+              <div className="inline-flex flex-shrink-0 items-center justify-center w-48 h-20 sm:mr-10 sm:w-80 sm:h-48">
+                <img
+                  src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/workshop.png"
+                  alt="workshop"
+                />
+              </div>
+              <div className="flex-grow mt-6 text-center sm:mt-0 sm:text-left">
+                <h2 className="mb-2 text-gray-900 text-lg font-semibold">
+                  Empathy Workshop & Curriculum
+                </h2>
+                <p className="leading-relaxed">
+                  Besides developing the online simulation that allows users to
+                  live through the daily lives of the characters and understand
+                  the challenges they face, Soristic also develops workshop
+                  curriculum to enable workshop participants to further develop
+                  an empathetic and inclusive mindset that will not only make
+                  them better future leaders but also contribute to a more
+                  inclusive society.
+                </p>
+                <a
+                  className="inline-flex items-center mt-3 text-pink-500"
+                  href="https://inmyshoes.asia/workshops/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Learn More
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    className="ml-2 w-4 h-4"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path
+              fill="#E5E7EB"
+              fillOpacity="1"
+              d="M0,224L120,224C240,224,480,224,720,213.3C960,203,1200,181,1320,170.7L1440,160L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
+            ></path>
+          </svg>
+        </section>
+        <section
+          className="body-font text-gray-600 bg-gray-200"
+          id="testimonials"
+        >
+          <div className="container mx-auto px-5 py-10">
             <div className="mb-20 text-center">
-              <h1 className="font-staat mb-4 text-gray-900 text-2xl font-bold uppercase sm:text-3xl">
-                Feedback from our participants
+              <h1 className="sectionTitle mb-4 text-gray-900 text-2xl sm:text-3xl">
+                Feedback From Our Participants
               </h1>
             </div>
             <div className="flex flex-wrap -mb-10 -mt-4 -mx-4 space-y-6 sm:-m-4 md:space-y-0">
@@ -357,7 +563,7 @@ export default function Landing(): JSX.Element {
                   />
                 </div>
                 <div className="flex-grow">
-                  <h2 className="mb-3 text-gray-900 font-serif text-7xl font-medium">
+                  <h2 className="mb-3 text-gray-900 font-serif text-7xl">
                     90.5%
                   </h2>
                   <p className="text-base font-bold leading-relaxed">
@@ -373,7 +579,7 @@ export default function Landing(): JSX.Element {
                   />
                 </div>
                 <div className="flex-grow">
-                  <h2 className="mb-3 text-gray-900 font-serif text-7xl font-medium">
+                  <h2 className="mb-3 text-gray-900 font-serif text-7xl">
                     85.7%
                   </h2>
                   <p className="text-base font-bold leading-relaxed">
@@ -389,7 +595,7 @@ export default function Landing(): JSX.Element {
                   />
                 </div>
                 <div className="flex-grow">
-                  <h2 className="mb-3 text-gray-900 font-serif text-7xl font-medium">
+                  <h2 className="mb-3 text-gray-900 font-serif text-7xl">
                     85.7%
                   </h2>
                   <p className="text-base font-bold leading-relaxed">
@@ -419,71 +625,89 @@ export default function Landing(): JSX.Element {
                 should be unassuming of the difficulties others may experience,
                 and to be more empathetic and kind even to others.
               </p>
-              <h1 className="title-font mt-8 text-gray-900 text-sm font-medium tracking-wider">
-                - Participant from Empathy Workshop
+              <h1 className="mt-8 text-gray-900 text-xl tracking-wider">
+                - Participant
               </h1>
             </div>
           </div>
         </section>
-
         <footer className="bg-footer-blue body-font text-white">
           <div className="container flex flex-col flex-wrap mx-auto px-5 py-24 md:flex-row md:flex-nowrap md:items-center lg:items-start">
             <div className="flex-shrink-0 mx-auto w-64 text-center md:mx-0 md:text-left">
               <a
-                className="title-font flex items-center justify-center text-white font-medium md:justify-start"
+                className="text-whixl flex items-center justify-center md:justify-start"
                 href="https://soristic.asia/"
                 target="_blank"
+                rel="noreferrer"
               >
-                <img id="logo2" />
+                <img
+                  alt="logo"
+                  src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/WhiteIMSLogo.png"
+                />
               </a>
             </div>
             <div className="flex flex-grow flex-wrap -mb-10 mt-10 text-center md:mt-0 md:pl-20 md:text-left">
               <div className="px-4 w-full md:w-1/2 lg:w-1/4">
-                <h2 className="title-font mb-3 text-sm font-medium tracking-widest">
+                <h2 className="mb-3 text-xl tracking-widest">
                   Simulation Development
                 </h2>
                 <nav className="mb-10 list-none">
                   <li>
-                    <a className="">Soristic Impact Collective</a>
+                    <a
+                      href="https://soristic.asia/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      Soristic Impact Collective
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://nus.edu/30Si5Jp"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      A CS3216 Project
+                    </a>
                   </li>
                 </nav>
               </div>
               <div className="px-4 w-full md:w-1/2 lg:w-1/4">
-                <h2 className="title-font mb-3 text-sm font-medium tracking-widest">
+                <h2 className="mb-3 text-xl tracking-widest">
                   Design and Illustration
                 </h2>
                 <nav className="mb-10 list-none">
-                  <li>
-                    <a className="">Storyset and Canva</a>
-                  </li>
+                  <li>Storyset and Canva</li>
                 </nav>
               </div>
               <div className="px-4 w-full md:w-1/2 lg:w-1/4">
-                <h2 className="title-font mb-3 text-sm font-medium tracking-widest">
-                  Disclaimer:
-                </h2>
+                <h2 className="mb-3 text-xl tracking-widest">Disclaimer:</h2>
+                <p>
+                  The events are compressed and simplified and may not fully
+                  reflect the daily experience of one.
+                </p>
               </div>
               <div className="px-4 w-full md:w-1/2 lg:w-1/4">
-                <h2 className="title-font mb-3 text-sm font-medium tracking-widest">
-                  Contact Us
-                </h2>
+                <h2 className="mb-3 text-xl tracking-widest">Contact Us</h2>
                 <nav className="mb-10 list-none">
                   <li>
-                    <a className="">connect@soristic.asia</a>
+                    <a href="mailto:connect@soristic.asia">
+                      connect@soristic.asia
+                    </a>
                   </li>
                 </nav>
                 <span className="inline-flex justify-center mt-2 sm:justify-start sm:ml-auto sm:mt-0">
                   <a
-                    className=""
                     href="https://www.facebook.com/soristic/"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     <svg
                       fill="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      className="w-10 h-10"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      className="w-10 h-10 cursor-pointer"
                       viewBox="0 0 24 24"
                     >
                       <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
@@ -493,10 +717,11 @@ export default function Landing(): JSX.Element {
                     className="ml-3"
                     href="https://www.youtube.com/channel/UCInOVLg0CFcyexvUtMkFCgQ"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     <svg
                       fill="currentColor"
-                      className="w-10 h-10"
+                      className="w-10 h-10 cursor-pointer"
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
                       height="24"
@@ -509,14 +734,15 @@ export default function Landing(): JSX.Element {
                     className="ml-3"
                     href="https://www.instagram.com/soristic/"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     <svg
                       fill="none"
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      className="w-10 h-10"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      className="w-10 h-10 cursor-pointer"
                       viewBox="0 0 24 24"
                     >
                       <rect
@@ -534,14 +760,15 @@ export default function Landing(): JSX.Element {
                     className="ml-3"
                     href="https://www.linkedin.com/company/soristic/"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     <svg
                       fill="currentColor"
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="0"
-                      className="w-10 h-10"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="0"
+                      className="w-10 h-10 cursor-pointer"
                       viewBox="0 0 24 24"
                     >
                       <path
@@ -558,13 +785,9 @@ export default function Landing(): JSX.Element {
           <div className="bg-gray-100">
             <div className="container flex flex-col flex-wrap mx-auto px-5 py-4 sm:flex-row">
               <p className="text-center text-gray-500 text-sm sm:text-left">
-                ©{' '}
-                <script type="text/javascript">
-                  document.write(new Date().getFullYear());
-                </script>{' '}
-                Soristic —
+                © {new Date().getFullYear()} Soristic —
                 <a
-                  href="https://twitter.com/knyttneve"
+                  href="https://soristic.asia/"
                   rel="noopener noreferrer"
                   className="ml-1 text-gray-600"
                   target="_blank"
@@ -575,7 +798,8 @@ export default function Landing(): JSX.Element {
             </div>
           </div>
         </footer>
-      </body>
+        <button className="scrollToTopBtn cursor-pointer">☝️</button>
+      </main>
     </>
   )
 }

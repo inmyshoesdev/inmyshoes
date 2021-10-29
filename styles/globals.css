@@ -8,7 +8,7 @@
 }
 
 a {
-  @apply !underline !text-blue-500 cursor-pointer;
+  @apply text-blue-500 underline cursor-pointer;
 }
 
 body {
@@ -234,11 +234,11 @@ body {
 #brand {
   font-family: 'Fredoka One', cursive;
 }
-#topSection {
-  background-image: url('https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/landing/topbg.png');
-  object-fit: cover;
-  background-size: cover;
+
+.sectionTitle {
+  font-family: 'Fredoka One', cursive;
 }
+
 #brand-middle {
   color: #f64721;
 }
@@ -349,4 +349,33 @@ body {
   100% {
     transform: rotate(-360deg);
   }
+}
+
+.scrollToTopBtn {
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 48px;
+  width: 48px;
+
+  /* place it at the bottom right corner */
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  /* keep it at the top of everything else */
+  z-index: 100;
+  /* hide with opacity */
+  opacity: 0;
+  /* also add a translate effect */
+  transform: translateY(100px);
+  /* and a transition */
+  transition: all 0.5s ease;
+}
+
+.showBtn {
+  opacity: 1;
+  transform: translateY(0);
 }
