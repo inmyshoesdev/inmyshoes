@@ -11,8 +11,6 @@ import {
   PopoverArrow,
   PopoverCloseButton,
 } from '@chakra-ui/react'
-import 'swiper/css'
-import 'swiper/css/navigation'
 
 function CharacterInfo({
   characterSelected,
@@ -96,7 +94,7 @@ function CharacterInfo({
                   src={info.backgroundImage}
                   alt={`background ${idx} for ${game.mainCharacters[characterIndex].name}`}
                 />
-                <div className="bg-gray-900/80 top-unset h-max absolute mx-auto p-1 w-max max-w-full text-center">
+                <div className="bg-gray-900/80 absolute top-unset mx-auto p-1 w-max max-w-full h-max text-center">
                   <span className="text-gray-100 text-2xs leading-3 sm:text-xs md:text-sm lg:text-base">
                     {info.text}
                   </span>

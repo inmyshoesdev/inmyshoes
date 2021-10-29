@@ -5,8 +5,6 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { useStore } from '../stores/store'
 import Tape from './Tape'
-import 'swiper/css'
-import 'swiper/css/navigation'
 import { Tooltip } from '@chakra-ui/tooltip'
 
 function CharacterSelect({
