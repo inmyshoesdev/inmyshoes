@@ -113,7 +113,7 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
     </div>
   )
 
-  const buttonSize = useBreakpointValue(['2xs', 'xs', 'sm', 'sm'])
+  const buttonSize = useBreakpointValue(['2xs', '2xs', '2xs', 'xs'])
   const buttons = (
     <div className="flex flex-wrap-reverse justify-between">
       <IconButton

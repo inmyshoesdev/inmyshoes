@@ -676,7 +676,7 @@
               ],
               "dimension": {
                 "width": "50%",
-                "height": "30%"
+                "height": "25%"
               },
               "position": {
                 "bottom": "2%",
@@ -690,7 +690,7 @@
               ],
               "dimension": {
                 "width": "50%",
-                "height": "30%"
+                "height": "25%"
               },
               "position": {
                 "bottom": "2%",
@@ -883,7 +883,7 @@
               ],
               "dimension": {
                 "width": "50%",
-                "height": "30%"
+                "height": "25%"
               },
               "position": {
                 "bottom": "2%",
@@ -897,7 +897,7 @@
               ],
               "dimension": {
                 "width": "50%",
-                "height": "30%"
+                "height": "25%"
               },
               "position": {
                 "bottom": "2%",
@@ -922,12 +922,12 @@
                     "bottom": "-30%"
                   },
                   "textDimension": {
-                    "height": "30%",
-                    "width": "60%"
+                    "height": "25%",
+                    "width": "50%"
                   },
                   "textPosition": {
                     "left": "15%",
-                    "top": "10%"
+                    "top": "15%"
                   },
                   "type": "thought"
                 },
@@ -944,12 +944,12 @@
                     "bottom": "-30%"
                   },
                   "textDimension": {
-                    "height": "30%",
-                    "width": "60%"
+                    "height": "20%",
+                    "width": "50%"
                   },
                   "textPosition": {
                     "left": "15%",
-                    "top": "10%"
+                    "top": "15%"
                   },
                   "type": "thought"
                 }
@@ -1056,7 +1056,7 @@
               "name": "day",
               "texts": ["**Later...**"],
               "dimension": {
-                "width": "22%",
+                "width": "20%",
                 "height": "12%"
               },
               "position": {
@@ -1072,7 +1072,7 @@
               ],
               "dimension": {
                 "width": "50%",
-                "height": "30%"
+                "height": "25%"
               },
               "position": {
                 "bottom": "2%",
@@ -1086,7 +1086,7 @@
               ],
               "dimension": {
                 "width": "50%",
-                "height": "30%"
+                "height": "25%"
               },
               "position": {
                 "bottom": "2%",
@@ -1106,12 +1106,12 @@
                     "width": "0%"
                   },
                   "textDimension": {
-                    "height": "30%",
+                    "height": "25%",
                     "width": "45%"
                   },
                   "textPosition": {
                     "right": "5%",
-                    "bottom": "10%"
+                    "top": "60%"
                   },
                   "type": "thought"
                 },
@@ -1123,12 +1123,12 @@
                     "width": "0%"
                   },
                   "textDimension": {
-                    "height": "30%",
+                    "height": "25%",
                     "width": "45%"
                   },
                   "textPosition": {
                     "right": "5%",
-                    "bottom": "10%"
+                    "top": "60%"
                   },
                   "type": "thought"
                 }
@@ -1262,7 +1262,7 @@
               "name": "intro",
               "texts": ["At school"],
               "dimension": {
-                "width": "22%",
+                "width": "20%",
                 "height": "12%"
               },
               "position": {
@@ -2525,7 +2525,6 @@
             {
               "type": "showNarration",
               "value": "day",
-              "autoHide": false,
               "duration": 1000
             },
             {
@@ -2827,7 +2826,7 @@
               "name": "day",
               "texts": ["**Saturday**"],
               "dimension": {
-                "width": "22%",
+                "width": "20%",
                 "height": "12%"
               },
               "position": {
@@ -3047,7 +3046,6 @@
             {
               "type": "showNarration",
               "value": "day",
-              "autoHide": false,
               "duration": 1000
             },
             {
