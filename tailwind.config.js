@@ -6,12 +6,17 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      height: {
+        min: 'min-content',
+        max: 'max-content',
+      },
       minHeight: (theme) => theme('height'),
       width: {
         '1/50': '2%',
       },
-      minWidth: {
-        5: '1.25rem',
+      minWidth: {},
+      inset: {
+        unset: 'unset',
       },
       keyframes: {
         wiggle: {
@@ -82,5 +87,9 @@ module.exports = {
     scrollbar: ['rounded'],
     extend: {},
   },
-  plugins: [require('@tailwindcss/forms'), require('tailwind-scrollbar')],
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/forms'),
+    require('tailwind-scrollbar'),
+  ],
 }
