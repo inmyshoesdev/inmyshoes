@@ -1,8 +1,31 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import { useEffect } from 'react'
+import { useToast } from '@chakra-ui/toast'
+import { Box } from '@chakra-ui/layout'
 
 export default function Landing(): JSX.Element {
+  const toast = useToast()
+  useEffect(() => {
+    toast({
+      render: () => (
+        <Box color="white" p={3} bg="green.500">
+          In My Shoes will be presented at NUS School of Computing Term Project
+          Showcase! Register{' '}
+          <a
+            className="underline cursor-pointer"
+            href="https://uvents.nus.edu.sg/event/19th-steps/registration"
+          >
+            here
+          </a>{' '}
+          and vote for us!
+        </Box>
+      ),
+      status: 'success',
+      duration: 15000,
+      position: 'top',
+    })
+  }, [])
   useEffect(() => {
     var scrollToTopBtn = document.querySelector(
       '.scrollToTopBtn'
