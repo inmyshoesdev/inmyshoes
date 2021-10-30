@@ -61,6 +61,10 @@ export const NarrationSchema = intersection([
 
 export type NarrationSchema = Infer<typeof NarrationSchema>
 
+export enum DialogType {
+  SPEECH = 'speech',
+  THOUGHT = 'thought',
+}
 // {
 //   "name": "hello",
 //   "speeches": [
@@ -79,7 +83,7 @@ export const SpeechSchema = object({
   text: string(),
   character: string(),
   variant: optional(string()),
-  type: optional(string()),
+  type: optional(optional(enums(Object.values(DialogType)))),
   textBoxImage: optional(string()),
   characterPosition: optional(
     type({

@@ -1,12 +1,13 @@
 import { Position, Dimension } from '../lib/elements'
-import DialogueBox from './DialogueBox'
+import DialogueBox, { DialogBoxType } from './DialogueBox'
+import { DialogType } from '../schema/elements'
 
 export interface SpeechProps {
   text: string
   character: string
   characterImage: string
   isMainCharacter: boolean
-  type?: string
+  type?: DialogType
   textBoxImage?: string
   characterPosition?: Position
   characterDimension?: Dimension
@@ -24,7 +25,7 @@ const Speech: React.FC<SpeechProps> = ({
   character,
   characterImage,
   isMainCharacter = false,
-  type = '',
+  type,
   textBoxImage,
   characterPosition,
   characterDimension,
@@ -41,13 +42,24 @@ const Speech: React.FC<SpeechProps> = ({
       <p
         className="sm:text-[12px] md:text-[16px] lg:text-[20px] h-full text-xs font-bold leading-none"
         style={{
-          fontStyle: type === 'monologue' ? 'italic' : 'normal',
+          fontStyle: type === DialogType.THOUGHT ? 'italic' : 'normal',
         }}
       >
         {character}
       </p>
     </div>
   )
+
+  const boxType = () => {
+    switch (type) {
+      case DialogType.SPEECH:
+        return DialogBoxType.SPEECH
+      case DialogType.THOUGHT:
+        return DialogBoxType.THOUGHT
+      default:
+        return undefined
+    }
+  }
 
   return (
     <>
@@ -95,7 +107,7 @@ const Speech: React.FC<SpeechProps> = ({
         dimension={textDimension}
         header={header}
         bodyStyle={{
-          fontStyle: type === 'monologue' ? 'italic' : 'normal',
+          fontStyle: type === DialogType.THOUGHT ? 'italic' : 'normal',
         }}
         bodyText={text}
         gotoNext={onNext}
@@ -103,6 +115,11 @@ const Speech: React.FC<SpeechProps> = ({
         prevEnabled={prevEnabled}
         nextEnabled={nextEnabled}
         showNavigations={showNavigations}
+        type={
+          type === DialogType.THOUGHT
+            ? DialogBoxType.THOUGHT
+            : DialogBoxType.SPEECH
+        }
       />
     </>
   )
