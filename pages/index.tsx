@@ -22,7 +22,7 @@ export default function Landing(): JSX.Element {
         </Box>
       ),
       status: 'success',
-      duration: 15000,
+      duration: 10000,
       position: 'top',
     })
   }, [])
