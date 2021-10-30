@@ -54,10 +54,10 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
   const onClick = useCallback(
     (e) => {
       e.stopPropagation()
-      if (!skipTyping) {
-        setSkipTyping(true)
-        return
-      }
+      // if (!skipTyping) {
+      //   setSkipTyping(true)
+      //   return
+      // }
 
       if (gotoNext) {
         gotoNext()
@@ -85,7 +85,7 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
       style={bodyStyle || {}}
     >
       <div className="scrollbar-thin scrollbar-thumb-gray-500 scrollbar-thumb-rounded scroll scrollbar-track-gray-100 scrollbar-track-rounded text-shadow flex flex-col-reverse pl-1 pr-2 max-h-full overflow-y-auto">
-        {skipTyping ? (
+        {true ? (
           <span
             className="font-handwritten leading-relaxed"
             dangerouslySetInnerHTML={{
