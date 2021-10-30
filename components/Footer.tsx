@@ -33,7 +33,7 @@ function Footer({
   const [play, { stop }] = useSound(
     game.about.backgroundMusic ?? '/music/bgm.mp3',
     {
-      volume: 0.1,
+      volume: 0.2,
       loop: true,
     }
   )
