@@ -2,6 +2,7 @@ import { RulesLogic } from 'json-logic-js'
 import {
   ClickableGroupSchema,
   ClickableItemSchema,
+  DialogType,
   DialogueSchema,
   ImageSchema,
   LinkSchema,
@@ -75,7 +76,7 @@ export interface Speech {
   character: string
   characterImage: string
   isMainCharacter: boolean
-  type?: string
+  type?: DialogType
   textBoxImage?: string
   characterPosition?: Position
   characterDimension?: Dimension

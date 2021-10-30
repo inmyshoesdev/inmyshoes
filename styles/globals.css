@@ -18,6 +18,10 @@ body {
     'Noto Color Emoji';
 }
 
+.text-shadow {
+  text-shadow: 0 0 rgba(0, 0, 0, 1);
+}
+
 /* rubik-300 - latin */
 @font-face {
   font-family: 'Rubik';

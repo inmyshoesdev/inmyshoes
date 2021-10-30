@@ -23,6 +23,7 @@ const breakpoints = createBreakpoints({
 
 function MyApp({ Component, pageProps }: AppProps) {
   usePageTracking()
+
   return (
     <ChakraProvider theme={extendTheme({ breakpoints })}>
       <Component {...pageProps} />

@@ -12,10 +12,10 @@ module.exports = {
       },
       minHeight: (theme) => theme('height'),
       width: {
-        '1/50': '2%'
+        '1/50': '2%',
       },
       inset: {
-        'unset': 'unset',
+        unset: 'unset',
       },
       keyframes: {
         wiggle: {
@@ -54,7 +54,7 @@ module.exports = {
         staat: ['Staatliches', 'cursive']
       },
       colors: {
-        'teal': '#009688',
+        teal: '#009688',
         'teal-50': '#e0f2f1',
         'teal-100': '#b2dfdb',
         'teal-200': '#80cbc4',
@@ -76,21 +76,25 @@ module.exports = {
         'footer-blue': '#1B3A5D'
       },
       borderRadius: {
-        'handdrawn': '300px 15px 175px 15px/15px 175px 15px 300px',
-        'xl': '2rem'
+        xl: '2rem',
+        handdrawn: '300px 15px 175px 15px/15px 175px 15px 300px',
+        narration: '300px 15px 175px 15px/15px 175px 15px 300px',
+        dialog: '20px 25px 35px 30px/25px 35px 25px 25px',
       },
       borderWidth: {
-        '3': '3px',
-        '10': '12px'
+        3: '3px',
+        10: '12px',
+        narration: '2px 7px 7px 2px',
+        speech: '2px 4px 6px 4px',
       },
       lineHeight: {
-        'relaxed': '1.67'
+        relaxed: '1.67',
       },
       transitionProperty: {
-        'filter': 'filter',
+        filter: 'filter',
       },
       scale: {
-        '30': '.30'
+        30: '.30'
       },
       boxShadow: {
         button: '3px 3px #888888'
