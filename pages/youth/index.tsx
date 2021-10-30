@@ -9,6 +9,7 @@ import GameDisplay from '../../components/GameDisplay'
 import { PreGameForm, SurveyFormWrapper } from '../../components/Surveys'
 import { Transition } from '@headlessui/react'
 import { useLocalStorage } from 'react-use'
+import useCheckMobileScreen from '../../hooks/useCheckMobileScreen'
 
 const Demo: React.FC = () => {
   const [pregameSurveyDone, setPregameSurveyDone] = useLocalStorage(
@@ -54,7 +55,19 @@ const Demo: React.FC = () => {
       return () => clearTimeout(id)
     }
   }, [pregameSurveyDone])
-
+  const isMobile = useCheckMobileScreen()
+  useEffect(() => {
+    if (isMobile) {
+      toast({
+        position: 'top',
+        description: 'View in Landscape Orientation for Better Experience!',
+        duration: 5000,
+        status: 'info',
+        isClosable: true,
+        variant: 'subtle',
+      })
+    }
+  }, [isMobile, toast])
   return (
     <>
       <Head>

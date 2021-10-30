@@ -31,19 +31,19 @@ function Footer({
 
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [play, { stop }] = useSound(
-    game.about.backgroundMusic ?? '/music/bensound-jazzcomedy.mp3',
+    game.about.backgroundMusic ?? '/music/bgm.mp3',
     {
-      volume: 0.5,
+      volume: 0.2,
       loop: true,
     }
   )
 
   useEffect(() => {
     if (musicOn) {
-      console.log('play')
+      // console.log('play')
       play()
     } else {
-      console.log('stop')
+      // console.log('stop')
       stop()
     }
     return () => {
