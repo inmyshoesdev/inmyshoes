@@ -8,9 +8,11 @@ import mvpJson from '../../schema/mvp.json'
 import GameDisplay from '../../components/GameDisplay'
 import { PreGameForm, SurveyFormWrapper } from '../../components/Surveys'
 import { Transition } from '@headlessui/react'
-import { useLocalStorage } from 'react-use'
+import { useLocalStorage, useMount } from 'react-use'
+import { useHasMounted } from '../../hooks/useHasMounted'
 
 const Demo: React.FC = () => {
+  const mounted = useHasMounted()
   const [pregameSurveyDone, setPregameSurveyDone] = useLocalStorage(
     'ims-pregameSurveyDone',
     false
@@ -97,7 +99,9 @@ const Demo: React.FC = () => {
           }`}
         >
           <Transition
-            show={!pregameSurveyDone}
+            show={
+              mounted && pregameSurveyDone !== undefined && !pregameSurveyDone
+            }
             enter="transition duration-500"
             enterFrom="opacity-0 translate-y-2/3"
             enterTo="opacity-100 translate-y-0"

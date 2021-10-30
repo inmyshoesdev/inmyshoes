@@ -74,17 +74,21 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
             />
           )}
         </Transition>
-        <CharacterInfo
-          characterSelected={game.characterSelected}
-          hidden={hideCharacterInfo}
-          setHidden={setHideCharacterInfo}
-          setBlurBackground={setBlurBackground}
-        />
-        <CharacterSelect
-          characterSelected={game.characterSelected}
-          mainCharacters={game.mainCharacters}
-          updateCharacter={updateCharacter}
-        />
+        {!game.loading && (
+          <>
+            <CharacterInfo
+              characterSelected={game.characterSelected}
+              hidden={hideCharacterInfo}
+              setHidden={setHideCharacterInfo}
+              setBlurBackground={setBlurBackground}
+            />
+            <CharacterSelect
+              characterSelected={game.characterSelected}
+              mainCharacters={game.mainCharacters}
+              updateCharacter={updateCharacter}
+            />
+          </>
+        )}
       </div>
       <Footer
         characterSelected={game.characterSelected}
