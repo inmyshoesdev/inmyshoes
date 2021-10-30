@@ -20,7 +20,7 @@ export const EmptyGame: Game = {
     logo: {
       src: 'https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/mainlogo.png',
     },
-    backgroundMusic: '/music/bensound-jazzcomedy.mp3',
+    backgroundMusic: '/music/bgm.mp3',
     credits: 'This is supported by markdown for ease of formatting',
   },
   characterIndex: 0,
