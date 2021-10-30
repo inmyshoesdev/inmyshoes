@@ -14,7 +14,6 @@ module.exports = {
       width: {
         '1/50': '2%',
       },
-      minWidth: {},
       inset: {
         unset: 'unset',
       },
@@ -48,6 +47,11 @@ module.exports = {
       fontFamily: {
         sans: ['Rubik', ...defaultTheme.fontFamily.sans],
         handwritten: ['Dekko', 'Rubik', ...defaultTheme.fontFamily.sans],
+        // below is used in the landing page
+        joe: ['Josefin Sans', 'sans-serif'],
+        nun: ['Nunito Sans', 'sans-serif'],
+        openSans: ['Open Sans', 'sans-serif'],
+        staat: ['Staatliches', 'cursive']
       },
       colors: {
         teal: '#009688',
@@ -61,14 +65,25 @@ module.exports = {
         'teal-700': '#00796b',
         'teal-800': '#00695c',
         'teal-900': '#004d40',
+        // below is used in the landing page
+        'HTP-bg': '#CADFDF',
+        'HTP-text': '#6C857C',
+        'r-button': '#69C6C2',
+        'r-bg': '#FFF7F3',
+        'r-play-inner-bg': '#FEF3E6',
+        'r-play-border': '#F1CEA5',
+        'r-edu-inner-bg': '#E9EBEA',
+        'footer-blue': '#1B3A5D'
       },
       borderRadius: {
+        xl: '2rem',
         handdrawn: '300px 15px 175px 15px/15px 175px 15px 300px',
         narration: '300px 15px 175px 15px/15px 175px 15px 300px',
         dialog: '20px 25px 35px 30px/25px 35px 25px 25px',
       },
       borderWidth: {
         3: '3px',
+        10: '12px',
         narration: '2px 7px 7px 2px',
         speech: '2px 4px 6px 4px',
       },
@@ -79,7 +94,10 @@ module.exports = {
         filter: 'filter',
       },
       scale: {
-        30: '.30',
+        30: '.30'
+      },
+      boxShadow: {
+        button: '3px 3px #888888'
       },
     },
   },
