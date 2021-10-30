@@ -158,7 +158,6 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
   )
 
   const typeStyling = () => {
-    console.log(type)
     switch (type) {
       case DialogBoxType.NARRATION:
         return 'border-narration rounded-narration'
