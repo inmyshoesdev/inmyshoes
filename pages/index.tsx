@@ -23,7 +23,7 @@ export default function Landing(): JSX.Element {
       ),
       status: 'success',
       duration: 10000,
-      position: 'top',
+      position: 'bottom',
     })
   }, [])
   useEffect(() => {
@@ -689,7 +689,7 @@ export default function Landing(): JSX.Element {
                   </li>
                   <li>
                     <a
-                      href="https://nus.edu/30Si5Jp"
+                      href="https://nus.edu/3Bv5k42"
                       target="_blank"
                       rel="noreferrer"
                     >
@@ -709,8 +709,8 @@ export default function Landing(): JSX.Element {
               <div className="px-4 w-full md:w-1/2 lg:w-1/4">
                 <h2 className="mb-3 text-xl tracking-widest">Disclaimer:</h2>
                 <p>
-                  The events are compressed and simplified and may not fully
-                  reflect the daily experience of one.
+                  The simulation events are compressed and simplified and may
+                  not fully reflect the daily experience of one.
                 </p>
               </div>
               <div className="px-4 w-full md:w-1/2 lg:w-1/4">
