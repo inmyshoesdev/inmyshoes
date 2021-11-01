@@ -114,7 +114,7 @@ function Footer({
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="icon icon-tabler icon-tabler-user-plus w-7 h-7 translate-x-1 md:w-9 md:h-9 lg:w-11 lg:h-11"
+                  className="icon icon-tabler icon-tabler-user-plus w-7 h-7 mobile:translate-x-1 md:w-9 md:h-9 lg:w-11 lg:h-11"
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="#000000"
