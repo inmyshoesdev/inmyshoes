@@ -10,6 +10,7 @@ import { DisplayControl } from './DisplayControl'
 import CharacterInfo from './CharacterInfo'
 import CharacterSelect from './CharacterSelect'
 import { EventsSceneId } from '../lib/events'
+import BadgeCollection from './BadgeCollection'
 
 type GameProps = {
   game?: Game
@@ -22,6 +23,7 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
   const updateCharacter = useStore((state) => state.updateCharacter)
   const [blurBackground, setBlurBackground] = useState(false)
   const [hideCharacterInfo, setHideCharacterInfo] = useState(true)
+  const [hideBadgeCollection, setHideBadgeCollection] = useState(true)
 
   useEffect(() => {
     if (newGame) {
@@ -31,7 +33,11 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
 
   return (
     <div className="flex flex-col items-center my-2 w-full space-y-2">
-      <Header header={header} />
+      <Header
+        header={header}
+        setHideBadgeCollection={setHideBadgeCollection}
+        setBlurBackground={setBlurBackground}
+      />
       <DisplayControl />
       <div className="w-[72vw] h-[40.5vw] relative bg-white shadow overflow-hidden">
         {game.characterSelected &&
@@ -84,6 +90,11 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
           characterSelected={game.characterSelected}
           mainCharacters={game.mainCharacters}
           updateCharacter={updateCharacter}
+        />
+        <BadgeCollection
+          hidden={hideBadgeCollection}
+          setHidden={setHideBadgeCollection}
+          setBlurBackground={setBlurBackground}
         />
       </div>
       <Footer

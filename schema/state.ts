@@ -1,4 +1,5 @@
 import {
+  array,
   boolean,
   Infer,
   number,
@@ -21,6 +22,7 @@ export const StateSchema = record(
       min: optional(number()),
       max: optional(number()),
     }),
+    array()
   ])
 )
 
