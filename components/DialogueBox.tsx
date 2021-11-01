@@ -182,7 +182,7 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
               height: dimension?.height || 'unset',
             }}
           >
-            <div className="px-[1%] py-[1.5%] md:py-[2%] md:px-[1.75%] flex flex-col justify-around w-full h-full">
+            <div className="px-[1%] pt-[1.5%] md:pt-[2%] md:px-[1.75%] lg:py-[2%] flex flex-col justify-around w-full h-full">
               {content}
             </div>
           </div>

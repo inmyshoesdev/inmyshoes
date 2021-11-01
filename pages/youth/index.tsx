@@ -89,6 +89,7 @@ const Demo: React.FC = () => {
             enter="transition duration-500"
             enterFrom="opacity-0"
             enterTo="opacity-100"
+            className="w-full h-full"
           >
             {game && <GameDisplay game={game} />}
           </Transition>

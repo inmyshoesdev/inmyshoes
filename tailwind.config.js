@@ -14,8 +14,8 @@ module.exports = {
       width: {
         '1/50': '2%'
       },
-      minWidth: {
-      },
+      minWidth: (theme) => theme('width'),
+      maxWidth: (theme) => theme('width'),
       inset: {
         'unset': 'unset',
       }, 
@@ -77,6 +77,14 @@ module.exports = {
       },
       scale: {
         '30': '.30'
+      },
+      screens: {
+        'sm': {'raw': '(min-width: 640px) and (min-height: 360px)'},
+        'md': {'raw': '(min-width: 768px) and (min-height: 432px)'},
+        'lg': {'raw': '(min-width: 1024px) and (min-height: 576px)'},
+        'xl': {'raw': '(min-width: 1280px) and (min-height: 720px)'},
+        '2xl': {'raw': '(min-width: 1536px) and (min-height: 864px)'},
+        'mobile':  {'raw': '(min-aspect-ratio: 16/9) and (max-width: 1024px)'}
       }
     },
   },

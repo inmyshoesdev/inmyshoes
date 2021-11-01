@@ -42,18 +42,24 @@ export const EmptyGame: Game = {
   },
 }
 
+interface Logo {
+  src?: string
+  width?: string
+  height?: string
+}
+
 export interface About {
   description?: string
   author?: string
   favicon?: string
-  logo?: {
-    src?: string
-    width?: string
-    height?: string
-  }
+
+  logo?: Logo
+  logoSmall?: Logo
+
   backgroundMusic?: string
   credits?: string
 }
+
 export interface Game {
   name: string
   about: About
