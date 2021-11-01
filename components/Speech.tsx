@@ -39,7 +39,7 @@ const Speech: React.FC<SpeechProps> = ({
   const header = (
     <div className="h-1/5">
       <p
-        className="sm:text-[12px] md:text-[16px] lg:text-[20px] h-full text-xs font-bold leading-none"
+        className="h-full text-xs font-bold leading-none md:text-base lg:text-xl"
         style={{
           fontStyle: type === 'monologue' ? 'italic' : 'normal',
         }}
