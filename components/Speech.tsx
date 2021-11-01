@@ -40,7 +40,7 @@ const Speech: React.FC<SpeechProps> = ({
   const header = (
     <div className="h-1/5">
       <p
-        className="h-full text-xs font-bold leading-none md:text-base lg:text-xl"
+        className="ml-1 h-full text-xs font-bold leading-none md:text-base lg:text-xl"
         style={{
           fontStyle: type === DialogType.THOUGHT ? 'italic' : 'normal',
         }}

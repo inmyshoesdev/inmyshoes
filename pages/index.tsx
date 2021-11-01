@@ -26,6 +26,7 @@ export default function Landing(): JSX.Element {
       position: 'bottom',
     })
   }, [])
+
   useEffect(() => {
     var scrollToTopBtn = document.querySelector(
       '.scrollToTopBtn'
@@ -75,7 +76,7 @@ export default function Landing(): JSX.Element {
             >
               <img alt="logo" src="/favicon.ico" />
             </a>
-            <nav className="flex flex-wrap items-center justify-center font-joe text-base md:ml-auto">
+            <nav className="font-joe flex flex-wrap items-center justify-center text-base md:ml-auto">
               <a
                 className="mr-5 px-4 py-2 hover:text-white hover:bg-blue-900 rounded-full cursor-pointer"
                 href="#home"
@@ -108,7 +109,7 @@ export default function Landing(): JSX.Element {
               </a>
             </nav>
             <Link href="/youth">
-              <a className="inline-flex items-center mt-4 px-3 py-1 text-white hover:bg-purple-400 bg-r-button border-0 rounded shadow-button cursor-pointer md:mt-0">
+              <a className="bg-r-button shadow-button inline-flex items-center mt-4 px-3 py-1 text-white hover:bg-purple-400 border-0 rounded cursor-pointer md:mt-0">
                 Simulation
                 <svg
                   fill="none"
@@ -145,7 +146,7 @@ export default function Landing(): JSX.Element {
               </p>
               <div className="flex md:flex-col lg:flex-row">
                 <Link href="/youth">
-                  <a className="flex flex-col items-center ml-4 mt-0 px-5 py-3 text-white font-normal leading-none hover:bg-purple-400 bg-r-button rounded shadow-button cursor-pointer md:ml-0 md:mt-4 lg:ml-4 lg:mt-0">
+                  <a className="bg-r-button shadow-button flex flex-col items-center ml-4 mt-0 px-5 py-3 text-white font-normal leading-none hover:bg-purple-400 rounded cursor-pointer md:ml-0 md:mt-4 lg:ml-4 lg:mt-0">
                     <span className="flex cursor-pointer">
                       Simluation
                       <svg
@@ -173,7 +174,7 @@ export default function Landing(): JSX.Element {
             ></path>
           </svg>
         </section>
-        <section className="body-font text-gray-600 bg-HTP-bg">
+        <section className="body-font bg-HTP-bg text-gray-600">
           <div className="container mx-auto px-5 py-10">
             <div className="mb-20 text-center"></div>
             <div className="flex flex-wrap justify-center -mb-10 -mt-4 -mx-4 space-y-6 sm:-m-4 md:space-y-0">
@@ -241,7 +242,7 @@ export default function Landing(): JSX.Element {
             ></path>
           </svg>
         </section>
-        <section className="body-font text-gray-600 bg-r-bg" id="walkthrough">
+        <section className="body-font bg-r-bg text-gray-600" id="walkthrough">
           <div className="p-4">
             <div className="mb-20 text-center">
               <h1 className="sectionTitle mb-4 text-red-800 text-2xl sm:text-4xl">
@@ -645,7 +646,7 @@ export default function Landing(): JSX.Element {
               >
                 <path d="M13 14.725c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275zm-13 0c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275z" />
               </svg>
-              <p className="max-w-64 mx-auto text-lg leading-relaxed">
+              <p className="mx-auto max-w-64 text-lg leading-relaxed">
                 Having greater awareness of the special circumstances these
                 individuals may live in provides better understanding on why we
                 should be unassuming of the difficulties others may experience,
@@ -657,7 +658,7 @@ export default function Landing(): JSX.Element {
             </div>
           </div>
         </section>
-        <footer className="body-font text-white bg-footer-blue">
+        <footer className="body-font bg-footer-blue text-white">
           <div className="container flex flex-col flex-wrap mx-auto px-5 py-24 md:flex-row md:flex-nowrap md:items-center lg:items-start">
             <div className="flex-shrink-0 mx-auto w-64 text-center md:mx-0 md:text-left">
               <a

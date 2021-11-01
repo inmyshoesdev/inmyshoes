@@ -81,7 +81,7 @@ module.exports = {
         xl: '2rem',
         handdrawn: '300px 15px 175px 15px/15px 175px 15px 300px',
         narration: '300px 15px 175px 15px/15px 175px 15px 300px',
-        dialog: '20px 25px 35px 30px/25px 35px 25px 25px',
+        dialog: '15px 20px 20px 25px/20px 30px 15px 20px',
       },
       borderWidth: {
         3: '3px',

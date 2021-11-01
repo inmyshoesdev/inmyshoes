@@ -115,7 +115,7 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
 
   const buttonSize = useBreakpointValue(['2xs', '2xs', '2xs', 'xs'])
   const buttons = (
-    <div className="relative flex flex-wrap-reverse justify-between mobile:-mt-1">
+    <div className="relative flex flex-wrap-reverse justify-between mobile:-mt-0.5">
       <IconButton
         aria-label="previous"
         variant="ghost"
@@ -164,7 +164,7 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
       case DialogBoxType.SPEECH:
         return 'border-speech rounded-dialog'
       case DialogBoxType.THOUGHT:
-        return 'border-3 rounded-dialog border-dashed'
+        return 'border-3 rounded-dialog border-dashed bg-clip-padding'
       default:
         return 'border-3 rounded-handdrawn'
     }
@@ -206,7 +206,7 @@ const DialogueBox: React.FC<DialogueBoxProps> = ({
               height: dimension?.height || 'unset',
             }}
           >
-            <div className="px-[1%] pt-[1.5%] md:pt-[2%] md:px-[1.75%] lg:py-[2%] flex flex-col justify-around w-full h-full">
+            <div className="px-[1%] pt-[1.5%] pb-[0.5%] md:pt-[2%] md:px-[1.75%] lg:py-[2%] flex flex-col justify-around w-full h-full">
               {content}
             </div>
           </div>
