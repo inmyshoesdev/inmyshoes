@@ -806,11 +806,15 @@ const PostGameForm: React.FC<FormProps> = ({ submitHandler }) => {
 
 const styles = css`
   form {
-    @apply flex flex-col items-stretch p-7 pt-3 space-y-10 bg-gray-50 border-2 border-teal-200 rounded-2xl shadow-lg;
+    @apply flex flex-col items-stretch p-7 pt-3 space-y-7 bg-gray-50 border-2 border-teal-200 rounded-2xl shadow-lg;
   }
 
   fieldset:first-of-type {
     @apply -mb-5;
+  }
+
+  fieldset ~ fieldset {
+    @apply pb-4 border-b border-gray-300;
   }
 
   h2 {
