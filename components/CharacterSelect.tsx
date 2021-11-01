@@ -68,10 +68,14 @@ function CharacterSelect({
 
         .swiper-parent :global(.swiper-button-next) {
           right: -25%;
+          cursor: url(https://soristic.sgp1.digitaloceanspaces.com/general/curhand.cur),
+            auto !important;
         }
 
         .swiper-parent :global(.swiper-button-prev) {
           left: -25%;
+          cursor: url(https://soristic.sgp1.digitaloceanspaces.com/general/curhand.cur),
+            auto !important;
         }
       `}</style>
       <div className="swiper-parent w-1/2 h-1/2 text-xs sm:w-full sm:text-base md:h-2/3">

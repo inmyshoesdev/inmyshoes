@@ -8,7 +8,7 @@
 }
 
 a {
-  @apply !underline !text-blue-500 cursor-pointer;
+  @apply text-blue-500 underline cursor-pointer;
 }
 
 body {
@@ -16,6 +16,10 @@ body {
     BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans',
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
     'Noto Color Emoji';
+}
+
+.text-shadow {
+  text-shadow: 0 0 rgba(0, 0, 0, 1);
 }
 
 /* rubik-300 - latin */
@@ -219,4 +223,163 @@ body {
     url('/fonts/dekko-v9-latin-regular.woff') format('woff'),
     url('/fonts/dekko-v9-latin-regular.ttf') format('truetype'),
     url('/fonts/dekko-v9-latin-regular.svg#Dekko') format('svg');
+}
+
+/* landing page related */
+@layer components {
+  .body-font {
+    @apply font-nun;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Nunito+Sans&family=Open+Sans&family=Staatliches&display=swap');
+
+#brand {
+  font-family: 'Fredoka One', cursive;
+}
+
+.sectionTitle {
+  font-family: 'Fredoka One', cursive;
+}
+
+#brand-middle {
+  color: #f64721;
+}
+
+/* Layout */
+.ferris-wrapper {
+  position: relative;
+  width: 58rem;
+  height: 75rem;
+  margin: 0 auto;
+  /* Pause animation on Hover */
+}
+.ferris-wrapper:hover .wheel,
+.ferris-wrapper:hover .cabin {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+.wheel-wrapper {
+  width: 50rem;
+  height: 50rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 3;
+}
+
+.wheel {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  /* border: 1px solid #4d4d4d; */
+  border-radius: 50%;
+  -webkit-animation: ferri-wheel 55s linear infinite;
+  animation: ferri-wheel 55s linear infinite;
+}
+
+/* Cabin */
+.cabin {
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  transform-origin: 50% 0%;
+  text-align: center;
+  font-size: 1.2rem;
+  -webkit-animation: cabin 55s linear infinite;
+  animation: cabin 55s linear infinite;
+}
+
+.cabin:nth-of-type(1) {
+  right: -8.5%;
+  top: 50%;
+}
+.cabin:nth-of-type(2) {
+  right: 17%;
+  top: 93.5%;
+}
+.cabin:nth-of-type(3) {
+  right: 67%;
+  top: 93.5%;
+}
+.cabin:nth-of-type(4) {
+  left: -8.5%;
+  top: 50%;
+}
+.cabin:nth-of-type(5) {
+  left: 17%;
+  top: 7%;
+}
+.cabin:nth-of-type(6) {
+  right: 17%;
+  top: 7%;
+}
+
+/* Ferris wheel */
+/* Variables */
+@-webkit-keyframes ferri-wheel {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes ferri-wheel {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes cabin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+@keyframes cabin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.scrollToTopBtn {
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 48px;
+  width: 48px;
+
+  /* place it at the bottom right corner */
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  /* keep it at the top of everything else */
+  z-index: 100;
+  /* hide with opacity */
+  opacity: 0;
+  /* also add a translate effect */
+  transform: translateY(100px);
+  /* and a transition */
+  transition: all 0.5s ease;
+}
+
+.showBtn {
+  opacity: 1;
+  transform: translateY(0);
 }

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { Transition } from '@headlessui/react'
 import { Narration as NarrationProps } from '../lib/elements'
 
-import DialogueBox from './DialogueBox'
+import DialogueBox, { DialogBoxType } from './DialogueBox'
 
 const Narration: React.FC<NarrationProps> = ({
   shown,
@@ -62,6 +62,7 @@ const Narration: React.FC<NarrationProps> = ({
         prevEnabled={prevEnabled}
         nextEnabled={nextEnabled}
         showNavigations={showNavigations}
+        type={DialogBoxType.NARRATION}
       />
     </Transition>
   )

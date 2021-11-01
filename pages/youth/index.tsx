@@ -8,8 +8,9 @@ import mvpJson from '../../schema/mvp.json'
 import GameDisplay from '../../components/GameDisplay'
 import { PreGameForm, SurveyFormWrapper } from '../../components/Surveys'
 import { Transition } from '@headlessui/react'
-import { useLocalStorage, useMount } from 'react-use'
 import { useHasMounted } from '../../hooks/useHasMounted'
+import { useLocalStorage } from 'react-use'
+import useCheckMobileScreen from '../../hooks/useCheckMobileScreen'
 
 const Demo: React.FC = () => {
   const mounted = useHasMounted()
@@ -57,6 +58,20 @@ const Demo: React.FC = () => {
     }
   }, [pregameSurveyDone])
 
+  const isMobile = useCheckMobileScreen()
+
+  useEffect(() => {
+    if (isMobile) {
+      toast({
+        position: 'top',
+        description: 'View in Landscape Orientation for Better Experience!',
+        duration: 5000,
+        status: 'info',
+        isClosable: true,
+        variant: 'subtle',
+      })
+    }
+  }, [isMobile, toast])
   return (
     <>
       <Head>

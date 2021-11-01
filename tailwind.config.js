@@ -17,8 +17,8 @@ module.exports = {
       minWidth: (theme) => theme('width'),
       maxWidth: (theme) => theme('width'),
       inset: {
-        'unset': 'unset',
-      }, 
+        unset: 'unset',
+      },
       keyframes: {
         wiggle: {
           '0%, 100%': { transform: 'rotate(-3deg)' },
@@ -49,9 +49,14 @@ module.exports = {
       fontFamily: {
         sans: ['Rubik', ...defaultTheme.fontFamily.sans],
         handwritten: ['Dekko', 'Rubik', ...defaultTheme.fontFamily.sans],
+        // below is used in the landing page
+        joe: ['Josefin Sans', 'sans-serif'],
+        nun: ['Nunito Sans', 'sans-serif'],
+        openSans: ['Open Sans', 'sans-serif'],
+        staat: ['Staatliches', 'cursive']
       },
       colors: {
-        'teal': '#009688',
+        teal: '#009688',
         'teal-50': '#e0f2f1',
         'teal-100': '#b2dfdb',
         'teal-200': '#80cbc4',
@@ -61,22 +66,40 @@ module.exports = {
         'teal-600': '#00897b',
         'teal-700': '#00796b',
         'teal-800': '#00695c',
-        'teal-900': '#004d40'
+        'teal-900': '#004d40',
+        // below is used in the landing page
+        'HTP-bg': '#CADFDF',
+        'HTP-text': '#6C857C',
+        'r-button': '#69C6C2',
+        'r-bg': '#FFF7F3',
+        'r-play-inner-bg': '#FEF3E6',
+        'r-play-border': '#F1CEA5',
+        'r-edu-inner-bg': '#E9EBEA',
+        'footer-blue': '#1B3A5D'
       },
       borderRadius: {
-        'handdrawn': '300px 15px 175px 15px/15px 175px 15px 300px'
+        xl: '2rem',
+        handdrawn: '300px 15px 175px 15px/15px 175px 15px 300px',
+        narration: '300px 15px 175px 15px/15px 175px 15px 300px',
+        dialog: '20px 25px 35px 30px/25px 35px 25px 25px',
       },
       borderWidth: {
-        '3': '3px'
+        3: '3px',
+        10: '12px',
+        narration: '2px 7px 7px 2px',
+        speech: '2px 4px 6px 4px',
       },
       lineHeight: {
-        'relaxed': '1.67'
+        relaxed: '1.67',
       },
       transitionProperty: {
-        'filter': 'filter',
+        filter: 'filter',
       },
       scale: {
         '30': '.30'
+      },
+      boxShadow: {
+        button: '3px 3px #888888'
       },
       screens: {
         'sm': {'raw': '(min-width: 640px) and (min-height: 360px)'},
