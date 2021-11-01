@@ -113,7 +113,9 @@ module.exports = {
   },
   variants: {
     scrollbar: ['rounded'],
-    extend: {},
+    extend: {
+      backgroundColor: ['checked']
+    },
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
