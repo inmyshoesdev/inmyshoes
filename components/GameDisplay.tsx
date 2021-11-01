@@ -126,7 +126,7 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
     <div className="relative flex flex-col items-center w-full h-full max-h-screen">
       <div className="w-[144vh] h-[9.5vh] flex-none max-w-screen">{header}</div>
       <DisplayControl />
-      <div className="w-[144vh] h-[81vh] max-h-[56.25vw] relative flex-none bg-white shadow overflow-hidden">
+      <div className="w-[144vh] h-[81vh] max-h-[56.25vw] relative flex-none max-w-screen bg-white shadow overflow-hidden">
         {gameBody}
       </div>
       <div className="w-[144vh] h-[9.5vh] grid place-items-center max-w-screen">

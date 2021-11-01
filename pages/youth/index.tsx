@@ -62,9 +62,9 @@ const Demo: React.FC = () => {
     useState<boolean>(false)
 
   useEffect(() => {
-    if (isPortrait && !landscapePromptShown) {
+    if (isPortrait && showGame && !landscapePromptShown) {
       toast({
-        position: 'top',
+        position: 'bottom',
         description: 'View in landscape mode for a better experience!',
         duration: 5000,
         status: 'info',
@@ -74,7 +74,7 @@ const Demo: React.FC = () => {
 
       setLandscapePromptShown(true)
     }
-  }, [isPortrait, toast, landscapePromptShown])
+  }, [isPortrait, showGame, landscapePromptShown, toast])
 
   return (
     <>

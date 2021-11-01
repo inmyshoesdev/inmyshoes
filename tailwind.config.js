@@ -107,7 +107,7 @@ module.exports = {
         'lg': {'raw': '(min-width: 1024px) and (min-height: 576px)'},
         'xl': {'raw': '(min-width: 1280px) and (min-height: 720px)'},
         '2xl': {'raw': '(min-width: 1536px) and (min-height: 864px)'},
-        'mobile':  {'raw': '(min-aspect-ratio: 16/9) and (max-width: 1024px)'}
+        'mobile':  {'raw': '(min-aspect-ratio: 31/18) and (max-width: 1024px)'}
       }
     },
   },

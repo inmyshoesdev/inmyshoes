@@ -11,7 +11,7 @@ function useBreakpoint(breakpoint: TailwindBreakpoint): boolean {
 
 function useIsMobileLandscape(): boolean {
   const mounted = useHasMounted()
-  const val = useMedia('(min-aspect-ratio: 16/9) and (max-width: 1024px)')
+  const val = useMedia('(min-aspect-ratio: 31/18) and (max-width: 1024px)')
 
   return mounted && val
 }
