@@ -102,12 +102,12 @@ module.exports = {
         button: '3px 3px #888888'
       },
       screens: {
-        'sm': {'raw': '(min-width: 640px) and (min-height: 360px)'},
-        'md': {'raw': '(min-width: 768px) and (min-height: 432px)'},
-        'lg': {'raw': '(min-width: 1024px) and (min-height: 576px)'},
-        'xl': {'raw': '(min-width: 1280px) and (min-height: 720px)'},
-        '2xl': {'raw': '(min-width: 1536px) and (min-height: 864px)'},
-        'mobile':  {'raw': '(min-aspect-ratio: 31/18) and (max-width: 1024px)'}
+        'sm': { 'raw': '(min-width: 640px) and (min-height: 360px)' },
+        'md': { 'raw': '(min-width: 768px) and (min-height: 432px)' },
+        'lg': { 'raw': '(min-width: 1024px) and (min-height: 576px)' },
+        'xl': { 'raw': '(min-width: 1280px) and (min-height: 720px)' },
+        '2xl': { 'raw': '(min-width: 1536px) and (min-height: 864px)' },
+        'mobile': { 'raw': '(min-aspect-ratio: 31/18) and (max-width: 1024px)' }
       }
     },
   },
