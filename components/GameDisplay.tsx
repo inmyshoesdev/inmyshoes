@@ -10,6 +10,7 @@ import { DisplayControl } from './DisplayControl'
 import CharacterInfo from './CharacterInfo'
 import CharacterSelect from './CharacterSelect'
 import { EventsSceneId } from '../lib/events'
+import BadgeCollection from './BadgeCollection'
 import { useHasMounted } from '../hooks/useHasMounted'
 import { useIsMobileLandscape } from '../hooks/useBreakpoint'
 
@@ -28,6 +29,7 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
 
   const [blurBackground, setBlurBackground] = useState(false)
   const [hideCharacterInfo, setHideCharacterInfo] = useState(true)
+  const [hideBadgeCollection, setHideBadgeCollection] = useState(true)
 
   useEffect(() => {
     if (newGame) {
@@ -89,12 +91,23 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
             mainCharacters={game.mainCharacters}
             updateCharacter={updateCharacter}
           />
+          <BadgeCollection
+            hidden={hideBadgeCollection}
+            setHidden={setHideBadgeCollection}
+            setBlurBackground={setBlurBackground}
+          />
         </>
       )}
     </>
   )
 
-  const header = <Header header={headerInfo} />
+  const header = (
+    <Header
+      header={headerInfo}
+      setHideBadgeCollection={setHideBadgeCollection}
+      setBlurBackground={setBlurBackground}
+    />
+  )
 
   const footer = (
     <Footer

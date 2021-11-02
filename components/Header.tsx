@@ -9,9 +9,15 @@ import StateDisplay from './StateDisplay'
 
 export interface HeaderProps {
   header?: StateComponent[]
+  setHideBadgeCollection: React.Dispatch<React.SetStateAction<boolean>>
+  setBlurBackground: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export default function Header({ header = [] }: HeaderProps) {
+export default function Header({
+  header = [],
+  setHideBadgeCollection,
+  setBlurBackground,
+}: HeaderProps) {
   return (
     <div
       id="header"
@@ -24,7 +30,14 @@ export default function Header({ header = [] }: HeaderProps) {
             return <StateMeter {...meter} key={component.title} />
           case COMPONENT_TYPE.DISPLAY:
             const display = component as _StateDisplay
-            return <StateDisplay {...display} key={component.title} />
+            return (
+              <StateDisplay
+                {...display}
+                key={component.title}
+                setHideBadgeCollection={setHideBadgeCollection}
+                setBlurBackground={setBlurBackground}
+              />
+            )
         }
       })}
     </div>
