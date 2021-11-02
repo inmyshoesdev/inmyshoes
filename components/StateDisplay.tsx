@@ -31,12 +31,16 @@ export default function StateDisplay({
 
   return (
     <div className="flex flex-col items-center w-1/6 h-full overflow-hidden">
-      <p className="h-1/3 text-2xs capitalize sm:text-xs md:text-sm">{title}</p>
+      <div className="flex mobile:hidden items-end justify-center -ml-2 pt-1 h-1/3">
+        <span className="text-2xs capitalize sm:text-xs lg:text-sm">
+          {title}
+        </span>
+      </div>
       <Tooltip
         label={`${
           value === undefined || value.length === 0
-            ? 'Empty!'
-            : 'View Collected Badges!'
+            ? 'Empty'
+            : 'View Collected Badges'
         }`}
       >
         <div className="flex flex-grow flex-shrink items-center justify-center w-full h-2/3">
