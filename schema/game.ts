@@ -28,6 +28,7 @@ const LogoSchema = type({
 })
 export const AboutSchema = type({
   logo: optional(LogoSchema),
+  logoSmall: optional(LogoSchema),
   backgroundMusic: optional(string()),
   credits: optional(string()),
 })

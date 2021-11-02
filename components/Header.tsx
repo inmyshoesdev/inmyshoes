@@ -21,11 +21,7 @@ export default function Header({
   return (
     <div
       id="header"
-      className="relative z-50 flex flex-wrap items-stretch justify-between max-h-16 text-center md:justify-around md:px-2"
-      style={{
-        width: '72vw',
-        height: '40.5vh',
-      }}
+      className="flex items-stretch justify-between pr-7 px-1 w-full h-full text-center md:justify-around"
     >
       {header.map((component) => {
         switch (component.component) {

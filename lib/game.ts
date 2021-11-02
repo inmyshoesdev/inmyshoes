@@ -4,7 +4,7 @@ import { makeMainCharacter, makeNPC, MainCharacter, NPC } from './character'
 import { NoBackground, Scene } from './scene'
 import { makeState, State } from './state'
 import { isClickableImg } from './elements'
-import { background } from '@chakra-ui/styled-system'
+import { characterSelectBg } from './constants'
 
 type PreloadImageOptions = {
   timeout?: number
@@ -42,18 +42,24 @@ export const EmptyGame: Game = {
   },
 }
 
+interface Logo {
+  src?: string
+  width?: string
+  height?: string
+}
+
 export interface About {
   description?: string
   author?: string
   favicon?: string
-  logo?: {
-    src?: string
-    width?: string
-    height?: string
-  }
+
+  logo?: Logo
+  logoSmall?: Logo
+
   backgroundMusic?: string
   credits?: string
 }
+
 export interface Game {
   name: string
   about: About
@@ -118,11 +124,11 @@ export function makeGame(schema: GameSchema): Game {
     },
 
     preloadImages({
-      timeout = 3000,
+      timeout = 4000,
       minPercentageLoaded = 50,
     } = {}): Promise<void> {
       // gather all the images
-      const imageSources = new Set<string>()
+      const imageSources = new Set<string>([characterSelectBg])
 
       let characters = [...this.mainCharacters, ...this.npcs]
       characters.forEach((char) => {

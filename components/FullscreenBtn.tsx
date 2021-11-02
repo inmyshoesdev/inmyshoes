@@ -1,6 +1,7 @@
 import { Tooltip } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { toggleFullScreen } from './utils'
+
 export default function FullscreenBtn(): JSX.Element {
   const [fullscreen, setFullscreen] = useState<boolean>(false)
   function exitHandler() {
@@ -34,9 +35,7 @@ export default function FullscreenBtn(): JSX.Element {
         {fullscreen ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="cursor-pointer"
-            width="40"
-            height="40"
+            className="w-7 h-7 cursor-pointer sm:w-8 sm:h-8 md:w-10 md:h-10"
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="#2c3e50"
@@ -53,9 +52,7 @@ export default function FullscreenBtn(): JSX.Element {
         ) : (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="cursor-pointer"
-            width="40"
-            height="40"
+            className="w-7 h-7 cursor-pointer sm:w-8 sm:h-8 md:w-10 md:h-10"
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="#2c3e50"

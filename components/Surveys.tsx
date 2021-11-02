@@ -96,130 +96,37 @@ const PreGameForm: React.FC<FormProps> = ({ submitHandler }) => {
             </small>
           </h2>
         </fieldset>
-        {/* Field type: "choices" id: "1932512150" */}
+        {/* Field type: "dropdown" id: "1932512150" */}
         <fieldset>
           <legend>Please select your gender:</legend>
           <div className="form-group">
-            <div className="radio">
-              <label>
-                <input
-                  type="radio"
-                  name="entry.1591633300"
-                  defaultValue="Male"
-                  required
-                />
-                Male
-              </label>
-            </div>
-            <div className="radio">
-              <label>
-                <input
-                  type="radio"
-                  name="entry.1591633300"
-                  defaultValue="Female"
-                  required
-                />
-                Female
-              </label>
-            </div>
-            <div className="radio">
-              <label>
-                <input
-                  type="radio"
-                  name="entry.1591633300"
-                  defaultValue="Prefer not to say"
-                  required
-                />
-                Prefer not to say
-              </label>
-            </div>
-            <div className="radio">
-              <label>
-                <input
-                  type="radio"
-                  name="entry.1591633300"
-                  defaultValue="__other_option__"
-                  required
-                />
-              </label>
-              <input
-                type="text"
-                name="entry.1591633300.other_option_response"
-                placeholder="Prefer to self describe"
-              />
-            </div>
+            <select
+              id="1932512150"
+              name="entry.1591633300"
+              className="form-control"
+            >
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Prefer not to say">Prefer not to say</option>
+            </select>
           </div>
         </fieldset>
-        {/* Field type: "choices" id: "1171436624" */}
+        {/* Field type: "dropdown" id: "1171436624" */}
         <fieldset>
           <legend>Please select your age</legend>
           <div className="form-group">
-            <div className="radio">
-              <label>
-                <input
-                  type="radio"
-                  name="entry.326955045"
-                  defaultValue="< 13"
-                  required
-                />
-                &lt; 13
-              </label>
-            </div>
-            <div className="radio">
-              <label>
-                <input
-                  type="radio"
-                  name="entry.326955045"
-                  defaultValue="13 - 18"
-                  required
-                />
-                13 - 18
-              </label>
-            </div>
-            <div className="radio">
-              <label>
-                <input
-                  type="radio"
-                  name="entry.326955045"
-                  defaultValue="19 - 25"
-                  required
-                />
-                19 - 25
-              </label>
-            </div>
-            <div className="radio">
-              <label>
-                <input
-                  type="radio"
-                  name="entry.326955045"
-                  defaultValue="26 - 35"
-                  required
-                />
-                26 - 35
-              </label>
-            </div>
-            <div className="radio">
-              <label>
-                <input
-                  type="radio"
-                  name="entry.326955045"
-                  defaultValue="> 35"
-                  required
-                />
-                &gt; 35
-              </label>
-            </div>
-            <div className="radio">
-              <label>
-                <input
-                  type="radio"
-                  name="entry.326955045"
-                  defaultValue="Prefer not to say"
-                  required
-                />
-                Prefer not to say
-              </label>
-            </div>
+            <select
+              id="1171436624"
+              name="entry.326955045"
+              className="form-control"
+            >
+              <option value="< 13">&lt; 13</option>
+              <option value="13 - 18">13 - 18</option>
+              <option value="19 - 25">19 - 25</option>
+              <option value="26 - 35">26 - 35</option>
+              <option value="> 35">&gt; 35</option>
+              <option value="Prefer not to say">Prefer not to say</option>
+            </select>
           </div>
         </fieldset>
         {/* Field type: "linear" id: "450684089" */}
@@ -899,11 +806,15 @@ const PostGameForm: React.FC<FormProps> = ({ submitHandler }) => {
 
 const styles = css`
   form {
-    @apply flex flex-col items-stretch p-7 pt-3 space-y-10 bg-gray-50 border-2 border-teal-200 rounded-2xl shadow-lg;
+    @apply flex flex-col items-stretch p-7 pt-3 space-y-7 bg-gray-50 border-2 border-teal-200 rounded-2xl shadow-lg;
   }
 
   fieldset:first-of-type {
     @apply -mb-5;
+  }
+
+  fieldset ~ fieldset {
+    @apply pb-4 border-b border-gray-300;
   }
 
   h2 {
@@ -916,6 +827,10 @@ const styles = css`
 
   legend {
     @apply m-1 font-semibold text-gray-900;
+  }
+
+  .form-control {
+    @apply rounded-md px-2 py-1 ml-1 border-gray-400 focus:border-teal-600 focus:ring-1 focus:ring-teal-600;
   }
 
   textarea {

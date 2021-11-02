@@ -3,22 +3,33 @@ import Head from 'next/head'
 import { useEffect } from 'react'
 import { useToast } from '@chakra-ui/toast'
 import { Box } from '@chakra-ui/layout'
+import { CloseButton } from '@chakra-ui/close-button'
+import { useBreakpointValue } from '@chakra-ui/media-query'
 
 export default function Landing(): JSX.Element {
   const toast = useToast()
+  const toastSize = useBreakpointValue(['xs', 'sm', 'md'])
+
   useEffect(() => {
     toast({
-      render: () => (
-        <Box color="white" p={3} bg="green.500">
-          In My Shoes will be presented at NUS School of Computing Term Project
-          Showcase! Register{' '}
-          <a
-            className="underline cursor-pointer"
-            href="https://uvents.nus.edu.sg/event/19th-steps/registration"
-          >
-            here
-          </a>{' '}
-          and vote for us!
+      render: ({ id }) => (
+        <Box color="white" p={3} bg="green.500" className="flex items-center">
+          <span>
+            In My Shoes will be presented at NUS School of Computing Term
+            Project Showcase! Register{' '}
+            <a
+              className="underline cursor-pointer"
+              href="https://uvents.nus.edu.sg/event/19th-steps/registration"
+            >
+              here
+            </a>{' '}
+            and vote for us!
+          </span>
+          <CloseButton
+            onClick={() => toast.close(id)}
+            className="self-start -mr-2 -mt-2"
+            size={toastSize}
+          />
         </Box>
       ),
       status: 'success',
@@ -26,6 +37,7 @@ export default function Landing(): JSX.Element {
       position: 'bottom',
     })
   }, [])
+
   useEffect(() => {
     var scrollToTopBtn = document.querySelector(
       '.scrollToTopBtn'
@@ -645,7 +657,7 @@ export default function Landing(): JSX.Element {
               >
                 <path d="M13 14.725c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275zm-13 0c0-5.141 3.892-10.519 10-11.725l.984 2.126c-2.215.835-4.163 3.742-4.38 5.746 2.491.392 4.396 2.547 4.396 5.149 0 3.182-2.584 4.979-5.199 4.979-3.015 0-5.801-2.305-5.801-6.275z" />
               </svg>
-              <p className="max-w-64 mx-auto text-lg leading-relaxed">
+              <p className="mx-auto max-w-64 text-lg leading-relaxed">
                 Having greater awareness of the special circumstances these
                 individuals may live in provides better understanding on why we
                 should be unassuming of the difficulties others may experience,

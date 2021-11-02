@@ -8,10 +8,11 @@ import mvpJson from '../../schema/mvp.json'
 import GameDisplay from '../../components/GameDisplay'
 import { PreGameForm, SurveyFormWrapper } from '../../components/Surveys'
 import { Transition } from '@headlessui/react'
-import { useLocalStorage } from 'react-use'
-import useCheckMobileScreen from '../../hooks/useCheckMobileScreen'
+import { useHasMounted } from '../../hooks/useHasMounted'
+import { useLocalStorage, useMedia } from 'react-use'
 
 const Demo: React.FC = () => {
+  const mounted = useHasMounted()
   const [pregameSurveyDone, setPregameSurveyDone] = useLocalStorage(
     'ims-pregameSurveyDone',
     false
@@ -55,19 +56,26 @@ const Demo: React.FC = () => {
       return () => clearTimeout(id)
     }
   }, [pregameSurveyDone])
-  const isMobile = useCheckMobileScreen()
+
+  const isPortrait = useMedia('(orientation: portrait) and (max-width: 1024px)')
+  const [landscapePromptShown, setLandscapePromptShown] =
+    useState<boolean>(false)
+
   useEffect(() => {
-    if (isMobile) {
+    if (isPortrait && showGame && !landscapePromptShown) {
       toast({
-        position: 'top',
-        description: 'View in Landscape Orientation for Better Experience!',
+        position: 'bottom',
+        description: 'View in landscape mode for a better experience!',
         duration: 5000,
         status: 'info',
         isClosable: true,
         variant: 'subtle',
       })
+
+      setLandscapePromptShown(true)
     }
-  }, [isMobile, toast])
+  }, [isPortrait, showGame, landscapePromptShown, toast])
+
   return (
     <>
       <Head>
@@ -83,13 +91,13 @@ const Demo: React.FC = () => {
         <meta
           name="Description"
           property="og:description"
-          content="Simulation, developed by Soristic"
+          content="Live through the daily lives of the characters and understand the challenges they face by placing yourself in their shoes."
         />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="In My Shoes | Soristic" />
         <meta
           property="og:description"
-          content="Simulation, developed by Soristic"
+          content="Live through the daily lives of the characters and understand the challenges they face by placing yourself in their shoes."
         />
         <meta name="author" content="Soristic" />
       </Head>
@@ -100,6 +108,7 @@ const Demo: React.FC = () => {
             enter="transition duration-500"
             enterFrom="opacity-0"
             enterTo="opacity-100"
+            className="w-full h-full"
           >
             {game && <GameDisplay game={game} />}
           </Transition>
@@ -110,7 +119,9 @@ const Demo: React.FC = () => {
           }`}
         >
           <Transition
-            show={!pregameSurveyDone}
+            show={
+              mounted && pregameSurveyDone !== undefined && !pregameSurveyDone
+            }
             enter="transition duration-500"
             enterFrom="opacity-0 translate-y-2/3"
             enterTo="opacity-100 translate-y-0"

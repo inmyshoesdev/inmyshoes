@@ -4,6 +4,7 @@ import create, { SetState } from 'zustand'
 import { ActionSequence } from '../lib/action-sequence'
 import { EmptyGame, Game } from '../lib/game'
 import { StateMap } from '../lib/state'
+import { log } from '../lib/utils'
 
 type GameStore = {
   game: Game
@@ -30,9 +31,12 @@ export const useStore = create<GameStore>((set) => ({
 
   loadGame: async (game: Game) => {
     set({ game: { ...game, loading: true } })
+    const start = performance.now()
+    log('game loading')
 
     await game.preloadImages()
 
+    log(`game loaded after ${performance.now() - start}ms`)
     update(set, (state) => {
       state.game.loading = false
     })
