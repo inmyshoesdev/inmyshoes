@@ -12,8 +12,10 @@ module.exports = {
       },
       minHeight: (theme) => theme('height'),
       width: {
-        '1/50': '2%',
+        '1/50': '2%'
       },
+      minWidth: (theme) => theme('width'),
+      maxWidth: (theme) => theme('width'),
       inset: {
         unset: 'unset',
       },
@@ -79,7 +81,7 @@ module.exports = {
         xl: '2rem',
         handdrawn: '300px 15px 175px 15px/15px 175px 15px 300px',
         narration: '300px 15px 175px 15px/15px 175px 15px 300px',
-        dialog: '20px 25px 35px 30px/25px 35px 25px 25px',
+        dialog: '15px 20px 24px 14px/20px 30px 14px 24px',
       },
       borderWidth: {
         3: '3px',
@@ -94,11 +96,19 @@ module.exports = {
         filter: 'filter',
       },
       scale: {
-        30: '.30'
+        '30': '.30'
       },
       boxShadow: {
         button: '3px 3px #888888'
       },
+      screens: {
+        'sm': {'raw': '(min-width: 640px) and (min-height: 360px)'},
+        'md': {'raw': '(min-width: 768px) and (min-height: 432px)'},
+        'lg': {'raw': '(min-width: 1024px) and (min-height: 576px)'},
+        'xl': {'raw': '(min-width: 1280px) and (min-height: 720px)'},
+        '2xl': {'raw': '(min-width: 1536px) and (min-height: 864px)'},
+        'mobile':  {'raw': '(min-aspect-ratio: 31/18) and (max-width: 1024px)'}
+      }
     },
   },
   variants: {

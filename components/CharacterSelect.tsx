@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { useStore } from '../stores/store'
 import Tape from './Tape'
 import { Tooltip } from '@chakra-ui/tooltip'
+import { characterSelectBg } from '../lib/constants'
 
 function CharacterSelect({
   characterSelected,
@@ -32,7 +33,7 @@ function CharacterSelect({
     >
       <Image
         className="absolute z-0 inset-0"
-        src="https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/paper-bg.jpg"
+        src={characterSelectBg}
         alt="background of corkboard"
         layout="fill"
       />
