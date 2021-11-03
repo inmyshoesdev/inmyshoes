@@ -23,7 +23,6 @@ import { makeLogic } from './logic'
 import { ElementKeys } from './scene'
 import { UpdateStateValues } from './state'
 import { isDefined, shuffleArray } from './utils'
-
 type ActionDefinition<TArgs> = {
   validateArgs: (args: unknown) => [Error, undefined] | [undefined, TArgs]
   execute: (args: ActionArgs<TArgs>) => ActionReturnType | void
@@ -148,7 +147,11 @@ export const DefinedActions: {
       return validate(
         args,
         object({
-          newState: record(string(), union([string(), number(), boolean()])),
+          newState: record(string(), union([string(), number(), boolean(), object({
+            name: string(),
+            src: string(),
+            text: string()
+          })])),
         })
       )
     },

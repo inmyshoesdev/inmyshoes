@@ -4,12 +4,18 @@
     "logo": {
       "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/mainlogo.png",
       "width": "150",
-      "height": "0"
+      "height": "50"
+    },
+    "logoSmall": {
+      "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/mainlogo-small.png",
+      "width": "36",
+      "height": "36"
     },
     "backgroundMusic": "/music/bgm.mp3",
-    "credits": "![Soristic](/images/soristic.jpg)\nThis simulation activity development was supported by multiple stakeholders, including [a group of students](https://github.com/inmyshoesdev/inmyshoes/people) from the National University of Singapore. These characters were developed through rounds of interviews with people from various backgrounds and situations, allowing us to craft out a simulation that portrays similar events faced. Subsequently, Soristic has been improving the simulation by introducing more new characters as well as conducting workshops."
+    "credits": "![Soristic](https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/mainlogo-very-small.png)\nThis simulation activity development was supported by multiple stakeholders, including [a group of students](https://github.com/inmyshoesdev/inmyshoes/people) from the National University of Singapore. These characters were developed through rounds of interviews with people from various backgrounds and situations, allowing us to craft out a simulation that portrays similar events faced. Subsequently, Soristic has been improving the simulation by introducing more new characters as well as conducting workshops."
   },
   "globalState": {
+    "badges": [],
     "wealth": {
       "value": 0,
       "max": 20
@@ -30,6 +36,12 @@
     "helping hand badge awarded": false
   },
   "header": [
+    {
+      "component": "state_display",
+      "title": "Badges",
+      "state": "badges",
+      "iconImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/treasure-chest.png"
+    },
     {
       "component": "state_meter",
       "title": "Health",
@@ -286,6 +298,16 @@
               "value": "health badge"
             },
             {
+              "type": "updateGlobalState",
+              "newState": {
+                "badges": {
+                  "name": "health badge",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/health-badge.png",
+                  "text": "You have been trying to take better care of your physical and mental health the past week and it shows! You feel more energized and rejuvenated compared to before."
+                }
+              }
+            },
+            {
               "type": "deblurBackground"
             }
           ],
@@ -338,6 +360,16 @@
             {
               "type": "showClickable",
               "value": "social badge"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "badges": {
+                  "name": "social badge",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/social-badge.png",
+                  "text": "You have put in the effort this week to spend more time and connect with your friends and family. You feel your relationships with them have strengthened."
+                }
+              }
             },
             {
               "type": "deblurBackground"
@@ -394,6 +426,16 @@
               "value": "wealth badge"
             },
             {
+              "type": "updateGlobalState",
+              "newState": {
+                "badges": {
+                  "name": "wealth badge",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/wealth-badge.png",
+                  "text": "Your efforts at saving and earning money in the past week have been effective. While income issues don't disappear overnight, you feel you can go into the next week with a slightly better sense of financial security."
+                }
+              }
+            },
+            {
               "type": "deblurBackground"
             }
           ],
@@ -446,6 +488,16 @@
             {
               "type": "showClickable",
               "value": "helping hand badge"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "badges": {
+                  "name": "helping hand badge",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/helping-hand-badge.png",
+                  "text": "You have made attempts to be more open to approaching other for help. Remember, you are not alone in your journey!"
+                }
+              }
             },
             {
               "type": "deblurBackground"
@@ -4155,6 +4207,16 @@
               "value": "health badge"
             },
             {
+              "type": "updateGlobalState",
+              "newState": {
+                "badges": {
+                  "name": "health badge",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/health-badge.png",
+                  "text": "You have been trying to take better care of your physical and mental health the past week and it shows! You feel more energized and rejuvenated compared to before."
+                }
+              }
+            },
+            {
               "type": "deblurBackground"
             }
           ],
@@ -4207,6 +4269,16 @@
             {
               "type": "showClickable",
               "value": "social badge"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "badges": {
+                  "name": "social badge",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/social-badge.png",
+                  "text": "You have put in the effort this week to spend more time and connect with your friends and family. You feel your relationships with them have strengthened."
+                }
+              }
             },
             {
               "type": "deblurBackground"
@@ -4263,6 +4335,16 @@
               "value": "wealth badge"
             },
             {
+              "type": "updateGlobalState",
+              "newState": {
+                "badges": {
+                  "name": "wealth badge",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/wealth-badge.png",
+                  "text": "Your efforts at saving and earning money in the past week have been effective. While income issues don't disappear overnight, you feel you can go into the next week with a slightly better sense of financial security."
+                }
+              }
+            },
+            {
               "type": "deblurBackground"
             }
           ],
@@ -4315,6 +4397,16 @@
             {
               "type": "showClickable",
               "value": "helping hand badge"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "badges": {
+                  "name": "helping hand badge",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/helping-hand-badge.png",
+                  "text": "You have made attempts to be more open to approaching other for help. Remember, you are not alone in your journey!"
+                }
+              }
             },
             {
               "type": "deblurBackground"
@@ -4384,10 +4476,10 @@
                 "In addition to your parents, you also live with your two younger siblings."
               ],
               "dimension": {
-                "height": "18%"
+                "height": "21%"
               },
               "position": {
-                "top": "80%",
+                "top": "78%",
                 "left": "20%"
               }
             },
@@ -4703,6 +4795,17 @@
             }
           ],
           "intro": [
+            {
+              "type": "resetGlobalState"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "wealth": 10,
+                "health": 10,
+                "social": 10
+              }
+            },
             {
               "type": "showImage",
               "value": "6am",

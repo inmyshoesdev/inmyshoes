@@ -12,8 +12,10 @@ import {
   ModalBody,
   ModalCloseButton,
 } from '@chakra-ui/react'
-import { useDisclosure } from '@chakra-ui/react'
+import { useDisclosure, useBreakpointValue } from '@chakra-ui/react'
 import { Button } from '@chakra-ui/button'
+import { log } from '../lib/utils'
+import { useIsMobileLandscape } from '../hooks/useBreakpoint'
 
 function Footer({
   characterSelected,
@@ -26,6 +28,8 @@ function Footer({
   setBlurBackground: React.Dispatch<React.SetStateAction<boolean>>
   setHideCharacterInfo: React.Dispatch<React.SetStateAction<boolean>>
 }) {
+  const isMobileLandscape = useIsMobileLandscape()
+
   const [musicOn, setMusicOn] = useState(true)
   const game = useStore((state) => state.game)
 
@@ -40,10 +44,10 @@ function Footer({
 
   useEffect(() => {
     if (musicOn) {
-      // console.log('play')
+      log('play')
       play()
     } else {
-      // console.log('stop')
+      log('stop')
       stop()
     }
     return () => {
@@ -51,13 +55,15 @@ function Footer({
     }
   }, [musicOn, play, stop])
 
+  const modalSize = useBreakpointValue(['lg', 'xl', '3xl', '4xl'])
+
   return (
     <>
       <div
         id="footer"
-        className={`relative w-96 flex justify-around items-center`}
+        className="mobile:sm:pl-1 relative flex mobile:flex-col items-center justify-around w-full max-w-xl h-full mobile:overflow-auto overflow-hidden"
       >
-        <Modal isOpen={isOpen} onClose={onClose} size="4xl">
+        <Modal isOpen={isOpen} onClose={onClose} size={modalSize}>
           <ModalOverlay />
           <ModalContent>
             <ModalHeader>About Us</ModalHeader>
@@ -76,9 +82,9 @@ function Footer({
             </ModalFooter>
           </ModalContent>
         </Modal>
-        <div>
+        <div className="grid flex-none place-items-center mobile:w-full mobile:h-20 h-full">
           <button
-            className="focus:outline-none cursor-pointer"
+            className="flex items-center justify-center w-full h-full focus:outline-none cursor-pointer"
             aria-label="check current character"
             disabled={!characterSelected}
             onClick={() => {
@@ -92,13 +98,11 @@ function Footer({
                 aria-label="Character Information"
                 placement="top"
               >
-                <div className="flex w-12">
+                <div className="flex justify-center my-1 w-7 h-14 max-h-full md:w-9 md:h-16 lg:w-11 lg:h-20">
                   <img
-                    className="justify-center cursor-pointer"
+                    className="cursor-pointer object-contain drop-shadow-sm"
                     src={game.mainCharacters[characterIndex].images.default}
                     alt="Current character image"
-                    width={20}
-                    height={50}
                   />
                 </div>
               </Tooltip>
@@ -110,9 +114,7 @@ function Footer({
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="icon icon-tabler icon-tabler-user-plus"
-                  width="44"
-                  height="44"
+                  className="icon icon-tabler icon-tabler-user-plus w-7 h-7 mobile:translate-x-1 md:w-9 md:h-9 lg:w-11 lg:h-11"
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="#000000"
@@ -136,67 +138,76 @@ function Footer({
         >
           <img
             src={
-              game.about.logo?.src ??
-              'https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/mainlogo.png'
+              isMobileLandscape
+                ? game.about.logoSmall?.src ??
+                  'https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/mainlogo-small.png'
+                : game.about.logo?.src ??
+                  'https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/mainlogo.png'
             }
             alt="Logo"
-            width={game.about.logo?.width ?? 150}
-            height={game.about.logo?.height ?? 50}
-            className="cursor-pointer"
+            width={
+              isMobileLandscape
+                ? game.about.logoSmall?.width ?? 36
+                : game.about.logo?.width ?? 150
+            }
+            height={
+              isMobileLandscape
+                ? game.about.logoSmall?.height ?? 36
+                : game.about.logo?.height ?? 50
+            }
+            className="mobile:md:scale-100 cursor-pointer scale-50 mobile:scale-75 md:scale-75 lg:scale-100"
             onClick={onOpen}
           />
         </Tooltip>
-        <Tooltip
-          label="Toggle Background Music"
-          aria-label="Toggle Background Music"
-          placement="top"
-        >
-          <button
-            className="z-10 focus:outline-none"
-            id="soundOnBtn"
-            onClick={() => {
-              setMusicOn(!musicOn)
-            }}
-            aria-label="sound on off button"
+        <div className="grid flex-none place-items-center mobile:w-full mobile:h-20 h-full">
+          <Tooltip
+            label="Toggle Background Music"
+            aria-label="Toggle Background Music"
+            placement="top"
           >
-            {musicOn ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="icon icon-tabler icon-tabler-volume cursor-pointer"
-                width="44"
-                height="44"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="#2c3e50"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M15 8a5 5 0 0 1 0 8" />
-                <path d="M17.7 5a9 9 0 0 1 0 14" />
-                <path d="M6 15h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a0.8 .8 0 0 1 1.5 .5v14a0.8 .8 0 0 1 -1.5 .5l-3.5 -4.5" />
-              </svg>
-            ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="icon icon-tabler icon-tabler-volume-3 cursor-pointer"
-                width="44"
-                height="44"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="#2c3e50"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M6 15h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a0.8 .8 0 0 1 1.5 .5v14a0.8 .8 0 0 1 -1.5 .5l-3.5 -4.5" />
-                <path d="M16 10l4 4m0 -4l-4 4" />
-              </svg>
-            )}
-          </button>
-        </Tooltip>
+            <button
+              className="z-10 focus:outline-none"
+              id="soundOnBtn"
+              onClick={() => {
+                setMusicOn(!musicOn)
+              }}
+              aria-label="sound on off button"
+            >
+              {musicOn ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="icon icon-tabler icon-tabler-volume w-7 h-7 cursor-pointer md:w-9 md:h-9 lg:w-11 lg:h-11"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="#2c3e50"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M15 8a5 5 0 0 1 0 8" />
+                  <path d="M17.7 5a9 9 0 0 1 0 14" />
+                  <path d="M6 15h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a0.8 .8 0 0 1 1.5 .5v14a0.8 .8 0 0 1 -1.5 .5l-3.5 -4.5" />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="icon icon-tabler icon-tabler-volume-3 w-7 h-7 cursor-pointer md:w-9 md:h-9 lg:w-11 lg:h-11"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="#2c3e50"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M6 15h-2a1 1 0 0 1 -1 -1v-4a1 1 0 0 1 1 -1h2l3.5 -4.5a0.8 .8 0 0 1 1.5 .5v14a0.8 .8 0 0 1 -1.5 .5l-3.5 -4.5" />
+                  <path d="M16 10l4 4m0 -4l-4 4" />
+                </svg>
+              )}
+            </button>
+          </Tooltip>
+        </div>
       </div>
     </>
   )

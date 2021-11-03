@@ -1,3 +1,10 @@
+export const log: typeof console.log =
+  typeof window === 'undefined' // running on server
+    ? console.log
+    : process.env.NODE_ENV === 'development'
+    ? console.log.bind(window.console)
+    : () => {} // dont console log if running on client in prod
+
 export function isDefined<T>(x: T | undefined): x is T {
   return x !== undefined
 }

@@ -105,20 +105,20 @@ function CharacterInfo({
       </div>
       <div className="z-10 flex gap-3 items-center justify-center my-2 lg:flex-col lg:my-1 xl:gap-6 xl:my-3">
         <button
-          className="px-3 text-center font-medium bg-green-400 hover:bg-green-500 rounded cursor-pointer md:px-4 md:py-1"
+          className="px-3 py-1 text-center font-medium bg-green-400 hover:bg-green-500 rounded cursor-pointer md:px-4"
           onClick={() => {
             setHidden(true)
             setBlurBackground((state) => !state)
           }}
         >
-          <span className="text-xs cursor-pointer sm:text-sm md:text-base lg:text-lg">
+          <span className="block h-full text-xs cursor-pointer sm:text-sm md:text-base lg:text-lg">
             Resume
           </span>
         </button>
         <Popover>
           <PopoverTrigger>
-            <button className="mx-auto px-1 font-medium bg-yellow-400 hover:bg-yellow-500 rounded cursor-pointer md:px-2 md:py-1">
-              <span className="text-2xs cursor-pointer sm:text-xs md:text-sm lg:text-base">
+            <button className="mx-auto px-1 py-1 font-medium bg-yellow-400 hover:bg-yellow-500 rounded cursor-pointer md:px-2">
+              <span className="block h-full text-2xs cursor-pointer sm:text-xs md:text-sm lg:text-base">
                 Reselect
               </span>
             </button>

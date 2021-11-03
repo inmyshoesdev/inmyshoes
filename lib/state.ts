@@ -1,18 +1,25 @@
 export type StateObj = {
-  value: string | number | boolean
+  value: string | number | boolean | Badge[]
   min?: number
   max?: number
 }
 
 export type StateMap = Record<string, StateObj>
-
-export type UpdateStateValues = Record<string, string | number | boolean>
+export type Badge = {
+  name: string
+  src: string
+  text: string
+}
+export type UpdateStateValues = Record<
+  string,
+  string | number | boolean | Badge
+>
 
 export interface State {
   innerState: StateMap
   reset(): void
   hasKey(key: string): boolean
-  get(key: string): string | number | boolean | undefined
+  get(key: string): string | number | boolean | Badge[] | undefined
   update(newState: UpdateStateValues): void
 }
 
@@ -20,6 +27,13 @@ export function makeState(state: any): State {
   function createStateMap(): StateMap {
     let stateMap: StateMap = {}
     for (const [key, val] of Object.entries(state)) {
+      if (typeof val === 'object' && key === 'badges') {
+        // deal with badges
+        stateMap[key] = {
+          value: val,
+        } as StateObj
+        continue
+      }
       switch (typeof val) {
         case 'string':
         case 'number':
@@ -44,7 +58,7 @@ export function makeState(state: any): State {
       return key in this.innerState
     },
 
-    get(key: string): string | number | boolean | undefined {
+    get(key: string): string | number | boolean | Badge[] | undefined {
       return this.innerState[key].value
     },
 
@@ -82,6 +96,16 @@ export function makeState(state: any): State {
             this.innerState[key].value = val
             continue
           }
+          if (
+            typeof val === 'object' &&
+            typeof this.innerState[key] === 'object'
+          ) {
+            this.innerState[key].value = [
+              ...(this.innerState[key].value as Badge[]),
+              val,
+            ]
+            continue
+          }
 
           console.warn(
             `update of type ${typeof val} applied to key "${key}" in state, expected ${typeof this
@@ -96,7 +120,10 @@ export function makeState(state: any): State {
   }
 }
 
-const fallbacks = new Map<string, Map<string, string | number | boolean>>()
+const fallbacks = new Map<
+  string,
+  Map<string, string | number | boolean | Badge[]>
+>()
 
 export function getStateTemplater(globalState: State, currSceneState?: State) {
   const regex = /\{(.+?)\}/g // matches anything in curly brackes, for eg, "{hello}"

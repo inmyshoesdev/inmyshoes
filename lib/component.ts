@@ -36,9 +36,10 @@ export function makeStateMeter(
   state: State
 ): StateMeter {
   if (!state.hasKey(schema.state)) throw `no state "${schema.state}" found`
-  let stateType = typeof state.get(schema.state)
-  if (!(stateType === 'number'))
-    throw `state "${schema.state}" is of type ${stateType}, expected number`
+  // the following check no longer works due to badges
+  // let stateType = typeof state.get(schema.state)
+  // if (!(stateType === 'number'))
+  //   throw `state "${schema.state}" is of type ${stateType}, expected number`
 
   return {
     component: schema.component,
