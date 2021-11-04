@@ -7609,6 +7609,76 @@
           "if": {
             ">=": ["{wealth}", 15]
           }
+        },
+        {
+          "name": "award helping hand badge",
+          "clickables": [
+            {
+              "name": "helping hand badge",
+              "options": [
+                {
+                  "name": "helping hand",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/helping-hand-badge.png",
+                  "position": {
+                    "top": "0",
+                    "left": "0",
+                    "right": "0"
+                  },
+                  "dimension": {
+                    "height": "75%"
+                  }
+                },
+                {
+                  "name": "helping hand message",
+                  "text": "You have made attempts to be more open to approaching other for help. Remember, you are not alone in your journey!\n\n*You have earned a Helping Hand Badge!*",
+                  "position": {
+                    "bottom": "10%",
+                    "left": "23%"
+                  },
+                  "dimension": {
+                    "width": "54%"
+                  }
+                }
+              ]
+            }
+          ],
+          "sequence": [
+            {
+              "type": "blurBackground"
+            },
+            {
+              "type": "playSound",
+              "src": "/sounds/reward.wav",
+              "volume": 0.1,
+              "interrupt": true
+            },
+            {
+              "type": "showClickable",
+              "value": "helping hand badge"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "badges": {
+                  "name": "helping hand badge",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/helping-hand-badge.png",
+                  "text": "You have made attempts to be more open to approaching other for help. Remember, you are not alone in your journey!"
+                }
+              }
+            },
+            {
+              "type": "deblurBackground"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "helping hand badge awarded": true
+              }
+            }
+          ],
+          "if": {
+            "==": ["{helping hand badge awarded}", false]
+          }
         }
       ],
       "scenes": [
@@ -8296,6 +8366,12 @@
                     {
                       "type": "triggerEvents",
                       "events": {
+                        "award helping hand badge": {}
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
                         "sunny days": {
                           "chance": 10
                         }
@@ -8847,6 +8923,12 @@
                     {
                       "type": "triggerEvents",
                       "events": {
+                        "award helping hand badge": {}
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
                         "friendship": {
                           "chance": 40
                         }
@@ -9022,6 +9104,12 @@
                       "newState": {
                         "health": 1,
                         "social": 1
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "award helping hand badge": {}
                       }
                     },
                     {
@@ -9213,6 +9301,12 @@
                       "newState": {
                         "health": 1,
                         "social": 1
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "award helping hand badge": {}
                       }
                     },
                     {
