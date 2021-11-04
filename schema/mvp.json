@@ -7911,8 +7911,11 @@
                   "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-1-wakeup.png",
                   "altText": "Try to wake up on time",
                   "position": {
-                    "left": "32%",
-                    "top": "1.5%"
+                    "right": "5%",
+                    "top": "28%"
+                  },
+                  "dimension": {
+                    "height": "45%"
                   },
                   "disabled": {
                     "if": {
@@ -7950,11 +7953,11 @@
                   "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-1-sleep.png",
                   "altText": "Get some extra rest",
                   "position": {
-                    "left": "-5%",
-                    "top": "3%"
+                    "left": "15%",
+                    "top": "25%"
                   },
                   "dimension":{
-                    "width": "75%"
+                    "width": "30%"
                   },
                   "onClick": [
                     {
@@ -8197,8 +8200,11 @@
                   "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-3-bus.png",
                   "altText": "Take public transport",
                   "position": {
-                    "left": "20%",
-                    "top": "0%"
+                    "right": "18%",
+                    "top": "50%"
+                  },
+                  "dimension": {
+                    "width": "25%"
                   },
                   "disabled": {
                     "if": {
@@ -8237,8 +8243,11 @@
                   "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-3-taxi.png",
                   "altText": "Take a taxi",
                   "position": {
-                    "right": "20%",
-                    "top": "0%"
+                    "left": "20%",
+                    "top": "50%"
+                  },
+                  "dimension": {
+                    "width": "25%"
                   },
                   "onClick": [
                     {
@@ -8512,10 +8521,14 @@
               "options": [
                 {
                   "name": "1",
-                  "text": "Join your friends for bowling",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-5-bowl.png",
+                  "altText": "Join your friends for bowling",
                   "position": {
                     "left": "20%",
                     "top": "50%"
+                  },
+                  "dimension": {
+                    "width": "20%"
                   },
                   "onClick": [
                     {
@@ -8549,10 +8562,14 @@
                 },
                 {
                   "name": "2",
-                  "text": "Head home",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-5-home.png",
+                  "altText": "Head home",
                   "position": {
                     "right": "20%",
                     "top": "50%"
+                  },
+                  "dimension": {
+                    "width": "20%"
                   },
                   "disabled": {
                     "if": {
@@ -8892,10 +8909,14 @@
               "options": [
                 {
                   "name": "1",
-                  "text": "Try cheering yourself up by buying yourself dinner",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-7-food.png",
+                  "altText": "Try cheering yourself up by buying yourself dinner",
                   "position": {
                     "left": "20%",
                     "top": "50%"
+                  },
+                  "dimension": {
+                    "width": "20%"
                   },
                   "disabled": {
                     "if": {
@@ -8941,10 +8962,14 @@
                 },
                 {
                   "name": "2",
-                  "text": "Text Ethan about feeling left out",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-7-text.png",
+                  "altText": "Text Ethan about feeling left out",
                   "position": {
                     "right": "20%",
                     "top": "50%"
+                  },
+                  "dimension": {
+                    "width": "20%"
                   },
                   "onClick": [
                     {
@@ -9488,10 +9513,14 @@
               "options": [
                 {
                   "name": "1",
-                  "text": "Go home a little later and grab some ice cream",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-10-icecream.png",
+                  "altText": "Go home a little later and grab some ice cream",
                   "position": {
                     "left": "20%",
-                    "top": "50%"
+                    "top": "37%"
+                  },
+                  "dimension": {
+                    "width": "20%"
                   },
                   "onClick": [
                     {
@@ -9529,10 +9558,14 @@
                 },
                 {
                   "name": "2",
-                  "text": "Tell your friend you won’t be able spend time with him yet again",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-10-grandmother.png",
+                  "altText": "Tell your friend you won’t be able spend time with him yet again",
                   "position": {
                     "right": "20%",
                     "top": "50%"
+                  },
+                  "dimension": {
+                    "width": "20%"
                   },
                   "disabled": {
                     "if": {
