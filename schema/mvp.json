@@ -7914,6 +7914,12 @@
                     "left": "32%",
                     "top": "1.5%"
                   },
+                  "disabled": {
+                    "if": {
+                      "<=": ["{health}", 0]
+                    },
+                    "label": "You don't have enough health..."
+                  },
                   "onClick": [
                     {
                       "type": "showNarration",
@@ -8054,6 +8060,12 @@
                     "left": "20%",
                     "top": "50%"
                   },
+                  "disabled": {
+                    "if": {
+                      "<=": ["{health}", 0]
+                    },
+                    "label": "You don't have enough health..."
+                  },
                   "onClick": [
                     {
                       "type": "showNarration",
@@ -8187,6 +8199,12 @@
                   "position": {
                     "left": "20%",
                     "top": "0%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": ["{health}", 0]
+                    },
+                    "label": "You don't have enough health..."
                   },
                   "onClick": [
                     {
@@ -8390,6 +8408,12 @@
                     "right": "20%",
                     "top": "50%"
                   },
+                  "disabled": {
+                    "if": {
+                      "<=": ["{health}", 0]
+                    },
+                    "label": "You don't have enough health..."
+                  },
                   "onClick": [
                     {
                       "type": "showNarration",
@@ -8529,6 +8553,12 @@
                   "position": {
                     "right": "20%",
                     "top": "50%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": ["{health}", 0]
+                    },
+                    "label": "You don't have enough health..."
                   },
                   "onClick": [
                     {
@@ -8709,6 +8739,12 @@
                     "right": "20%",
                     "top": "50%"
                   },
+                  "disabled": {
+                    "if": {
+                      "<=": ["{health}", 0]
+                    },
+                    "label": "You don't have enough health..."
+                  },
                   "onClick": [
                     {
                       "type": "showDialogue",
@@ -8860,6 +8896,12 @@
                   "position": {
                     "left": "20%",
                     "top": "50%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": ["{health}", 0]
+                    },
+                    "label": "You don't have enough health..."
                   },
                   "onClick": [
                     {
@@ -9061,6 +9103,12 @@
                     "left": "20%",
                     "top": "50%"
                   },
+                  "disabled": {
+                    "if": {
+                      "<=": ["{health}", 0]
+                    },
+                    "label": "You don't have enough health..."
+                  },
                   "onClick": [
                     {
                       "type": "showDialogue",
@@ -9246,6 +9294,12 @@
                   "position": {
                     "left": "20%",
                     "top": "50%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": ["{health}", 0]
+                    },
+                    "label": "You don't have enough health..."
                   },
                   "onClick": [
                     {
@@ -9479,6 +9533,12 @@
                   "position": {
                     "right": "20%",
                     "top": "50%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": ["{health}", 0]
+                    },
+                    "label": "You don't have enough health..."
                   },
                   "onClick": [
                     {
