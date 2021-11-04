@@ -13,6 +13,7 @@ import { EventsSceneId } from '../lib/events'
 import BadgeCollection from './BadgeCollection'
 import { useHasMounted } from '../hooks/useHasMounted'
 import { useIsMobileLandscape } from '../hooks/useBreakpoint'
+import { GameStage } from '../schema/game'
 
 type GameProps = {
   game?: Game
@@ -39,27 +40,31 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
 
   const gameBody = (
     <>
-      {game.characterSelected &&
-        game?.getScenes().map((scene, idx) => (
-          <Transition
-            show={
-              !game.loading &&
-              (game?.currentSceneId === scene.id || scene.id === EventsSceneId)
-            }
-            enter="transition-opacity duration-500"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="transition-opacity duration-500"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-            key={idx}
-            className={`absolute h-full inset-0 transition-filter duration-200 ${
-              blurBackground ? 'blur-sm' : ''
-            } ${scene.id === EventsSceneId ? 'pointer-events-none' : ''}`}
-          >
-            <SceneDisplay scene={scene} />
-          </Transition>
-        ))}
+      {((game.characterSelected && game.stage === GameStage.PLAY) ||
+        game.stage === GameStage.INTRO) &&
+        game?.getScenes().map((scene, idx) => {
+          return (
+            <Transition
+              show={
+                !game.loading &&
+                (game?.currentSceneId === scene.id ||
+                  scene.id === EventsSceneId)
+              }
+              enter="transition-opacity duration-500"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="transition-opacity duration-500"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+              key={idx}
+              className={`absolute h-full inset-0 transition-filter duration-200 ${
+                blurBackground ? 'blur-sm' : ''
+              } ${scene.id === EventsSceneId ? 'pointer-events-none' : ''}`}
+            >
+              <SceneDisplay scene={scene} />
+            </Transition>
+          )
+        })}
       <Transition
         show={game.loading}
         leave="transition-opacity duration-1000"
@@ -137,12 +142,12 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
     </div>
   ) : (
     <div className="relative flex flex-col items-center w-full h-full max-h-screen">
-      <div className="w-[144vh] h-[9.5vh] flex-none max-w-screen">{header}</div>
+      <div className="w-[144vh] h-[9.5vh] max-w-screen flex-none">{header}</div>
       <DisplayControl />
-      <div className="w-[144vh] h-[81vh] max-h-[56.25vw] relative flex-none max-w-screen bg-white shadow overflow-hidden">
+      <div className="w-[144vh] h-[81vh] max-h-[56.25vw] max-w-screen relative flex-none bg-white shadow overflow-hidden">
         {gameBody}
       </div>
-      <div className="w-[144vh] h-[9.5vh] grid place-items-center max-w-screen">
+      <div className="w-[144vh] h-[9.5vh] max-w-screen grid place-items-center">
         {footer}
       </div>
     </div>

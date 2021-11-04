@@ -5,6 +5,7 @@ import { ActionSequence } from '../lib/action-sequence'
 import { EmptyGame, Game } from '../lib/game'
 import { StateMap } from '../lib/state'
 import { log } from '../lib/utils'
+import { GameStage } from '../schema/game'
 
 type GameStore = {
   game: Game
@@ -45,6 +46,9 @@ export const useStore = create<GameStore>((set) => ({
   setCharacterSelected: (newState: boolean) => {
     update(set, (state) => {
       state.game.characterSelected = newState
+      if (!newState) {
+        state.game.stage = GameStage.CHAR_SELEC
+      }
     })
   },
 
@@ -53,6 +57,7 @@ export const useStore = create<GameStore>((set) => ({
       state.game.characterIndex = characterIndex
       state.game.currentSceneId =
         state.game.mainCharacters[characterIndex].scenes[0].id
+      state.game.stage = GameStage.PLAY
     })
   },
   gotoScene: (sceneId: number) =>

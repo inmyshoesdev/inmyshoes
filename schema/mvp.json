@@ -64,6 +64,85 @@
       "color": "#fee214"
     }
   ],
+  "intro": [
+    {
+      "id": 0,
+      "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/StandardBackground.png",
+      "narrations": [
+        {
+          "name": "intro",
+          "texts": [
+            "In this exercise, you will have the chance to choose a character and discover what youth might go through in various aspects of their life.",
+            "Each character has a health, social and wealth meter. As these are meant to reflect the physical, social and financial conditions of the characters, their starting values will differ depending on the character being played."
+          ]
+        },
+        {
+          "name": "intro2",
+          "texts": [
+            "Just like real people, the characters will fare better if their financial, physical and social needs are taken care of. So try and keep them up if you can.",
+            "Content warnings: mental health, learning disabilities, income issues."
+          ]
+        }
+      ],
+      "dialogues": [],
+      "images": [],
+      "clickables": [
+        {
+          "name": "next",
+          "options": [
+            {
+              "name": "1",
+              "text": "Go",
+              "onClick": [
+                {
+                  "type": "gotoStage",
+                  "stage": "Character Selection"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "intro": [
+        {
+          "type": "updateGlobalState",
+          "newState": {
+            "wealth": 5,
+            "health": 10,
+            "social": 10
+          }
+        },
+        {
+          "type": "showNarration",
+          "value": "intro"
+        },
+        {
+          "type": "wait",
+          "duration": 1000
+        },
+        {
+          "type": "updateGlobalState",
+          "newState": {
+            "wealth": 2,
+            "health": -3,
+            "social": -1
+          }
+        },
+        {
+          "type": "wait",
+          "duration": 1000
+        },
+        {
+          "type": "showNarration",
+          "value": "intro2"
+        },
+        {
+          "type": "showClickable",
+          "value": "next"
+        }
+      ]
+    }
+  ],
   "mainCharacters": [
     {
       "name": "Curtis",
