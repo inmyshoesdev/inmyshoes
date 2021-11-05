@@ -91,15 +91,19 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
             setHidden={setHideCharacterInfo}
             setBlurBackground={setBlurBackground}
           />
-          <CharacterSelect
-            characterSelected={game.characterSelected}
-            mainCharacters={game.mainCharacters}
-            updateCharacter={updateCharacter}
-          />
           <BadgeCollection
             hidden={hideBadgeCollection}
             setHidden={setHideBadgeCollection}
             setBlurBackground={setBlurBackground}
+          />
+        </>
+      )}
+      {!game.loading && game.stage === GameStage.CHAR_SELEC && (
+        <>
+          <CharacterSelect
+            characterSelected={game.characterSelected}
+            mainCharacters={game.mainCharacters}
+            updateCharacter={updateCharacter}
           />
         </>
       )}
@@ -142,12 +146,12 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
     </div>
   ) : (
     <div className="relative flex flex-col items-center w-full h-full max-h-screen">
-      <div className="w-[144vh] h-[9.5vh] max-w-screen flex-none">{header}</div>
+      <div className="w-[144vh] h-[9.5vh] flex-none max-w-screen">{header}</div>
       <DisplayControl />
-      <div className="w-[144vh] h-[81vh] max-h-[56.25vw] max-w-screen relative flex-none bg-white shadow overflow-hidden">
+      <div className="w-[144vh] h-[81vh] max-h-[56.25vw] relative flex-none max-w-screen bg-white shadow overflow-hidden">
         {gameBody}
       </div>
-      <div className="w-[144vh] h-[9.5vh] max-w-screen grid place-items-center">
+      <div className="w-[144vh] h-[9.5vh] grid place-items-center max-w-screen">
         {footer}
       </div>
     </div>

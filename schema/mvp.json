@@ -72,13 +72,19 @@
         {
           "name": "intro",
           "texts": [
-            "In this exercise, you will have the chance to choose a character and discover what youth might go through in various aspects of their life.",
-            "Each character has a health, social and wealth meter. As these are meant to reflect the physical, social and financial conditions of the characters, their starting values will differ depending on the character being played."
+            "In this exercise, you will have the chance to choose a character and discover what youth might go through in various aspects of their life."
           ]
         },
         {
           "name": "intro2",
           "texts": [
+            "Each character has a health, social and wealth meter. As these are meant to reflect the physical, social and financial conditions of the characters, their starting values will differ depending on the character being played."
+          ]
+        },
+        {
+          "name": "intro3",
+          "texts": [
+            "Their choices will also affect these meter differently.",
             "Just like real people, the characters will fare better if their financial, physical and social needs are taken care of. So try and keep them up if you can.",
             "Content warnings: mental health, learning disabilities, income issues."
           ]
@@ -95,6 +101,9 @@
               "text": "Go",
               "onClick": [
                 {
+                  "type": "resetGlobalState"
+                },
+                {
                   "type": "gotoStage",
                   "stage": "Character Selection"
                 }
@@ -105,6 +114,13 @@
       ],
       "intro": [
         {
+          "type": "resetGlobalState"
+        },
+        {
+          "type": "showNarration",
+          "value": "intro"
+        },
+        {
           "type": "updateGlobalState",
           "newState": {
             "wealth": 5,
@@ -114,11 +130,7 @@
         },
         {
           "type": "showNarration",
-          "value": "intro"
-        },
-        {
-          "type": "wait",
-          "duration": 1000
+          "value": "intro2"
         },
         {
           "type": "updateGlobalState",
@@ -129,12 +141,8 @@
           }
         },
         {
-          "type": "wait",
-          "duration": 1000
-        },
-        {
           "type": "showNarration",
-          "value": "intro2"
+          "value": "intro3"
         },
         {
           "type": "showClickable",
@@ -594,83 +602,6 @@
         }
       ],
       "scenes": [
-        {
-          "id": 0,
-          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/StandardBackground.png",
-          "narrations": [
-            {
-              "name": "intro",
-              "texts": [
-                "In this exercise, you will have the chance to choose a character and discover what youth might go through in various aspects of their life.",
-                "Each character has a health, social and wealth meter. As these are meant to reflect the physical, social and financial conditions of the characters, their starting values will differ depending on the character being played."
-              ]
-            },
-            {
-              "name": "intro2",
-              "texts": [
-                "Just like real people, the characters will fare better if their financial, physical and social needs are taken care of. So try and keep them up if you can.",
-                "Content warnings: mental health, learning disabilities, income issues."
-              ]
-            }
-          ],
-          "dialogues": [],
-          "images": [],
-          "clickables": [
-            {
-              "name": "next",
-              "options": [
-                {
-                  "name": "1",
-                  "text": "Go",
-                  "onClick": [
-                    {
-                      "type": "gotoScene",
-                      "sceneId": 0.5
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "intro": [
-            {
-              "type": "updateGlobalState",
-              "newState": {
-                "wealth": 5,
-                "health": 10,
-                "social": 10
-              }
-            },
-            {
-              "type": "showNarration",
-              "value": "intro"
-            },
-            {
-              "type": "wait",
-              "duration": 1000
-            },
-            {
-              "type": "updateGlobalState",
-              "newState": {
-                "wealth": 2,
-                "health": -3,
-                "social": -1
-              }
-            },
-            {
-              "type": "wait",
-              "duration": 1000
-            },
-            {
-              "type": "showNarration",
-              "value": "intro2"
-            },
-            {
-              "type": "showClickable",
-              "value": "next"
-            }
-          ]
-        },
         {
           "id": 0.5,
           "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-intro-household.jpg",
@@ -4504,54 +4435,13 @@
       ],
       "scenes": [
         {
-          "id": 0,
-          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/StandardBackground.png",
-          "narrations": [
-            {
-              "name": "intro",
-              "texts": [
-                "In this exercise, you will have the chance to choose a character and discover what youth might go through in various aspects of their life."
-              ]
-            }
-          ],
-          "dialogues": [],
-          "images": [],
-          "clickables": [
-            {
-              "name": "next",
-              "options": [
-                {
-                  "name": "1",
-                  "text": "Go",
-                  "onClick": [
-                    {
-                      "type": "gotoScene",
-                      "sceneId": 0.5
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "intro": [
-            {
-              "type": "showNarration",
-              "value": "intro"
-            },
-            {
-              "type": "showClickable",
-              "value": "next"
-            }
-          ]
-        },
-        {
           "id": 0.5,
           "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-intro-household.png",
           "narrations": [
             {
               "name": "household",
               "texts": [
-                "You are from a middle-income family.",
+                "You are Belinda. You are from a middle-income family.",
                 "In addition to your parents, you also live with your two younger siblings."
               ],
               "dimension": {

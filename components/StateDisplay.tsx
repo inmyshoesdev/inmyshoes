@@ -54,7 +54,7 @@ export default function StateDisplay({
                   return
                 }
                 setHideBadgeCollection((state) => !state)
-                setBlurBackground(true)
+                setBlurBackground((state) => !state)
               }}
             />
           )}
