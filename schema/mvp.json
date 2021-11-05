@@ -7271,10 +7271,30 @@
               ]
             }
           ],
+          "images": [
+            {
+              "name": "apathy",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Apathy-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "sequence": [
+            {
+              "type": "showImage",
+              "value": "apathy",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "apathy"
             },
             {
               "type": "updateGlobalState",
@@ -7303,10 +7323,30 @@
               ]
             }
           ],
+          "images": [
+            {
+              "name": "sunny",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/SunnyDays-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "sequence": [
+            {
+              "type": "showImage",
+              "value": "sunny",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "sunny"
             },
             {
               "type": "updateGlobalState",
@@ -7334,10 +7374,30 @@
               ]
             }
           ],
+          "images": [
+            {
+              "name": "friendship",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Friendship-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "sequence": [
+            {
+              "type": "showImage",
+              "value": "friendship",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "friendship"
             },
             {
               "type": "updateGlobalState",
@@ -7366,10 +7426,30 @@
               ]
             }
           ],
+          "images": [
+            {
+              "name": "insomnia",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Insomnia-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "sequence": [
+            {
+              "type": "showImage",
+              "value": "insomnia",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "insomnia"
             },
             {
               "type": "updateGlobalState",
@@ -7393,14 +7473,34 @@
             {
               "name": "msg",
               "texts": [
-                "You increasingly feel distant from your friends and family.\nYour social points decrease by 2"
+                "You increasingly feel distant from your friends and family.\nSocial points decrease by 2"
               ]
+            }
+          ],
+          "images": [
+            {
+              "name": "loneliness",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Loneliness-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
             }
           ],
           "sequence": [
             {
+              "type": "showImage",
+              "value": "loneliness",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
               "type": "showNarration",
               "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "loneliness"
             },
             {
               "type": "updateGlobalState",
