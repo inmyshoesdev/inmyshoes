@@ -8048,9 +8048,7 @@
             },
             {
               "name": "health",
-              "texts": [
-                "You are suffering from depression."
-              ]
+              "texts": ["You are suffering from depression."]
             },
             {
               "name": "relationships",
@@ -8203,8 +8201,7 @@
               ]
             }
           ],
-          "images": [
-          ],
+          "images": [],
           "clickables": [
             {
               "name": "choice",
@@ -8259,7 +8256,7 @@
                     "left": "15%",
                     "top": "25%"
                   },
-                  "dimension":{
+                  "dimension": {
                     "width": "30%"
                   },
                   "onClick": [
@@ -8374,8 +8371,7 @@
               ]
             }
           ],
-          "images": [
-          ],
+          "images": [],
           "clickables": [
             {
               "name": "choice",
@@ -8527,8 +8523,7 @@
               ]
             }
           ],
-          "images": [
-          ],
+          "images": [],
           "clickables": [
             {
               "name": "choice",
@@ -8741,8 +8736,7 @@
               ]
             }
           ],
-          "images": [
-          ],
+          "images": [],
           "clickables": [
             {
               "name": "choice",
@@ -8914,8 +8908,7 @@
               ]
             }
           ],
-          "images": [
-          ],
+          "images": [],
           "clickables": [
             {
               "name": "choice",
@@ -9156,8 +9149,7 @@
               ]
             }
           ],
-          "images": [
-          ],
+          "images": [],
           "clickables": [
             {
               "name": "choice",
@@ -9368,26 +9360,53 @@
                 {
                   "character": "Arthur",
                   "variant": "jacket",
-                  "text": "Hey Ethan, I'm sorry for not joining you guys, I wasn't up to it."
+                  "text": "Hey Ethan, I'm sorry for not joining you guys, I wasn't up to it.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
                   "variant": "jacket",
-                  "text": "But you guys look like you had fun and now I wish was there!"
+                  "text": "But you guys look like you had fun and now I wish was there!",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Ethan",
-                  "text": "No worries! There are days where I don't have the energy or mood to go out too. I think it's perfectly fine!"
+                  "text": "No worries! There are days where I don't have the energy or mood to go out too. I think it's perfectly fine!",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Ethan",
-                  "text": "And, we can always go out again in the future!"
+                  "text": "And, we can always go out again in the future!",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             }
           ],
-          "images": [
-          ],
+          "images": [],
           "clickables": [
             {
               "name": "choice",
@@ -9677,8 +9696,7 @@
               ]
             }
           ],
-          "images": [
-          ],
+          "images": [],
           "clickables": [
             {
               "name": "choice",
@@ -9946,8 +9964,7 @@
               ]
             }
           ],
-          "images": [
-          ],
+          "images": [],
           "clickables": [
             {
               "name": "choice",
@@ -10221,8 +10238,7 @@
               ]
             }
           ],
-          "images": [
-          ],
+          "images": [],
           "clickables": [
             {
               "name": "choice",
