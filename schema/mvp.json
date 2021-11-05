@@ -7850,14 +7850,6 @@
               "value": "finance"
             },
             {
-              "type": "triggerEvents",
-              "events": {
-                "sunny days": {
-                  "chance": 10
-                }
-              }
-            },
-            {
               "type": "gotoScene",
               "sceneId": 1
             }
