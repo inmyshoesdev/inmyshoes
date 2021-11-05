@@ -7887,7 +7887,14 @@
                   "character": "Arthur",
                   "variant": "bedroom",
                   "text": "I'm so tired, should I sleep a little more?",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             }
@@ -8025,19 +8032,40 @@
               "speeches": [
                 {
                   "character": "Mom",
-                  "text": "Arthur! Come grab your breakfast before school!"
+                  "text": "Arthur! Come grab your breakfast before school!",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
                   "variant": "bedroom",
                   "text": "I don't feel like eating at all... But my Mom spent so much effort to make breakfast for me.",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
                   "variant": "bedroom",
                   "text": "Should I just try and eat something?",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             }
@@ -8171,12 +8199,26 @@
                 {
                   "character": "Arthur",
                   "text": "Shoot! I'm running late. Should I book a cab or take public transport?",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
                   "text": "I'll definitely be late if I take public transport, though I'll be saving a lot of money since cabs have peak hour fares now.",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             }
@@ -8321,17 +8363,38 @@
               "speeches": [
                 {
                   "character": "Mr Chua",
-                  "text": "Arthur, your assignement was poorly done. Please redo it and hand it in tomorrow."
+                  "text": "Arthur, your assignement was poorly done. Please redo it and hand it in tomorrow.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
                   "text": "Ugh... It seems like I just can't do anything right.",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
                   "text": "I'm probably going to screw it up again. What do I do?",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             },
@@ -8340,15 +8403,36 @@
               "speeches": [
                 {
                   "character": "Arthur",
-                  "text": "Sorry Mr Chua, I don't think I can complete it by tomrrow."
+                  "text": "Sorry Mr Chua, I don't think I can complete it by tomrrow.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
-                  "text": "I would like to produce better work but I don't think I can with my current state of mind."
+                  "text": "I would like to produce better work but I don't think I can with my current state of mind.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Mr Chua",
-                  "text": "Okay, I understand it can be stressful at times. I'll give you till the end of this week."
+                  "text": "Okay, I understand it can be stressful at times. I'll give you till the end of this week.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             }
@@ -8490,17 +8574,38 @@
               "speeches": [
                 {
                   "character": "Ethan",
-                  "text": "Hey Arthur! Are you heading home now? Do you want to go bowling with us?"
+                  "text": "Hey Arthur! Are you heading home now? Do you want to go bowling with us?",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
                   "text": "Should I join them? I know it will be fun but I don't really have the energy right now.",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
                   "text": "Maybe I should go home and spend some time alone...",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             }
@@ -8650,19 +8755,40 @@
                   "character": "Arthur",
                   "variant": "jacket",
                   "text": "(receives notification) Oh Ethan posted a photo of us?",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
                   "variant": "jacket",
                   "text": "(looks at phone) Oh no this is such a terrible photo of me, all my insecurities are so clear to everyone to see!",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
                   "variant": "jacket",
                   "text": "Should I ask Ethan to remove this photo or change it?",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             },
@@ -8672,11 +8798,25 @@
                 {
                   "character": "Arthur",
                   "variant": "jacket",
-                  "text": "Hey Ethan can you take down that photo you posted? I'm the only one that looks horrible in it!"
+                  "text": "Hey Ethan can you take down that photo you posted? I'm the only one that looks horrible in it!",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Ethan",
-                  "text": "What? I think you look fine but If it makes you feel better I guess I could."
+                  "text": "What? I think you look fine but If it makes you feel better I guess I could.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             },
@@ -8687,13 +8827,27 @@
                   "character": "Arthur",
                   "variant": "jacket",
                   "text": "Man that picture is getting more likes by the day.",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
                   "variant": "jacket",
                   "text": "Now I'm even more anxious about how I appear infront of others...",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             }
@@ -8836,19 +8990,40 @@
                   "character": "Arthur",
                   "variant": "jacket",
                   "text": "(looks at phone) Wow they seem to be having so much fun without me.",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
                   "variant": "jacket",
                   "text": "They must have talked about how anti-social and boring I am for not going...",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
                   "variant": "jacket",
                   "text": "Should I do something to cheer myself up?",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             },
@@ -8859,13 +9034,27 @@
                   "character": "Arthur",
                   "variant": "jacket",
                   "text": "Wow that meal was pretty good",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
                   "variant": "jacket",
                   "text": "I feel stuffed now though. I wonder if the rest ate here too before they went to bowl...",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             },
@@ -9050,17 +9239,38 @@
                 {
                   "character": "Arthur",
                   "text": "(looks at calendar) Oh no, the test is right around the corner!",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
                   "text": "This is bad, the test is important but I'm so behind on my work.",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
                   "text": "But I don't even think it makes a difference anymore... what should I do?",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             },
@@ -9069,19 +9279,47 @@
               "speeches": [
                 {
                   "character": "Arthur",
-                  "text": "Mom, I'm so nervous for the upcoming test."
+                  "text": "Mom, I'm so nervous for the upcoming test.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
-                  "text": "I haven't been able to study properly for it recently."
+                  "text": "I haven't been able to study properly for it recently.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Mom",
-                  "text": "You should have prepared for this sooner."
+                  "text": "You should have prepared for this sooner.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Mom",
-                  "text": "You know that it is important and will determine where you go after this."
+                  "text": "You know that it is important and will determine where you go after this.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             },
@@ -9090,19 +9328,47 @@
               "speeches": [
                 {
                   "character": "Arthur",
-                  "text": "Hey Ethan, I've been feeling so stressed about the upcoming test."
+                  "text": "Hey Ethan, I've been feeling so stressed about the upcoming test.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
-                  "text": "I havent even been able to study properly for it."
+                  "text": "I havent even been able to study properly for it.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Ethan",
-                  "text": "It's okay. Tell you what, we can study together after school whenever you're free."
+                  "text": "It's okay. Tell you what, we can study together after school whenever you're free.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Ethan",
-                  "text": "I can try to help you with what I can."
+                  "text": "I can try to help you with what I can.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             }
@@ -9241,26 +9507,61 @@
               "speeches": [
                 {
                   "character": "Mr Chua",
-                  "text": "Arthur, you barely participated in class today and I caught you dozing off a few times."
+                  "text": "Arthur, you barely participated in class today and I caught you dozing off a few times.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Mr Chua",
-                  "text": "Is everything okay?"
+                  "text": "Is everything okay?",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
                   "text": "Oh no, I hardly got any rest yesterday and the day before.",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
                   "text": "He senses that something is wrong but I am not sure if I should tell him...",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
                   "text": "What should I do?",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             },
@@ -9269,15 +9570,36 @@
               "speeches": [
                 {
                   "character": "Arthur",
-                  "text": "Everything is just fine Mr Chua, I'm just a little tired."
+                  "text": "Everything is just fine Mr Chua, I'm just a little tired.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Mr Chua",
-                  "text": "Okay. You should try and sleep earlier Arthur."
+                  "text": "Okay. You should try and sleep earlier Arthur.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Mr Chua",
-                  "text": "Stop using your phone all night!"
+                  "text": "Stop using your phone all night!",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             },
@@ -9286,15 +9608,36 @@
               "speeches": [
                 {
                   "character": "Arthur",
-                  "text": "Well, I havent been able to sleep well because of what's happening at home."
+                  "text": "Well, I havent been able to sleep well because of what's happening at home.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Mr Chua",
-                  "text": "Oh, are you alright? You can always come to my office and we can talk about it."
+                  "text": "Oh, are you alright? You can always come to my office and we can talk about it.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Mr Chua",
-                  "text": "My ears are always open, Arthur."
+                  "text": "My ears are always open, Arthur.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             }
@@ -9437,31 +9780,80 @@
                 {
                   "character": "Arthur",
                   "text": "Finally school is over, gotta rush home to take care of grandma...",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Ethan",
-                  "text": "Hey Arthur, wait for me!"
+                  "text": "Hey Arthur, wait for me!",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
-                  "text": "Oh what's up Ethan!"
+                  "text": "Oh what's up Ethan!",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Ethan",
-                  "text": "Is everything okay?"
+                  "text": "Is everything okay?",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
-                  "text": "What do you mean?"
+                  "text": "What do you mean?",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Ethan",
-                  "text": "Seems like you've been feeling down lately."
+                  "text": "Seems like you've been feeling down lately.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
-                  "text": "Oh I'm fine... really..."
+                  "text": "Oh I'm fine... really...",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Ethan",
@@ -9470,7 +9862,14 @@
                 {
                   "character": "Arthur",
                   "text": "What should I do?",
-                  "type": "thought"
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             },
@@ -9479,7 +9878,14 @@
               "speeches": [
                 {
                   "character": "Arthur",
-                  "text": "You know, that doesnt sound like a bad idea. Okay, let's go!"
+                  "text": "You know, that doesnt sound like a bad idea. Okay, let's go!",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             },
@@ -9488,11 +9894,25 @@
               "speeches": [
                 {
                   "character": "Arthur",
-                  "text": "I'm really sorry Ethan but I need to get home ASAP to look after my grandmother."
+                  "text": "I'm really sorry Ethan but I need to get home ASAP to look after my grandmother.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Ethan",
-                  "text": "Well okay... take care. I'll see you around then."
+                  "text": "Well okay... take care. I'll see you around then.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
                 }
               ]
             }
