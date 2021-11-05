@@ -192,10 +192,30 @@
               ]
             }
           ],
+          "images": [
+            {
+              "name": "friendship",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Friendship-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "sequence": [
+            {
+              "type": "showImage",
+              "value": "friendship",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "friendship"
             },
             {
               "type": "updateGlobalState",
@@ -224,10 +244,30 @@
               ]
             }
           ],
+          "images": [
+            {
+              "name": "support",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/SupportSystem-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "sequence": [
+            {
+              "type": "showImage",
+              "value": "support",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "support"
             },
             {
               "type": "updateGlobalState",
@@ -255,10 +295,30 @@
               ]
             }
           ],
+          "images": [
+            {
+              "name": "anxiety",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Anxiety-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "sequence": [
+            {
+              "type": "showImage",
+              "value": "anxiety",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "anxiety"
             },
             {
               "type": "updateGlobalState",
@@ -286,10 +346,30 @@
               ]
             }
           ],
+          "images": [
+            {
+              "name": "loneliness",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Loneliness-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "sequence": [
+            {
+              "type": "showImage",
+              "value": "loneliness",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "loneliness"
             },
             {
               "type": "updateGlobalState",
@@ -317,10 +397,30 @@
               ]
             }
           ],
+          "images": [
+            {
+              "name": "family",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/FamilyMatters-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "sequence": [
+            {
+              "type": "showImage",
+              "value": "family",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "family"
             },
             {
               "type": "updateGlobalState",
@@ -4023,10 +4123,30 @@
               ]
             }
           ],
+          "images": [
+            {
+              "name": "friendship",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Friendship-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "sequence": [
+            {
+              "type": "showImage",
+              "value": "friendship",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "friendship"
             },
             {
               "type": "updateGlobalState",
@@ -4055,10 +4175,30 @@
               ]
             }
           ],
+          "images": [
+            {
+              "name": "support",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/SupportSystem-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "sequence": [
+            {
+              "type": "showImage",
+              "value": "support",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "support"
             },
             {
               "type": "updateGlobalState",
@@ -4087,10 +4227,30 @@
               ]
             }
           ],
+          "images": [
+            {
+              "name": "anxiety",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Anxiety-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "sequence": [
+            {
+              "type": "showImage",
+              "value": "anxiety",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "anxiety"
             },
             {
               "type": "updateGlobalState",
@@ -4118,10 +4278,30 @@
               ]
             }
           ],
+          "images": [
+            {
+              "name": "loneliness",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Loneliness-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "sequence": [
+            {
+              "type": "showImage",
+              "value": "loneliness",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "loneliness"
             },
             {
               "type": "updateGlobalState",
@@ -4149,10 +4329,30 @@
               ]
             }
           ],
+          "images": [
+            {
+              "name": "hyperfocus",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Hyperfocus-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "sequence": [
+            {
+              "type": "showImage",
+              "value": "hyperfocus",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "hyperfocus"
             },
             {
               "type": "updateGlobalState",
@@ -4622,7 +4822,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "(*checks time*)... oh no its already 6am? Should I get up and try to finish it again?",
+                  "text": "(*checks time*)... oh no its already 6am? Should I get up and try to finish it?",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -4797,7 +4997,16 @@
           "narrations": [
             {
               "name": "intro",
-              "texts": ["You are preparing breakfast for your siblings."]
+              "texts": ["You are preparing breakfast for your siblings."],
+              "position": {
+                "top": "2%",
+                "left": "2%"
+              },
+              "dimension": {
+                "height": "23%",
+                "width": "33%"
+              },
+              "showNavigations": false
             },
             {
               "name": "1",
@@ -4858,7 +5067,7 @@
                 {
                   "character": "Belinda",
                   "variant": "left",
-                  "text": "Ugh... I'm running late! Should I just head to school? But I need the GPS as I might get lost on the way back home...",
+                  "text": "Ugh... I'm running late! Should I just head to school? But I need the GPS as I might get lost on the way back home...What should I do?",
                   "characterPosition": {
                     "left": "6%",
                     "bottom": "0%"
@@ -5048,7 +5257,9 @@
           "narrations": [
             {
               "name": "intro",
-              "texts": ["Your class is starting."],
+              "texts": [
+                "At school, your teacher returns the marked assignment from the day before."
+              ],
               "position": {
                 "top": "2%",
                 "left": "2%"
@@ -5080,7 +5291,7 @@
             {
               "name": "3",
               "texts": [
-                "With the help of your friend you managed to finish the task much faster. Though you had to put in extra time to get it done.",
+                "Though you feel slightly embarrassed initially that your friend had to proactively reach out to you, overall you appreciate his assistance as you manage to finish your work.",
                 "You develop a closer relationship with your friend."
               ]
             }
@@ -5467,19 +5678,7 @@
               "speeches": [
                 {
                   "character": "Ms Ong",
-                  "text": "Who can help me read the next passage?",
-                  "characterDimension": {
-                    "height": "0%",
-                    "width": "0%"
-                  },
-                  "textPosition": {
-                    "bottom": "3%",
-                    "left": "20%"
-                  }
-                },
-                {
-                  "character": "Ms Ong",
-                  "text": "How about you Belinda, can you try and read this passage?",
+                  "text": "Belinda, can you try and read this passage?",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -5491,7 +5690,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "Oh no, my dyslexia is really bad today, I can barely make out what the first sentence is!",
+                  "text": "Oh no, my dyslexia is really bad today.",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -5764,7 +5963,8 @@
               "dimension": {
                 "height": "23%",
                 "width": "33%"
-              }
+              },
+              "showNavigations": false
             },
             {
               "name": "1",
@@ -5843,7 +6043,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "Sigh...That was really hurtful. Being a student sure is tough...",
+                  "text": "Sigh...I hate being made to feel so stupid...What should I do?",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -6053,7 +6253,8 @@
               "position": {
                 "top": "15%",
                 "left": "21%"
-              }
+              },
+              "showNavigations": false
             },
             {
               "name": "later",
@@ -6355,12 +6556,13 @@
             {
               "name": "intro",
               "texts": [
-                "You get home and you have work to do but you notice something on your television."
+                "You get home and you have work to do but you notice  a commercial for a new game that you've been eyeing."
               ],
               "position": {
                 "top": "15%",
                 "left": "24%"
-              }
+              },
+              "showNavigations": false
             },
             {
               "name": "1",
@@ -6387,7 +6589,7 @@
               "speeches": [
                 {
                   "character": "Belinda",
-                  "text": "Finally, I'm home. I can get started on the homework that has been piling up.",
+                  "text": "Finally, I'm home. I better get started on my homework.",
                   "type": "thought"
                 },
                 {
@@ -6397,7 +6599,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "I've been waiting for ages! Maybe I can squeeze in time for one game.. Just one game...",
+                  "text": "I've been waiting for ages! Maybe I can squeeze in time for one game.. Just one game...What should I do?",
                   "type": "thought"
                 }
               ]
@@ -6564,7 +6766,8 @@
               "position": {
                 "top": "67%",
                 "left": "23%"
-              }
+              },
+              "showNavigations": false
             },
             {
               "name": "1",
@@ -6816,12 +7019,13 @@
             {
               "name": "intro",
               "texts": [
-                "Later, your teacher prepared a special activity for your class."
+                "Your teacher has split the class in two to work on a puzzle that your class has been working on for some time."
               ],
               "position": {
                 "top": "69%",
                 "left": "23%"
-              }
+              },
+              "showNavigations": false
             },
             {
               "name": "1",
@@ -6889,7 +7093,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "Should I say something? I'm not sure if they will be willing to listen to me...",
+                  "text": "Should I say something? I'm not sure if they will be willing to listen to me...What should I do?",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
