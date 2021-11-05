@@ -3,6 +3,7 @@ import {
   array,
   boolean,
   defaulted,
+  enums,
   map,
   max,
   min,
@@ -23,6 +24,7 @@ import { makeLogic } from './logic'
 import { ElementKeys } from './scene'
 import { UpdateStateValues } from './state'
 import { isDefined, shuffleArray } from './utils'
+import { GameStage } from '../schema/game'
 type ActionDefinition<TArgs> = {
   validateArgs: (args: unknown) => [Error, undefined] | [undefined, TArgs]
   execute: (args: ActionArgs<TArgs>) => ActionReturnType | void
@@ -79,6 +81,7 @@ export const ExecuteActionGroup = 'executeActionGroup'
 // Add all actions here!
 export type DefinedActionsToArgs = {
   gotoScene: { sceneId: number }
+  gotoStage: { stage: GameStage }
   wait: any
   updateState: { newState: UpdateStateValues }
   updateGlobalState: { newState: UpdateStateValues }
@@ -121,6 +124,17 @@ export const DefinedActions: {
     },
   },
 
+  gotoStage: {
+    validateArgs(args: unknown) {
+      return validate(args, object({ stage: enums(Object.values(GameStage)) }))
+    },
+
+    execute({ args, game }) {
+      const { stage } = args
+      game.stage = stage
+    },
+  },
+
   wait: {
     validateArgs: UnitValidator,
     execute() {},
@@ -147,11 +161,19 @@ export const DefinedActions: {
       return validate(
         args,
         object({
-          newState: record(string(), union([string(), number(), boolean(), object({
-            name: string(),
-            src: string(),
-            text: string()
-          })])),
+          newState: record(
+            string(),
+            union([
+              string(),
+              number(),
+              boolean(),
+              object({
+                name: string(),
+                src: string(),
+                text: string(),
+              }),
+            ])
+          ),
         })
       )
     },
