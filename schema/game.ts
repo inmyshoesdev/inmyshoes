@@ -16,6 +16,7 @@ import { ActionSchema } from './actions'
 import { MainCharacterSchema, NPCSchema } from './character'
 import { StateDisplaySchema, StateMeterSchema } from './component'
 import { TriggerEventsSchema } from './events'
+import { SceneSchema } from './scene'
 import { StateSchema } from './state'
 
 const LogoSchema = type({
@@ -39,6 +40,7 @@ const gameSchema = object({
   name: string(),
   about: AboutSchema,
   header: optional(array(union([StateMeterSchema, StateDisplaySchema]))),
+  intro: array(SceneSchema),
   mainCharacters: size(array(MainCharacterSchema), 1, Infinity),
   npcs: defaulted(array(NPCSchema), () => []),
   globalState: optional(StateSchema),
@@ -93,3 +95,9 @@ export const GameSchema = refine(gameSchema, 'GameSchema', (value) => {
 })
 
 export type GameSchema = Infer<typeof GameSchema>
+
+export enum GameStage {
+  INTRO = 'Introduction',
+  CHAR_SELEC = 'Character Selection',
+  PLAY = 'Game Play',
+}

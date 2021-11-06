@@ -33,7 +33,11 @@
     "anxiety wildcard appeared": false,
     "loneliness wildcard appeared": false,
     "family matters wildcard appeared": false,
-    "helping hand badge awarded": false
+    "apathy wildcard appeared": false,
+    "sunny days wildcard appeared": false,
+    "insomnia wildcard appeared": false,
+    "helping hand badge awarded": false,
+    "hyperfocus wildcard appeared": false
   },
   "header": [
     {
@@ -62,6 +66,93 @@
       "state": "wealth",
       "iconImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/wealth-icon.png",
       "color": "#fee214"
+    }
+  ],
+  "intro": [
+    {
+      "id": 0,
+      "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/StandardBackground.png",
+      "narrations": [
+        {
+          "name": "intro",
+          "texts": [
+            "In this exercise, you will have the chance to choose a character and discover what youth might go through in various aspects of their life."
+          ]
+        },
+        {
+          "name": "intro2",
+          "texts": [
+            "Each character has a health, social and wealth meter. As these are meant to reflect the physical, social and financial conditions of the characters, their starting values will differ depending on the character being played."
+          ]
+        },
+        {
+          "name": "intro3",
+          "texts": [
+            "Their choices will also affect these meters differently.",
+            "Just like real people, the characters will fare better if their financial, physical and social needs are taken care of. So try and keep them up if you can.",
+            "Content warnings: mental health, learning disabilities, income issues."
+          ]
+        }
+      ],
+      "dialogues": [],
+      "images": [],
+      "clickables": [
+        {
+          "name": "next",
+          "options": [
+            {
+              "name": "1",
+              "text": "Go",
+              "onClick": [
+                {
+                  "type": "resetGlobalState"
+                },
+                {
+                  "type": "gotoStage",
+                  "stage": "Character Selection"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "intro": [
+        {
+          "type": "resetGlobalState"
+        },
+        {
+          "type": "showNarration",
+          "value": "intro"
+        },
+        {
+          "type": "updateGlobalState",
+          "newState": {
+            "wealth": 5,
+            "health": 10,
+            "social": 10
+          }
+        },
+        {
+          "type": "showNarration",
+          "value": "intro2"
+        },
+        {
+          "type": "updateGlobalState",
+          "newState": {
+            "wealth": 2,
+            "health": -3,
+            "social": -1
+          }
+        },
+        {
+          "type": "showNarration",
+          "value": "intro3"
+        },
+        {
+          "type": "showClickable",
+          "value": "next"
+        }
+      ]
     }
   ],
   "mainCharacters": [
@@ -105,10 +196,30 @@
               ]
             }
           ],
+          "images": [
+            {
+              "name": "friendship",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Friendship-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "sequence": [
+            {
+              "type": "showImage",
+              "value": "friendship",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "friendship"
             },
             {
               "type": "updateGlobalState",
@@ -137,10 +248,30 @@
               ]
             }
           ],
+          "images": [
+            {
+              "name": "support",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/SupportSystem-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "sequence": [
+            {
+              "type": "showImage",
+              "value": "support",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "support"
             },
             {
               "type": "updateGlobalState",
@@ -168,10 +299,30 @@
               ]
             }
           ],
+          "images": [
+            {
+              "name": "anxiety",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Anxiety-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "sequence": [
+            {
+              "type": "showImage",
+              "value": "anxiety",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "anxiety"
             },
             {
               "type": "updateGlobalState",
@@ -199,10 +350,30 @@
               ]
             }
           ],
+          "images": [
+            {
+              "name": "loneliness",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Loneliness-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "sequence": [
+            {
+              "type": "showImage",
+              "value": "loneliness",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "loneliness"
             },
             {
               "type": "updateGlobalState",
@@ -230,10 +401,30 @@
               ]
             }
           ],
+          "images": [
+            {
+              "name": "family",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/FamilyMatters-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "sequence": [
+            {
+              "type": "showImage",
+              "value": "family",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "family"
             },
             {
               "type": "updateGlobalState",
@@ -515,83 +706,6 @@
         }
       ],
       "scenes": [
-        {
-          "id": 0,
-          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/StandardBackground.png",
-          "narrations": [
-            {
-              "name": "intro",
-              "texts": [
-                "In this exercise, you will have the chance to choose a character and discover what youth might go through in various aspects of their life.",
-                "Each character has a health, social and wealth meter. As these are meant to reflect the physical, social and financial conditions of the characters, their starting values will differ depending on the character being played."
-              ]
-            },
-            {
-              "name": "intro2",
-              "texts": [
-                "Just like real people, the characters will fare better if their financial, physical and social needs are taken care of. So try and keep them up if you can.",
-                "Content warnings: mental health, learning disabilities, income issues."
-              ]
-            }
-          ],
-          "dialogues": [],
-          "images": [],
-          "clickables": [
-            {
-              "name": "next",
-              "options": [
-                {
-                  "name": "1",
-                  "text": "Go",
-                  "onClick": [
-                    {
-                      "type": "gotoScene",
-                      "sceneId": 0.5
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "intro": [
-            {
-              "type": "updateGlobalState",
-              "newState": {
-                "wealth": 5,
-                "health": 10,
-                "social": 10
-              }
-            },
-            {
-              "type": "showNarration",
-              "value": "intro"
-            },
-            {
-              "type": "wait",
-              "duration": 1000
-            },
-            {
-              "type": "updateGlobalState",
-              "newState": {
-                "wealth": 2,
-                "health": -3,
-                "social": -1
-              }
-            },
-            {
-              "type": "wait",
-              "duration": 1000
-            },
-            {
-              "type": "showNarration",
-              "value": "intro2"
-            },
-            {
-              "type": "showClickable",
-              "value": "next"
-            }
-          ]
-        },
         {
           "id": 0.5,
           "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/curtis-intro-household.jpg",
@@ -4013,10 +4127,30 @@
               ]
             }
           ],
+          "images": [
+            {
+              "name": "friendship",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Friendship-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "sequence": [
+            {
+              "type": "showImage",
+              "value": "friendship",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "friendship"
             },
             {
               "type": "updateGlobalState",
@@ -4045,10 +4179,30 @@
               ]
             }
           ],
+          "images": [
+            {
+              "name": "support",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/SupportSystem-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "sequence": [
+            {
+              "type": "showImage",
+              "value": "support",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "support"
             },
             {
               "type": "updateGlobalState",
@@ -4077,10 +4231,30 @@
               ]
             }
           ],
+          "images": [
+            {
+              "name": "anxiety",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Anxiety-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "sequence": [
+            {
+              "type": "showImage",
+              "value": "anxiety",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "anxiety"
             },
             {
               "type": "updateGlobalState",
@@ -4108,10 +4282,30 @@
               ]
             }
           ],
+          "images": [
+            {
+              "name": "loneliness",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Loneliness-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "sequence": [
+            {
+              "type": "showImage",
+              "value": "loneliness",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "loneliness"
             },
             {
               "type": "updateGlobalState",
@@ -4139,10 +4333,30 @@
               ]
             }
           ],
+          "images": [
+            {
+              "name": "hyperfocus",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Hyperfocus-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "sequence": [
+            {
+              "type": "showImage",
+              "value": "hyperfocus",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
             {
               "type": "showNarration",
               "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "hyperfocus"
             },
             {
               "type": "updateGlobalState",
@@ -4425,54 +4639,13 @@
       ],
       "scenes": [
         {
-          "id": 0,
-          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/StandardBackground.png",
-          "narrations": [
-            {
-              "name": "intro",
-              "texts": [
-                "In this exercise, you will have the chance to choose a character and discover what youth might go through in various aspects of their life."
-              ]
-            }
-          ],
-          "dialogues": [],
-          "images": [],
-          "clickables": [
-            {
-              "name": "next",
-              "options": [
-                {
-                  "name": "1",
-                  "text": "Go",
-                  "onClick": [
-                    {
-                      "type": "gotoScene",
-                      "sceneId": 0.5
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "intro": [
-            {
-              "type": "showNarration",
-              "value": "intro"
-            },
-            {
-              "type": "showClickable",
-              "value": "next"
-            }
-          ]
-        },
-        {
           "id": 0.5,
           "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/belinda-intro-household.png",
           "narrations": [
             {
               "name": "household",
               "texts": [
-                "You are from a middle-income family.",
+                "You are Belinda. You are from a middle-income family.",
                 "In addition to your parents, you also live with your two younger siblings."
               ],
               "dimension": {
@@ -4653,7 +4826,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "(*checks time*)... oh no its already 6am? Should I get up and try to finish it again?",
+                  "text": "(*checks time*)... oh no its already 6am? Should I get up and try to finish it?",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -4828,7 +5001,16 @@
           "narrations": [
             {
               "name": "intro",
-              "texts": ["You are preparing breakfast for your siblings."]
+              "texts": ["You are preparing breakfast for your siblings."],
+              "position": {
+                "top": "2%",
+                "left": "2%"
+              },
+              "dimension": {
+                "height": "23%",
+                "width": "33%"
+              },
+              "showNavigations": false
             },
             {
               "name": "1",
@@ -4889,7 +5071,7 @@
                 {
                   "character": "Belinda",
                   "variant": "left",
-                  "text": "Ugh... I'm running late! Should I just head to school? But I need the GPS as I might get lost on the way back home...",
+                  "text": "Ugh... I'm running late! Should I just head to school? But I need the GPS as I might get lost on the way back home...What should I do?",
                   "characterPosition": {
                     "left": "6%",
                     "bottom": "0%"
@@ -5079,7 +5261,9 @@
           "narrations": [
             {
               "name": "intro",
-              "texts": ["Your class is starting."],
+              "texts": [
+                "At school, your teacher returns the marked assignment from the day before."
+              ],
               "position": {
                 "top": "2%",
                 "left": "2%"
@@ -5111,7 +5295,7 @@
             {
               "name": "3",
               "texts": [
-                "With the help of your friend you managed to finish the task much faster. Though you had to put in extra time to get it done.",
+                "Though you feel slightly embarrassed initially that your friend had to proactively reach out to you, overall you appreciate his assistance as you manage to finish your work.",
                 "You develop a closer relationship with your friend."
               ]
             }
@@ -5498,19 +5682,7 @@
               "speeches": [
                 {
                   "character": "Ms Ong",
-                  "text": "Who can help me read the next passage?",
-                  "characterDimension": {
-                    "height": "0%",
-                    "width": "0%"
-                  },
-                  "textPosition": {
-                    "bottom": "3%",
-                    "left": "20%"
-                  }
-                },
-                {
-                  "character": "Ms Ong",
-                  "text": "How about you Belinda, can you try and read this passage?",
+                  "text": "Belinda, can you try and read this passage?",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -5522,7 +5694,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "Oh no, my dyslexia is really bad today, I can barely make out what the first sentence is!",
+                  "text": "Oh no, my dyslexia is really bad today.",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -5795,7 +5967,8 @@
               "dimension": {
                 "height": "23%",
                 "width": "33%"
-              }
+              },
+              "showNavigations": false
             },
             {
               "name": "1",
@@ -5874,7 +6047,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "Sigh...That was really hurtful. Being a student sure is tough...",
+                  "text": "Sigh...I hate being made to feel so stupid...What should I do?",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -6084,7 +6257,8 @@
               "position": {
                 "top": "15%",
                 "left": "21%"
-              }
+              },
+              "showNavigations": false
             },
             {
               "name": "later",
@@ -6386,12 +6560,13 @@
             {
               "name": "intro",
               "texts": [
-                "You get home and you have work to do but you notice something on your television."
+                "You get home and you have work to do but you notice  a commercial for a new game that you've been eyeing."
               ],
               "position": {
                 "top": "15%",
                 "left": "24%"
-              }
+              },
+              "showNavigations": false
             },
             {
               "name": "1",
@@ -6418,7 +6593,7 @@
               "speeches": [
                 {
                   "character": "Belinda",
-                  "text": "Finally, I'm home. I can get started on the homework that has been piling up.",
+                  "text": "Finally, I'm home. I better get started on my homework.",
                   "type": "thought"
                 },
                 {
@@ -6428,7 +6603,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "I've been waiting for ages! Maybe I can squeeze in time for one game.. Just one game...",
+                  "text": "I've been waiting for ages! Maybe I can squeeze in time for one game.. Just one game...What should I do?",
                   "type": "thought"
                 }
               ]
@@ -6595,7 +6770,8 @@
               "position": {
                 "top": "67%",
                 "left": "23%"
-              }
+              },
+              "showNavigations": false
             },
             {
               "name": "1",
@@ -6847,12 +7023,13 @@
             {
               "name": "intro",
               "texts": [
-                "Later, your teacher prepared a special activity for your class."
+                "Your teacher has split the class in two to work on a puzzle that your class has been working on for some time."
               ],
               "position": {
                 "top": "69%",
                 "left": "23%"
-              }
+              },
+              "showNavigations": false
             },
             {
               "name": "1",
@@ -6920,7 +7097,7 @@
                 },
                 {
                   "character": "Belinda",
-                  "text": "Should I say something? I'm not sure if they will be willing to listen to me...",
+                  "text": "Should I say something? I'm not sure if they will be willing to listen to me...What should I do?",
                   "characterDimension": {
                     "height": "0%",
                     "width": "0%"
@@ -7235,6 +7412,3036 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Arthur",
+      "images": {
+        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur.png",
+        "bedroom": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-variant-bedroom.png",
+        "jacket": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-variant-jacket.png"
+      },
+      "info": [
+        {
+          "text": "You are from a well-to-do family. In addition to your parents, you also live with your retired grandmother and a dog.",
+          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-intro-family.png"
+        },
+        {
+          "text": "You have quite a bit of allowance compared to your peers each month.",
+          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-intro-house.png"
+        },
+        {
+          "text": "You are suffering from depression. You used to have a large circle of friends but have lost touch with some of them.",
+          "backgroundImage": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-intro-depression.png"
+        }
+      ],
+      "events": [
+        {
+          "name": "apathy",
+          "narrations": [
+            {
+              "name": "msg",
+              "texts": [
+                "You find yourself unable to enjoy the activities you once liked.\nYour health and social points decrease by 2"
+              ]
+            }
+          ],
+          "images": [
+            {
+              "name": "apathy",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Apathy-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
+          "sequence": [
+            {
+              "type": "showImage",
+              "value": "apathy",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showNarration",
+              "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "apathy"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "health": -2,
+                "social": -2,
+                "apathy wildcard appeared": true
+              }
+            },
+            {
+              "type": "wait",
+              "duration": 1000
+            }
+          ],
+          "if": {
+            "==": ["{apathy wildcard appeared}", false]
+          }
+        },
+        {
+          "name": "sunny days",
+          "narrations": [
+            {
+              "name": "msg",
+              "texts": [
+                "The weather outside is great today and instantly improves your mood.\nYour health points increase by 3"
+              ]
+            }
+          ],
+          "images": [
+            {
+              "name": "sunny",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/SunnyDays-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
+          "sequence": [
+            {
+              "type": "showImage",
+              "value": "sunny",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showNarration",
+              "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "sunny"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "health": 3,
+                "sunny days wildcard appeared": true
+              }
+            },
+            {
+              "type": "wait",
+              "duration": 1000
+            }
+          ],
+          "if": {
+            "==": ["{sunny days wildcard appeared}", false]
+          }
+        },
+        {
+          "name": "friendship",
+          "narrations": [
+            {
+              "name": "msg",
+              "texts": [
+                "You find yourself having a personal conversation with a friend and both realise that you can count on each other.\nYour health and social points increase by 3"
+              ]
+            }
+          ],
+          "images": [
+            {
+              "name": "friendship",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Friendship-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
+          "sequence": [
+            {
+              "type": "showImage",
+              "value": "friendship",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showNarration",
+              "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "friendship"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "health": 3,
+                "social": 3,
+                "friendship wildcard appeared": true
+              }
+            },
+            {
+              "type": "wait",
+              "duration": 1000
+            }
+          ],
+          "if": {
+            "==": ["{friendship wildcard appeared}", false]
+          }
+        },
+        {
+          "name": "insomnia",
+          "narrations": [
+            {
+              "name": "msg",
+              "texts": [
+                "You have been unable to fall asleep recently.\nYou are constantly tired and your health points decrease by 2"
+              ]
+            }
+          ],
+          "images": [
+            {
+              "name": "insomnia",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Insomnia-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
+          "sequence": [
+            {
+              "type": "showImage",
+              "value": "insomnia",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showNarration",
+              "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "insomnia"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "health": -2,
+                "insomnia wildcard appeared": true
+              }
+            },
+            {
+              "type": "wait",
+              "duration": 1000
+            }
+          ],
+          "if": {
+            "==": ["{insomnia wildcard appeared}", false]
+          }
+        },
+        {
+          "name": "loneliness",
+          "narrations": [
+            {
+              "name": "msg",
+              "texts": [
+                "You increasingly feel distant from your friends and family.\nSocial points decrease by 2"
+              ]
+            }
+          ],
+          "images": [
+            {
+              "name": "loneliness",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/Loneliness-ILLUSTRATION.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
+          "sequence": [
+            {
+              "type": "showImage",
+              "value": "loneliness",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showNarration",
+              "value": "msg"
+            },
+            {
+              "type": "hideImage",
+              "value": "loneliness"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "social": -2,
+                "loneliness wildcard appeared": true
+              }
+            },
+            {
+              "type": "wait",
+              "duration": 1000
+            }
+          ],
+          "if": {
+            "==": ["{loneliness wildcard appeared}", false]
+          }
+        },
+        {
+          "name": "award health badge",
+          "clickables": [
+            {
+              "name": "health badge",
+              "options": [
+                {
+                  "name": "health",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/health-badge.png",
+                  "position": {
+                    "top": "0",
+                    "left": "0",
+                    "right": "0"
+                  },
+                  "dimension": {
+                    "height": "75%"
+                  }
+                },
+                {
+                  "name": "health message",
+                  "text": "You have been trying to take better care of your physical and mental health the past week and it shows! You feel more energized and rejuvenated compared to before.\n\n*You have earned a Health Badge!*",
+                  "position": {
+                    "bottom": "10%",
+                    "left": "23%"
+                  },
+                  "dimension": {
+                    "width": "54%"
+                  }
+                }
+              ]
+            }
+          ],
+          "sequence": [
+            {
+              "type": "blurBackground"
+            },
+            {
+              "type": "playSound",
+              "src": "/sounds/reward.wav",
+              "volume": 0.1,
+              "interrupt": true
+            },
+            {
+              "type": "showClickable",
+              "value": "health badge"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "badges": {
+                  "name": "health badge",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/health-badge.png",
+                  "text": "You have been trying to take better care of your physical and mental health the past week and it shows! You feel more energized and rejuvenated compared to before."
+                }
+              }
+            },
+            {
+              "type": "deblurBackground"
+            }
+          ],
+          "if": {
+            ">=": ["{health}", 10]
+          }
+        },
+        {
+          "name": "award social badge",
+          "clickables": [
+            {
+              "name": "social badge",
+              "options": [
+                {
+                  "name": "social",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/social-badge.png",
+                  "position": {
+                    "top": "0",
+                    "left": "0",
+                    "right": "0"
+                  },
+                  "dimension": {
+                    "height": "75%"
+                  }
+                },
+                {
+                  "name": "social message",
+                  "text": "You have put in the effort this week to spend more time and connect with your friends and family. You feel your relationships with them have strengthened.\n\n*You have earned a Social Badge!*",
+                  "position": {
+                    "bottom": "10%",
+                    "left": "23%"
+                  },
+                  "dimension": {
+                    "width": "54%"
+                  }
+                }
+              ]
+            }
+          ],
+          "sequence": [
+            {
+              "type": "blurBackground"
+            },
+            {
+              "type": "playSound",
+              "src": "/sounds/reward.wav",
+              "volume": 0.1,
+              "interrupt": true
+            },
+            {
+              "type": "showClickable",
+              "value": "social badge"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "badges": {
+                  "name": "social badge",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/social-badge.png",
+                  "text": "You have put in the effort this week to spend more time and connect with your friends and family. You feel your relationships with them have strengthened."
+                }
+              }
+            },
+            {
+              "type": "deblurBackground"
+            }
+          ],
+          "if": {
+            ">=": ["{social}", 9]
+          }
+        },
+        {
+          "name": "award wealth badge",
+          "clickables": [
+            {
+              "name": "wealth badge",
+              "options": [
+                {
+                  "name": "wealth",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/wealth-badge.png",
+                  "position": {
+                    "top": "0",
+                    "left": "0",
+                    "right": "0"
+                  },
+                  "dimension": {
+                    "height": "75%"
+                  }
+                },
+                {
+                  "name": "wealth message",
+                  "text": "Your efforts at saving and earning money in the past week have been effective. While income issues don't disappear overnight, you feel you can go into the next week with a slightly better sense of financial security.\n\n*You have earned a Wealth Badge!*",
+                  "position": {
+                    "bottom": "10%",
+                    "left": "23%"
+                  },
+                  "dimension": {
+                    "width": "54%"
+                  }
+                }
+              ]
+            }
+          ],
+          "sequence": [
+            {
+              "type": "blurBackground"
+            },
+            {
+              "type": "playSound",
+              "src": "/sounds/reward.wav",
+              "volume": 0.1,
+              "interrupt": true
+            },
+            {
+              "type": "showClickable",
+              "value": "wealth badge"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "badges": {
+                  "name": "wealth badge",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/wealth-badge.png",
+                  "text": "Your efforts at saving and earning money in the past week have been effective. While income issues don't disappear overnight, you feel you can go into the next week with a slightly better sense of financial security."
+                }
+              }
+            },
+            {
+              "type": "deblurBackground"
+            }
+          ],
+          "if": {
+            ">=": ["{wealth}", 15]
+          }
+        },
+        {
+          "name": "award helping hand badge",
+          "clickables": [
+            {
+              "name": "helping hand badge",
+              "options": [
+                {
+                  "name": "helping hand",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/helping-hand-badge.png",
+                  "position": {
+                    "top": "0",
+                    "left": "0",
+                    "right": "0"
+                  },
+                  "dimension": {
+                    "height": "75%"
+                  }
+                },
+                {
+                  "name": "helping hand message",
+                  "text": "You have made attempts to be more open to approaching other for help. Remember, you are not alone in your journey!\n\n*You have earned a Helping Hand Badge!*",
+                  "position": {
+                    "bottom": "10%",
+                    "left": "23%"
+                  },
+                  "dimension": {
+                    "width": "54%"
+                  }
+                }
+              ]
+            }
+          ],
+          "sequence": [
+            {
+              "type": "blurBackground"
+            },
+            {
+              "type": "playSound",
+              "src": "/sounds/reward.wav",
+              "volume": 0.1,
+              "interrupt": true
+            },
+            {
+              "type": "showClickable",
+              "value": "helping hand badge"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "badges": {
+                  "name": "helping hand badge",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/helping-hand-badge.png",
+                  "text": "You have made attempts to be more open to approaching other for help. Remember, you are not alone in your journey!"
+                }
+              }
+            },
+            {
+              "type": "deblurBackground"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "helping hand badge awarded": true
+              }
+            }
+          ],
+          "if": {
+            "==": ["{helping hand badge awarded}", false]
+          }
+        }
+      ],
+      "scenes": [
+        {
+          "id": 0.5,
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-intro-family.png",
+          "narrations": [
+            {
+              "name": "background",
+              "texts": [
+                "You are Arthur. You are from a well-to-do family.",
+                "In addition to your parents, you also live with your retired grandmother and a dog."
+              ],
+              "position": {
+                "bottom": "5%",
+                "left": "20%"
+              },
+              "dimension": {
+                "height": "20%",
+                "width": "60%"
+              }
+            },
+            {
+              "name": "health",
+              "texts": ["You are suffering from depression."]
+            },
+            {
+              "name": "relationships",
+              "texts": [
+                "You used to have a large circle of friends but have lost touch with some of them."
+              ]
+            },
+            {
+              "name": "finance",
+              "texts": [
+                "You have quite a bit of allowance compared to your peers each month."
+              ],
+              "position": {
+                "bottom": "5%",
+                "left": "20%"
+              }
+            }
+          ],
+          "dialogues": [],
+          "images": [
+            {
+              "name": "family",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-intro-family.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            },
+            {
+              "name": "depression",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-intro-depression.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            },
+            {
+              "name": "house",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-intro-house.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
+          "clickables": [
+            {
+              "name": "next",
+              "options": [
+                {
+                  "name": "1",
+                  "text": "Go",
+                  "onClick": [
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "resetGlobalState"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "health": 7,
+                "social": 7,
+                "wealth": 15
+              }
+            },
+            {
+              "type": "showNarration",
+              "value": "background"
+            },
+            {
+              "type": "showImage",
+              "value": "depression",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showNarration",
+              "value": "health"
+            },
+            {
+              "type": "showNarration",
+              "value": "relationships"
+            },
+            {
+              "type": "showImage",
+              "value": "house",
+              "autoHide": false,
+              "waitForInteraction": false
+            },
+            {
+              "type": "showNarration",
+              "value": "finance"
+            },
+            {
+              "type": "gotoScene",
+              "sceneId": 1
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-background-bedroom.png",
+          "narrations": [
+            {
+              "name": "intro",
+              "texts": [
+                "It’s 7:00am, which is when you need to wake up to go to school.",
+                "Recently, you have been experiencing insomnia and have only slept for two hours every night."
+              ]
+            },
+            {
+              "name": "wake",
+              "texts": [
+                "You are quite tired as you woke up on time, and you feel that your mood will be low for the rest of the day."
+              ]
+            },
+            {
+              "name": "sleep",
+              "texts": [
+                "By waking up a little later, you get some extra rest, and you feel a little more energised for the day."
+              ]
+            }
+          ],
+          "dialogues": [
+            {
+              "name": "intro",
+              "speeches": [
+                {
+                  "character": "Arthur",
+                  "variant": "bedroom",
+                  "text": "I'm so tired, should I sleep a little more?",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "clickables": [
+            {
+              "name": "choice",
+              "options": [
+                {
+                  "name": "1",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-1-wakeup.png",
+                  "altText": "Try to wake up on time",
+                  "position": {
+                    "right": "5%",
+                    "top": "28%"
+                  },
+                  "dimension": {
+                    "height": "45%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": ["{health}", 0]
+                    },
+                    "label": "You don't have enough health..."
+                  },
+                  "onClick": [
+                    {
+                      "type": "showNarration",
+                      "value": "wake"
+                    },
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": -1
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "sunny days": {
+                          "chance": 10
+                        }
+                      }
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 2
+                    }
+                  ]
+                },
+                {
+                  "name": "2",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-1-sleep.png",
+                  "altText": "Get some extra rest",
+                  "position": {
+                    "left": "15%",
+                    "top": "25%"
+                  },
+                  "dimension": {
+                    "width": "30%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "showNarration",
+                      "value": "sleep"
+                    },
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "social": -1
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "sunny days": {
+                          "chance": 10
+                        }
+                      }
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 3
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "resetGlobalState"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "health": 7,
+                "social": 7,
+                "wealth": 15
+              }
+            },
+            {
+              "type": "showNarration",
+              "value": "intro"
+            },
+            {
+              "type": "showDialogue",
+              "value": "intro"
+            },
+            {
+              "type": "showClickable",
+              "value": "choice"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-background-breakfast.png",
+          "narrations": [
+            {
+              "name": "intro",
+              "texts": [
+                "It’s time for breakfast.",
+                "Your parents have made a full spread for the entire family but your depression has resulted in a loss of appetite.",
+                "However, you feel guilty, which worsens your mental health and lack of appetite even further."
+              ]
+            },
+            {
+              "name": "skip",
+              "texts": [
+                "By skipping breakfast, you did not get enough nutrition for the rest of the day. You feel tired and hungry."
+              ]
+            },
+            {
+              "name": "eat",
+              "texts": [
+                "While eating breakfast, you had the time to sit down and talk to your parents, who usually leave for work early. At the same time, you feel energised after consuming breakfast."
+              ]
+            }
+          ],
+          "dialogues": [
+            {
+              "name": "intro",
+              "speeches": [
+                {
+                  "character": "Mom",
+                  "text": "Arthur! Come grab your breakfast before school!",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "variant": "bedroom",
+                  "text": "I don't feel like eating at all... But my Mom spent so much effort to make breakfast for me.",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "variant": "bedroom",
+                  "text": "Should I just try and eat something?",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "clickables": [
+            {
+              "name": "choice",
+              "options": [
+                {
+                  "name": "1",
+                  "text": "Skip breakfast",
+                  "position": {
+                    "left": "20%",
+                    "top": "50%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": ["{health}", 0]
+                    },
+                    "label": "You don't have enough health..."
+                  },
+                  "onClick": [
+                    {
+                      "type": "showNarration",
+                      "value": "skip"
+                    },
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": -1,
+                        "social": -1
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "sunny days": {
+                          "chance": 10
+                        }
+                      }
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 4
+                    }
+                  ]
+                },
+                {
+                  "name": "2",
+                  "text": "Eat breakfast",
+                  "position": {
+                    "right": "20%",
+                    "top": "50%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "showNarration",
+                      "value": "eat"
+                    },
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": 1,
+                        "social": 1
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "sunny days": {
+                          "chance": 10
+                        }
+                      }
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 4
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "showNarration",
+              "value": "intro"
+            },
+            {
+              "type": "showDialogue",
+              "value": "intro"
+            },
+            {
+              "type": "showClickable",
+              "value": "choice"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-background-crossroads.png",
+          "narrations": [
+            {
+              "name": "intro",
+              "texts": [
+                "After getting some extra rest, you realise that you are now running late for school."
+              ]
+            },
+            {
+              "name": "bus",
+              "texts": [
+                "Having to run when switching between different bus numbers while trying to reach to school on time was stressful.",
+                "You eventually made it to school, but had to walk to your desk in the middle of class.",
+                "You were embarrassed for having to disrupt the class by coming in late."
+              ]
+            },
+            {
+              "name": "taxi",
+              "texts": [
+                "By taking a cab, you manage to reach to school early, giving you some time to catch up with your friends.",
+                "The cab however did cost quite a bit as it was peak hour."
+              ]
+            }
+          ],
+          "dialogues": [
+            {
+              "name": "intro",
+              "speeches": [
+                {
+                  "character": "Arthur",
+                  "text": "Shoot! I'm running late. Should I book a cab or take public transport?",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "text": "I'll definitely be late if I take public transport, though I'll be saving a lot of money since cabs have peak hour fares now.",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "clickables": [
+            {
+              "name": "choice",
+              "options": [
+                {
+                  "name": "1",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-3-bus.png",
+                  "altText": "Take public transport",
+                  "position": {
+                    "right": "18%",
+                    "top": "50%"
+                  },
+                  "dimension": {
+                    "width": "25%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": ["{health}", 0]
+                    },
+                    "label": "You don't have enough health..."
+                  },
+                  "onClick": [
+                    {
+                      "type": "showNarration",
+                      "value": "bus"
+                    },
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": -1,
+                        "social": -1
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "sunny days": {
+                          "chance": 10
+                        }
+                      }
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 4
+                    }
+                  ]
+                },
+                {
+                  "name": "2",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-3-taxi.png",
+                  "altText": "Take a taxi",
+                  "position": {
+                    "left": "20%",
+                    "top": "50%"
+                  },
+                  "dimension": {
+                    "width": "25%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "showNarration",
+                      "value": "taxi"
+                    },
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "social": 1,
+                        "wealth": -1
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "sunny days": {
+                          "chance": 10
+                        },
+                        "friendship": {
+                          "chance": 40
+                        }
+                      }
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 4
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "showNarration",
+              "value": "intro"
+            },
+            {
+              "type": "showDialogue",
+              "value": "intro"
+            },
+            {
+              "type": "showClickable",
+              "value": "choice"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-background-classroom.png",
+          "narrations": [
+            {
+              "name": "intro",
+              "texts": [
+                "At school, your teacher tells you to redo one of your assignments by tomorrow.",
+                "The feedback causes you significant stress along with your other work.",
+                "You feel anxious and moody and bite your fingernails to destress."
+              ]
+            },
+            {
+              "name": "stay",
+              "texts": [
+                "You stayed up late to complete the assignment, which did not help with the stress you are experiencing. The lack of sleep also negatively affected your mood.",
+                "But, having submitted your work, your teacher was proud of you for putting in the effort."
+              ]
+            },
+            {
+              "name": "extension",
+              "texts": [
+                "By speaking to your teacher, your teacher understands the difficulties you are facing.",
+                "You also feel much more relieved, as you have enough time to properly redo the assignment."
+              ]
+            }
+          ],
+          "dialogues": [
+            {
+              "name": "intro",
+              "speeches": [
+                {
+                  "character": "Mr Chua",
+                  "text": "Arthur, your assignement was poorly done. Please redo it and hand it in tomorrow.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "text": "Ugh... It seems like I just can't do anything right.",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "text": "I'm probably going to screw it up again. What do I do?",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "extension",
+              "speeches": [
+                {
+                  "character": "Arthur",
+                  "text": "Sorry Mr Chua, I don't think I can complete it by tomrrow.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "text": "I would like to produce better work but I don't think I can with my current state of mind.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Mr Chua",
+                  "text": "Okay, I understand it can be stressful at times. I'll give you till the end of this week.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "clickables": [
+            {
+              "name": "choice",
+              "options": [
+                {
+                  "name": "1",
+                  "text": "Ask for an extension",
+                  "position": {
+                    "left": "20%",
+                    "top": "50%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "showDialogue",
+                      "value": "extension"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "extension"
+                    },
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": 1,
+                        "social": 1
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "award helping hand badge": {}
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "sunny days": {
+                          "chance": 10
+                        }
+                      }
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 5
+                    }
+                  ]
+                },
+                {
+                  "name": "2",
+                  "text": "Stay up late to finish the assignment",
+                  "position": {
+                    "right": "20%",
+                    "top": "50%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": ["{health}", 0]
+                    },
+                    "label": "You don't have enough health..."
+                  },
+                  "onClick": [
+                    {
+                      "type": "showNarration",
+                      "value": "stay"
+                    },
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": -1,
+                        "social": 1
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "insomnia": {
+                          "chance": 40
+                        }
+                      }
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 5
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "showNarration",
+              "value": "intro"
+            },
+            {
+              "type": "showDialogue",
+              "value": "intro"
+            },
+            {
+              "type": "showClickable",
+              "value": "choice"
+            }
+          ]
+        },
+        {
+          "id": 5,
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-background-canteen.png",
+          "narrations": [
+            {
+              "name": "intro",
+              "texts": [
+                "Your friends are going bowling after school and ask if you want to come.",
+                "You don't really have the energy to join them but you acknowledge that it might be fun."
+              ]
+            },
+            {
+              "name": "bowl",
+              "texts": [
+                "You end up spending some money for bowling and snacks, but you had a wonderful time with your friends and you feel much more included in your group of friends."
+              ]
+            },
+            {
+              "name": "home",
+              "texts": [
+                "By going straight home, you saved some money.",
+                "However, spending time alone dampened your mood, as you feel lonely and you worry about how your friends might think of you after turning them down."
+              ]
+            }
+          ],
+          "dialogues": [
+            {
+              "name": "intro",
+              "speeches": [
+                {
+                  "character": "Ethan",
+                  "text": "Hey Arthur! Are you heading home now? Do you want to go bowling with us?",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "text": "Should I join them? I know it will be fun but I don't really have the energy right now.",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "text": "Maybe I should go home and spend some time alone...",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "clickables": [
+            {
+              "name": "choice",
+              "options": [
+                {
+                  "name": "1",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-5-bowl.png",
+                  "altText": "Join your friends for bowling",
+                  "position": {
+                    "left": "20%",
+                    "top": "50%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "showNarration",
+                      "value": "bowl"
+                    },
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": 1,
+                        "social": 1,
+                        "wealth": -1
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "sunny days": {
+                          "chance": 40
+                        },
+                        "friendship": {
+                          "chance": 40
+                        }
+                      }
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 6
+                    }
+                  ]
+                },
+                {
+                  "name": "2",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-5-home.png",
+                  "altText": "Head home",
+                  "position": {
+                    "right": "20%",
+                    "top": "50%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": ["{health}", 0]
+                    },
+                    "label": "You don't have enough health..."
+                  },
+                  "onClick": [
+                    {
+                      "type": "showNarration",
+                      "value": "home"
+                    },
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": -1,
+                        "social": -1
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "apathy": {
+                          "chance": 40
+                        },
+                        "loneliness": {
+                          "chance": 40
+                        }
+                      }
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 7
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "showNarration",
+              "value": "intro"
+            },
+            {
+              "type": "showDialogue",
+              "value": "intro"
+            },
+            {
+              "type": "showClickable",
+              "value": "choice"
+            }
+          ]
+        },
+        {
+          "id": 6,
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-background-ig.png",
+          "narrations": [
+            {
+              "name": "intro",
+              "texts": [
+                "One of your friends has posted a photo of you on Instagram from when you went bowling, and you are feeling very insecure about the way you look."
+              ]
+            },
+            {
+              "name": "delete",
+              "texts": [
+                "You feel relieved that the photo is no longer online.",
+                "You are very anxious about whether your friend will agree to take the photo down or think differently of you.",
+                "You also communicated in a slightly aggressive manner due to your irritability."
+              ]
+            },
+            {
+              "name": "nothing",
+              "texts": [
+                "You can’t stop thinking about the photo and wish you could hide away from the world.",
+                "You feel insecure, distressed and upset at yourself."
+              ]
+            }
+          ],
+          "dialogues": [
+            {
+              "name": "intro",
+              "speeches": [
+                {
+                  "character": "Arthur",
+                  "variant": "jacket",
+                  "text": "(receives notification) Oh Ethan posted a photo of us?",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "variant": "jacket",
+                  "text": "(looks at phone) Oh no this is such a terrible photo of me, all my insecurities are so clear to everyone to see!",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "variant": "jacket",
+                  "text": "Should I ask Ethan to remove this photo or change it?",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "delete",
+              "speeches": [
+                {
+                  "character": "Arthur",
+                  "variant": "jacket",
+                  "text": "Hey Ethan can you take down that photo you posted? I'm the only one that looks horrible in it!",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Ethan",
+                  "text": "What? I think you look fine but If it makes you feel better I guess I could.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "nothing",
+              "speeches": [
+                {
+                  "character": "Arthur",
+                  "variant": "jacket",
+                  "text": "Man that picture is getting more likes by the day.",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "variant": "jacket",
+                  "text": "Now I'm even more anxious about how I appear infront of others...",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "clickables": [
+            {
+              "name": "choice",
+              "options": [
+                {
+                  "name": "1",
+                  "text": "Ask them to take it down",
+                  "position": {
+                    "left": "20%",
+                    "top": "50%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "showDialogue",
+                      "value": "delete"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "delete"
+                    },
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": 1,
+                        "social": -1
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "loneliness": {
+                          "chance": 40
+                        }
+                      }
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 8
+                    }
+                  ]
+                },
+                {
+                  "name": "2",
+                  "text": "Say nothing but continue to feel insecure",
+                  "position": {
+                    "right": "20%",
+                    "top": "50%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": ["{health}", 0]
+                    },
+                    "label": "You don't have enough health..."
+                  },
+                  "onClick": [
+                    {
+                      "type": "showDialogue",
+                      "value": "nothing"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "nothing"
+                    },
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": -1,
+                        "social": -1
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "loneliness": {
+                          "chance": 40
+                        }
+                      }
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 8
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "showNarration",
+              "value": "intro"
+            },
+            {
+              "type": "showDialogue",
+              "value": "intro"
+            },
+            {
+              "type": "showClickable",
+              "value": "choice"
+            }
+          ]
+        },
+        {
+          "id": 7,
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-background-ig.png",
+          "narrations": [
+            {
+              "name": "intro",
+              "texts": [
+                "One of your friends posts a photo of their bowling trip, which makes you feel alienated.",
+                "You feel that your friends don’t like you any more and might have talked about you behind your back."
+              ]
+            },
+            {
+              "name": "food",
+              "texts": [
+                "You find it hard to cope, so you end up binging on fast food. You have to pay for the food.",
+                "You feel better momentarily but it doesnt solve the underlying problem. You end up feeling worse overall."
+              ]
+            },
+            {
+              "name": "text",
+              "texts": [
+                "Knowing that this situation is normal and it happens to everyone ever so often, you feel great relief.",
+                "You are also happy that you could speak to your friend about it and you feel like you have bonded with Ethan more."
+              ]
+            }
+          ],
+          "dialogues": [
+            {
+              "name": "intro",
+              "speeches": [
+                {
+                  "character": "Arthur",
+                  "variant": "jacket",
+                  "text": "(looks at phone) Wow they seem to be having so much fun without me.",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "variant": "jacket",
+                  "text": "They must have talked about how anti-social and boring I am for not going...",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "variant": "jacket",
+                  "text": "Should I do something to cheer myself up?",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "food",
+              "speeches": [
+                {
+                  "character": "Arthur",
+                  "variant": "jacket",
+                  "text": "Wow that meal was pretty good",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "variant": "jacket",
+                  "text": "I feel stuffed now though. I wonder if the rest ate here too before they went to bowl...",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "text",
+              "speeches": [
+                {
+                  "character": "Arthur",
+                  "variant": "jacket",
+                  "text": "Hey Ethan, I'm sorry for not joining you guys, I wasn't up to it.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "variant": "jacket",
+                  "text": "But you guys look like you had fun and now I wish was there!",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Ethan",
+                  "text": "No worries! There are days where I don't have the energy or mood to go out too. I think it's perfectly fine!",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Ethan",
+                  "text": "And, we can always go out again in the future!",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "clickables": [
+            {
+              "name": "choice",
+              "options": [
+                {
+                  "name": "1",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-7-food.png",
+                  "altText": "Try cheering yourself up by buying yourself dinner",
+                  "position": {
+                    "left": "20%",
+                    "top": "50%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": ["{health}", 0]
+                    },
+                    "label": "You don't have enough health..."
+                  },
+                  "onClick": [
+                    {
+                      "type": "showDialogue",
+                      "value": "food"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "food"
+                    },
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": -1,
+                        "wealth": -1
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "apathy": {
+                          "chance": 20
+                        },
+                        "sunny days": {
+                          "chance": 20
+                        },
+                        "friendship": {
+                          "chance": 40
+                        }
+                      }
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 8
+                    }
+                  ]
+                },
+                {
+                  "name": "2",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-7-text.png",
+                  "altText": "Text Ethan about feeling left out",
+                  "position": {
+                    "right": "20%",
+                    "top": "50%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "showDialogue",
+                      "value": "text"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "text"
+                    },
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": 1,
+                        "social": 1
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "award helping hand badge": {}
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "friendship": {
+                          "chance": 40
+                        }
+                      }
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 8
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "showNarration",
+              "value": "intro"
+            },
+            {
+              "type": "showDialogue",
+              "value": "intro"
+            },
+            {
+              "type": "showClickable",
+              "value": "choice"
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-background-study.png",
+          "narrations": [
+            {
+              "name": "intro",
+              "texts": [
+                "You’ve been finding it tough to keep up with school work but you have a big test coming up.",
+                "You are trying to force yourself to study harder but you keep telling yourself that there is no point and it is too late."
+              ]
+            },
+            {
+              "name": "parents",
+              "texts": [
+                "Your parent’s stress how important the test is and that you need to do well to make sure you graduate with good grades.",
+                "This places you under additional stress, and you don't feel supported by your parents."
+              ]
+            },
+            {
+              "name": "friends",
+              "texts": [
+                "Your friends offer to study with you when they can.",
+                "Though you still have a lot to cover, this helps you cope slightly better."
+              ]
+            }
+          ],
+          "dialogues": [
+            {
+              "name": "intro",
+              "speeches": [
+                {
+                  "character": "Arthur",
+                  "text": "(looks at calendar) Oh no, the test is right around the corner!",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "text": "This is bad, the test is important but I'm so behind on my work.",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "text": "But I don't even think it makes a difference anymore... what should I do?",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "parents",
+              "speeches": [
+                {
+                  "character": "Arthur",
+                  "text": "Mom, I'm so nervous for the upcoming test.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "text": "I haven't been able to study properly for it recently.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Mom",
+                  "text": "You should have prepared for this sooner.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Mom",
+                  "text": "You know that it is important and will determine where you go after this.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "friends",
+              "speeches": [
+                {
+                  "character": "Arthur",
+                  "text": "Hey Ethan, I've been feeling so stressed about the upcoming test.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "text": "I havent even been able to study properly for it.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Ethan",
+                  "text": "It's okay. Tell you what, we can study together after school whenever you're free.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Ethan",
+                  "text": "I can try to help you with what I can.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "clickables": [
+            {
+              "name": "choice",
+              "options": [
+                {
+                  "name": "1",
+                  "text": "Talk to your parents about it",
+                  "position": {
+                    "left": "20%",
+                    "top": "50%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": ["{health}", 0]
+                    },
+                    "label": "You don't have enough health..."
+                  },
+                  "onClick": [
+                    {
+                      "type": "showDialogue",
+                      "value": "parents"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "parents"
+                    },
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": -1,
+                        "social": -1
+                      }
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 9
+                    }
+                  ]
+                },
+                {
+                  "name": "2",
+                  "text": "Tell your friends how you are feeling",
+                  "position": {
+                    "right": "20%",
+                    "top": "50%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "showDialogue",
+                      "value": "friends"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "friends"
+                    },
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": 1,
+                        "social": 1
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "award helping hand badge": {}
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "friendship": {
+                          "chance": 60
+                        }
+                      }
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 9
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "showNarration",
+              "value": "intro"
+            },
+            {
+              "type": "showDialogue",
+              "value": "intro"
+            },
+            {
+              "type": "showClickable",
+              "value": "choice"
+            }
+          ]
+        },
+        {
+          "id": 9,
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-background-argument.png",
+          "narrations": [
+            {
+              "name": "intro",
+              "texts": [
+                "Recently, your parents have been arguing more frequently which is causing you to lose sleep.",
+                "When you arrive at school, the teacher notices that you are visibly more fatigued than usual."
+              ]
+            },
+            {
+              "name": "silent",
+              "texts": [
+                "You feel that such issues are much too sensitive to share and you keep your emotions bottled up.",
+                "At the same time, your relationship with your teacher suffers as he thinks that you just spend your night scrolling through your phone."
+              ]
+            },
+            {
+              "name": "talk",
+              "texts": [
+                "Your teacher assures you that it is okay to share things with him and you start to feel comfortable sharing your problems.",
+                "This helps relieve a lot of your emotional burden."
+              ]
+            }
+          ],
+          "dialogues": [
+            {
+              "name": "intro",
+              "speeches": [
+                {
+                  "character": "Mr Chua",
+                  "text": "Arthur, you barely participated in class today and I caught you dozing off a few times.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Mr Chua",
+                  "text": "Is everything okay?",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "text": "Oh no, I hardly got any rest yesterday and the day before.",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "text": "He senses that something is wrong but I am not sure if I should tell him...",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "text": "What should I do?",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "silent",
+              "speeches": [
+                {
+                  "character": "Arthur",
+                  "text": "Everything is just fine Mr Chua, I'm just a little tired.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Mr Chua",
+                  "text": "Okay. You should try and sleep earlier Arthur.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Mr Chua",
+                  "text": "Stop using your phone all night!",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "talk",
+              "speeches": [
+                {
+                  "character": "Arthur",
+                  "text": "Well, I havent been able to sleep well because of what's happening at home.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Mr Chua",
+                  "text": "Oh, are you alright? You can always come to my office and we can talk about it.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Mr Chua",
+                  "text": "My ears are always open, Arthur.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "clickables": [
+            {
+              "name": "choice",
+              "options": [
+                {
+                  "name": "1",
+                  "text": "Keep things to yourself as this is a very personal problem",
+                  "position": {
+                    "left": "20%",
+                    "top": "50%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": ["{health}", 0]
+                    },
+                    "label": "You don't have enough health..."
+                  },
+                  "onClick": [
+                    {
+                      "type": "showDialogue",
+                      "value": "silent"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "silent"
+                    },
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": -1,
+                        "social": -1
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "insomnia": {
+                          "chance": 40
+                        },
+                        "loneliness": {
+                          "chance": 40
+                        }
+                      }
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 10
+                    }
+                  ]
+                },
+                {
+                  "name": "2",
+                  "text": "Open up to him",
+                  "position": {
+                    "right": "20%",
+                    "top": "50%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "showDialogue",
+                      "value": "talk"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "talk"
+                    },
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": 1,
+                        "social": 1
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "award helping hand badge": {}
+                      }
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 10
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "showNarration",
+              "value": "intro"
+            },
+            {
+              "type": "showDialogue",
+              "value": "intro"
+            },
+            {
+              "type": "showClickable",
+              "value": "choice"
+            }
+          ]
+        },
+        {
+          "id": 10,
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-background-canteen.png",
+          "narrations": [
+            {
+              "name": "intro",
+              "texts": [
+                "Your friend who you haven’t spent time with in a while notices the dip in your mood this week and offers to treat you to your favourite ice cream.",
+                "However, your parents have asked you to go home early the entire week to help look after your grandmother as both of them are busy with work."
+              ]
+            },
+            {
+              "name": "icecream",
+              "texts": [
+                "Going to get some ice cream did not take too much of your time, and you were able to reach home to take care of your grandmother.",
+                "Though you had to spend some money for travelling, you spent some quality time with your friend, which lightened your mood."
+              ]
+            },
+            {
+              "name": "grandmother",
+              "texts": [
+                "You skip on giving yourself a mental break.",
+                "You also make yourself feel like a bad friend, seemingly pushing your friend away again."
+              ]
+            }
+          ],
+          "dialogues": [
+            {
+              "name": "intro",
+              "speeches": [
+                {
+                  "character": "Arthur",
+                  "text": "Finally school is over, gotta rush home to take care of grandma...",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Ethan",
+                  "text": "Hey Arthur, wait for me!",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "text": "Oh what's up Ethan!",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Ethan",
+                  "text": "Is everything okay?",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "text": "What do you mean?",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Ethan",
+                  "text": "Seems like you've been feeling down lately.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "text": "Oh I'm fine... really...",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Ethan",
+                  "text": "Hey, how about I treat you to some ice cream?",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Arthur",
+                  "text": "What should I do?",
+                  "type": "thought",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "icecream",
+              "speeches": [
+                {
+                  "character": "Arthur",
+                  "text": "You know, that doesnt sound like a bad idea. Okay, let's go!",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "grandmother",
+              "speeches": [
+                {
+                  "character": "Arthur",
+                  "text": "I'm really sorry Ethan but I need to get home ASAP to look after my grandmother.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "right": "-13%",
+                    "bottom": "0%"
+                  }
+                },
+                {
+                  "character": "Ethan",
+                  "text": "Well okay... take care. I'll see you around then.",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
+                }
+              ]
+            }
+          ],
+          "images": [],
+          "clickables": [
+            {
+              "name": "choice",
+              "options": [
+                {
+                  "name": "1",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-10-icecream.png",
+                  "altText": "Go home a little later and grab some ice cream",
+                  "position": {
+                    "left": "20%",
+                    "top": "37%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "showDialogue",
+                      "value": "icecream"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "icecream"
+                    },
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": 1,
+                        "social": 1,
+                        "wealth": -1
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "sunny days": {
+                          "chance": 60
+                        },
+                        "friendship": {
+                          "chance": 60
+                        }
+                      }
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 13
+                    }
+                  ]
+                },
+                {
+                  "name": "2",
+                  "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-10-grandmother.png",
+                  "altText": "Tell your friend you won’t be able spend time with him yet again",
+                  "position": {
+                    "right": "20%",
+                    "top": "50%"
+                  },
+                  "dimension": {
+                    "width": "20%"
+                  },
+                  "disabled": {
+                    "if": {
+                      "<=": ["{health}", 0]
+                    },
+                    "label": "You don't have enough health..."
+                  },
+                  "onClick": [
+                    {
+                      "type": "showDialogue",
+                      "value": "grandmother"
+                    },
+                    {
+                      "type": "showNarration",
+                      "value": "grandmother"
+                    },
+                    {
+                      "type": "updateGlobalState",
+                      "newState": {
+                        "health": -1,
+                        "social": -1
+                      }
+                    },
+                    {
+                      "type": "triggerEvents",
+                      "events": {
+                        "apathy": {
+                          "chance": 40
+                        },
+                        "insomnia": {
+                          "chance": 40
+                        },
+                        "loneliness": {
+                          "chance": 40
+                        }
+                      }
+                    },
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 13
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "intro": [
+            {
+              "type": "showNarration",
+              "value": "intro"
+            },
+            {
+              "type": "showDialogue",
+              "value": "intro"
+            },
+            {
+              "type": "showClickable",
+              "value": "choice"
+            }
+          ]
+        },
+        {
+          "id": 13,
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/StandardBackground.png",
+          "narrations": [
+            {
+              "name": "intro",
+              "texts": [
+                "You have reached the end of this exercise. \n\nWe rarely have the full picture of what our fellow students, friends or family members may be going through. Our actions can have significant positive or negative consequences, so it is up to us to show respect and care.",
+                "By stepping into Arthur's shoes, you may have realised that: \n\n**Managing your mental health is a continuous, day-to-day process.** It is part of everyday life and not just what is visible or diagnosed.\n\n**Depression looks different on everyone** - some people experience trouble sleeping and a loss of appetite, and others have related issues such as binge eating and social anxiety.\n\n**It can be hard for people with depression to reach out to others** because of guilt, or social stigma. Just because somebody appears more resilient does not mean that they are doing okay."
+              ],
+              "dimension": {
+                "width": "60%",
+                "height": "60%"
+              },
+              "position": {
+                "top": "20%",
+                "left": "20%"
+              }
+            }
+          ],
+          "dialogues": [],
+          "images": [],
+          "clickables": [],
+          "intro": [
+            {
+              "type": "showNarration",
+              "value": "intro"
+            },
+            {
+              "type": "gotoScene",
+              "sceneId": 14
+            }
+          ]
+        },
+        {
+          "id": 14,
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/StandardBackground.png",
+          "narrations": [],
+          "dialogues": [],
+          "images": [
+            {
+              "name": "soristic logo",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/mainlogo.png",
+              "altText": "soristic logo",
+              "position": {
+                "top": "15%",
+                "right": "0",
+                "left": "0"
+              },
+              "dimension": {
+                "width": "40%"
+              }
+            }
+          ],
+          "clickables": [
+            {
+              "name": "restart",
+              "options": [
+                {
+                  "name": "yes",
+                  "text": "Restart?",
+                  "position": {
+                    "bottom": "20%",
+                    "left": "27%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "gotoScene",
+                      "sceneId": 1
+                    }
+                  ]
+                },
+                {
+                  "name": "another",
+                  "text": "Change Character?",
+                  "position": {
+                    "bottom": "20%",
+                    "right": "23%"
+                  },
+                  "onClick": [
+                    {
+                      "type": "reselectCharacter"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "name": "feedback",
+              "url": "/youth/feedback",
+              "text": "Help us improve the game!",
+              "effect": "bounce",
+              "position": {
+                "bottom": "40%",
+                "right": "0",
+                "left": "0"
+              }
+            }
+          ],
+          "intro": [
+            {
+              "type": "wait",
+              "duration": 1000
+            },
+            {
+              "type": "triggerEvents",
+              "events": {
+                "award health badge": {},
+                "award social badge": {},
+                "award wealth badge": {}
+              }
+            },
+            {
+              "type": "wait",
+              "duration": 500
+            },
+            {
+              "type": "showImage",
+              "value": "soristic logo",
+              "waitForInteraction": false,
+              "autoHide": false
+            },
+            {
+              "type": "showClickable",
+              "value": "restart",
+              "waitForInteraction": false
+            },
+            {
+              "type": "showLink",
+              "value": "feedback"
+            }
+          ]
+        }
+      ]
     }
   ],
   "npcs": [
@@ -7310,6 +10517,24 @@
       "name": "Classmates",
       "images": {
         "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/BelindaFriend.png"
+      }
+    },
+    {
+      "name": "Mom",
+      "images": {
+        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-mom.png"
+      }
+    },
+    {
+      "name": "Mr Chua",
+      "images": {
+        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/mrchua.png"
+      }
+    },
+    {
+      "name": "Ethan",
+      "images": {
+        "default": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/ethan.png"
       }
     }
   ]

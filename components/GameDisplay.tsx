@@ -13,6 +13,7 @@ import { EventsSceneId } from '../lib/events'
 import BadgeCollection from './BadgeCollection'
 import { useHasMounted } from '../hooks/useHasMounted'
 import { useIsMobileLandscape } from '../hooks/useBreakpoint'
+import { GameStage } from '../schema/game'
 
 type GameProps = {
   game?: Game
@@ -39,27 +40,31 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
 
   const gameBody = (
     <>
-      {game.characterSelected &&
-        game?.getScenes().map((scene, idx) => (
-          <Transition
-            show={
-              !game.loading &&
-              (game?.currentSceneId === scene.id || scene.id === EventsSceneId)
-            }
-            enter="transition-opacity duration-500"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="transition-opacity duration-500"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-            key={idx}
-            className={`absolute h-full inset-0 transition-filter duration-200 ${
-              blurBackground ? 'blur-sm' : ''
-            } ${scene.id === EventsSceneId ? 'pointer-events-none' : ''}`}
-          >
-            <SceneDisplay scene={scene} />
-          </Transition>
-        ))}
+      {((game.characterSelected && game.stage === GameStage.PLAY) ||
+        game.stage === GameStage.INTRO) &&
+        game?.getScenes().map((scene, idx) => {
+          return (
+            <Transition
+              show={
+                !game.loading &&
+                (game?.currentSceneId === scene.id ||
+                  scene.id === EventsSceneId)
+              }
+              enter="transition-opacity duration-500"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="transition-opacity duration-500"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+              key={idx}
+              className={`absolute h-full inset-0 transition-filter duration-200 ${
+                blurBackground ? 'blur-sm' : ''
+              } ${scene.id === EventsSceneId ? 'pointer-events-none' : ''}`}
+            >
+              <SceneDisplay scene={scene} />
+            </Transition>
+          )
+        })}
       <Transition
         show={game.loading}
         leave="transition-opacity duration-1000"
@@ -86,15 +91,19 @@ const GameDisplay: React.FC<GameProps> = ({ game: newGame }) => {
             setHidden={setHideCharacterInfo}
             setBlurBackground={setBlurBackground}
           />
-          <CharacterSelect
-            characterSelected={game.characterSelected}
-            mainCharacters={game.mainCharacters}
-            updateCharacter={updateCharacter}
-          />
           <BadgeCollection
             hidden={hideBadgeCollection}
             setHidden={setHideBadgeCollection}
             setBlurBackground={setBlurBackground}
+          />
+        </>
+      )}
+      {!game.loading && game.stage === GameStage.CHAR_SELEC && (
+        <>
+          <CharacterSelect
+            characterSelected={game.characterSelected}
+            mainCharacters={game.mainCharacters}
+            updateCharacter={updateCharacter}
           />
         </>
       )}

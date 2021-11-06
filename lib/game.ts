@@ -1,10 +1,11 @@
-import { GameSchema } from '../schema/game'
+import { GameSchema, GameStage } from '../schema/game'
 import { StateComponent, makeStateComponent } from './component'
 import { makeMainCharacter, makeNPC, MainCharacter, NPC } from './character'
-import { NoBackground, Scene } from './scene'
+import { makeScene, NoBackground, Scene } from './scene'
 import { makeState, State } from './state'
 import { isClickableImg } from './elements'
 import { characterSelectBg } from './constants'
+import { EventSchema } from '../schema/events'
 
 type PreloadImageOptions = {
   timeout?: number
@@ -23,11 +24,13 @@ export const EmptyGame: Game = {
     backgroundMusic: '/music/bgm.mp3',
     credits: 'This is supported by markdown for ease of formatting',
   },
+  stage: GameStage.INTRO,
   characterIndex: 0,
   characterSelected: false,
   currentSceneId: 0,
 
   header: [],
+  intro: [],
   mainCharacters: [] as MainCharacter[],
   npcs: [] as NPC[],
   getScenes() {
@@ -66,11 +69,13 @@ export interface Game {
   globalState: State
   loading: boolean
 
+  stage: GameStage
   characterSelected: boolean
   characterIndex: number
   currentSceneId: number
 
   header: StateComponent[]
+  intro: Scene[]
   mainCharacters: MainCharacter[]
   npcs: NPC[]
 
@@ -86,6 +91,15 @@ export function makeGame(schema: GameSchema): Game {
     makeMainCharacter(character, npcs)
   )
   const globalState = makeState(schema.globalState ?? {})
+  const intro = schema.intro.map((scene) =>
+    makeScene(
+      scene,
+      [...mainCharacters, ...npcs],
+      new Map<string, EventSchema>()
+    )
+  )
+  var stage = GameStage.INTRO
+  if (intro.length < 1) stage = GameStage.CHAR_SELEC
 
   return {
     name: schema.name,
@@ -93,34 +107,45 @@ export function makeGame(schema: GameSchema): Game {
     globalState: globalState,
     loading: false,
 
+    stage: stage,
     characterIndex: 0,
     characterSelected: false,
-    currentSceneId: mainCharacters[0].scenes[0].id,
+    currentSceneId:
+      stage === GameStage.INTRO ? intro[0].id : mainCharacters[0].scenes[0].id,
 
     header:
       schema.header?.map((component) =>
         makeStateComponent(component, globalState)
       ) || [],
+    intro: intro,
     mainCharacters: mainCharacters,
     npcs: npcs,
 
     getScenes() {
-      // Get current playing character
-      const character = this.mainCharacters[this.characterIndex]
-      if (!character) {
-        console.error('no current playing character')
-        return []
+      if (this.stage === GameStage.INTRO) {
+        return this.intro
+      } else {
+        // Get current playing character
+        const character = this.mainCharacters[this.characterIndex]
+        if (!character) {
+          console.error('no current playing character')
+          return []
+        }
+        return character.scenes
       }
-      return character.scenes
     },
     getScene(sceneId: number) {
-      // Get current playing character
-      const character = this.mainCharacters[this.characterIndex]
-      if (!character) {
-        console.error('no current playing character')
-        return
+      if (this.stage === GameStage.INTRO) {
+        return this.intro.find((scene) => scene.id === sceneId)
+      } else {
+        // Get current playing character
+        const character = this.mainCharacters[this.characterIndex]
+        if (!character) {
+          console.error('no current playing character')
+          return
+        }
+        return character.getScene(sceneId)
       }
-      return character.getScene(sceneId)
     },
 
     preloadImages({
