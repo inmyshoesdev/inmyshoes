@@ -36,7 +36,8 @@
     "apathy wildcard appeared": false,
     "sunny days wildcard appeared": false,
     "insomnia wildcard appeared": false,
-    "helping hand badge awarded": false
+    "helping hand badge awarded": false,
+    "hyperfocus wildcard appeared": false
   },
   "header": [
     {
@@ -10106,7 +10107,14 @@
                 },
                 {
                   "character": "Ethan",
-                  "text": "Hey, how about I treat you to some ice cream?"
+                  "text": "Hey, how about I treat you to some ice cream?",
+                  "characterDimension": {
+                    "width": "40%"
+                  },
+                  "characterPosition": {
+                    "left": "-12%",
+                    "bottom": "0%"
+                  }
                 },
                 {
                   "character": "Arthur",
