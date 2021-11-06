@@ -8218,6 +8218,17 @@
           ],
           "intro": [
             {
+              "type": "resetGlobalState"
+            },
+            {
+              "type": "updateGlobalState",
+              "newState": {
+                "health": 7,
+                "social": 7,
+                "wealth": 15
+              }
+            },
+            {
               "type": "showNarration",
               "value": "intro"
             },
