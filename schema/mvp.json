@@ -36,8 +36,7 @@
     "apathy wildcard appeared": false,
     "sunny days wildcard appeared": false,
     "insomnia wildcard appeared": false,
-    "helping hand badge awarded": false,
-    "hyperfocus wildcard appeared": false
+    "helping hand badge awarded": false
   },
   "header": [
     {
@@ -8218,17 +8217,6 @@
           ],
           "intro": [
             {
-              "type": "resetGlobalState"
-            },
-            {
-              "type": "updateGlobalState",
-              "newState": {
-                "health": 7,
-                "social": 7,
-                "wealth": 15
-              }
-            },
-            {
               "type": "showNarration",
               "value": "intro"
             },
@@ -9300,48 +9288,20 @@
                 {
                   "character": "Arthur",
                   "variant": "jacket",
-                  "text": "Hey Ethan, I'm sorry for not joining you guys, I wasn't up to it.",
-                  "characterDimension": {
-                    "width": "40%"
-                  },
-                  "characterPosition": {
-                    "right": "-13%",
-                    "bottom": "0%"
-                  }
+                  "text": "Hey Ethan, I'm sorry for not joining you guys, I wasn't up to it."
                 },
                 {
                   "character": "Arthur",
                   "variant": "jacket",
-                  "text": "But you guys look like you had fun and now I wish was there!",
-                  "characterDimension": {
-                    "width": "40%"
-                  },
-                  "characterPosition": {
-                    "right": "-13%",
-                    "bottom": "0%"
-                  }
+                  "text": "But you guys look like you had fun and now I wish was there!"
                 },
                 {
                   "character": "Ethan",
-                  "text": "No worries! There are days where I don't have the energy or mood to go out too. I think it's perfectly fine!",
-                  "characterDimension": {
-                    "width": "40%"
-                  },
-                  "characterPosition": {
-                    "left": "-12%",
-                    "bottom": "0%"
-                  }
+                  "text": "No worries! There are days where I don't have the energy or mood to go out too. I think it's perfectly fine!"
                 },
                 {
                   "character": "Ethan",
-                  "text": "And, we can always go out again in the future!",
-                  "characterDimension": {
-                    "width": "40%"
-                  },
-                  "characterPosition": {
-                    "left": "-12%",
-                    "bottom": "0%"
-                  }
+                  "text": "And, we can always go out again in the future!"
                 }
               ]
             }
@@ -10118,14 +10078,7 @@
                 },
                 {
                   "character": "Ethan",
-                  "text": "Hey, how about I treat you to some ice cream?",
-                  "characterDimension": {
-                    "width": "40%"
-                  },
-                  "characterPosition": {
-                    "left": "-12%",
-                    "bottom": "0%"
-                  }
+                  "text": "Hey, how about I treat you to some ice cream?"
                 },
                 {
                   "character": "Arthur",

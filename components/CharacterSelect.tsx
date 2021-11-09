@@ -27,9 +27,7 @@ function CharacterSelect({
 
   return (
     <div
-      className={`${
-        characterSelected ? 'hidden' : ''
-      } relative mx-auto flex flex-col items-center justify-evenly h-full`}
+      className={`relative mx-auto flex flex-col items-center justify-evenly h-full`}
     >
       <Image
         className="absolute z-0 inset-0"
