@@ -1,6 +1,9 @@
 export const characterSelectBg =
   'https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/paper-bg.jpg'
 
+export const gameBackgroundTexture =
+  'https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/bg-texture.jpg'
+
 export const TailwindBreakpointValues = {
   sm: '640px',
   md: '768px',

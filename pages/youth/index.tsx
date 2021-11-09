@@ -4,12 +4,14 @@ import { create } from 'superstruct'
 import { useToast } from '@chakra-ui/react'
 import { GameSchema } from '../../schema/game'
 import { Game, makeGame } from '../../lib/game'
-import mvpJson from '../../schema/mvp.json'
 import GameDisplay from '../../components/GameDisplay'
 import { PreGameForm, SurveyFormWrapper } from '../../components/Surveys'
 import { Transition } from '@headlessui/react'
 import { useHasMounted } from '../../hooks/useHasMounted'
 import { useLocalStorage, useMedia } from 'react-use'
+import Image from 'next/image'
+import mvpJson from '../../schema/mvp.json'
+import { gameBackgroundTexture } from '../../lib/constants'
 
 const Demo: React.FC = () => {
   const mounted = useHasMounted()
@@ -102,7 +104,19 @@ const Demo: React.FC = () => {
         <meta name="author" content="Soristic" />
       </Head>
       <main className="relative h-screen overflow-y-scroll">
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-r-bg">
+          <div
+            aria-hidden={true}
+            className="fixed top-0 w-full h-screen pointer-events-none"
+          >
+            <Image
+              className="opacity-[7%] mix-blend-soft-light"
+              aria-hidden={true}
+              src={gameBackgroundTexture}
+              alt="background texture"
+              layout="fill"
+            />
+          </div>
           <Transition
             show={showGame}
             enter="transition duration-500"

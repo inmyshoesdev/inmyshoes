@@ -4,7 +4,7 @@ import { makeMainCharacter, makeNPC, MainCharacter, NPC } from './character'
 import { makeScene, NoBackground, Scene } from './scene'
 import { makeState, State } from './state'
 import { isClickableImg } from './elements'
-import { characterSelectBg } from './constants'
+import { characterSelectBg, gameBackgroundTexture } from './constants'
 import { EventSchema } from '../schema/events'
 
 type PreloadImageOptions = {
@@ -153,7 +153,10 @@ export function makeGame(schema: GameSchema): Game {
       minPercentageLoaded = 50,
     } = {}): Promise<void> {
       // gather all the images
-      const imageSources = new Set<string>([characterSelectBg])
+      const imageSources = new Set<string>([
+        characterSelectBg,
+        gameBackgroundTexture,
+      ])
 
       let characters = [...this.mainCharacters, ...this.npcs]
       characters.forEach((char) => {

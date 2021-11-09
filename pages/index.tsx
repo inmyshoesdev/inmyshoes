@@ -159,7 +159,7 @@ export default function Landing(): JSX.Element {
                 <Link href="/youth">
                   <a className="flex flex-col items-center ml-4 mt-0 px-5 py-3 text-white font-normal leading-none hover:bg-purple-400 bg-r-button rounded shadow-button cursor-pointer md:ml-0 md:mt-4 lg:ml-4 lg:mt-0">
                     <span className="flex cursor-pointer">
-                      Simluation
+                      Simulation
                       <svg
                         fill="none"
                         stroke="currentColor"

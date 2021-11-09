@@ -61,7 +61,7 @@ function Footer({
     <>
       <div
         id="footer"
-        className="mobile:sm:pl-1 relative flex mobile:flex-col items-center justify-around w-full max-w-xl h-full mobile:overflow-auto overflow-hidden"
+        className="mobile:sm:pl-1 relative flex mobile:flex-col items-center justify-around w-full max-w-xl h-full overflow-hidden"
       >
         <Modal isOpen={isOpen} onClose={onClose} size={modalSize}>
           <ModalOverlay />
