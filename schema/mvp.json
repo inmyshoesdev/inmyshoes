@@ -9739,7 +9739,7 @@
         },
         {
           "id": 9,
-          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-background-classroom.png",
+          "background": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-background-argument.png",
           "narrations": [
             {
               "name": "intro",
@@ -9904,7 +9904,16 @@
               ]
             }
           ],
-          "images": [],
+          "images": [
+            {
+              "name": "classroom",
+              "src": "https://soristic.sgp1.cdn.digitaloceanspaces.com/assets/arthur-background-classroom.png",
+              "dimension": {
+                "width": "100%",
+                "height": "100%"
+              }
+            }
+          ],
           "clickables": [
             {
               "name": "choice",
@@ -9997,6 +10006,12 @@
             {
               "type": "showNarration",
               "value": "intro"
+            },
+            {
+              "type": "showImage",
+              "value": "classroom",
+              "waitForInteraction": false,
+              "autoHide": false
             },
             {
               "type": "showDialogue",
