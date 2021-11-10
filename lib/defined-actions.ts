@@ -195,6 +195,7 @@ export const DefinedActions: {
     validateArgs: UnitValidator,
     execute({ game }) {
       game.characterSelected = false
+      game.stage = GameStage.CHAR_SELEC
     },
   },
 
