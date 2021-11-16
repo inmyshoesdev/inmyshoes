@@ -1,9 +1,11 @@
 import { Tooltip } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
+import useSound from 'use-sound'
 import { toggleFullScreen } from './utils'
 
 export default function FullscreenBtn(): JSX.Element {
   const [fullscreen, setFullscreen] = useState<boolean>(false)
+  const [play] = useSound('/sounds/switch-on.mp3', { volume: 0.2 })
   function exitHandler() {
     const doc = document as any
     if (
@@ -27,6 +29,7 @@ export default function FullscreenBtn(): JSX.Element {
       <button
         className="absolute right-1 top-1 focus:outline-none"
         onClick={() => {
+          play()
           toggleFullScreen()
           setFullscreen(!fullscreen)
         }}
