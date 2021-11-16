@@ -2,6 +2,7 @@
 
 Live through the daily lives of the characters and understand the challenges they face by placing yourself in their shoes.
 
+![poster](public/images/poster.png)
 ## Development
 
 We use yarn for package management. When developing for the first time, run:
