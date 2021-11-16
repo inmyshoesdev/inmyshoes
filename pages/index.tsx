@@ -1,43 +1,8 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import { useEffect } from 'react'
-import { useToast } from '@chakra-ui/toast'
-import { Box } from '@chakra-ui/layout'
-import { CloseButton } from '@chakra-ui/close-button'
-import { useBreakpointValue } from '@chakra-ui/media-query'
 
 export default function Landing(): JSX.Element {
-  const toast = useToast()
-  const toastSize = useBreakpointValue(['xs', 'sm', 'md'])
-
-  useEffect(() => {
-    toast({
-      render: ({ id }) => (
-        <Box color="white" p={3} bg="green.500" className="flex items-center">
-          <span>
-            In My Shoes will be presented at NUS School of Computing Term
-            Project Showcase! Register{' '}
-            <a
-              className="underline cursor-pointer"
-              href="https://uvents.nus.edu.sg/event/19th-steps/registration"
-            >
-              here
-            </a>{' '}
-            and vote for us!
-          </span>
-          <CloseButton
-            onClick={() => toast.close(id)}
-            className="self-start -mr-2 -mt-2"
-            size={toastSize}
-          />
-        </Box>
-      ),
-      status: 'success',
-      duration: 10000,
-      position: 'bottom',
-    })
-  }, [])
-
   useEffect(() => {
     var scrollToTopBtn = document.querySelector(
       '.scrollToTopBtn'
