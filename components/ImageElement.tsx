@@ -1,4 +1,3 @@
-import { effect } from '@chakra-ui/styled-system'
 import { Transition } from '@headlessui/react'
 import type { Image } from '../lib/elements'
 import { getAnimationClass } from './utils'
