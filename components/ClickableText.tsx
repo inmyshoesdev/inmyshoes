@@ -1,4 +1,3 @@
-import { Button } from '@chakra-ui/button'
 import { Tooltip } from '@chakra-ui/tooltip'
 import useSound from 'use-sound'
 import { useStateTemplater } from '../hooks/useStateTemplater'

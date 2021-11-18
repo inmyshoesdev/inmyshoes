@@ -2,6 +2,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { useEffect, useState } from 'react'
 import { useStore } from '../stores/store'
 import { Tooltip } from '@chakra-ui/tooltip'
+import useSound from 'use-sound'
 
 export interface StateDisplayProps {
   title: string
@@ -22,6 +23,7 @@ export default function StateDisplay({
     (gameState) => gameState.game.globalState.innerState[state]
   )
   const [value, setValue] = useState<any>(undefined)
+  const [buttonClickPlay] = useSound('/sounds/switch-on.mp3', { volume: 0.2 })
 
   useEffect(() => {
     if (stateObj) {
@@ -53,6 +55,7 @@ export default function StateDisplay({
                 if (value === undefined || value.length === 0) {
                   return
                 }
+                buttonClickPlay()
                 setHideBadgeCollection((state) => !state)
                 setBlurBackground((state) => !state)
               }}

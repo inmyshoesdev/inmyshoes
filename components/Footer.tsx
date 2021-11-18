@@ -32,7 +32,6 @@ function Footer({
 
   const [musicOn, setMusicOn] = useState(true)
   const game = useStore((state) => state.game)
-
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [play, { stop }] = useSound(
     game.about.backgroundMusic ?? '/music/bgm.mp3',
@@ -41,7 +40,7 @@ function Footer({
       loop: true,
     }
   )
-
+  const [buttonClickPlay] = useSound('/sounds/switch-on.mp3', { volume: 0.2 })
   useEffect(() => {
     if (musicOn) {
       log('play')
@@ -88,6 +87,7 @@ function Footer({
             aria-label="check current character"
             disabled={!characterSelected}
             onClick={() => {
+              buttonClickPlay()
               setHideCharacterInfo((state) => !state)
               setBlurBackground((state) => !state)
             }}
@@ -156,7 +156,10 @@ function Footer({
                 : game.about.logo?.height ?? 50
             }
             className="mobile:md:scale-100 cursor-pointer scale-50 mobile:scale-75 md:scale-75 lg:scale-100"
-            onClick={onOpen}
+            onClick={() => {
+              buttonClickPlay()
+              onOpen()
+            }}
           />
         </Tooltip>
         <div className="grid flex-none place-items-center mobile:w-full mobile:h-20 h-full">
@@ -169,6 +172,7 @@ function Footer({
               className="z-10 focus:outline-none"
               id="soundOnBtn"
               onClick={() => {
+                buttonClickPlay()
                 setMusicOn(!musicOn)
               }}
               aria-label="sound on off button"

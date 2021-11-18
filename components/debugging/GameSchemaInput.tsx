@@ -1,5 +1,5 @@
 import { ChangeEventHandler, useEffect, useState } from 'react'
-import { create, object } from 'superstruct'
+import { create } from 'superstruct'
 import { useDebounce } from '../../hooks/useDebounce'
 import { Game, makeGame } from '../../lib/game'
 import { GameSchema } from '../../schema/game'
