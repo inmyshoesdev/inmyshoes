@@ -33,6 +33,9 @@ function CharacterSelect({
         className="absolute z-0 inset-0"
         src={characterSelectBg}
         alt="background of corkboard"
+        placeholder="blur"
+        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mO8eGL7fwAIEwNR4Fq3SwAAAABJRU5ErkJggg=="
+        priority={true}
         layout="fill"
       />
       <h1 className="px-2 bg-gray-700 border border-gray-900 rounded-handdrawn opacity-90 select-none md:px-3 md:py-1 md:border-2">
